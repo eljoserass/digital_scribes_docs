@@ -1,0 +1,40 @@
+% !TEX root = main.tex
+\usepackage{fix-cm}
+\usepackage{fontspec}
+\setsansfont{TeX Gyre Heros}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{booktabs,tabularx,array,tikz,graphicx}
+\input{figures/estilo}
+\input{figures/visual-style}
+\setbeamercolor{normal text}{fg=navy,bg=white}
+\setbeamercolor{structure}{fg=teal}
+\setbeamercolor{section in toc}{fg=navy}
+\setbeamercolor{frametitle}{fg=navy}
+\setbeamercolor{block title}{fg=navy,bg=pale}
+\setbeamercolor{block body}{fg=navy,bg=pale}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{section in toc}{size=\normalsize}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}{\small\textbullet}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamersize{text margin left=8mm,text margin right=8mm}
+% Archivo oficial sin modificar; trim elimina solo sus márgenes transparentes.
+\newcommand{\irycislogo}[1]{\includegraphics[width=#1,trim={20bp 36bp 21bp 49bp},clip]{assets/logo-irycis-oficial.png}}
+\newcommand{\currentpart}{\ifnum\value{section}>0\relax\insertsectionnumber/5 · \insertsectionhead\else Introducción · recorrido\fi}
+\setbeamertemplate{frametitle}{%
+  \vspace{2mm}\strut\insertframetitle\strut\par\vspace{1mm}}
+\setbeamertemplate{footline}{%
+  \hspace{8mm}\textcolor{irycisgreen}{\rule{.6mm}{2mm}}\hspace{1.5mm}%
+  \textcolor{muted}{\fontsize{7}{9}\selectfont\currentpart}%
+  \hfill\ifnum\value{framenumber}>1\relax\raisebox{-1.1mm}[0pt][0pt]{\irycislogo{20mm}}\fi%
+  \hfill\textcolor{muted}{\fontsize{7}{9}\selectfont 09/10/2026 · \insertframenumber/\inserttotalframenumber}%
+  \hspace{8mm}\vspace{3mm}}
+\newcommand{\topic}[1]{{\color{muted}\small #1}\par\vspace{2mm}}
+\newcommand{\sources}[1]{\vfill\vspace{.5mm}{\fontsize{6.8}{8}\selectfont\color{muted}Fuentes: #1\par}}
+\newcommand{\link}[2]{\href{#1}{\textcolor{teal}{#2}}}
+\newcommand{\takeaway}[1]{\par\vspace{2mm}\begin{beamercolorbox}[sep=1.5mm,wd=\textwidth]{block body}\small #1\end{beamercolorbox}}
+\newcommand{\stat}[2]{{\fontsize{34}{37}\selectfont\color{teal}\textbf{#1}}\par\vspace{2mm}#2\par}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\renewcommand{\tabularxcolumn}[1]{>{\raggedright\arraybackslash}p{#1}}
+\renewcommand{\arraystretch}{1.22}
+\hypersetup{pdftitle={Escribas digitales: presentación ejecutiva de 10 minutos},pdfauthor={Documento de trabajo para médicos y gestores},colorlinks=true,linkcolor=navy,urlcolor=teal}

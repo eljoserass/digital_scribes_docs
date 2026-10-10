@@ -1,0 +1,3715 @@
+{
+  "collection": "Digital Escriber",
+  "collection_key": "YYTP79GR",
+  "review_date": "2026-09-11",
+  "items": [
+    {
+      "key": "EI2RV8NV",
+      "title": "Operationalizing Trustworthy AI Requirements for Digital Scribes: A Requirement–Function Analysis",
+      "authors": [],
+      "year": "sin fecha bibliográfica",
+      "doi": "",
+      "url": "",
+      "kind": "Manuscrito conceptual; publicación y peer review no acreditados",
+      "material_reviewed": "PDF local, tablas 3, 4 y 6, argumento y anotaciones. La portada tiene fechas editoriales vacías y dice «Submitted … for possible … publication».",
+      "annotation_count": 56,
+      "note_count": 0,
+      "file": "references/EI2RV8NV.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "J4955P47",
+      "title": "Gemma 4 Technical Report",
+      "authors": [
+        {
+          "firstName": "Gemma",
+          "lastName": "Team",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sherif El",
+          "lastName": "Abd",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Vaibhav",
+          "lastName": "Aggarwal",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Robin",
+          "lastName": "Algayres",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Alek",
+          "lastName": "Andreev",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Olivier",
+          "lastName": "Bachem",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ian",
+          "lastName": "Ballantyne",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Cormac",
+          "lastName": "Brick",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Victor",
+          "lastName": "Cărbune",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Michelle",
+          "lastName": "Casbon",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Mayank",
+          "lastName": "Chaturvedi",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Aditya",
+          "lastName": "Chawla",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Victor",
+          "lastName": "Cotruta",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Alice",
+          "lastName": "Coucke",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Phil",
+          "lastName": "Culliton",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Robert",
+          "lastName": "Dadashi",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Lucas",
+          "lastName": "Dixon",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Mohamed",
+          "lastName": "Elhawaty",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Utku",
+          "lastName": "Evci",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Clément",
+          "lastName": "Farabet",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Johan",
+          "lastName": "Ferret",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Filippo",
+          "lastName": "Galgani",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sertan",
+          "lastName": "Girgin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jean-Bastien",
+          "lastName": "Grill",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Maarten",
+          "lastName": "Grootendorst",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jiaxian",
+          "lastName": "Guo",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Cassidy",
+          "lastName": "Hardin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Yanzhang",
+          "lastName": "He",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Steven M.",
+          "lastName": "Hernandez",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Omri",
+          "lastName": "Homburger",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Léonard",
+          "lastName": "Hussenot",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Juyeong",
+          "lastName": "Ji",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Armand",
+          "lastName": "Joulin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Aishwarya",
+          "lastName": "Kamath",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Parnian",
+          "lastName": "Kassraie",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Olivier",
+          "lastName": "Lacombe",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Preethi",
+          "lastName": "Lahoti",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Gaël",
+          "lastName": "Liu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Gus",
+          "lastName": "Martins",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Luciano",
+          "lastName": "Martins",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Tatiana",
+          "lastName": "Matejovicova",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ramona",
+          "lastName": "Merhej",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Nikola",
+          "lastName": "Momchev",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sneha",
+          "lastName": "Mondal",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ryan",
+          "lastName": "Mullins",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sindhu Raghuram",
+          "lastName": "Panyam",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Shreya",
+          "lastName": "Pathak",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sarah",
+          "lastName": "Perrin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "André Susano",
+          "lastName": "Pinto",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Etienne",
+          "lastName": "Pot",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Angéline",
+          "lastName": "Pouget",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Alexandre",
+          "lastName": "Ramé",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sabela",
+          "lastName": "Ramos",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Douglas",
+          "lastName": "Reid",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "David",
+          "lastName": "Rim",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Morgane",
+          "lastName": "Rivière",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Karsten",
+          "lastName": "Roth",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Louis",
+          "lastName": "Rouillard",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Omar",
+          "lastName": "Sanseviero",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Pier Giuseppe",
+          "lastName": "Sessa",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Shane",
+          "lastName": "Settle",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Danila",
+          "lastName": "Sinopalnikov",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sara",
+          "lastName": "Smoot",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Piotr",
+          "lastName": "Stanczyk",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Andreas",
+          "lastName": "Steiner",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Lawrence",
+          "lastName": "Stewart",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ilya",
+          "lastName": "Tolstikhin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Michael",
+          "lastName": "Tschannen",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Anton",
+          "lastName": "Tsitsulin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Nino",
+          "lastName": "Vieillard",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Renjie",
+          "lastName": "Wu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Pingmei",
+          "lastName": "Xu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Haichuan",
+          "lastName": "Yang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Edouard",
+          "lastName": "Yvinec",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Biao",
+          "lastName": "Zhang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Li",
+          "lastName": "Zhang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Joe",
+          "lastName": "Zou",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Nicolas",
+          "lastName": "Aagnes",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Abdelrahman",
+          "lastName": "Abdelhamed",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jakub",
+          "lastName": "Adamek",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Shivani",
+          "lastName": "Agrawal",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Shubham",
+          "lastName": "Agrawal",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ibrahim",
+          "lastName": "Alabdulmohsin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jean Baptiste",
+          "lastName": "Alayrac",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Uri",
+          "lastName": "Alon",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Chandramouli",
+          "lastName": "Amarnath",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ankesh",
+          "lastName": "Anand",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Chrysovalantis",
+          "lastName": "Anastasiou",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Setareh",
+          "lastName": "Ariafar",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "François-Xavier",
+          "lastName": "Aubet",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Kyriakos",
+          "lastName": "Axiotis",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Federico",
+          "lastName": "Barbero",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Joelle",
+          "lastName": "Barral",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Alexei",
+          "lastName": "Bendebury",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Urs",
+          "lastName": "Bergmann",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Stanley",
+          "lastName": "Bileschi",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Kat",
+          "lastName": "Black",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Mathieu",
+          "lastName": "Blondel",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sebastian",
+          "lastName": "Borgeaud",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Arthur",
+          "lastName": "Bražinskas",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ryan",
+          "lastName": "Burnell",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Robert",
+          "lastName": "Busa-Fekete",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Mu",
+          "lastName": "Cai",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Daniele",
+          "lastName": "Calandriello",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Glenn",
+          "lastName": "Cameron",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Charlotte",
+          "lastName": "Caucheteux",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Rahma",
+          "lastName": "Chaabouni",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Garima",
+          "lastName": "Chadha",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jetha",
+          "lastName": "Chan",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Blake Jianhang",
+          "lastName": "Chen",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jesse",
+          "lastName": "Chen",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Lin",
+          "lastName": "Chen",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Xu",
+          "lastName": "Chen",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Derek",
+          "lastName": "Cheng",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Tzu-hsiang",
+          "lastName": "Chien",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Nikolai",
+          "lastName": "Chinaev",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Yi",
+          "lastName": "Chou",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Zhaohui",
+          "lastName": "Chu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Benjamin",
+          "lastName": "Coleman",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Pooja",
+          "lastName": "Consul",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sam",
+          "lastName": "Conway-Rahman",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Scott",
+          "lastName": "Crowell",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Dylan",
+          "lastName": "Cutler",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Vivek",
+          "lastName": "Dani",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Samira",
+          "lastName": "Daruki",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Anil",
+          "lastName": "Das",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Daniel",
+          "lastName": "Deutsch",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Nishanth",
+          "lastName": "Dikkala",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Li",
+          "lastName": "Ding",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Qiuhan",
+          "lastName": "Ding",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Shenil",
+          "lastName": "Dodhia",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Konstantin",
+          "lastName": "Donhauser",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Tulsee",
+          "lastName": "Doshi",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Anca",
+          "lastName": "Dragan",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Alex",
+          "lastName": "Druinsky",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sahil",
+          "lastName": "Dua",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Zoltan",
+          "lastName": "Egyed",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Danielle",
+          "lastName": "Eisenbud",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Daniel",
+          "lastName": "Eppens",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Cindy",
+          "lastName": "Fan",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Bahare",
+          "lastName": "Fatemi",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Yassir",
+          "lastName": "Fathullah",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Vlad",
+          "lastName": "Feinberg",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Milen",
+          "lastName": "Ferev",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sebastian",
+          "lastName": "Flennerhag",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Takumi",
+          "lastName": "Fujimoto",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "João Gabriel",
+          "lastName": "Oliveira",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Isaac",
+          "lastName": "Galatzer-Levy",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "João",
+          "lastName": "Gante",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Simon",
+          "lastName": "Geisler",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Soham",
+          "lastName": "Ghosal",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Antonious M.",
+          "lastName": "Girgis",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Tamara von",
+          "lastName": "Glehn",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Alec",
+          "lastName": "Go",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Alhaad",
+          "lastName": "Gokhale",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Alex",
+          "lastName": "Grills",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Yiming",
+          "lastName": "Gu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Mayank",
+          "lastName": "Gupta",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Pramod",
+          "lastName": "Gupta",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Guru",
+          "lastName": "Guruganesh",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Raia",
+          "lastName": "Hadsell",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Hamza",
+          "lastName": "Harkous",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jitendra",
+          "lastName": "Harlalka",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Demis",
+          "lastName": "Hassabis",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Anja",
+          "lastName": "Hauth",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Joe",
+          "lastName": "Heyward",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Arian",
+          "lastName": "Hosseini",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Chih-Yang",
+          "lastName": "Hsia",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "I.-Hung",
+          "lastName": "Hsu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Xiaopeng",
+          "lastName": "Huang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Yangsibo",
+          "lastName": "Huang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Kevin",
+          "lastName": "Hui",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Adrian",
+          "lastName": "Hutter",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Te",
+          "lastName": "I",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Fotis",
+          "lastName": "Iliopoulos",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Advait",
+          "lastName": "Jain",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ganesh",
+          "lastName": "Jawahar",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ziwei",
+          "lastName": "Ji",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Qilin",
+          "lastName": "Jin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Melvin",
+          "lastName": "Johnson",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Kandarp",
+          "lastName": "Joshi",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Arun",
+          "lastName": "Kandoor",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Wang-Cheng",
+          "lastName": "Kang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Koray",
+          "lastName": "Kavukcuoglu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Mehran",
+          "lastName": "Kazemi",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Kathleen",
+          "lastName": "Kenealy",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Amr",
+          "lastName": "Khalifa",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Phoebe",
+          "lastName": "Kirk",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ivan",
+          "lastName": "Korotkov",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Suraj",
+          "lastName": "Kothawade",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Vitaly",
+          "lastName": "Kovalev",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Neel",
+          "lastName": "Kovelamudi",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Adam",
+          "lastName": "Kraft",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ravin",
+          "lastName": "Kumar",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Vivek",
+          "lastName": "Kumar",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Harish",
+          "lastName": "Kuppam",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Justin",
+          "lastName": "Lannin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Chen-Yu",
+          "lastName": "Lee",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Seungji",
+          "lastName": "Lee",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Dmitry",
+          "lastName": "Lepikhin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Alon",
+          "lastName": "Levkovitch",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Dongdong",
+          "lastName": "Li",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Qiujia",
+          "lastName": "Li",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Valentin",
+          "lastName": "Liévin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ethan",
+          "lastName": "Lin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ziqian",
+          "lastName": "Lin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Casper",
+          "lastName": "Liu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Tianlin",
+          "lastName": "Liu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Tianqi",
+          "lastName": "Liu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Xin",
+          "lastName": "Liu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ivan",
+          "lastName": "Lobov",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Mayank",
+          "lastName": "Lunayach",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Min",
+          "lastName": "Ma",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Gagan",
+          "lastName": "Madan",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Andrii",
+          "lastName": "Maksai",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Eric",
+          "lastName": "Malmi",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Michal",
+          "lastName": "Matuszak",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Daniel",
+          "lastName": "McDuff",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Gaurav",
+          "lastName": "Menghani",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Maciej",
+          "lastName": "Mikuła",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Daniil",
+          "lastName": "Mirylenka",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Karolis",
+          "lastName": "Misiunas",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Vedant",
+          "lastName": "Misra",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Andreea",
+          "lastName": "Mitran",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Kareem",
+          "lastName": "Mohamed",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Maksim",
+          "lastName": "Mukha",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Eric",
+          "lastName": "Noland",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "James",
+          "lastName": "O'Donnell",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Brendan",
+          "lastName": "O'Donoghue",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Kate",
+          "lastName": "Olszewska",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Bernett",
+          "lastName": "Orlando",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Wanqiong",
+          "lastName": "Pan",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Rina",
+          "lastName": "Panigrahy",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Unnati",
+          "lastName": "Parekh",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Nicolas",
+          "lastName": "Perez-Nieves",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Chunjong",
+          "lastName": "Park",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Eric",
+          "lastName": "Paskie",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Liqian",
+          "lastName": "Peng",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Bryce",
+          "lastName": "Petrini",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Slav",
+          "lastName": "Petrov",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jonas",
+          "lastName": "Pfeiffer",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Bilal",
+          "lastName": "Piot",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Martyna",
+          "lastName": "Plomecka",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Siim",
+          "lastName": "Poder",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Octavio",
+          "lastName": "Ponce",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Arijit",
+          "lastName": "Pramanik",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "David",
+          "lastName": "Racz",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Anish",
+          "lastName": "Rajan",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Michelle",
+          "lastName": "Ramanovich",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Anand",
+          "lastName": "Rao",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Marvin",
+          "lastName": "Ritter",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Vitor",
+          "lastName": "Rodrigues",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Evan",
+          "lastName": "Rosen",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Mikołaj",
+          "lastName": "Rybiński",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Noveen",
+          "lastName": "Sachdeva",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Michaël E.",
+          "lastName": "Sander",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Rohit",
+          "lastName": "Sathyanarayana",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sagar",
+          "lastName": "Savla",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Samuel",
+          "lastName": "Schmidgall",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Tal",
+          "lastName": "Schuster",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "George",
+          "lastName": "Scrivener",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Benoit",
+          "lastName": "Seguin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Andrew",
+          "lastName": "Sellergren",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Aliaksei",
+          "lastName": "Severyn",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Izhak",
+          "lastName": "Shafran",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Dhruv",
+          "lastName": "Shah",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Bobak",
+          "lastName": "Shahriari",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Yuan",
+          "lastName": "Shangguan",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ashish",
+          "lastName": "Shenoy",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Pradeep",
+          "lastName": "Shenoy",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Rakesh",
+          "lastName": "Shivanna",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Pauline",
+          "lastName": "Sho",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Lucas",
+          "lastName": "Spangher",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Wojciech",
+          "lastName": "Stokowiec",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Tim",
+          "lastName": "Strother",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Yao",
+          "lastName": "Su",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Yinghao",
+          "lastName": "Sun",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Mukund",
+          "lastName": "Sundararajan",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Andrea",
+          "lastName": "Tacchetti",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Mor Hazan",
+          "lastName": "Taege",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Pouya",
+          "lastName": "Tafti",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jean",
+          "lastName": "Tarbouriech",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Chetan",
+          "lastName": "Tekur",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Shantanu",
+          "lastName": "Thakoor",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Rahul",
+          "lastName": "Thapa",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Madeleine",
+          "lastName": "Traverse",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Lenart",
+          "lastName": "Treven",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Tao",
+          "lastName": "Tu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Chien Te",
+          "lastName": "Tung",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Çağlar",
+          "lastName": "Ünlü",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Petar",
+          "lastName": "Veličković",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Malini Pooni",
+          "lastName": "Venkat",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sagar Gubbi",
+          "lastName": "Venkatesh",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Vidya",
+          "lastName": "Venkiteswaran",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Francesco",
+          "lastName": "Visin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Alex",
+          "lastName": "Vitvitskyi",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Kiran",
+          "lastName": "Vodrahalli",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Weiyi",
+          "lastName": "Wang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Xin",
+          "lastName": "Wang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Tris",
+          "lastName": "Warkentin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jan",
+          "lastName": "Wassenberg",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "John",
+          "lastName": "Wieting",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Cindy",
+          "lastName": "Wu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Lechao",
+          "lastName": "Xiao",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Hao",
+          "lastName": "Xu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Yuhui",
+          "lastName": "Xu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Fuzhao",
+          "lastName": "Xue",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Arun",
+          "lastName": "Yadav",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jun",
+          "lastName": "Yan",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Antoine",
+          "lastName": "Yang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Lin",
+          "lastName": "Yang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ming-Hsuan",
+          "lastName": "Yang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ziyu",
+          "lastName": "Ying",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jae Hyeon",
+          "lastName": "Yoo",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Morteza",
+          "lastName": "Zadimoghaddam",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sajjad",
+          "lastName": "Zafar",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Fred",
+          "lastName": "Zhang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jiageng",
+          "lastName": "Zhang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jianyi",
+          "lastName": "Zhang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Xiaofan",
+          "lastName": "Zhang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Chao",
+          "lastName": "Zhao",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "David",
+          "lastName": "Zhou",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Chen",
+          "lastName": "Zou",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2026",
+      "doi": "10.48550/arXiv.2607.02770",
+      "url": "https://doi.org/10.48550/arXiv.2607.02770",
+      "kind": "Informe técnico de desarrollador; preprint",
+      "material_reviewed": "PDF local, introducción, arquitectura y descripción de evaluación; versión arXiv v2 de julio de 2026.",
+      "annotation_count": 0,
+      "note_count": 1,
+      "file": "references/J4955P47.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "G4PP4MDD",
+      "title": "Procurement of Ambient Voice Technology EN-A4",
+      "authors": [],
+      "year": "sin fecha bibliográfica",
+      "doi": "",
+      "url": "https://mcusercontent.com/92915049aef2f51e4bcdd8434/files/a252c926-b88a-0af8-4071-a19fed8b9bf5/Procurement_of_Ambient_Voice_Technology_EN.pdf",
+      "kind": "Whitepaper comercial de contratación, Tandem",
+      "material_reviewed": "PDF local: lectura focalizada y siete anotaciones, especialmente pp. 4–6.",
+      "annotation_count": 7,
+      "note_count": 0,
+      "file": "references/G4PP4MDD.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "7YCZPD8I",
+      "title": "Clinical Implementation of Artificial Intelligence Scribes in Health Care: A Systematic Review",
+      "authors": [
+        {
+          "firstName": "Hadeel",
+          "lastName": "Hassan",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Amy R.",
+          "lastName": "Zipursky",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Naveed",
+          "lastName": "Rabbani",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jacqueline G.",
+          "lastName": "You",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Gabriel",
+          "lastName": "Tse",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Evan",
+          "lastName": "Orenstein",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Mondira",
+          "lastName": "Ray",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Chase",
+          "lastName": "Parsons",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Stella",
+          "lastName": "Shin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Gregory",
+          "lastName": "Lawton",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Karim",
+          "lastName": "Jessa",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Lillian",
+          "lastName": "Sung",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Adam P.",
+          "lastName": "Yan",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2025",
+      "doi": "10.1055/a-2597-2017",
+      "url": "https://doi.org/10.1055/a-2597-2017",
+      "kind": "Revisión sistemática, Applied Clinical Informatics (2025)",
+      "material_reviewed": "Resumen bibliográfico de Zotero; sin PDF adjunto. Búsqueda por DOI sin texto completo revisado.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/7YCZPD8I.md",
+      "publication": "Applied Clinical Informatics",
+      "volume": "16",
+      "pages": "1121-1135"
+    },
+    {
+      "key": "P44RKZCE",
+      "title": "Impact of a Digital Scribe System on Clinical Documentation Time and Quality: Usability Study",
+      "authors": [
+        {
+          "firstName": "Marieke Meija van",
+          "lastName": "Buchem",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ilse M. J.",
+          "lastName": "Kant",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Liza",
+          "lastName": "King",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jacqueline",
+          "lastName": "Kazmaier",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ewout W.",
+          "lastName": "Steyerberg",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Martijn P.",
+          "lastName": "Bauer",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2024",
+      "doi": "10.2196/60020",
+      "url": "https://doi.org/10.2196/60020",
+      "kind": "Estudio de usabilidad con simulaciones; revisado por pares",
+      "material_reviewed": "PDF local: métodos, resultados, discusión y resumen.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/P44RKZCE.md",
+      "publication": "JMIR AI",
+      "volume": "3",
+      "pages": "e60020"
+    },
+    {
+      "key": "Z6UG4ARX",
+      "title": "Expert evaluation of large language models for clinical dialogue summarization",
+      "authors": [
+        {
+          "firstName": "David",
+          "lastName": "Fraile Navarro",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Enrico",
+          "lastName": "Coiera",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Thomas W.",
+          "lastName": "Hambly",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Zoe",
+          "lastName": "Triplett",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Nahyan",
+          "lastName": "Asif",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Anindya",
+          "lastName": "Susanto",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Anamika",
+          "lastName": "Chowdhury",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Amaya",
+          "lastName": "Azcoaga Lorenzo",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Mark",
+          "lastName": "Dras",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Shlomo",
+          "lastName": "Berkovsky",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2025",
+      "doi": "10.1038/s41598-024-84850-x",
+      "url": "https://doi.org/10.1038/s41598-024-84850-x",
+      "kind": "Evaluación exploratoria de resumen de diálogos; revisada por pares",
+      "material_reviewed": "PDF local: métodos, comparación de métricas y discusión.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/Z6UG4ARX.md",
+      "publication": "Scientific Reports",
+      "volume": "15",
+      "pages": "1195"
+    },
+    {
+      "key": "9J25L6T9",
+      "title": "The Impact of AI Scribes on Streamlining Clinical Documentation: A Systematic Review",
+      "authors": [
+        {
+          "firstName": "Maxime",
+          "lastName": "Sasseville",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Farzaneh",
+          "lastName": "Yousefi",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Steven",
+          "lastName": "Ouellet",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Florian",
+          "lastName": "Naye",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Théo",
+          "lastName": "Stefan",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Valérie",
+          "lastName": "Carnovale",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Frédéric",
+          "lastName": "Bergeron",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Linda",
+          "lastName": "Ling",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Bobby",
+          "lastName": "Gheorghiu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Simon",
+          "lastName": "Hagens",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Samuel",
+          "lastName": "Gareau-Lajoie",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Annie",
+          "lastName": "LeBlanc",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2025",
+      "doi": "10.3390/healthcare13121447",
+      "url": "https://doi.org/10.3390/healthcare13121447",
+      "kind": "Revisión sistemática, Healthcare (2025)",
+      "material_reviewed": "PDF local: resumen, métodos y discusión.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/9J25L6T9.md",
+      "publication": "Healthcare",
+      "volume": "13",
+      "pages": "1447"
+    },
+    {
+      "key": "3JZ5MRXB",
+      "title": "Vision-Enabled AI scribes reduce omissions in clinical conversations: evidence from simulated medication histories",
+      "authors": [
+        {
+          "firstName": "Bradley D.",
+          "lastName": "Menz",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Nicholas L.",
+          "lastName": "Scarfo",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Natansh D.",
+          "lastName": "Modi",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Erik",
+          "lastName": "Cornelisse",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Lee X.",
+          "lastName": "Li",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jin Quan Eugene",
+          "lastName": "Tan",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jimit",
+          "lastName": "Gandhi",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Dorsa",
+          "lastName": "Maher",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Dib",
+          "lastName": "Kousa",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Kezia",
+          "lastName": "Daniel",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Vidya",
+          "lastName": "Menon",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Stephen",
+          "lastName": "Bacchi",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ross A.",
+          "lastName": "McKinnon",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Michael D.",
+          "lastName": "Wiese",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Andrew",
+          "lastName": "Rowland",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Michael J.",
+          "lastName": "Sorich",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ashley M.",
+          "lastName": "Hopkins",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2026",
+      "doi": "10.1038/s41746-026-02494-9",
+      "url": "https://doi.org/10.1038/s41746-026-02494-9",
+      "kind": "Estudio de simulación multimodal; revisado por pares",
+      "material_reviewed": "PDF local: resumen, diseño y resultados.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/3JZ5MRXB.md",
+      "publication": "npj Digital Medicine",
+      "volume": "9",
+      "pages": "287"
+    },
+    {
+      "key": "ZI87XIWC",
+      "title": "AI Scribes: Are We Measuring What Matters?",
+      "authors": [
+        {
+          "firstName": "Enrico",
+          "lastName": "Coiera",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "David",
+          "lastName": "Fraile-Navarro",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2026",
+      "doi": "10.2196/89337",
+      "url": "https://doi.org/10.2196/89337",
+      "kind": "Editorial de Enrico Coiera; no ensayo",
+      "material_reviewed": "PDF local: lectura focalizada y 12 anotaciones.",
+      "annotation_count": 12,
+      "note_count": 0,
+      "file": "references/ZI87XIWC.md",
+      "publication": "JMIR Medical Informatics",
+      "volume": "14",
+      "pages": "e89337-e89337"
+    },
+    {
+      "key": "GCQAFY4Y",
+      "title": "The Current State of Digital Scribes in Primary Care: A Scoping Review",
+      "authors": [
+        {
+          "firstName": "Rajesh",
+          "lastName": "Nair",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Muhammad Moinuddin",
+          "lastName": "Hashmi",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sameer S.",
+          "lastName": "Kassim",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Alexander",
+          "lastName": "Singer",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2026",
+      "doi": "10.1007/s10916-025-02319-4",
+      "url": "https://doi.org/10.1007/s10916-025-02319-4",
+      "kind": "Scoping review de atención primaria; revisada por pares",
+      "material_reviewed": "PDF local: resumen, método y discusión.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/GCQAFY4Y.md",
+      "publication": "Journal of Medical Systems",
+      "volume": "50",
+      "pages": "2"
+    },
+    {
+      "key": "7MXFHMBA",
+      "title": "The digital scribe",
+      "authors": [
+        {
+          "firstName": "Enrico",
+          "lastName": "Coiera",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Baki",
+          "lastName": "Kocaballi",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "John",
+          "lastName": "Halamka",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Liliana",
+          "lastName": "Laranjo",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2018",
+      "doi": "10.1038/s41746-018-0066-9",
+      "url": "https://doi.org/10.1038/s41746-018-0066-9",
+      "kind": "Artículo conceptual de 2018; revisado por pares",
+      "material_reviewed": "PDF local: lectura focalizada y cuatro anotaciones.",
+      "annotation_count": 4,
+      "note_count": 0,
+      "file": "references/7MXFHMBA.md",
+      "publication": "npj Digital Medicine",
+      "volume": "1",
+      "pages": "58"
+    },
+    {
+      "key": "4PZBAAZ7",
+      "title": "Evidence on artificial intelligence-assisted clinical documentation and healthcare workers’ emotional wellbeing at work: a scoping review",
+      "authors": [
+        {
+          "firstName": "Na",
+          "lastName": "Xiao",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Li",
+          "lastName": "He",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Lan",
+          "lastName": "Chen",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sengtong",
+          "lastName": "Liu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Qian",
+          "lastName": "Xiang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Pingping",
+          "lastName": "Wang",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2026",
+      "doi": "10.3389/fpsyg.2026.1840884",
+      "url": "https://doi.org/10.3389/fpsyg.2026.1840884",
+      "kind": "Scoping review de bienestar, Frontiers in Psychology (2026)",
+      "material_reviewed": "PDF local: resumen, criterios y discusión; búsqueda hasta 16/03/2026.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/4PZBAAZ7.md",
+      "publication": "Frontiers in Psychology",
+      "volume": "17",
+      "pages": ""
+    },
+    {
+      "key": "F5FVUMMX",
+      "title": "Accelerating ambient AI scribe enterprise-scale deployment: Cleveland Clinic’s novel approach to health system-industry partnership",
+      "authors": [
+        {
+          "firstName": "Amy",
+          "lastName": "Merlino",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Abigail",
+          "lastName": "Blue",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Eric",
+          "lastName": "Boose",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Beth",
+          "lastName": "Meese",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jennifer",
+          "lastName": "Owens",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jean",
+          "lastName": "Vickers",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Alisa",
+          "lastName": "Angeloff",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Monica",
+          "lastName": "Arnold",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "RuiJun",
+          "lastName": "Chen",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Madeline",
+          "lastName": "Grade",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Phuong Anh",
+          "lastName": "Pham-Viernickel",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Benjamin",
+          "lastName": "Rosner",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2026",
+      "doi": "10.1038/s44401-026-00144-6",
+      "url": "https://doi.org/10.1038/s44401-026-00144-6",
+      "kind": "Informe de implantación de Cleveland Clinic/Ambience; revisado por pares",
+      "material_reviewed": "PDF local: lectura focalizada, estructura de implementación y conflictos.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/F5FVUMMX.md",
+      "publication": "npj Health Systems",
+      "volume": "3",
+      "pages": "74"
+    },
+    {
+      "key": "YDHLVW8C",
+      "title": "Real-World Evidence Synthesis of Digital Scribes Using Ambient Listening and Generative Artificial Intelligence for Clinician Documentation Workflows: Rapid Review",
+      "authors": [
+        {
+          "firstName": "Naga Sasidhar",
+          "lastName": "Kanaparthy",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Yenny",
+          "lastName": "Villuendas-Rey",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Tolulope",
+          "lastName": "Bakare",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Zihan",
+          "lastName": "Diao",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Mark",
+          "lastName": "Iscoe",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Andrew",
+          "lastName": "Loza",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Donald",
+          "lastName": "Wright",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Conrad",
+          "lastName": "Safranek",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Isaac V",
+          "lastName": "Faustino",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Alexandria",
+          "lastName": "Brackett",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Edward R",
+          "lastName": "Melnick",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "R Andrew",
+          "lastName": "Taylor",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2025",
+      "doi": "10.2196/76743",
+      "url": "https://doi.org/10.2196/76743",
+      "kind": "Rapid review de implantación real; revisada por pares",
+      "material_reviewed": "PDF local corregido, resumen/métodos/discusión y 24 anotaciones. Señala corrección posterior e93250.",
+      "annotation_count": 24,
+      "note_count": 0,
+      "file": "references/YDHLVW8C.md",
+      "publication": "JMIR AI",
+      "volume": "4",
+      "pages": "e76743-e76743"
+    },
+    {
+      "key": "PRTISMYF",
+      "title": "Evaluating the Usability, Technical Performance, and Accuracy of Artificial Intelligence Scribes for Primary Care: Competitive Analysis",
+      "authors": [
+        {
+          "firstName": "Emily",
+          "lastName": "Ha",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Isabelle",
+          "lastName": "Choon-Kon-Yune",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "LaShawn",
+          "lastName": "Murray",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Siying",
+          "lastName": "Luan",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Enid",
+          "lastName": "Montague",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Onil",
+          "lastName": "Bhattacharyya",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Payal",
+          "lastName": "Agarwal",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2025",
+      "doi": "10.2196/71434",
+      "url": "https://doi.org/10.2196/71434",
+      "kind": "Comparación funcional de seis escribas; revisada por pares",
+      "material_reviewed": "PDF local: marco, método, resultados y límites.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/PRTISMYF.md",
+      "publication": "JMIR Human Factors",
+      "volume": "12",
+      "pages": "e71434-e71434"
+    },
+    {
+      "key": "GVDWWIEP",
+      "title": "AI Scribes in Health Care: Balancing Transformative Potential With Responsible Integration",
+      "authors": [
+        {
+          "firstName": "Tiffany I",
+          "lastName": "Leung",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Andrew J",
+          "lastName": "Coristine",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Arriel",
+          "lastName": "Benis",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2025",
+      "doi": "10.2196/80898",
+      "url": "https://doi.org/10.2196/80898",
+      "kind": "Editorial, JMIR Medical Informatics (2025)",
+      "material_reviewed": "PDF local: lectura focalizada y diez anotaciones.",
+      "annotation_count": 10,
+      "note_count": 0,
+      "file": "references/GVDWWIEP.md",
+      "publication": "JMIR Medical Informatics",
+      "volume": "13",
+      "pages": "e80898-e80898"
+    },
+    {
+      "key": "54NFKG36",
+      "title": "Patient Attitudes Toward Ambient Voice Technology: Preimplementation Patient Survey in an Academic Medical Center",
+      "authors": [
+        {
+          "firstName": "Gary",
+          "lastName": "Leiserowitz",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jeff",
+          "lastName": "Mansfield",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Scott",
+          "lastName": "MacDonald",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Melissa",
+          "lastName": "Jost",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2025",
+      "doi": "10.2196/77901",
+      "url": "https://doi.org/10.2196/77901",
+      "kind": "Encuesta de pacientes previa a implantación; revisada por pares",
+      "material_reviewed": "PDF local: resumen, métodos, resultados y nota independiente.",
+      "annotation_count": 0,
+      "note_count": 1,
+      "file": "references/54NFKG36.md",
+      "publication": "JMIR Medical Informatics",
+      "volume": "13",
+      "pages": "e77901"
+    },
+    {
+      "key": "KLWCVWQ4",
+      "title": "The Effect of Ambient Artificial Intelligence Scribes on Trainee Documentation Burden",
+      "authors": [
+        {
+          "firstName": "Donald S.",
+          "lastName": "Wright",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Naga S.",
+          "lastName": "Kanaparthy",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Edward R.",
+          "lastName": "Melnick",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Deborah R.",
+          "lastName": "Levy",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Stephen J.",
+          "lastName": "Huot",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Allen",
+          "lastName": "Hsiao",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Lee H.",
+          "lastName": "Schwamm",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Shawn Y.",
+          "lastName": "Ong",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2025",
+      "doi": "10.1055/a-2647-1142",
+      "url": "https://doi.org/10.1055/a-2647-1142",
+      "kind": "Piloto prospectivo con residentes; revisado por pares",
+      "material_reviewed": "Resumen de Zotero y registro PubMed; sin PDF local ni texto completo inspeccionado.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/KLWCVWQ4.md",
+      "publication": "Applied Clinical Informatics",
+      "volume": "16",
+      "pages": "872-878"
+    },
+    {
+      "key": "VVM5S4LT",
+      "title": "Medical Scribes: Symptom or Cause of Impeded Evolution of a Transformative Artificial Intelligence in the Electronic Health Record?",
+      "authors": [
+        {
+          "firstName": "George A.",
+          "lastName": "Gellert",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2023",
+      "doi": "",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9860472/",
+      "kind": "Comentario conceptual de 2023, centrado en escribas humanos",
+      "material_reviewed": "Resumen de Zotero y texto público en PMC; el adjunto es un enlace, no un PDF.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/VVM5S4LT.md",
+      "publication": "Perspectives in Health Information Management",
+      "volume": "20",
+      "pages": "1d"
+    },
+    {
+      "key": "MQJ8EEG5",
+      "title": "Ambient artificial intelligence scribes: physician burnout and perspectives on usability and documentation burden",
+      "authors": [
+        {
+          "firstName": "Shreya J.",
+          "lastName": "Shah",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Anna",
+          "lastName": "Devon-Sand",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Stephen P.",
+          "lastName": "Ma",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Yejin",
+          "lastName": "Jeong",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Trevor",
+          "lastName": "Crowell",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Margaret",
+          "lastName": "Smith",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "April S.",
+          "lastName": "Liang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Clarissa",
+          "lastName": "Delahaie",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Caroline",
+          "lastName": "Hsia",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Tait",
+          "lastName": "Shanafelt",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Michael A.",
+          "lastName": "Pfeffer",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Christopher",
+          "lastName": "Sharp",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Steven",
+          "lastName": "Lin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Patricia",
+          "lastName": "Garcia",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2025",
+      "doi": "10.1093/jamia/ocae295",
+      "url": "https://doi.org/10.1093/jamia/ocae295",
+      "kind": "Piloto observacional de DAX en Stanford; revisado por pares",
+      "material_reviewed": "PDF local: resumen, métodos y discusión.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/MQJ8EEG5.md",
+      "publication": "Journal of the American Medical Informatics Association: JAMIA",
+      "volume": "32",
+      "pages": "375-380"
+    },
+    {
+      "key": "HJTQAVH3",
+      "title": "Comparing Patient Perception and Physician’s Records: Generative AI Performance Evaluation",
+      "authors": [
+        {
+          "firstName": "John",
+          "lastName": "Mantas",
+          "creatorTypeID": 12
+        },
+        {
+          "firstName": "Arie",
+          "lastName": "Hasman",
+          "creatorTypeID": 12
+        },
+        {
+          "firstName": "George",
+          "lastName": "Demiris",
+          "creatorTypeID": 12
+        },
+        {
+          "firstName": "Kaija",
+          "lastName": "Saranto",
+          "creatorTypeID": 12
+        },
+        {
+          "firstName": "Michael",
+          "lastName": "Marschollek",
+          "creatorTypeID": 12
+        },
+        {
+          "firstName": "Theodoros N.",
+          "lastName": "Arvanitis",
+          "creatorTypeID": 12
+        },
+        {
+          "firstName": "Ivana",
+          "lastName": "Ognjanović",
+          "creatorTypeID": 12
+        },
+        {
+          "firstName": "Arriel",
+          "lastName": "Benis",
+          "creatorTypeID": 12
+        },
+        {
+          "firstName": "Parisis",
+          "lastName": "Gallos",
+          "creatorTypeID": 12
+        },
+        {
+          "firstName": "Emmanouil",
+          "lastName": "Zoulias",
+          "creatorTypeID": 12
+        },
+        {
+          "firstName": "Elisavet",
+          "lastName": "Andrikopoulou",
+          "creatorTypeID": 12
+        },
+        {
+          "firstName": "Nattawipa",
+          "lastName": "Thawinwisan",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Chang",
+          "lastName": "Liu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Kazumasa",
+          "lastName": "Kishimoto",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Goshiro",
+          "lastName": "Yamamoto",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Yukiko",
+          "lastName": "Mori",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Tomohiro",
+          "lastName": "Kuroda",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2024",
+      "doi": "10.3233/SHTI240503",
+      "url": "https://doi.org/10.3233/SHTI240503",
+      "kind": "Evaluación de comparación textual en cirugía de mama",
+      "material_reviewed": "PDF local: lectura focalizada.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/HJTQAVH3.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "FKHM4UFL",
+      "title": "PHTI-Adoption-of-AI-in-Healthcare-Delivery-Systems-Early-Applications-Impacts.pdf",
+      "authors": [],
+      "year": "sin fecha bibliográfica",
+      "doi": "",
+      "url": "https://www.phti.org/wp-content/uploads/2025/03/PHTI-Adoption-of-AI-in-Healthcare-Delivery-Systems-Early-Applications-Impacts.pdf",
+      "kind": "Informe sectorial PHTI, marzo de 2025; literatura gris",
+      "material_reviewed": "PDF local: resumen ejecutivo y capítulos de compra/adopción y medición de impacto.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/FKHM4UFL.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "NNWFT2JX",
+      "title": "Accuracy and Safety of AI-Enabled Scribe Technology: Instrument Validation Study",
+      "authors": [
+        {
+          "firstName": "Joshua",
+          "lastName": "Biro",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jessica L",
+          "lastName": "Handley",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Nathan K",
+          "lastName": "Cobb",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Varsha",
+          "lastName": "Kottamasu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jeffrey",
+          "lastName": "Collins",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Seth",
+          "lastName": "Krevat",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Raj M",
+          "lastName": "Ratwani",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2025",
+      "doi": "10.2196/64993",
+      "url": "https://doi.org/10.2196/64993",
+      "kind": "Estudio de errores en simulación; revisado por pares",
+      "material_reviewed": "PDF local: lectura focalizada, pp. 1–3; tabla 1 y limitaciones.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/NNWFT2JX.md",
+      "publication": "Journal of Medical Internet Research",
+      "volume": "27",
+      "pages": "e64993"
+    },
+    {
+      "key": "3NQKX64K",
+      "title": "Best AI scribe : r/FamilyMedicine",
+      "authors": [],
+      "year": "sin fecha bibliográfica",
+      "doi": "",
+      "url": "https://www.reddit.com/r/FamilyMedicine/comments/1pat5an/best_ai_scribe/",
+      "kind": "Conversación de Reddit; evidencia anecdótica",
+      "material_reviewed": "Captura local del hilo y comentarios visibles.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/3NQKX64K.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "9RLLTRNQ",
+      "title": "I tried all the AI medical scribes so you don't have to - my honest review : r/FamilyMedicine",
+      "authors": [],
+      "year": "sin fecha bibliográfica",
+      "doi": "",
+      "url": "https://www.reddit.com/r/FamilyMedicine/comments/1lokist/i_tried_all_the_ai_medical_scribes_so_you_dont/",
+      "kind": "Comparador personal en Reddit; evidencia anecdótica",
+      "material_reviewed": "Captura local, publicación y comentarios visibles.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/9RLLTRNQ.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "HAVPGCZ2",
+      "title": "AI Scribe : r/Residency",
+      "authors": [],
+      "year": "sin fecha bibliográfica",
+      "doi": "",
+      "url": "https://www.reddit.com/r/Residency/comments/1qdji4r/ai_scribe/",
+      "kind": "Conversación de Reddit sobre uso no autorizado",
+      "material_reviewed": "Captura local del hilo y respuestas visibles.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/HAVPGCZ2.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "HMPYSADF",
+      "title": "Why aren’t more folks using AI scribes? : r/emergencymedicine",
+      "authors": [],
+      "year": "sin fecha bibliográfica",
+      "doi": "",
+      "url": "https://www.reddit.com/r/emergencymedicine/comments/1r6gvhc/why_arent_more_folks_using_ai_scribes/",
+      "kind": "Conversación de Reddit; autor declara desarrollar un escriba",
+      "material_reviewed": "Captura local, publicación y comentarios visibles.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/HMPYSADF.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "XVAV67V2",
+      "title": "Thoughts on Scribes (AI vs. Human?) : r/emergencymedicine",
+      "authors": [],
+      "year": "sin fecha bibliográfica",
+      "doi": "",
+      "url": "https://www.reddit.com/r/emergencymedicine/comments/1o4g01h/thoughts_on_scribes_ai_vs_human/",
+      "kind": "Conversación de Reddit sobre escribas humanos y AI",
+      "material_reviewed": "Captura local del hilo y comentarios visibles.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/XVAV67V2.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "T5KIZZ25",
+      "title": "AI Replacing Scribes: My Program’s ED Is Phasing Them Out. In addition, Future Residents/Med Students Won’t Get the Jonathan Scribe Meme one day. : r/Residency",
+      "authors": [],
+      "year": "sin fecha bibliográfica",
+      "doi": "",
+      "url": "https://www.reddit.com/r/Residency/comments/1v7dly1/ai_replacing_scribes_my_programs_ed_is_phasing/",
+      "kind": "Conversación de Reddit; captura local mal asociada",
+      "material_reviewed": "La captura guardada corresponde a XVAV67V2. Revisado el hilo correcto en su URL pública el 11/09/2026.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/T5KIZZ25.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "AHGPAQWH",
+      "title": "Are the AI scribes getting any better? I got home at 730pm tonight. : r/medicine",
+      "authors": [],
+      "year": "sin fecha bibliográfica",
+      "doi": "",
+      "url": "https://www.reddit.com/r/medicine/comments/1ti9eum/are_the_ai_scribes_getting_any_better_i_got_home/",
+      "kind": "Conversación de Reddit sobre tiempo y edición",
+      "material_reviewed": "Captura local del hilo y comentarios visibles.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/AHGPAQWH.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "AEYRZMPM",
+      "title": "Patients opting out of AI scribe : r/FamilyMedicine",
+      "authors": [],
+      "year": "sin fecha bibliográfica",
+      "doi": "",
+      "url": "https://www.reddit.com/r/FamilyMedicine/comments/1ut6lpq/patients_opting_out_of_ai_scribe/",
+      "kind": "Conversación de Reddit sobre rechazo del paciente; captura incorrecta",
+      "material_reviewed": "La captura local reproduce AHGPAQWH. Revisado el hilo correcto en la URL pública el 11/09/2026.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/AEYRZMPM.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "MENZ5VHS",
+      "title": "Is there actually a best ai scribe or are they all just glorified voice recorders? : r/nursepractitioner",
+      "authors": [],
+      "year": "sin fecha bibliográfica",
+      "doi": "",
+      "url": "https://www.reddit.com/r/nursepractitioner/comments/1vefvo0/is_there_actually_a_best_ai_scribe_or_are_they/",
+      "kind": "Conversación de Reddit de profesionales de enfermería; captura incorrecta",
+      "material_reviewed": "La captura local reproduce AHGPAQWH. Revisado el hilo correcto en la URL pública el 11/09/2026.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/MENZ5VHS.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "LZZBRX8R",
+      "title": "Do AI scribes even help with documentation time : r/FamilyMedicine",
+      "authors": [],
+      "year": "sin fecha bibliográfica",
+      "doi": "",
+      "url": "https://www.reddit.com/r/FamilyMedicine/comments/1p5mvs6/do_ai_scribes_even_help_with_documentation_time/",
+      "kind": "Conversación de Reddit sobre carga documental; captura incorrecta",
+      "material_reviewed": "La captura local reproduce AHGPAQWH. Revisado el hilo correcto en la URL pública el 11/09/2026.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/LZZBRX8R.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "Y7LXDSEE",
+      "title": "Heidi & Other AI Scribes Question : r/Chiropractic",
+      "authors": [],
+      "year": "sin fecha bibliográfica",
+      "doi": "",
+      "url": "https://www.reddit.com/r/Chiropractic/comments/1mpdfbf/heidi_other_ai_scribes_question/",
+      "kind": "Conversación de Reddit sobre salida y EHR; captura incorrecta",
+      "material_reviewed": "La captura local reproduce AHGPAQWH. Revisado el hilo correcto en la URL pública el 11/09/2026.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/Y7LXDSEE.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "C7S8N9NA",
+      "title": "Evaluation of an AI Medical Scribe After 236,153 Notes Generated Across Care Levels in a European Health System: Mixed Methods Retrospective Observational Study",
+      "authors": [
+        {
+          "firstName": "Enni",
+          "lastName": "Sanmark",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ville",
+          "lastName": "Vartiainen",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Johan",
+          "lastName": "Sanmark",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Katarina",
+          "lastName": "Wettin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Lukas",
+          "lastName": "Saari",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Artin",
+          "lastName": "Entezarjou",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2026",
+      "doi": "10.2196/90052",
+      "url": "https://doi.org/10.2196/90052",
+      "kind": "Observacional retrospectivo de Tandem en Suecia; revisado por pares",
+      "material_reviewed": "PDF local: métodos, resultados y limitaciones.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/C7S8N9NA.md",
+      "publication": "JMIR Medical Informatics",
+      "volume": "14",
+      "pages": "e90052-e90052"
+    },
+    {
+      "key": "2INV3X9M",
+      "title": "2025: The State of AI in Healthcare",
+      "authors": [
+        {
+          "firstName": "Menlo",
+          "lastName": "Ventures",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2025",
+      "doi": "",
+      "url": "https://menlovc.com/perspective/2025-the-state-of-ai-in-healthcare/",
+      "kind": "Informe de mercado de Menlo Ventures; fuente inversora",
+      "material_reviewed": "Página guardada, metodología y secciones de adopción.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/2INV3X9M.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "956B6PZT",
+      "title": "Validating Digital Scribes: A Scoping Review of Evaluation Practices and Clinical Use",
+      "authors": [
+        {
+          "firstName": "Ekin",
+          "lastName": "Kerimoğlu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Fleur V.",
+          "lastName": "Notermans",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Milou E. W. M.",
+          "lastName": "Silkens",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Marleen",
+          "lastName": "de Mul",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Kees C. T. B.",
+          "lastName": "Ahaus",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Robert M. A.",
+          "lastName": "van der Boon",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2026",
+      "doi": "10.1007/s10916-026-02392-3",
+      "url": "https://doi.org/10.1007/s10916-026-02392-3",
+      "kind": "Scoping review de prácticas de validación; revisada por pares",
+      "material_reviewed": "PDF local, métodos/tablas/discusión y veinte anotaciones; búsqueda 06/02/2025, cierre 28/02/2025.",
+      "annotation_count": 20,
+      "note_count": 0,
+      "file": "references/956B6PZT.md",
+      "publication": "Journal of Medical Systems",
+      "volume": "50",
+      "pages": "62"
+    },
+    {
+      "key": "QQCRZ7VX",
+      "title": "A Bilingual On-Premises AI Agent for Clinical Drafting: Implementation Report of Seamless Electronic Health Records Integration in the Y-KNOT Project",
+      "authors": [
+        {
+          "firstName": "Hanjae",
+          "lastName": "Kim",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "So-Yeon",
+          "lastName": "Lee",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Seng Chan",
+          "lastName": "You",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sookyung",
+          "lastName": "Huh",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jai-Eun",
+          "lastName": "Kim",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sung-Tae",
+          "lastName": "Kim",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Dong-Ryul",
+          "lastName": "Ko",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ji Hoon",
+          "lastName": "Kim",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jae Hoon",
+          "lastName": "Lee",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Joon Seok",
+          "lastName": "Lim",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Moo Suk",
+          "lastName": "Park",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Kang Young",
+          "lastName": "Lee",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2025",
+      "doi": "10.2196/76848",
+      "url": "https://doi.org/10.2196/76848",
+      "kind": "Informe de implementación Y-KNOT, Corea; revisado por pares",
+      "material_reviewed": "PDF local: arquitectura, integración, tabla 4, limitaciones y disponibilidad.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/QQCRZ7VX.md",
+      "publication": "JMIR Medical Informatics",
+      "volume": "13",
+      "pages": "e76848-e76848"
+    },
+    {
+      "key": "84THBNWG",
+      "title": "Human Evaluation and Correlation with Automatic Metrics in Consultation Note Generation",
+      "authors": [
+        {
+          "firstName": "Francesco",
+          "lastName": "Moramarco",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Alex Papadopoulos",
+          "lastName": "Korfiatis",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Mark",
+          "lastName": "Perera",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Damir",
+          "lastName": "Juric",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jack",
+          "lastName": "Flann",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ehud",
+          "lastName": "Reiter",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Anya",
+          "lastName": "Belz",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Aleksandar",
+          "lastName": "Savkov",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2022",
+      "doi": "10.48550/arXiv.2204.00447",
+      "url": "https://doi.org/10.48550/arXiv.2204.00447",
+      "kind": "Preprint de un trabajo después publicado en ACL 2022",
+      "material_reviewed": "PDF local, diseño, resultados y nota de importación.",
+      "annotation_count": 0,
+      "note_count": 1,
+      "file": "references/84THBNWG.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "G2L7QBIV",
+      "title": "PriMock57: A Dataset Of Primary Care Mock Consultations",
+      "authors": [
+        {
+          "firstName": "Alex Papadopoulos",
+          "lastName": "Korfiatis",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Francesco",
+          "lastName": "Moramarco",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Radmila",
+          "lastName": "Sarac",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Aleksandar",
+          "lastName": "Savkov",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2022",
+      "doi": "10.48550/arXiv.2204.00333",
+      "url": "https://doi.org/10.48550/arXiv.2204.00333",
+      "kind": "Dataset de consultas simuladas e informe técnico",
+      "material_reviewed": "PDF local y ficha arXiv.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/G2L7QBIV.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "CMRQCQTY",
+      "title": "Spanish Medical Dialogue Dataset (TEME-v1)",
+      "authors": [
+        {
+          "firstName": "Leire",
+          "lastName": "Villarroya Martínez",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2026",
+      "doi": "10.5281/zenodo.17280661",
+      "url": "https://doi.org/10.5281/zenodo.17280661",
+      "kind": "Dataset TEME-v1, Zenodo; no artículo clínico",
+      "material_reviewed": "Ficha de Zenodo guardada: descripción, archivos y licencia. ZIP de 94 MB no descargado ni audios escuchados.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/CMRQCQTY.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "EK6X6DWK",
+      "title": "Ambient Voice Technology Self-Certified Supplier Registry",
+      "authors": [],
+      "year": "sin fecha bibliográfica",
+      "doi": "",
+      "url": "https://digital.nhs.uk/services/ambient-scribing/ambient-voice-technology-self-certified-supplier-registry",
+      "kind": "Registro institucional NHS de proveedores autocertificados",
+      "material_reviewed": "Captura de la página oficial; contraste con el inventario de mercado ya revisado.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/EK6X6DWK.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "PR93N8FN",
+      "title": "Ambient AI Scribes in Clinical Practice: A Randomized Trial",
+      "authors": [
+        {
+          "firstName": "Paul J.",
+          "lastName": "Lukac",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "William",
+          "lastName": "Turner",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Sitaram",
+          "lastName": "Vangala",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Aaron T.",
+          "lastName": "Chin",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Joshua",
+          "lastName": "Khalili",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ya-Chen Tina",
+          "lastName": "Shih",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Catherine",
+          "lastName": "Sarkisian",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Eric M.",
+          "lastName": "Cheng",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "John N.",
+          "lastName": "Mafi",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2025",
+      "doi": "10.1056/aioa2501000",
+      "url": "https://doi.org/10.1056/aioa2501000",
+      "kind": "Ensayo aleatorizado pragmático, NEJM AI (2025)",
+      "material_reviewed": "Resumen detallado de Zotero; enlace PMC sin texto completo accesible en esta sesión. Se conserva el alcance de revisión previo del proyecto.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/PR93N8FN.md",
+      "publication": "Nejm Ai",
+      "volume": "2",
+      "pages": ""
+    },
+    {
+      "key": "6NN8GKUN",
+      "title": "Tandem Trust Center",
+      "authors": [],
+      "year": "sin fecha bibliográfica",
+      "doi": "",
+      "url": "https://trust.tandemhealth.ai",
+      "kind": "Trust Center comercial de Tandem",
+      "material_reviewed": "Captura local del portal y expediente documental previo del proyecto; certificados completos detallados en el inventario.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/6NN8GKUN.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    },
+    {
+      "key": "4IHZ7QFQ",
+      "title": "Human Evaluation and Correlation with Automatic Metrics in Consultation Note Generation",
+      "authors": [
+        {
+          "firstName": "Francesco",
+          "lastName": "Moramarco",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Alex",
+          "lastName": "Papadopoulos Korfiatis",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Mark",
+          "lastName": "Perera",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Damir",
+          "lastName": "Juric",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jack",
+          "lastName": "Flann",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ehud",
+          "lastName": "Reiter",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Anya",
+          "lastName": "Belz",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Aleksandar",
+          "lastName": "Savkov",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Smaranda",
+          "lastName": "Muresan",
+          "creatorTypeID": 12
+        },
+        {
+          "firstName": "Preslav",
+          "lastName": "Nakov",
+          "creatorTypeID": 12
+        },
+        {
+          "firstName": "Aline",
+          "lastName": "Villavicencio",
+          "creatorTypeID": 12
+        }
+      ],
+      "year": "2022",
+      "doi": "10.18653/v1/2022.acl-long.394",
+      "url": "https://doi.org/10.18653/v1/2022.acl-long.394",
+      "kind": "Artículo de conferencia ACL 2022, revisado por pares",
+      "material_reviewed": "PDF local: métodos, errores, tiempos de edición y correlaciones.",
+      "annotation_count": 0,
+      "note_count": 0,
+      "file": "references/4IHZ7QFQ.md",
+      "publication": "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+      "volume": "",
+      "pages": "5739–5754"
+    },
+    {
+      "key": "U5GHQW86",
+      "title": "Real-world evaluation of an ambient AI scribe in Spanish outpatient care after 2.3 million uses: impact on clinician experience, semantic agreement, and workflow efficiency",
+      "authors": [
+        {
+          "firstName": "Jose María",
+          "lastName": "Alcázar-Peral",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Juan Antonio",
+          "lastName": "Álvaro-de la Parra",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Daniel",
+          "lastName": "Blanco",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ángel",
+          "lastName": "Blanco",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "María Elvira",
+          "lastName": "Barrios",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ion",
+          "lastName": "Cristóbal",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Cristina",
+          "lastName": "Caramés",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "sin fecha bibliográfica",
+      "doi": "10.3389/fdgth.2026.1874919",
+      "url": "https://doi.org/10.3389/fdgth.2026.1874919",
+      "kind": "Estudio observacional de Quirónsalud en España; revisado por pares",
+      "material_reviewed": "PDF local: lectura focalizada en métodos/resultados/limitaciones, §§2.3–2.6 y discusión; una anotación.",
+      "annotation_count": 1,
+      "note_count": 0,
+      "file": "references/U5GHQW86.md",
+      "publication": "Frontiers in Digital Health",
+      "volume": "8",
+      "pages": "1874919"
+    },
+    {
+      "key": "P9P5U4KE",
+      "title": "Qwen3-Omni Technical Report",
+      "authors": [
+        {
+          "firstName": "Jin",
+          "lastName": "Xu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Zhifang",
+          "lastName": "Guo",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Hangrui",
+          "lastName": "Hu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Yunfei",
+          "lastName": "Chu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Xiong",
+          "lastName": "Wang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jinzheng",
+          "lastName": "He",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Yuxuan",
+          "lastName": "Wang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Xian",
+          "lastName": "Shi",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ting",
+          "lastName": "He",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Xinfa",
+          "lastName": "Zhu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Yuanjun",
+          "lastName": "Lv",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Yongqi",
+          "lastName": "Wang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Dake",
+          "lastName": "Guo",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "He",
+          "lastName": "Wang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Linhan",
+          "lastName": "Ma",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Pei",
+          "lastName": "Zhang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Xinyu",
+          "lastName": "Zhang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Hongkun",
+          "lastName": "Hao",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Zishan",
+          "lastName": "Guo",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Baosong",
+          "lastName": "Yang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Bin",
+          "lastName": "Zhang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Ziyang",
+          "lastName": "Ma",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Xipin",
+          "lastName": "Wei",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Shuai",
+          "lastName": "Bai",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Keqin",
+          "lastName": "Chen",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Xuejing",
+          "lastName": "Liu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Peng",
+          "lastName": "Wang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Mingkun",
+          "lastName": "Yang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Dayiheng",
+          "lastName": "Liu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Xingzhang",
+          "lastName": "Ren",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Bo",
+          "lastName": "Zheng",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Rui",
+          "lastName": "Men",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Fan",
+          "lastName": "Zhou",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Bowen",
+          "lastName": "Yu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jianxin",
+          "lastName": "Yang",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Le",
+          "lastName": "Yu",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Jingren",
+          "lastName": "Zhou",
+          "creatorTypeID": 10
+        },
+        {
+          "firstName": "Junyang",
+          "lastName": "Lin",
+          "creatorTypeID": 10
+        }
+      ],
+      "year": "2025",
+      "doi": "10.48550/arXiv.2509.17765",
+      "url": "https://doi.org/10.48550/arXiv.2509.17765",
+      "kind": "Informe técnico de Qwen; preprint del desarrollador",
+      "material_reviewed": "PDF local: arquitectura, modalidades, idiomas, benchmarks y licencia.",
+      "annotation_count": 0,
+      "note_count": 1,
+      "file": "references/P9P5U4KE.md",
+      "publication": "",
+      "volume": "",
+      "pages": ""
+    }
+  ]
+}

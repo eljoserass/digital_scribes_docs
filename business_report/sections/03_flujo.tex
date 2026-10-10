@@ -1,0 +1,19 @@
+% !TEX root = ../main.tex
+\section{Alcance de la implantación}
+\label{sec:flujo}
+El alcance inicial propuesto es \textbf{conversación en español, nota clínica editable e incorporación a HCIS tras revisión profesional}. La documentación de referencia distingue la captura, la generación y la validación del resultado; las funciones concretas dependen del producto y de su integración~\cite{7MXFHMBA,nhsAmbient2025}.
+
+\begin{center}
+\small
+\fbox{Captura de audio} $\longrightarrow$ \fbox{Borrador clínico}
+$\longrightarrow$ \fbox{Revisión y aprobación}\\[6pt]
+$\longrightarrow$ \fbox{Incorporación al paciente y episodio correctos en HCIS}
+\end{center}
+
+\textbf{Captura y procesamiento.} La oferta revisada incluye micrófonos conectados a un ordenador, dispositivos dedicados y aplicaciones móviles, web o extensiones de navegador. Predominan los servicios con procesamiento remoto, aunque las condiciones regionales y la retención varían (apéndice~\ref{app:proveedores}). Un dispositivo autónomo de captura no implica procesamiento local: algunos conservan audio hasta recuperar la conexión. La compatibilidad con equipos, navegadores y red debe comprobarse en los servicios participantes.
+
+\textbf{Revisión e incorporación.} La nota puede editarse en la plataforma del proveedor o en una interfaz integrada. El flujo exigido deberá identificar paciente y episodio, permitir correcciones y registrar su incorporación a HCIS. Aprobar el borrador, transferirlo y firmarlo en la historia clínica pueden ser operaciones diferentes; no se presupone una función común de firma ni un conector disponible en todos los productos. El apéndice~\ref{app:hcis} distingue integración publicada, dictado, transferencia manual y desarrollo pendiente.
+
+Las plantillas se incluyen cuando determinan el contenido y la estructura de la nota. La codificación automática, las recomendaciones clínicas y otros documentos quedan fuera del alcance inicial y requerirían evaluación específica. Para sistemas remotos, una conexión insuficiente puede retrasar la generación; el piloto deberá contemplar la documentación habitual como alternativa ante fallos.
+
+\textbf{Funciones y alcance regulatorio.} Transcribir lo expresado por el médico y generar una recomendación de tratamiento son funciones distintas. La TGA australiana ilustra esta diferencia: la transcripción sin análisis queda fuera de su definición de producto sanitario, mientras que generar diagnósticos o recomendaciones no expresados por el profesional entra en ese ámbito~\cite{tgaScribes2026}. Para España, la finalidad y las funciones deben examinarse conforme al marco europeo; la guía australiana aporta contexto, sin sustituirlo~\cite{mdcg2019rev2025}.

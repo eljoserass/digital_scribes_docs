@@ -1,0 +1,30 @@
+% !TEX root = ../main.tex
+\begin{tikzpicture}[
+  x=1cm,y=1cm,
+  stage/.style={draw=teal!60,fill=pale,rounded corners=2pt,align=center,
+    minimum height=12mm,inner sep=1mm,font=\fontsize{8}{9.5}\selectfont},
+  context/.style={draw=amber!70,fill=palewarm,rounded corners=2pt,
+    text width=43mm,align=center,inner sep=2mm,font=\fontsize{9}{11}\selectfont},
+  flow/.style={->,draw=teal,line width=.8pt},
+  feed/.style={->,draw=amber,line width=.8pt}]
+\node[stage,text width=10mm] (audio) at (0,0) {\textbf{Audio}};
+\node[stage,text width=12mm] (asr) at (1.5,0) {\textbf{ASR}\\Voz a texto};
+\node[stage,text width=15mm] (speakers) at (3.2,0) {\textbf{Hablantes}\\Quién dice qué};
+\node[stage,text width=18mm] (understanding) at (5.2,0) {\textbf{Comprensión clínica}};
+\node[stage,text width=16mm] (note) at (7.3,0) {\textbf{Generación de nota}};
+\node[stage,text width=16mm] (check) at (9.3,0) {\textbf{Verificación}\\Fuentes y coherencia};
+\node[stage,text width=16mm,fill=teal!14] (clinician) at (11.2,0) {\textbf{Profesional}\\Revisa y aprueba};
+\node[stage,text width=10mm,fill=navy,text=white] (hcis) at (12.9,0) {\textbf{HCIS}};
+\foreach \from/\to in {audio/asr,asr/speakers,speakers/understanding,understanding/note,note/check,check/clinician,clinician/hcis}
+  \draw[flow] (\from.east) -- (\to.west);
+\node[context] (chart) at (3.6,1.35) {\textbf{Historia clínica (HCIS)}\\Antecedentes y medicación};
+\node[context] (manual) at (3.6,-1.35) {\textbf{Observaciones / manual}\\Exploración y hallazgos};
+\draw[feed] (chart.east) -| (note.north);
+\draw[feed] (chart.south) -- ++(0,-.12) -| (understanding.north);
+\draw[feed] (manual.east) -| (note.south);
+\draw[feed] (manual.north) -- ++(0,.12) -| (understanding.south);
+\node[align=left,anchor=west,font=\fontsize{8}{10}\selectfont,text=muted,
+  text width=43mm] at (8.7,1.3) {\textbf{HCIS aporta contexto}\ y recibe la nota aprobada.};
+\node[align=left,anchor=west,font=\fontsize{8}{10}\selectfont,text=muted,
+  text width=43mm] at (8.7,-1.3) {Flujo conceptual: las etapas pueden combinarse. El contexto depende del conector.};
+\end{tikzpicture}

@@ -1,0 +1,56 @@
+% !TEX root = main.tex
+\usepackage{fontspec}
+\setsansfont{TeX Gyre Heros}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{amsmath,booktabs,tabularx,array,graphicx,tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,backgrounds,babel}
+\definecolor{navy}{HTML}{00547A}
+\definecolor{green}{HTML}{6BBB90}
+\definecolor{ink}{HTML}{183747}
+\definecolor{muted}{HTML}{62747E}
+\definecolor{warn}{HTML}{B75940}
+\definecolor{violet}{HTML}{756494}
+\colorlet{pale}{navy!6!white}
+\colorlet{mint}{green!17!white}
+\colorlet{warm}{warn!9!white}
+\setbeamercolor{normal text}{fg=ink,bg=white}
+\setbeamercolor{structure}{fg=navy}
+\setbeamercolor{frametitle}{fg=navy}
+\setbeamercolor{block body}{fg=ink,bg=pale}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}{\small\textbullet}
+\setbeamersize{text margin left=8mm,text margin right=8mm}
+\newcommand{\irycislogo}[1]{\includegraphics[width=#1,trim={20bp 36bp 21bp 49bp},clip]{assets/logo-irycis-oficial.png}}
+\newcommand{\deckpart}{1/6 · Consulta y nota}
+\newcommand{\setpart}[1]{\renewcommand{\deckpart}{#1}}
+\newif\ifinappendix
+\inappendixfalse
+\setbeamertemplate{frametitle}{\vspace{2mm}\strut\insertframetitle\strut\par\vspace{1mm}}
+\setbeamertemplate{footline}{%
+  \hspace{8mm}\textcolor{green}{\rule{.65mm}{2mm}}\hspace{1.5mm}%
+  {\color{muted}\fontsize{7}{8}\selectfont\deckpart}%
+  \hfill\raisebox{-1mm}[0pt][0pt]{\irycislogo{18mm}}\hfill%
+  {\color{muted}\fontsize{7}{8}\selectfont Borrador · 10/10/2026 · \ifinappendix Anexo\else\insertframenumber/26\fi}%
+  \hspace{8mm}\vspace{3mm}}
+\newcommand{\topic}[1]{{\small\color{muted}#1}\par\vspace{2mm}}
+\newcommand{\sources}[1]{\vfill\vspace{1mm}{\fontsize{6.5}{7.7}\selectfont\color{muted}Fuentes: #1\par}}
+\newcommand{\link}[2]{\href{#1}{\textcolor{navy}{#2}}}
+\newcommand{\takeaway}[1]{\par\vspace{2mm}\begin{beamercolorbox}[sep=1.6mm,wd=\textwidth]{block body}\small #1\end{beamercolorbox}}
+\newcommand{\smallnote}[1]{{\fontsize{8}{10}\selectfont\color{muted}#1\par}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\renewcommand{\tabularxcolumn}[1]{>{\raggedright\arraybackslash}p{#1}}
+\renewcommand{\arraystretch}{1.25}
+\tikzset{>=Stealth,
+  every node/.style={font=\small,text=ink,execute at begin node={\hyphenpenalty=10000\relax\exhyphenpenalty=10000\relax}},
+  box/.style={draw=navy!25,fill=pale,rounded corners=2pt,align=center,inner sep=6pt},
+  good/.style={box,draw=green!80!navy,fill=mint},
+  alert/.style={box,draw=warn!55,fill=warm},
+  plain/.style={align=left,inner sep=0pt},
+  arr/.style={->,line width=.85pt,draw=navy!80},
+  ctx/.style={->,dashed,line width=.85pt,draw=violet},
+  tinylabel/.style={font=\scriptsize,text=muted,align=center},
+  number/.style={circle,fill=navy,text=white,font=\bfseries\small,minimum size=6mm,inner sep=0pt}}
+% Fixed-size figure canvas prevents diagrams from changing slide geometry.
+\newenvironment{figurecanvas}[1][4.4]{\begin{center}\begin{tikzpicture}[x=1cm,y=1cm]\path[use as bounding box] (0,0) rectangle (14,#1);}{\end{tikzpicture}\end{center}}
+\hypersetup{pdftitle={Construir un escriba digital médico — borrador técnico de 30 minutos},pdfauthor={IRYCIS · Documento de trabajo},colorlinks=true,linkcolor=navy,urlcolor=navy}

@@ -1,0 +1,10 @@
+Rc files read:
+  /etc/LatexMk
+Latexmk: Run number 1 of rule 'xelatex'
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025/Debian) (preloaded format=xelatex)
+ restricted \write18 enabled.
+entering extended mode
+Latexmk: Getting log file '/home/rodri/projects/digital-scribe/docs/presentacion_business_short/build/nota-soap-standalone.log'
+Latexmk: Run number 1 of rule 'xdvipdfmx'
+
+Latexmk: Using bibtex to make bibliography file(s).

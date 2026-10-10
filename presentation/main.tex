@@ -1,0 +1,360 @@
+% !LW recipe = latexmk (xelatex)
+\documentclass[aspectratio=169,10pt]{beamer}
+\input{preamble}
+\begin{document}
+
+% 01 · 1 min
+\begin{frame}[t]{Escribas digitales}
+\topic{Funciones, mercado y condiciones de uso}
+\par\vspace{4mm}
+{\Large ¿Qué ofrecen y qué supondría\par incorporarlos al hospital?}
+\par\vspace{6mm}
+\begin{itemize}
+\item Beneficios esperados y evidencia disponible.
+\item Opciones comerciales, integración y costes.
+\item Contexto: atención en español y Dedalus HCIS.
+\end{itemize}
+\sources{Informe del proyecto. Mercado: 09/09/2026; AWS: 17/09/2026.\newline Literatura y comprobaciones selectivas: hasta 18/09/2026. Revisión documental, sin pruebas de productos.}
+\end{frame}
+
+% 02 · 0,5 min
+\begin{frame}[t]{Índice}
+\topic{Recorrido de la presentación}
+\tableofcontents
+\end{frame}
+
+\section{Contexto y función}
+
+% 03 · 2 min
+\begin{frame}[t]{La documentación ocupa una parte relevante del trabajo}
+\topic{Contexto y utilidad}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.36\textwidth}
+\stat{49,2\%}{de la jornada observada en consulta: historia electrónica y tareas de escritorio.}
+\end{column}
+\begin{column}{.57\textwidth}
+\textbf{Estudio de referencia}\par
+57 médicos · 4 especialidades\par Estados Unidos · 2016
+\par\vspace{3mm}
+\textbf{Pregunta local}\par
+¿Cuánto trabajo documental se realiza durante la consulta, después y fuera de horario?
+\end{column}
+\end{columns}
+\takeaway{La cifra describe ese estudio; no estima el tiempo que un escriba ahorraría en nuestro hospital.}
+\sources{\link{https://doi.org/10.7326/M16-0961}{Sinsky et al., Annals of Internal Medicine, 2016}.}
+\end{frame}
+
+% 04 · 3 min
+\begin{frame}[t]{¿Qué trabajo puede ahorrar un escriba?}
+\topic{Beneficio esperado · duración de consulta y carga documental}
+\small
+\begin{tabularx}{\textwidth}{L{.25\textwidth}XX}
+\toprule
+Dónde cambia el trabajo & Beneficio posible & Qué habría que medir \\
+\midrule
+Durante la consulta & Menos escritura; más atención al paciente & Interacción, interrupciones y experiencia \\
+Entre pacientes o al final del día & Menos notas pendientes y trabajo fuera de horario & Tiempo de documentación y cierre de notas \\
+En el flujo completo & Menos trabajo total por paciente & Redacción, revisión, corrección e incorporación a HCIS \\
+\bottomrule
+\end{tabularx}
+\takeaway{Una consulta igual de larga puede requerir menos trabajo documental. Más pacientes atendidos y mejor calidad clínica son resultados que deben demostrarse.}
+\sources{Síntesis para la evaluación local. \link{https://doi.org/10.1056/CAT.25.0040}{Tierney et al., Permanente, 2025}; \link{https://doi.org/10.3389/fdgth.2026.1874919}{Alcázar-Peral et al., Quirónsalud, 2026}. Beneficios variables según contexto.}
+\end{frame}
+
+% 05 · 2 min
+\begin{frame}[t]{De la conversación a una nota revisada en HCIS}
+\topic{Función principal y prestaciones adicionales}
+\begin{center}
+\begin{tikzpicture}[node distance=4mm,box/.style={draw=teal,fill=pale,rounded corners=2pt,text width=26mm,minimum height=14mm,align=center,font=\small},>=Stealth]
+\node[box] (a) {Captura de audio};
+\node[box,right=of a] (b) {Borrador clínico};
+\node[box,right=of b] (c) {Revisión profesional};
+\node[box,right=of c] (d) {Incorporación a HCIS};
+\draw[->] (a)--(b);\draw[->] (b)--(c);\draw[->] (c)--(d);
+\end{tikzpicture}
+\end{center}
+\begin{itemize}
+\item Captura desde ordenador, móvil o dispositivo dedicado.
+\item Plantillas para adaptar la estructura de la nota.
+\item Revisión, transferencia y firma pueden ser pasos distintos.
+\end{itemize}
+\takeaway{Algunas ofertas amplían el alcance: Oracle publica borradores de órdenes, resúmenes de la historia y sugerencias de codificación. Cada función requiere comprobar disponibilidad e integración.}
+\sources{\link{https://www.england.nhs.uk/long-read/ai-enabled-ambient-scribing-products-in-health-and-care-settings/}{NHS England, 2025}; \link{https://www.oracle.com/health/clinical-suite/clinical-ai-agent/}{Oracle: funciones publicadas, consulta 18/09/2026}. La captura y validación de cargos figura como prevista; no se incluye como función disponible.}
+\end{frame}
+
+% 06 · 2 min
+\begin{frame}[t]{Integrar significa completar el flujo de trabajo}
+\topic{Funcionalidades · Dedalus HCIS}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.46\textwidth}
+\textbf{Modalidades a distinguir}
+\begin{itemize}
+\item Copiar y pegar la nota.
+\item Dictado en un campo.
+\item Transferencia del borrador.
+\item Integración con paciente, episodio y trazabilidad.
+\end{itemize}
+\end{column}
+\begin{column}{.47\textwidth}
+\textbf{Demostración que interesa}
+\begin{itemize}
+\item Seleccionar paciente y episodio.
+\item Revisar y corregir.
+\item Incorporar y firmar.
+\item Detectar y recuperar fallos.
+\end{itemize}
+\end{column}
+\end{columns}
+\takeaway{Una alianza con Dedalus o una API no acredita un conector operativo con el HCIS local.}
+\sources{Inventario HCIS del proyecto, 09/09/2026: \link{https://tandemhealth.ai/es/producto/integraciones/hp-his-hp-hcis}{Tandem: HCIS}; \link{https://dictation.invoxmedical.com/software-medico/dedalus-hcis/}{Invox Dictation: HCIS}. La demostración propuesta es un requisito del proyecto.}
+\end{frame}
+
+\section{Mercado y alternativas}
+
+% 07 · 2 min
+\begin{frame}[t]{El mercado combina productos y componentes}
+\topic{Panorama de mercado}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.25\textwidth}\stat{43}{proveedores en el inventario documental.}\end{column}
+\begin{column}{.68\textwidth}
+\begin{itemize}
+\item \textbf{Uso individual:} suscripciones y acceso de prueba.
+\item \textbf{Oferta hospitalaria:} integración, soporte y contrato.
+\item \textbf{Componentes:} Corti y AWS HealthScribe permiten construir aplicaciones.
+\item \textbf{Proyectos internos:} experiencias como Quirónsalud.
+\end{itemize}
+\end{column}
+\end{columns}
+% \takeaway{AWS HealthScribe es una API: la guía limita su disponibilidad a inglés de EE. UU. y Virginia. Su inclusión amplía el inventario, sin incorporarlo a la selección corta.}
+\sources{42 proveedores revisados el 09/09/2026; AWS añadido el 17/09/2026. \link{https://digital.nhs.uk/services/ambient-scribing/ambient-voice-technology-self-certified-supplier-registry}{Registro NHS: autocertificación}; \link{https://corti.ai/}{Corti}; \link{https://docs.aws.amazon.com/transcribe/latest/dg/health-scribe.html}{AWS HealthScribe}. Muestra de mercado, no censo ni cuota de mercado.}
+\end{frame}
+
+% 08 · 2 min
+\begin{frame}[t]{Comprar, adaptar o desarrollar}
+\topic{Alternativas de implantación · responsabilidades y mantenimiento}
+\small
+\begin{tabularx}{\textwidth}{L{.20\textwidth}XX}
+\toprule
+Vía & Punto de partida & Trabajo que debe quedar cubierto \\
+\midrule
+Comprar & Producto y servicios del proveedor & Contrato, integración, evaluación y soporte acordado \\
+Adaptar código abierto & Repositorio modificable & Seguridad, configuración, conectores, pruebas y actualizaciones \\
+Desarrollar & Componentes propios o APIs & Construcción de la aplicación y operación continuada del servicio \\
+\bottomrule
+\end{tabularx}
+\takeaway{La muestra abierta revisada no acredita una alternativa lista para el hospital. Adaptar o desarrollar exige validar español, ENS y HCIS, y mantener el servicio.}
+\sources{Muestra exploratoria: \link{https://github.com/sammargolis/OpenScribe}{OpenScribe}; \link{https://github.com/bloodworks-io/phlox}{Phlox}, 18/09/2026. Sin ejecución ni auditoría; búsqueda no exhaustiva. Detalles en el guion y apoyo A3.}
+\end{frame}
+
+% 09 · 2 min
+\begin{frame}[t]{Trabajar en español requiere evidencia específica}
+\topic{Comparación de opciones · calidad clínica}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.48\textwidth}
+\textbf{Qué interesa evaluar}
+\begin{itemize}
+\item Omisiones y adiciones.
+\item Negaciones y hablantes.
+\item Fármacos y dosis.
+\item Acentos y especialidades.
+\end{itemize}
+\end{column}
+\begin{column}{.45\textwidth}
+\textbf{Ejemplo: Heidi}\par
+Preprint de simulaciones en cinco países, incluido español en Barcelona.\par\par\vspace{3mm}
+Financiado por el proveedor; sin revisión por pares.
+\end{column}
+\end{columns}
+\takeaway{Declarar soporte multilingüe orienta la búsqueda; la calidad debe comprobarse en el contexto de uso.}
+\sources{\link{https://doi.org/10.2196/64993}{Biro et al., 2025}; \link{https://doi.org/10.1007/s10916-026-02392-3}{Kerimoğlu et al., 2026}; \link{https://doi.org/10.64898/2026.08.18.26360701}{estudio de Heidi, preprint, 2026}.}
+\end{frame}
+
+\section{Evidencia disponible}
+
+% 10 · 2,5 min
+\begin{frame}[t]{El ahorro depende de qué se mide y cómo}
+\topic{Evidencia · resultados objetivos y percibidos}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.47\textwidth}
+\textbf{Tiempo registrado en las notas}\par
+UCLA · ensayo aleatorizado\par 238 médicos · consultas en inglés
+\par\vspace{3mm}
+Nabla: reducción relativa del \textbf{9,5\%} frente al control. DAX: sin diferencia significativa.
+\end{column}
+\begin{column}{.47\textwidth}
+\textbf{Tiempo por nota percibido}\par
+Tandem · estudio observacional\par Encuesta a 177 usuarios sostenidos
+\par\vspace{3mm}
+Reducción \textbf{autodeclarada del 29\%}. La selección de usuarios limita su interpretación.
+\end{column}
+\end{columns}
+\takeaway{Para el piloto interesa el ahorro neto: comparar el trabajo habitual con revisar, corregir y guardar la nota generada. Estos estudios no permiten ordenar productos por sus porcentajes.}
+\sources{\link{https://doi.org/10.1056/aioa2501000}{Lukac et al., NEJM AI, 2025}; \link{https://doi.org/10.2196/90052}{Sanmark et al., JMIR Medical Informatics, 2026}. No son medidas de pacientes adicionales atendidos.}
+\end{frame}
+
+% 11 · 1,5 min
+\begin{frame}[t]{La perspectiva del paciente también cuenta}
+\topic{Comparación de opciones · aceptación prevista}
+UC Davis: \textbf{1.893 respuestas completas} antes de la implantación.
+\par\vspace{5mm}
+\begin{center}
+\begin{tikzpicture}[x=0.12cm,y=1cm]
+\fill[teal] (0,0) rectangle (48,.7);
+\fill[muted!25] (48,0) rectangle (81,.7);
+\fill[amber!80] (81,0) rectangle (100,.7);
+\node[white] at (24,.35) {48\%};
+\node[navy] at (64.5,.35) {33\%};
+\node[white] at (90.5,.35) {19\%};
+\node[font=\small] at (24,-.35) {Favorable};
+\node[font=\small] at (64.5,-.35) {Neutral};
+\node[font=\small] at (90.5,-.35) {Desfavorable};
+\end{tikzpicture}
+\end{center}
+Expectativas de mayor atención; preocupaciones sobre privacidad y exactitud.
+\takeaway{Respuesta aproximada del 20\% de los invitados. Mide expectativas, no satisfacción ni conducta durante el uso.}
+\sources{\link{https://doi.org/10.2196/77901}{Leiserowitz et al., JMIR Medical Informatics, 2025}. Muestra de conveniencia de un centro.}
+\end{frame}
+
+\section{Condiciones de adopción}
+
+% 12 · 2 min
+\begin{frame}[t]{Datos, seguridad y calidad: qué comprobar}
+\topic{Condiciones de adopción}
+\small
+\begin{tabularx}{\textwidth}{L{.22\textwidth}X}
+\toprule
+Dimensión & Comprobación relevante \\
+\midrule
+Datos & Dónde se almacenan y procesan; quién accede; retención, subencargados y contrato. Alojamiento UE no basta para acreditar RGPD. \\
+Seguridad & ENS ALTA e ISO 27001: titular, sistema cubierto, emisor y vigencia. \\
+Funciones sanitarias & Registrar lo que dice el médico o generar una recomendación nueva: la finalidad y las funciones pueden cambiar la clasificación regulatoria. \\
+Calidad clínica & Errores, omisiones, revisión necesaria y resultados en español. \\
+\bottomrule
+\end{tabularx}
+\sources{\link{https://eur-lex.europa.eu/eli/reg/2016/679/oj}{RGPD}; \link{https://www.boe.es/eli/es/rd/2022/05/03/311/con}{ENS}; \link{https://www.iso.org/standard/27001}{ISO 27001}; \link{https://health.ec.europa.eu/document/download/b45335c5-1679-4c71-a91c-fc7a4d37f12b_en?filename=md_mdcg_2019_11_guidance_qualification_classification_software_en.pdf}{MDCG: marco europeo}. \link{https://www.tga.gov.au/products/medical-devices/software-and-artificial-intelligence-ai/overview/types-software-based-medical-devices/digital-scribes}{TGA: ejemplo australiano}, sin trasladar su clasificación a España. ENS ALTA: prioridad propuesta del proyecto.}
+\end{frame}
+
+% 13 · 2,5 min
+\begin{frame}[t]{Tres candidatos para profundizar la evaluación}
+\topic{Condiciones de adopción · preselección documental}
+\small
+\begin{tabularx}{\textwidth}{L{.18\textwidth}XX}
+\toprule
+Producto & Evidencia ENS ALTA & HCIS ambiental \\
+\midrule
+Tandem & Certificado examinado; copia pública parcial, alcance por completar & El proveedor indica «no disponible». \\
+Invox Genesis & Obtención anunciada; certificado y alcance Genesis pendientes & Compatibilidad de Dictation; Genesis no confirmado. \\
+Solventum Align & Cumplimiento declarado; certificado pendiente de verificar & Conector específico no localizado. \\
+\bottomrule
+\end{tabularx}
+\takeaway{Priorizados por ENS y presencia en España; Invox añade una referencia HCIS de dictado. La selección orienta comprobaciones: ninguno tiene acreditado todo el flujo ambiental requerido.}
+\sources{Corte: 09/09/2026. \link{https://trust.tandemhealth.ai/}{Tandem: documentación}; \link{https://tandemhealth.ai/es/producto/integraciones/hp-his-hp-hcis}{HCIS}; \link{https://www.invoxmedical.com/blog/invox-medical-refuerza-su-compromiso-con-la-seguridad-de-la-informacion-con-la-obtencion-de-la-certificacion-iso-27001-y-el-ens-nivel-alto}{Invox: ENS}; \link{https://dictation.invoxmedical.com/software-medico/dedalus-hcis/}{Dictation}; \link{https://www.solventum.com/es-es/home/health-information-technology/solutions/fluency-align/}{Align}. No localizado no significa imposibilidad técnica.}
+\end{frame}
+
+% 14 · 2,5 min
+\begin{frame}[t]{Precios de los candidatos prioritarios}
+\topic{Tarifas públicas y condiciones por presupuestar}
+\small
+\begin{tabularx}{\textwidth}{L{.16\textwidth}L{.40\textwidth}X}
+\toprule
+Producto & Precio y cobro publicados & Presupuesto pendiente \\
+\midrule
+Tandem & \textbf{Free}: gratuito.\newline \textbf{Pro}: 125 €/usuario/mes, con anualidad.\newline \textbf{Enterprise}: a medida; usuario/mes. & Enterprise, integración HCIS, implantación e impuestos. \\
+Invox Genesis & Sin tarifa ni unidad facturable públicas localizadas. & Usuarios o consumo, límites, implantación, HCIS y soporte. \\
+Solventum Align & Sin tarifa ni volumen incluido públicos localizados. & Licencias, alcance del paquete, implantación, HCIS y soporte. \\
+\bottomrule
+\end{tabularx}
+\takeaway{El coste total requiere integración, equipos, formación y soporte para el mismo escenario de actividad. Aún no hay presupuestos comparables.}
+\sources{Páginas revisadas el 18/09/2026: \link{https://tandemhealth.ai/es/producto/precios}{Tandem}; \link{https://www.invoxmedical.com/productos/generador-informes-medicos-inteligencia-artificial}{Genesis}; \link{https://www.solventum.com/es-es/home/health-information-technology/solutions/fluency-align/}{Align}. Free tiene funciones limitadas y no acredita integración HCIS.}
+\end{frame}
+
+\section{Decisión y siguientes pasos}
+
+% 15 · 3 min
+\begin{frame}[t]{Qué enseñan los despliegues}
+\topic{Resultados y consecuencias para el hospital}
+\small
+\begin{tabularx}{\textwidth}{L{.22\textwidth}X}
+\toprule
+Experiencia & Resultado y límite de interpretación \\
+\midrule
+Quirónsalud\newline España & Consulta media: 15,01 min con Scribe y 14,65 sin él; mejor experiencia percibida. Sin medidas de trabajo fuera de horario ni resultados clínicos. \\
+Permanente\newline Estados Unidos & Menor tiempo en notas y fuera de horario frente a no usuarios. Comparación observacional; capacidad asistencial adicional no demostrada. \\
+Cleveland Clinic\newline Ambience & Despliegue apoyado en gobernanza, formación y soporte. La adopción requiere organización además de licencias. \\
+\bottomrule
+\end{tabularx}
+\takeaway{Medir por separado documentación, experiencia, calidad clínica y capacidad asistencial. La mejora en una dimensión no acredita las demás.}
+\sources{\link{https://doi.org/10.3389/fdgth.2026.1874919}{Alcázar-Peral et al., 2026}; \link{https://doi.org/10.1056/CAT.25.0040}{Tierney et al., 2025}; \link{https://doi.org/10.1038/s44401-026-00144-6}{Merlino et al., 2026}. Diseños observacionales/descriptivos; Cleveland Clinic incluye coautoría del proveedor.}
+\end{frame}
+
+% 16 · 2 min
+\begin{frame}[t]{El siguiente paso puede ser una exploración acotada}
+\topic{Implicaciones para el hospital · propuesta para discusión}
+\begin{enumerate}
+\item \textbf{Definir el uso:} servicios, profesionales, equipos y beneficio prioritario.
+\item \textbf{Resolver condiciones:} datos, seguridad, demostración HCIS y presupuesto comparable.
+\item \textbf{Evaluar progresivamente:} casos comunes y, después, piloto limitado si procede.
+\end{enumerate}
+\par\vspace{3mm}
+\takeaway{La decisión inicial es qué merece la pena explorar y con qué condiciones.}
+\sources{Propuesta del informe, secciones 6–7 y apéndice F. Protocolo pendiente; opciones de diseño apoyadas en \link{https://doi.org/10.1056/aioa2501000}{Lukac et al.} y \link{https://doi.org/10.2196/64993}{Biro et al.}.}
+\end{frame}
+
+% 17 · 0,5 min
+\begin{frame}{Gracias}
+\vspace{7mm}
+{\Large Preguntas y prioridades para el hospital}
+\par\vspace{7mm}
+\begin{itemize}
+\item ¿En qué servicios tendría sentido explorar su uso?
+\item ¿Qué condiciones de datos, integración y coste son necesarias?
+\end{itemize}
+\end{frame}
+
+\appendix
+\backuptrue
+\renewcommand{\backupid}{A1}
+\begin{frame}[t,noframenumbering]{Opciones para definir una evaluación}
+\topic{Apoyo A1 · protocolo pendiente}
+\begin{itemize}
+\item \textbf{Casos comunes:} audio o simulaciones, contexto equivalente y revisión clínica independiente.
+\item \textbf{Efecto asistencial:} comparar el flujo habitual y el uso del escriba; antes/después o grupo contemporáneo según viabilidad.
+\item \textbf{Resultados:} errores residuales, tiempo completo, uso y abandono, experiencia, fallos y coste.
+\item \textbf{Decisiones previas:} muestra, formación, versiones y criterios de continuidad.
+\end{itemize}
+\takeaway{Un banco de consultas compara notas; el ahorro asistencial requiere observar el trabajo real.}
+\sources{\link{https://doi.org/10.2196/64993}{Biro et al.}; \link{https://doi.org/10.1056/aioa2501000}{Lukac et al.}; \link{https://discovery.ucl.ac.uk/10152188/3/Supplementary_appendix_1_clean.pdf}{DECIDE-AI: criterios de reporte}. Adaptación propuesta en el apéndice F del informe.}
+\end{frame}
+
+\renewcommand{\backupid}{A2}
+\begin{frame}[t,noframenumbering]{Evidencia aportada por otros proveedores}
+\topic{Apoyo A2 · evidencia, no clasificación de eficacia}
+\small
+\begin{tabularx}{\textwidth}{L{.16\textwidth}XX}
+\toprule
+Proveedor & Aportación al análisis & Límite relevante \\
+\midrule
+Heidi & Simulación que incluye español & Preprint financiado por el proveedor. \\
+Nabla & Ensayo aleatorizado con DAX y control & Un centro, inglés; versiones estudiadas. \\
+Abridge & 263 profesionales en seis sistemas; bienestar antes/después & Autodeclarado, sin control contemporáneo, coautoría del proveedor. \\
+Ambience & Despliegue a gran escala & Informe organizativo, no comparación clínica. \\
+\bottomrule
+\end{tabularx}
+\sources{\link{https://doi.org/10.64898/2026.08.18.26360701}{Heidi}; \link{https://doi.org/10.1056/aioa2501000}{Lukac et al.}; \link{https://doi.org/10.1001/jamanetworkopen.2025.34976}{Olson et al.}; \link{https://doi.org/10.1038/s44401-026-00144-6}{Merlino et al.}. Los estudios no acreditan ENS ALTA ni HCIS.}
+\end{frame}
+
+\renewcommand{\backupid}{A3}
+\begin{frame}[t,noframenumbering]{Fuentes y alcance de la revisión}
+\topic{Apoyo A3 · detalle para consulta}
+\small
+\begin{itemize}
+\item Mercado inicial: 09/09/2026. AWS: 17/09. Literatura y comprobaciones selectivas: hasta el 18/09; las fechas figuran en cada slide.
+\item Código abierto: dos repositorios explorados, sin ejecución ni auditoría. OpenScribe combina rutas locales y externas; Phlox se declara experimental. No se presentan como candidatos hospitalarios validados.
+\item Desarrollos de investigación como Y-KNOT no equivalen a una aplicación ambiental abierta y reutilizable: su código no es público.
+\end{itemize}
+\par\vspace{2mm}
+\footnotesize Codex y ChatGPT apoyaron parcialmente la búsqueda, estructuración y organización de referencias. La selección crítica y la responsabilidad sobre la versión final corresponden al autor.
+\sources{Informe y notas del proyecto; \link{https://github.com/sammargolis/OpenScribe}{OpenScribe}; \link{https://github.com/bloodworks-io/phlox}{Phlox}, consulta 18/09/2026; \link{https://doi.org/10.2196/76848}{Y-KNOT}. Guion y fuentes ampliadas en guion-presentacion.md.}
+\end{frame}
+
+\end{document}

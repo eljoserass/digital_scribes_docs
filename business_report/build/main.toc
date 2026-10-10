@@ -1,0 +1,26 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introducción}{2}{section.1}%
+\contentsline {section}{\numberline {2}Motivación y beneficios esperados}{2}{section.2}%
+\contentsline {section}{\numberline {3}Alcance de la implantación}{3}{section.3}%
+\contentsline {section}{\numberline {4}Criterios de adecuación al hospital}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Protección de datos, seguridad e integración}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Factores de comparación}{4}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Interpretación de la evidencia}{4}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Opciones y selección corta}{5}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Certificación ENS, integración con HCIS y precio}{5}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Aspectos que condicionan la preselección}{5}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Otros proveedores con evidencia relevante para la evaluación}{6}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Lecciones de despliegues y propuesta de piloto}{7}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Resultados y límites de las experiencias previas}{7}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Secuencia de trabajo propuesta}{8}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Decisiones solicitadas}{8}{section.7}%
+\contentsline {section}{Referencias bibliográficas}{10}{section*.3}%
+\contentsline {section}{\numberline {A}Certificaciones y marcos de aseguramiento: alcance y evidencia}{12}{appendix.Alph1}%
+\contentsline {section}{\numberline {B}Catálogo de proveedores y evidencia documental}{15}{appendix.Alph2}%
+\contentsline {section}{\numberline {C}Interoperabilidad con Dedalus HCIS}{33}{appendix.Alph3}%
+\contentsline {section}{\numberline {D}Condiciones económicas y transparencia de la facturación}{37}{appendix.Alph4}%
+\contentsline {section}{\numberline {E}Adquisición comercial y desarrollo propio: consideraciones técnicas}{43}{appendix.Alph5}%
+\contentsline {section}{\numberline {F}Opciones metodológicas para la evaluación}{44}{appendix.Alph6}%
+\contentsline {subsection}{\numberline {F.1}Calidad de las notas sobre casos comunes}{44}{subsection.Alph6.1}%
+\contentsline {subsection}{\numberline {F.2}Diseño para evaluar el efecto asistencial}{44}{subsection.Alph6.2}%
+\contentsline {subsection}{\numberline {F.3}Resultados y decisiones pendientes}{45}{subsection.Alph6.3}%

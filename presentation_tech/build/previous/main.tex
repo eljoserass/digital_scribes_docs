@@ -1,0 +1,503 @@
+% !TEX program = xelatex
+\documentclass[aspectratio=169,10pt]{beamer}
+\input{preamble}
+\begin{document}
+
+% 01 — 00:30
+\begin{frame}[t]
+  \vspace{4mm}
+  \irycislogo{36mm}\par\vspace{5mm}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{.52\textwidth}
+      {\color{navy}\fontsize{27}{30}\selectfont\bfseries Construir un escriba\\digital médico\par}
+      \vspace{4mm}
+      {\large De la consulta a una nota verificable\par}
+      \vspace{5mm}
+      \smallnote{Borrador técnico · 30 minutos\\Tareas, datos, modelos, evaluación y despliegue}
+    \end{column}
+    \begin{column}{.45\textwidth}
+      \begin{tikzpicture}[x=1cm,y=1cm]
+        \node[box,text width=1.65cm] (a) at (1,3.2) {Audio};
+        \node[box,text width=1.65cm] (c) at (4,3.2) {Contexto clínico};
+        \node[good,text width=2.5cm] (n) at (2.5,1.8) {Borrador de nota};
+        \node[box,text width=2.5cm] (r) at (2.5,.4) {Revisión clínica};
+        \draw[arr] (a)--(n); \draw[ctx] (c)--(n); \draw[arr] (n)--(r);
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% 02 — 01:15
+\begin{frame}{El objetivo: cerrar una nota útil con menos esfuerzo}
+  \topic{La unidad de éxito es el trabajo clínico completo.}
+  \begin{figurecanvas}[3.9]
+    \node[box,text width=2.35cm] (a) at (1.5,3) {Consulta};
+    \node[box,text width=2.35cm] (b) at (5.1,3) {Borrador};
+    \node[box,text width=2.35cm] (c) at (8.7,3) {Revisión y edición};
+    \node[good,text width=2.1cm] (d) at (12.2,3) {Nota cerrada};
+    \draw[arr] (a)--(b); \draw[arr] (b)--(c); \draw[arr] (c)--(d);
+    \draw[navy!40] (3.8,2.15)--(13.45,2.15);
+    \node[tinylabel] at (8.6,1.85) {Medir calidad, tiempo de revisión y errores que llegan a la nota};
+    \foreach \x/\n/\txt in {1.15/1/{Consulta\\y nota},3.48/2/{Evaluación\\y datos},5.81/3/{Audio y\\hablantes},8.14/4/{De contexto\\a nota},10.47/5/{Experimento\\y despliegue},12.8/6/{Siguientes\\pasos}} {
+      \node[number] at (\x,.9) {\n};
+      \node[tinylabel] at (\x,.25) {\txt};
+    }
+  \end{figurecanvas}
+  \takeaway{Pregunta técnica: ¿qué necesita el sistema para producir una nota correcta y fácil de revisar?}
+  \sources{\link{https://pmc.ncbi.nlm.nih.gov/articles/PMC6694617/}{Coiera et al., Taking note (2018)}; \link{https://doi.org/10.1093/jamia/ocaa199}{Ash et al., Safe use of the EHR (2021; escribas humanos)}.}
+\end{frame}
+
+% 03 — 02:30
+\begin{frame}{La consulta produce tres fuentes de información}
+  \topic{Ejemplo ficticio que seguiremos hasta la nota.}
+  \begin{figurecanvas}[4.1]
+    \node[box,text width=3.6cm,minimum height=2.1cm] (a) at (2.1,2.9) {\textbf{Conversación}\\[3mm]«Tos desde hace tres días.\\No he tenido fiebre».\\[2mm]Clínico: «Está en mejoría;\\revisión en siete días».};
+    \node[box,text width=3.6cm,minimum height=2.1cm] (b) at (7,2.9) {\textbf{Contexto clínico}\\[3mm]HCIS · antecedentes\\medicación · resultados\\[2mm]«Alergia a penicilina»\\registrada en 2019};
+    \node[box,text width=3.6cm,minimum height=2.1cm] (c) at (11.9,2.9) {\textbf{Observaciones}\\[3mm]Exploración, medidas\\o entrada manual\\[2mm]Temperatura medida hoy:\\36,7 °C};
+    \node[good,text width=5.6cm] (d) at (7,.6) {Información del encuentro, con su procedencia};
+    \draw[arr] (a.south)--(d.west); \draw[ctx] (b.south)--(d.north); \draw[arr] (c.south)--(d.east);
+    \node[tinylabel,anchor=west] at (7.2,1.35) {cuando está disponible};
+  \end{figurecanvas}
+  \takeaway{Una nota combina lo dicho, lo observado y el contexto relevante; cada fuente necesita interpretación.}
+  \sources{\link{https://pmc.ncbi.nlm.nih.gov/articles/PMC8075472/}{The anatomy of clinical documentation (2021)}; \link{https://arxiv.org/abs/2308.14089}{MedAlign (2023)}. Ejemplo propio.}
+\end{frame}
+
+% 04 — 04:00
+\begin{frame}{SOAP organiza hechos, valoración y decisiones}
+  \topic{Una forma habitual de estructurar la nota; las plantillas cambian entre servicios.}
+  \begin{figurecanvas}[4.25]
+    \foreach \rowY/\rowLetter/\rowName/\rowContent/\rowOrigin in {
+      3.65/S/Subjetivo/{Tos de tres días; niega fiebre.}/{Relato del paciente},
+      2.68/O/Objetivo/{Temperatura: 36,7 °C.}/{Medición de hoy},
+      1.71/A/Valoración/{En mejoría, según valoración clínica.}/{Juicio expresado por el clínico},
+      .74/P/Plan/{Revisión en siete días, indicada por el clínico.}/{Decisión expresada en consulta}} {
+      \node[number] at (.35,\rowY) {\rowLetter};
+      \node[plain,text width=1.8cm] at (1.8,\rowY) {\textbf{\rowName}};
+      \node[box,anchor=west,text width=6.7cm,minimum height=.65cm] at (3,\rowY) {\rowContent};
+      \node[tinylabel,anchor=west,text width=2.6cm,align=left] at (10.4,\rowY) {\rowOrigin};
+    }
+  \end{figurecanvas}
+  \smallnote{Contexto adicional: alergia registrada en 2019, pendiente de confirmar. Puede aparecer en una sección específica de antecedentes/alergias.}
+  \sources{\link{https://www.ncbi.nlm.nih.gov/books/NBK482263/}{SOAP Notes, StatPearls}; \link{https://pmc.ncbi.nlm.nih.gov/articles/PMC8075472/}{The anatomy of clinical documentation}. Ejemplo ficticio; A y P documentan al clínico.}
+\end{frame}
+
+% 05 — 05:15
+\begin{frame}{Una pipeline con entradas y salidas explícitas}
+  \topic{Las cajas representan funciones: un modelo puede resolver varias.}
+  \begin{figurecanvas}[4.3]
+    \node[box,text width=1.05cm] (a) at (.75,2.5) {Audio};
+    \node[box,text width=1.7cm] (b) at (3.1,2.5) {ASR +\\hablantes};
+    \node[box,text width=1.9cm] (c) at (6,2.5) {Comprensión\\clínica};
+    \node[good,text width=1.8cm] (d) at (9,2.5) {Generación\\de nota};
+    \node[box,text width=1.8cm] (e) at (12,2.5) {Verificación};
+    \draw[arr] (a)--(b); \draw[arr] (b)--(c); \draw[arr] (c)--(d); \draw[arr] (d)--(e);
+    \node[box,text width=3.2cm] (h) at (7.5,4) {Contexto clínico recuperado};
+    \draw[ctx] (h.south)--(c.north); \draw[ctx] (h.south)--(d.north);
+    \node[box,text width=3.2cm] (m) at (4.5,.6) {Observaciones / entrada manual};
+    \draw[arr] (m.north)--(c.south);
+    \node[good,text width=1.6cm] (r) at (9,.6) {Clínico};
+    \node[box,text width=1.6cm] (f) at (12,.6) {HCIS};
+    \draw[arr] (e.south)--++(0,-.65)-|(r.north); \draw[arr] (r)--(f);
+    \node[tinylabel,text width=3.6cm] at (2.6,1.5) {Texto + tiempos + hablantes};
+    \node[tinylabel] at (7.5,1.5) {Hechos con fuente};
+  \end{figurecanvas}
+  \sources{Síntesis propuesta a partir de \link{https://pmc.ncbi.nlm.nih.gov/articles/PMC6694617/}{Taking note}; \link{https://doi.org/10.1038/s41746-025-01622-1}{marco de evaluación clínica (2025)}; \link{https://arxiv.org/abs/2308.14089}{MedAlign}. HCIS: sistema de información clínica.}
+\end{frame}
+
+\setpart{2/6 · Evaluación y datos}
+% 06 — 06:45
+\begin{frame}{Cada nivel responde a una pregunta distinta}
+  \topic{Separar diagnóstico del componente, calidad de la nota y utilidad en consulta.}
+  \begin{figurecanvas}[4.2]
+    \node[box,text width=4.1cm,minimum height=.9cm] (a) at (2.5,3.4) {\textbf{Componente}\\¿Texto y hablantes?};
+    \node[box,text width=4.1cm,minimum height=.9cm] (b) at (2.5,1.95) {\textbf{Nota completa}\\¿Hechos y omisiones?};
+    \node[good,text width=4.1cm,minimum height=.9cm] (c) at (2.5,.5) {\textbf{Uso clínico}\\¿Facilita cerrar la nota?};
+    \draw[arr] (a)--(b); \draw[arr] (b)--(c);
+    \node[plain,anchor=west,text width=8cm] at (5.5,3.4) {WER / CER · DER / JER · cpWER / tcpWER\\\textcolor{muted}{El error depende de la normalización y del protocolo.}};
+    \node[plain,anchor=west,text width=8cm] at (5.5,1.95) {Omisiones · adiciones sin soporte · contradicciones\\\textcolor{muted}{Hechos clínicos, negación, atribución y temporalidad.}};
+    \node[plain,anchor=west,text width=8cm] at (5.5,.5) {Edición y revisión · tiempo total · incidencias\\\textcolor{muted}{Con el flujo y la integración que se usarán.}};
+  \end{figurecanvas}
+  \takeaway{La \textbf{loss} guía el entrenamiento. Las \textbf{métricas} y la revisión clínica comprueban qué se consiguió.}
+  \sources{\link{https://github.com/jitsi/jiwer}{JiWER}; \link{https://github.com/nryant/dscore}{dscore}; \link{https://github.com/fgnt/meeteval}{MeetEval}; \link{https://aclanthology.org/2022.acl-long.394/}{Moramarco et al. (2022)}.}
+\end{frame}
+
+% 07 — 08:15
+\begin{frame}{Del benchmark general al caso clínico español}
+  \topic{Primero referencias estándar; después datos que se acerquen al uso previsto.}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{.32\textwidth}
+      \begin{block}{\small 1 · Referencias generales}
+        \small\textbf{LibriSpeech}\par 960 h de entrenamiento ASR; inglés leído.\par\vspace{3mm}
+        \textbf{AMI}\par Unas 100 h de reuniones; audio y hablantes.\par\vspace{3mm}
+        \textbf{FLEURS}\par 102 idiomas, unas 12 h/idioma; incluye español.
+      \end{block}
+    \end{column}
+    \begin{column}{.32\textwidth}
+      \begin{block}{\small 2 · Consulta clínica en inglés}
+        \small\textbf{PriMock57}\par 57 consultas simuladas; 8 h 38 min; audio, turnos y notas.\par\vspace{3mm}
+        \textbf{ACI-Bench}\par 207 encuentros simulados; transcripciones y notas; sin audio público.\par\vspace{3mm}
+        \textbf{MTS-Dialog}\par 1.701 pares breves diálogo–sección.
+      \end{block}
+    \end{column}
+    \begin{column}{.32\textwidth}
+      \begin{block}{\small 3 · Aproximación al español clínico}
+        \small\textbf{TEME-v1}\par 90 diálogos, 2.330 turnos, 3,96 h de audio TTS; dos voces.\par\vspace{3mm}
+        Útil para explorar ASR; sin tiempos de referencia para evaluar DER directamente.\par\vspace{3mm}
+        \textbf{Conjunto local propuesto}\par Consultas y notas revisadas del escenario de uso.
+      \end{block}
+    \end{column}
+  \end{columns}
+  \sources{\link{https://www.openslr.org/12}{LibriSpeech}; \link{https://groups.inf.ed.ac.uk/ami/corpus/}{AMI}; \link{https://arxiv.org/abs/2205.12446}{FLEURS}; \link{https://github.com/babylonhealth/primock57}{PriMock57}; \link{https://github.com/microsoft/clinical_visit_note_summarization_corpus}{ACI}; \link{https://github.com/abachaa/MTS-Dialog}{MTS}; \link{https://zenodo.org/records/17280661}{TEME}. Horas TEME: suma local de los 90 MP3.}
+\end{frame}
+
+\setpart{3/6 · Audio y hablantes}
+% 08 — 09:15
+\begin{frame}{Del micrófono a una representación acústica}
+  \topic{El modelo recibe una señal muestreada o características derivadas de ella.}
+  \vspace{1mm}
+  \centerline{\includegraphics[width=.92\textwidth]{figures/signal_features.pdf}}
+  \vspace{1mm}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{.31\textwidth}\small\textbf{Captura}\par Muestreo, canales, ganancia, ruido y pérdidas.\end{column}
+    \begin{column}{.31\textwidth}\small\textbf{Ventanas temporales}\par Ejemplo: 25 ms de ventana; avance de 10 ms.\end{column}
+    \begin{column}{.31\textwidth}\small\textbf{Representación}\par Log-Mel, o una representación aprendida desde la onda.\end{column}
+  \end{columns}
+  \takeaway{La preparación del audio debe coincidir con lo que espera el modelo.}
+  \sources{\link{https://web.stanford.edu/~jurafsky/slp3/15.pdf}{Jurafsky y Martin, cap. 15}; \link{https://arxiv.org/abs/2212.04356}{Whisper}. Figura propia con señal sintética; no representa voz de un paciente.}
+\end{frame}
+
+% 09 — 11:00
+\begin{frame}{ASR: tres formas de aprender audio→texto}
+  \topic{Arquitectura, alineamiento y objetivo de entrenamiento son decisiones relacionadas.}
+  \begin{figurecanvas}[3.8]
+    \foreach \x/\name in {2.1/CTC,7/{Encoder–decoder},11.9/{RNN-Transducer}} {
+      \node[plain,font=\bfseries] at (\x,3.65) {\name};
+    }
+    \node[box,text width=3.1cm] (a) at (2.1,2.8) {Encoder acústico};
+    \node[good,text width=3.1cm] (b) at (2.1,1.55) {Tokens por frame\\+ símbolo vacío};
+    \draw[arr] (a)--(b);
+    \node[tinylabel,text=ink,text width=4cm] at (2.1,.35) {Suma sobre alineamientos válidos\\$\mathcal{L}_{\mathrm{CTC}}=-\log\sum_{\pi:\,B(\pi)=y}p(\pi\mid x)$};
+    \node[box,text width=3.1cm] (c) at (7,2.8) {Encoder acústico};
+    \node[good,text width=3.7cm] (d) at (7,1.55) {Decoder autoregresivo\\audio + tokens previos};
+    \draw[arr] (c)--(d);
+    \node[tinylabel,text=ink,text width=4.2cm] at (7,.35) {Entropía cruzada / NLL\\$\mathcal{L}_{\mathrm{CE}}=-\sum_t\log p(y_t\mid y_{<t},x)$};
+    \node[box,text width=3.1cm] (e) at (11.9,2.8) {Encoder + predictor};
+    \node[good,text width=3.1cm] (f) at (11.9,1.55) {Red conjunta\\tiempo × tokens};
+    \draw[arr] (e)--(f);
+    \node[tinylabel,text=ink,text width=3.7cm] at (11.9,.35) {Loss transducer: marginalizar\\alineamientos audio–texto};
+  \end{figurecanvas}
+  \smallnote{Whisper usa encoder–decoder. HuBERT aprende representaciones con predicción enmascarada; necesita adaptación para ASR. Conformer describe un encoder.}
+  \sources{\link{https://www.cs.toronto.edu/~graves/icml_2006.pdf}{CTC}; \link{https://arxiv.org/abs/1211.3711}{RNN-T}; \link{https://arxiv.org/abs/2212.04356}{Whisper}; \link{https://arxiv.org/abs/2106.07447}{HuBERT}; \link{https://arxiv.org/abs/2005.08100}{Conformer}.}
+\end{frame}
+
+% 10 — 12:30
+\begin{frame}{El mismo WER puede ocultar errores muy distintos}
+  \topic{Referencia: «el paciente no refiere fiebre desde ayer» · 7 palabras.}
+  \begin{figurecanvas}[3.75]
+    \node[plain,anchor=west] at (.2,3.4) {\textbf{A · Sustitución}};
+    \node[box,anchor=west,text width=8.7cm,align=left] at (.2,2.65) {\textcolor{warn}{\textbf{este}} paciente no refiere fiebre desde ayer};
+    \node[plain,anchor=west] at (.2,1.7) {\textbf{B · Omisión de una negación}};
+    \node[alert,anchor=west,text width=8.7cm,align=left] at (.2,.95) {el paciente \textcolor{warn}{\textbf{[---]}} refiere fiebre desde ayer};
+    \node[good,text width=3cm,minimum height=1.8cm] at (12,2) {$\mathrm{WER}=\frac{S+D+I}{N}$\\[4mm]Ambos: $1/7=0{,}143$\\14,3\,\%};
+  \end{figurecanvas}
+  \takeaway{Añadir revisión de entidades, negaciones, dosis, fechas y su impacto clínico. El WER sigue siendo útil para diagnosticar ASR.}
+  \sources{Definición y cálculo: \link{https://github.com/jitsi/jiwer}{JiWER}; evaluación médica: \link{https://arxiv.org/abs/2406.12387}{Medical ASR benchmark (2024)}; \link{https://doi.org/10.65109/RHNT7438}{TEME}. Ejemplo propio.}
+\end{frame}
+
+% 11 — 13:45
+\begin{frame}{Voz, palabras y rol son etiquetas diferentes}
+  \topic{Un identificador de hablante no identifica por sí mismo a una persona ni su rol clínico.}
+  \begin{figurecanvas}[4.2]
+    \node[plain,anchor=west] at (.1,3.8) {\textbf{1. Quién habla y cuándo}};
+    \draw[arr] (2,3.05)--(13.5,3.05);
+    \foreach \x/\t in {2/0,4.7/2,7.4/4,10.1/6,12.8/8}{\node[tinylabel] at (\x,2.8){\t\ s};}
+    \node[tinylabel,anchor=east] at (1.8,2.3) {Voz S1};
+    \node[tinylabel,anchor=east] at (1.8,1.75) {Voz S2};
+    \fill[navy!65,rounded corners=2pt] (2.2,2.12) rectangle (5.9,2.48);
+    \fill[navy!65,rounded corners=2pt] (9.5,2.12) rectangle (12.9,2.48);
+    \fill[green,rounded corners=2pt] (5.4,1.57) rectangle (10,1.93);
+    \draw[warn,dashed] (5.4,1.45) rectangle (5.9,2.6);
+    \draw[warn,dashed] (9.5,1.45) rectangle (10,2.6);
+    \node[tinylabel,text=warn] at (7.4,1.22) {solapamientos};
+    \node[box,text width=5.5cm] at (3.2,.4) {\textbf{2. Qué dice}\\S1: «¿Ha tenido fiebre?»};
+    \node[good,text width=5.5cm] at (10.4,.4) {\textbf{3. Qué rol tiene}\\S1: clínico · S2: paciente, tras validarlo};
+  \end{figurecanvas}
+  \sources{\link{https://arxiv.org/abs/2012.01477}{DIHARD III}; \link{https://github.com/nryant/dscore}{dscore}. Línea temporal ilustrativa; el rol es una etiqueta adicional.}
+\end{frame}
+
+% 12 — 15:15
+\begin{frame}{Diarización: agrupar voces o predecir actividad}
+  \topic{Dos familias; ruido, turnos cortos y solapamiento ponen a prueba ambas.}
+  \begin{figurecanvas}[4.1]
+    \node[plain,anchor=west] at (.2,3.9) {\textbf{Modular}};
+    \node[box,text width=2.65cm] (a) at (1.7,3) {Voz / segmentación};
+    \node[box,text width=2.65cm] (b) at (5.4,3) {Embeddings de voz};
+    \node[good,text width=2.65cm] (c) at (9.1,3) {Clustering};
+    \node[tinylabel,text width=2cm] (d) at (12.55,3) {S1, S2…\\por intervalo};
+    \draw[arr] (a)--(b); \draw[arr] (b)--(c); \draw[arr] (c)--(d);
+    \node[plain,anchor=west] at (.2,1.9) {\textbf{End-to-end neural diarization (EEND)}};
+    \node[box,text width=2.65cm] (e) at (1.7,.95) {Secuencia acústica};
+    \node[box,text width=2.65cm] (f) at (5.4,.95) {Red temporal};
+    \node[good,text width=3.6cm] (g) at (10.05,.95) {Actividad por frame y hablante\\S1: 1 1 0 1 · S2: 0 1 1 0};
+    \draw[arr] (e)--(f); \draw[arr] (f)--(g);
+  \end{figurecanvas}
+  \smallnote{\textbf{Loss EEND:} BCE con asignación de hablantes invariante a permutación (PIT). \textbf{Powerset:} CE sobre combinaciones de hablantes activos. \textbf{Evaluación:} DER/JER; fijar collar y tratamiento del solapamiento.}
+  \sources{\link{https://arxiv.org/abs/1909.05952}{Fujita et al., EEND (2019)}; \link{https://www.isca-archive.org/interspeech_2023/plaquet23_interspeech.html}{Plaquet y Bredin, powerset (2023)}; \link{https://huggingface.co/pyannote/speaker-diarization-community-1}{pyannote}; \link{https://arxiv.org/abs/2110.04410}{TitaNet}.}
+\end{frame}
+
+% 13 — 16:30
+\begin{frame}{Reconocer texto y hablantes en una misma salida}
+  \topic{La transcripción diarizada puede ser modular o conjunta.}
+  \begin{figurecanvas}[4.05]
+    \node[box,text width=1.3cm] (a) at (.9,2.65) {Audio};
+    \node[box,text width=3cm] (b) at (4.4,3.45) {ASR + diarización\\+ alineación};
+    \node[good,text width=3cm] (c) at (4.4,1.95) {Modelo conjunto\\ej.: MOSS*};
+    \node[box,text width=5.7cm,align=left] (d) at (10.8,2.65) {\texttt{[00:02--00:04] [S1]}\\«¿Ha tenido fiebre?»\\[2mm]\texttt{[00:04--00:06] [S2]}\\«No he tenido fiebre».};
+    \draw[arr] (a.east)--++(.4,0)|-(b.west); \draw[arr] (a.east)--++(.4,0)|-(c.west);
+    \draw[arr] (b.east)--(d.west); \draw[arr] (c.east)--(d.west);
+    \node[tinylabel,text width=13cm] at (7,.55) {cpWER: texto con atribución de hablante · tcpWER: añade restricciones temporales\\Un buen resultado general necesita validación clínica en español.};
+  \end{figurecanvas}
+  \smallnote{* MOSS-Transcribe-Diarize. La serialización concreta depende del modelo; SOT es otra línea de reconocimiento multihablante.}
+  \sources{\link{https://arxiv.org/abs/2601.01554}{MOSS-Transcribe-Diarize (2026)}; \link{https://www.isca-archive.org/interspeech_2020/kanda20b_interspeech.html}{Kanda et al., SOT (2020)}; \link{https://github.com/fgnt/meeteval}{MeetEval}. Salida ilustrativa.}
+\end{frame}
+
+\setpart{4/6 · De contexto a nota}
+% 14 — 18:00
+\begin{frame}{Recuperar contexto exige paciente, fecha y procedencia}
+  \topic{Más texto disponible implica más decisiones sobre relevancia y vigencia.}
+  \begin{figurecanvas}[4.15]
+    \node[box,text width=3.7cm,align=left] (a) at (2.1,3.35) {Paciente A · 2021\\«Medicación X activa»};
+    \node[box,text width=3.7cm,align=left] (b) at (2.1,2.05) {Paciente A · 2025\\«Se suspende X»};
+    \node[alert,text width=3.7cm,align=left] (c) at (2.1,.75) {Paciente B · 2026\\\textbf{Excluir: otro paciente}};
+    \node[box,text width=2.5cm] (d) at (6.6,2.7) {Filtrar identidad\\y encuentro};
+    \node[box,text width=2.5cm] (e) at (10.7,2.7) {Recuperar\\y reconciliar};
+    \node[good,text width=6.5cm] (f) at (9,.7) {Hecho + fuente + fecha + estado\\Conflicto sin resolver → revisión};
+    \draw[ctx] (a.east)--(d.west); \draw[ctx] (b.east)--(d.west);
+    \draw[arr] (d)--(e); \draw[arr] (e.south)--(f.north);
+  \end{figurecanvas}
+  \takeaway{Evaluar recuperación (Recall@k / nDCG) y uso del contexto: paciente correcto, fecha, soporte y contradicciones.}
+  \sources{\link{https://arxiv.org/abs/2308.14089}{MedAlign}; \link{https://arxiv.org/abs/2004.04906}{DPR}; \link{https://arxiv.org/abs/2005.11401}{RAG}; \link{https://hl7.org/fhir/R4/provenance.html}{FHIR Provenance}. Ejemplo y diseño propuestos.}
+\end{frame}
+
+% 15 — 19:15
+\begin{frame}{Generar una nota también exige seleccionar información}
+  \topic{Dos estrategias de modelado para pasar de diálogo y contexto a documentación.}
+  \begin{figurecanvas}[4.2]
+    \node[box,text width=2.55cm] (a) at (1.6,2.1) {Diálogo diarizado\\+ contexto\\+ observaciones};
+    \node[good,text width=4cm] (b) at (7,3.35) {Generación directa\\T5 / BART / LLM};
+    \node[box,text width=2.35cm] (c) at (5.7,1.25) {Seleccionar\\y agrupar hechos};
+    \node[box,text width=2.35cm] (d) at (9,1.25) {Generar\\por sección};
+    \node[good,text width=1.75cm] (e) at (12.9,2.1) {Nota\\SOAP};
+    \draw[arr] (a.north)|-(b.west); \draw[arr] (b.east)-|(e.north);
+    \draw[arr] (a.east)--++(.35,0)|-(c.west); \draw[arr] (c)--(d); \draw[arr] (d.east)-|(e.south);
+    \node[tinylabel,text width=9.5cm] at (7,.15) {Entidades · negación · sujeto · temporalidad · relevancia · sección};
+  \end{figurecanvas}
+  \takeaway{Una representación intermedia facilita inspeccionar qué se selecciona; también puede perder información. Hay que comparar ambas rutas.}
+  \sources{\link{https://jmlr.org/papers/v21/20-074.html}{T5}; \link{https://aclanthology.org/2020.acl-main.703/}{BART}; \link{https://aclanthology.org/2021.acl-long.384/}{CLUSTER2SENT}; \link{https://www.nature.com/articles/s41597-023-02487-3}{ACI-Bench}.}
+\end{frame}
+
+% 16 — 20:45
+\begin{frame}{Entrenar generación: del token al resumen candidato}
+  \topic{Caso de estudio: Singh et al. (Nuance, 2023), sobre transcripción → nota.}
+  \begin{figurecanvas}[3.85]
+    \node[box,text width=3.1cm] (a) at (1.9,2.5) {Diálogo transcrito\\y diarizado};
+    \node[box,text width=3.1cm] (b) at (6.6,2.5) {Seq2seq\\Transformer};
+    \node[good,text width=3.3cm] (c) at (11.8,3.15) {Referencia\\token a token\\\textbf{CE / NLL}};
+    \node[good,text width=3.3cm] (d) at (11.8,1.6) {Resúmenes candidatos\\\textbf{Ranking tipo BRIO}};
+    \draw[arr] (a)--(b); \draw[arr] (b.east)--++(.45,0)|-(c.west); \draw[arr] (b.east)--++(.45,0)|-(d.west);
+    \node[plain,font=\large] at (7,.4) {$\mathcal{L}=\mathcal{L}_{\mathrm{CE}}+\lambda\,\mathcal{L}_{\mathrm{ranking}}$};
+  \end{figurecanvas}
+  \smallnote{Unos 900.000 encuentros privados en inglés; ranking basado en ROUGE-L. Otros trabajos ponderan términos médicos o modelan negación. Ninguna de estas losses garantiza fidelidad clínica.}
+  \sources{\link{https://aclanthology.org/2023.clinicalnlp-1.18/}{Singh et al. (2023)}; \link{https://aclanthology.org/2022.acl-long.207/}{BRIO}; \link{https://aclanthology.org/2022.findings-emnlp.349/}{MedicalSum}; \link{https://aclanthology.org/2020.findings-emnlp.335/}{Dr. Summarize}. Fórmula esquemática.}
+\end{frame}
+
+% 17 — 22:15
+\begin{frame}{Verificar hechos y buscar omisiones}
+  \topic{Dos direcciones: nota → evidencia y evidencia relevante → nota.}
+  \begin{figurecanvas}[4.05]
+    \node[plain,anchor=west,font=\bfseries] at (.2,3.7) {Afirmación de la nota};
+    \node[plain,anchor=west,font=\bfseries] at (7.6,3.7) {Comprobación};
+    \node[box,anchor=west,text width=5.5cm,align=left] (a) at (.2,2.9) {«Niega fiebre»};
+    \node[good,anchor=west,text width=5.6cm,align=left] (b) at (7.6,2.9) {Soporte: lo refiere el paciente};
+    \node[box,anchor=west,text width=5.5cm,align=left] (c) at (.2,1.85) {«Toma actualmente X»};
+    \node[alert,anchor=west,text width=5.6cm,align=left] (d) at (7.6,1.85) {Conflicto: figura suspendida en el contexto};
+    \node[box,anchor=west,text width=5.5cm,align=left] (e) at (.2,.8) {«Auscultación normal»};
+    \node[alert,anchor=west,text width=5.6cm,align=left] (f) at (7.6,.8) {Sin soporte en las entradas disponibles};
+    \draw[arr] (a)--(b); \draw[arr] (c)--(d); \draw[arr] (e)--(f);
+  \end{figurecanvas}
+  \takeaway{Revisar también qué falta: p. ej., ¿se conservó el seguimiento indicado? Un verificador automático necesita evaluación propia.}
+  \sources{\link{https://arxiv.org/abs/2501.16672}{VeriFact}; \link{https://github.com/som-shahlab/factehr}{FactEHR}; \link{https://aclanthology.org/2025.emnlp-industry.104/}{Evaluación mediante checklists (2025)}. Ejemplos ficticios.}
+\end{frame}
+
+% 18 — 23:30
+\begin{frame}{Un fallo temprano puede cambiar la nota final}
+  \topic{Propagación ilustrativa: una transcripción errónea puede producir una nota muy fluida.}
+  \begin{figurecanvas}[4.1]
+    \node[box,text width=2.5cm] (a) at (1.6,2) {Audio\\«No he tenido fiebre»};
+    \node[good,text width=3.2cm] (b) at (6.5,3.15) {Transcripción de referencia\\«No he tenido fiebre»};
+    \node[alert,text width=3.2cm] (c) at (6.5,.95) {ASR con omisión\\«He tenido fiebre»};
+    \node[good,text width=3cm] (d) at (11.85,3.15) {Nota posible\\«Niega fiebre»};
+    \node[alert,text width=3cm] (e) at (11.85,.95) {Nota posible\\«Refiere fiebre»};
+    \draw[arr] (a.north)|-(b.west); \draw[arr] (a.south)|-(c.west);
+    \draw[arr] (b)--node[tinylabel,above]{mismo}(d);
+    \draw[arr] (c)--node[tinylabel,above]{generador}(e);
+  \end{figurecanvas}
+  \takeaway{Comparar generación con transcripción de referencia y con ASR ayuda a estimar cuánto error viene de la entrada.}
+  \sources{\link{https://proceedings.mlr.press/v333/latif26a.html}{Latif et al., Robust SOAP (2026)}; \link{https://doi.org/10.1038/s41746-025-01622-1}{Marco de evaluación clínica (2025)}. Esquema causal propuesto; sin resultados experimentales.}
+\end{frame}
+
+\setpart{5/6 · Experimento y despliegue}
+% 19 — 25:00
+\begin{frame}{Un experimento común permite localizar los fallos}
+  \topic{Propuesta: mantener casos y generador; variar una entrada cada vez.}
+  \vspace{1mm}
+  {\small\renewcommand{\arraystretch}{1.05}
+  \begin{tabularx}{\textwidth}{L{.5cm}XXX L{3.2cm}}
+    \toprule
+    & \textbf{Texto} & \textbf{Hablantes} & \textbf{Contexto} & \textbf{Comparación}\\
+    \midrule
+    A & Referencia & Referencia & Validado & Entradas revisadas\\
+    B & ASR & Referencia & Validado & A→B: efecto de ASR\\
+    C & ASR & Predichos & Validado & B→C: atribución de hablante\\
+    D & ASR & Predichos & Recuperado & C→D: recuperación/contexto\\
+    \bottomrule
+  \end{tabularx}}
+  \vspace{3mm}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{.47\textwidth}\small\textbf{Datos separados}\par Entrenamiento / ajuste / test por encuentro y paciente; controlar hablantes repetidos.\end{column}
+    \begin{column}{.49\textwidth}\small\textbf{Evaluación compartida}\par Revisión clínica ciega cuando sea viable: errores, edición y tiempo.\end{column}
+  \end{columns}
+  \sources{Diseño propuesto, inspirado en \link{https://proceedings.mlr.press/v333/latif26a.html}{Robust SOAP}; \link{https://aclanthology.org/2022.acl-long.394/}{Moramarco et al.}; \link{https://doi.org/10.1038/s41746-025-01622-1}{evaluación por etapas}. Requiere referencias alineadas; las diferencias dependen del resto de la configuración.}
+\end{frame}
+
+% 20 — 26:15
+\begin{frame}{Entrenamiento y ejecución tienen restricciones distintas}
+  \topic{Adaptar un modelo y servirlo en consulta son dos procesos diferentes.}
+  \begin{figurecanvas}[4.1]
+    \node[box,text width=3.4cm,minimum height=2.4cm] (a) at (2.1,2.55) {\textbf{Entrenar / adaptar}\\[3mm]Datos y etiquetas\\Loss y validación\\GPU, memoria y tiempo\\[2mm]Fine-tuning / LoRA, si procede};
+    \node[good,text width=3.4cm,minimum height=2.4cm] (b) at (7,2.55) {\textbf{Artefacto versionado}\\[3mm]Pesos + tokenizer\\Preprocesado + prompt\\Decodificación\\Precisión / cuantización};
+    \node[box,text width=3.4cm,minimum height=2.4cm] (c) at (11.9,2.55) {\textbf{Ejecutar}\\[3mm]Dispositivo y motor\\Latencia y concurrencia\\Memoria disponible\\[2mm]Privacidad y conectividad};
+    \draw[arr] (a)--(b); \draw[arr] (b)--(c);
+    \node[tinylabel,text width=12cm] at (7,.45) {Primero medir un modelo disponible; adaptar después para un error o una necesidad concreta.};
+  \end{figurecanvas}
+  \sources{\link{https://arxiv.org/abs/2106.09685}{LoRA}; \link{https://github.com/SYSTRAN/faster-whisper}{faster-whisper}; \link{https://github.com/ggml-org/whisper.cpp}{whisper.cpp}; \link{https://github.com/vllm-project/vllm}{vLLM}. Diseño propuesto.}
+\end{frame}
+
+% 21 — 27:30
+\begin{frame}{Arquitectura propuesta para un prototipo local}
+  \topic{Procesamiento en infraestructura del centro; interfaces y conectores por concretar.}
+  \begin{figurecanvas}[4.35]
+    \draw[rounded corners=4pt,fill=pale,draw=navy!25] (3.45,.45) rectangle (10.3,4.2);
+    \node[tinylabel,anchor=west] at (3.65,3.95) {INFRAESTRUCTURA DEL CENTRO};
+    \node[box,fill=white,text width=2.35cm] (a) at (1.5,3) {Web / móvil\\micrófono};
+    \node[box,fill=white,text width=2.45cm] (b) at (5.2,3) {Ingesta de audio\\+ ASR / hablantes};
+    \node[good,text width=2.25cm] (c) at (8.8,3) {Generación\\+ verificación};
+    \node[box,fill=white,text width=2.45cm] (d) at (8.8,1.1) {Contexto filtrado\\+ observaciones};
+    \node[box,text width=2.05cm] (e) at (12.75,3) {Revisión\\del clínico};
+    \node[box,text width=2.05cm] (f) at (12.75,1.1) {HCIS};
+    \draw[arr] (a)--(b); \draw[arr] (b)--(c); \draw[arr] (c)--(e);
+    \draw[arr] (e)--node[tinylabel,right]{guardar}(f);
+    \draw[ctx] (f)--node[tinylabel,above]{lectura}(d); \draw[ctx] (d)--(c);
+    \node[tinylabel,text width=2.9cm] at (1.5,1.6) {Paciente y episodio\\confirmados};
+    \node[tinylabel,text width=2.5cm] at (5.2,1.2) {Versiones, fallos,\\tiempos y recursos};
+  \end{figurecanvas}
+  \smallnote{Captura: permisos, canales y cortes. Transporte: p. ej., WebRTC o WebSocket seguro según el flujo. Definir qué se conserva y durante cuánto tiempo.}
+  \sources{\link{https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia}{getUserMedia}; \link{https://www.w3.org/TR/webrtc/}{WebRTC}; \link{https://hl7.org/fhir/R4/documentreference.html}{FHIR DocumentReference}. Esquema propuesto; no presupone un conector HCIS disponible.}
+\end{frame}
+
+% 22 — 28:15
+\begin{frame}{Medir con la configuración que se desplegará}
+  \topic{El modelo evaluado incluye su preprocesado, motor, precisión y hardware.}
+  \begin{figurecanvas}[4.15]
+    \node[box,text width=2.2cm] (a) at (1.45,2.4) {Mismos casos\\y referencias};
+    \node[box,text width=3.6cm] (b) at (6.2,3.35) {Configuración A\\motor + dispositivo + FP16};
+    \node[box,text width=3.6cm] (c) at (6.2,1.45) {Configuración B\\motor + dispositivo + INT8*};
+    \node[good,text width=3.35cm,minimum height=2.5cm] (d) at (11.9,2.4) {\textbf{Comparación}\\[3mm]Calidad y errores clínicos\\Latencia p50 / p95\\Factor de tiempo real\\Memoria y concurrencia};
+    \draw[arr] (a.east)--++(.4,0)|-(b.west); \draw[arr] (a.east)--++(.4,0)|-(c.west);
+    \draw[arr] (b.east)--(d.west); \draw[arr] (c.east)--(d.west);
+    \node[tinylabel,text width=12cm] at (7,.25) {* Si está soportado. Cambiar precisión o motor puede cambiar la salida: medir, no asumir equivalencia.};
+  \end{figurecanvas}
+  \sources{\link{https://github.com/SYSTRAN/faster-whisper}{faster-whisper}; \link{https://github.com/ggml-org/whisper.cpp}{whisper.cpp}. Protocolo propuesto; sin mediciones de rendimiento todavía.}
+\end{frame}
+
+\setpart{6/6 · Siguientes pasos}
+% 23 — 29:15
+\begin{frame}{Siguientes pasos: un baseline y evidencia comparable}
+  \topic{Propuesta de trabajo, antes de decidir qué adaptar o qué proveedor elegir.}
+  \begin{figurecanvas}[4.2]
+    \foreach \x/\n in {1.6/1,5.2/2,8.8/3,12.4/4}{\node[number] at (\x,3.75){\n};}
+    \node[box,text width=2.65cm,minimum height=1.8cm] (a) at (1.6,2.3) {\textbf{Caso de uso}\\[3mm]Especialidad, idioma,\\plantilla y referencias};
+    \node[box,text width=2.65cm,minimum height=1.8cm] (b) at (5.2,2.3) {\textbf{Baseline}\\[3mm]Pipeline local;\\candidatos accesibles};
+    \node[box,text width=2.65cm,minimum height=1.8cm] (c) at (8.8,2.3) {\textbf{Comparación}\\[3mm]Mismos casos;\\errores y revisión};
+    \node[good,text width=2.65cm,minimum height=1.8cm] (d) at (12.4,2.3) {\textbf{Piloto supervisado}\\[3mm]Flujo real, integración\\y seguimiento};
+    \draw[arr] (a)--(b); \draw[arr] (b)--(c); \draw[arr] (c)--(d);
+    \node[tinylabel,text width=12cm] at (7,.55) {Para comparar proveedores: acceso viable tras revisar seguridad, protección de datos, coste e integración HCIS.};
+  \end{figurecanvas}
+  \takeaway{El conjunto de evaluación debe servir tanto al prototipo local como a los candidatos comerciales.}
+  \sources{Plan propuesto. Criterios técnicos apoyados en \link{https://doi.org/10.1038/s41746-025-01622-1}{evaluación clínica por etapas}; \link{https://aclanthology.org/2022.acl-long.394/}{evaluación humana de notas}.}
+\end{frame}
+
+% 24 — 30:00
+\begin{frame}{El primer entregable es una evaluación reproducible}
+  \topic{Un baseline en español con casos revisados y errores que podamos explicar.}
+  \begin{figurecanvas}[3.6]
+    \node[box,text width=3.55cm,minimum height=2cm] at (2.1,2.2) {\textbf{Entradas trazables}\\[4mm]Audio + hablantes\\Contexto + observaciones\\Referencia clínica};
+    \node[box,text width=3.55cm,minimum height=2cm] at (7,2.2) {\textbf{Errores localizables}\\[4mm]Palabras y atribución\\Hechos, omisiones y soporte\\Carga de revisión};
+    \node[good,text width=3.55cm,minimum height=2cm] at (11.9,2.2) {\textbf{Ejecución reproducible}\\[4mm]Modelos y prompts\\Motor y hardware\\Mismas condiciones};
+    \node[plain,font=\large\bfseries,text=navy] at (7,.4) {La siguiente decisión se toma sobre fallos observados.};
+  \end{figurecanvas}
+  \smallnote{Después: decidir qué mejorar, qué comprar y qué merece probarse en consulta.}
+\end{frame}
+
+\appendix
+\inappendixtrue
+\setpart{Anexos · Fuera de los 30 minutos}
+\begin{frame}[noframenumbering]{A · Datasets: referencias adicionales y volumen}
+  \topic{Una selección para profundizar; horas, encuentros y pares miden cosas distintas.}
+  {\fontsize{8}{10}\selectfont\renewcommand{\arraystretch}{1.05}
+  \begin{tabularx}{\textwidth}{L{2.5cm}L{4.5cm}X}
+    \toprule \textbf{Recurso} & \textbf{Volumen} & \textbf{Uso y límite principal}\\\midrule
+    Common Voice 17 · ES & 2.220 h totales; 562 h validadas & ASR general en español; lectura, no consulta.\\
+    DIHARD III & Dev: 34,15 h / 254 grabaciones; eval: 33,01 h / 259 & Diarización en dominios diversos; fijar protocolo.\\
+    VoxConverse & Más de 50 h, según página del corpus & Vídeo multihablante; distinto del entorno clínico.\\
+    MedAlign & 983 instrucciones; 303 respuestas de referencia; 276 EHR & Uso de historia clínica; no corpus audio→SOAP.\\
+    MedNLI & 14.049 pares: 11.232 / 1.395 / 1.422 & Inferencia clínica textual; dominio hospitalario.\\
+    MIMIC-IV-Note 2.2 & 331.794 altas; 2.321.355 informes radiológicos & Documentación clínica; sin audio emparejado.\\
+    FactEHR & 2.168 notas; 987.266 pares de inferencia; 1.036 ejemplos humanos & Verificación: distinguir datos generados de validación humana.\\
+    \bottomrule
+  \end{tabularx}}
+  \sources{\link{https://aclanthology.org/2025.resourceful-1.12/}{Common Voice ES}; \link{https://arxiv.org/abs/2012.01477}{DIHARD III}; \link{https://www.robots.ox.ac.uk/~vgg/data/voxconverse/}{VoxConverse}; \link{https://arxiv.org/abs/2308.14089}{MedAlign}; \link{https://aclanthology.org/D18-1187/}{MedNLI}; \link{https://physionet.org/content/mimic-iv-note/2.2/}{MIMIC-IV-Note}; \link{https://github.com/som-shahlab/factehr}{FactEHR}. Detalle de versiones y acceso: README.md.}
+\end{frame}
+
+\begin{frame}[noframenumbering]{B · Tarea, métrica y loss: mapa de consulta}
+  \vspace{1mm}
+  {\fontsize{8}{10}\selectfont\renewcommand{\arraystretch}{1.05}
+  \begin{tabularx}{\textwidth}{L{2.5cm}L{4.4cm}X}
+    \toprule \textbf{Tarea} & \textbf{Evaluación} & \textbf{Objetivos de entrenamiento habituales}\\\midrule
+    ASR & WER / CER; entidades y errores clínicos & CTC; CE/NLL; transducer. Preentrenamiento autosupervisado según modelo.\\
+    Diarización & DER / JER, con collar y solapamiento definidos & BCE + PIT (EEND); CE powerset; pérdidas de embeddings, p. ej. margen angular.\\
+    Transcripción diarizada & cpWER / tcpWER; WER y DER complementarios & CE sobre secuencias serializadas o pérdidas separadas en sistemas modulares.\\
+    Recuperación & Recall@k / nDCG; paciente, fecha y relevancia & Contrastiva para retrievers densos; CE/ranking en rerankers.\\
+    Generación de nota & ROUGE/BERTScore + hechos, omisiones, contradicciones y revisión clínica & CE/NLL; ranking de candidatos (BRIO); ponderación clínica según trabajo.\\
+    Verificación & Precision/recall/F1; calibración; errores por tipo & CE para clasificación de inferencia; CE de generación, si se adapta un LLM.\\
+    Sistema completo & Calidad de nota + revisión + tiempo + incidencias & Depende de la arquitectura. No existe una única loss estándar audio→nota.\\
+    \bottomrule
+  \end{tabularx}}
+  \sources{\link{https://web.stanford.edu/~jurafsky/slp3/16.pdf}{Jurafsky y Martin, cap. 16}; \link{https://arxiv.org/abs/1909.05952}{EEND}; \link{https://aclanthology.org/2022.acl-long.207/}{BRIO}; \link{https://arxiv.org/abs/2004.04906}{DPR}; \link{https://aclanthology.org/D18-1187/}{MedNLI}. Catálogo ampliado: README.md.}
+\end{frame}
+
+\begin{frame}[noframenumbering]{C · Lecturas para sostener la presentación}
+  \small
+  \begin{tabularx}{\textwidth}{L{3.1cm}X}
+    \toprule \textbf{Para entender…} & \textbf{Empezaría por…}\\\midrule
+    La nota y su función & \link{https://pmc.ncbi.nlm.nih.gov/articles/PMC8075472/}{The anatomy of clinical documentation}; \link{https://doi.org/10.1093/jamia/ocaa199}{Safe use of the EHR}. Estructura, contexto y revisión.\\
+    Audio y ASR & \link{https://web.stanford.edu/~jurafsky/slp3/15.pdf}{Jurafsky y Martin, cap. 15} y \link{https://web.stanford.edu/~jurafsky/slp3/16.pdf}{cap. 16}; \link{https://arxiv.org/abs/2212.04356}{Whisper}. De la señal al texto.\\
+    Hablantes & \link{https://arxiv.org/abs/1909.05952}{EEND}; \link{https://www.isca-archive.org/interspeech_2023/plaquet23_interspeech.html}{powerset}; \link{https://arxiv.org/abs/2601.01554}{MOSS}. Salidas, solapamiento y enfoques conjuntos.\\
+    Diálogo → nota & \link{https://aclanthology.org/2023.clinicalnlp-1.18/}{Singh et al.}; \link{https://www.nature.com/articles/s41597-023-02487-3}{ACI-Bench}; \link{https://aclanthology.org/2021.acl-long.384/}{CLUSTER2SENT}. Datos, arquitectura y entrenamiento.\\
+    Evaluación y contexto & \link{https://aclanthology.org/2022.acl-long.394/}{Moramarco et al.}; \link{https://proceedings.mlr.press/v333/latif26a.html}{Robust SOAP}; \link{https://arxiv.org/abs/2308.14089}{MedAlign}; \link{https://arxiv.org/abs/2501.16672}{VeriFact}. Localizar fallos y comprobar soporte.\\
+    \bottomrule
+  \end{tabularx}
+  \vspace{5mm}
+  \smallnote{Material de apoyo: README.md · common\_challenges.md · clinical\_note\_context.md\\Guion con tiempos y transiciones: guion-presentacion.md}
+\end{frame}
+\end{document}

@@ -1,0 +1,9 @@
+latexmk -xelatex -interaction=nonstopmode -halt-on-error -outdir=build main.tex
+Rc files read:
+  /etc/LatexMk
+Latexmk: This is Latexmk, John Collins, 15 June 2025. Version 4.87.
+Latexmk: Nothing to do for 'main.tex'.
+Latexmk: All targets (build/main.xdv build/main.pdf) are up-to-date
+
+mkdir -p build/previews
+pdftoppm -jpeg -r 85 build/main.pdf build/previews/slide >/dev/null 2>&1

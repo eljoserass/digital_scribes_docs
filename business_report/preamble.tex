@@ -1,0 +1,38 @@
+% !TEX root = main.tex
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\setsansfont{TeX Gyre Heros}
+\setmonofont{Latin Modern Mono}
+\usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+\usepackage[a4paper,margin=24mm,headheight=15pt]{geometry}
+\usepackage{microtype}
+\usepackage{array,booktabs,longtable,tabularx}
+\usepackage{pdflscape}
+\usepackage{xcolor}
+\definecolor{accent}{HTML}{164E63}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\usepackage{xurl}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=numeric,sorting=none,defernumbers=true,maxbibnames=3,giveninits=true,doi=true,url=true,isbn=false]{biblatex}
+\addbibresource{bibliography/references.bib}
+\usepackage[colorlinks=true,linkcolor=accent,citecolor=accent,urlcolor=accent,unicode=true]{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Escribas digitales · borrador}
+\fancyfoot[C]{\thepage}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setcounter{tocdepth}{1}
+\setlength{\emergencystretch}{2em}
+\raggedbottom
+\AtBeginBibliography{\small\raggedright}
+\AtEveryBibitem{\clearfield{addendum}}
+\setcounter{biburlnumpenalty}{100}
+\setcounter{biburlucpenalty}{100}
+\setcounter{biburllcpenalty}{100}
+\renewcommand{\arraystretch}{1.15}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\pendiente}[1]{\par\begingroup\small\color{accent}\textbf{Aspectos pendientes de definición:} #1\par\endgroup}
+\newcommand{\fuente}[2]{\href{#1}{#2}}

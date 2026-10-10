@@ -1,0 +1,25 @@
+% !TEX root = ../main.tex
+\begin{tikzpicture}[
+  x=1cm,y=1cm,
+  inputcard/.style={draw=teal!50,fill=pale,rounded corners=2pt,
+    text width=45mm,align=left,inner sep=1.5mm,font=\fontsize{8.5}{10}\selectfont},
+  soaprow/.style={draw=teal!35,fill=white,rounded corners=2pt,
+    text width=65mm,align=left,inner sep=1mm,font=\fontsize{8.5}{10}\selectfont},
+  connector/.style={->,draw=teal!70,line width=.8pt}]
+\node[inputcard] (conversation) at (0,1.5) {\textbf{Conversación}\\Paciente: «Bien; tensión en casa 135/85».\\Médico: «Hipertensión estable; mantener tratamiento; revisión en 3 meses».};
+\node[inputcard,draw=amber!60,fill=palewarm] (chart) at (0,-.4) {\textbf{Historia clínica registrada}\\Hipertensión; losartán 50 mg/día.};
+\node[inputcard] (manual) at (0,-1.55) {\textbf{Observación / entrada manual}\\Tensión medida: 138/86 mmHg.};
+\node[draw=teal,fill=teal,text=white,rounded corners=2pt,
+  text width=13mm,align=center,inner sep=1mm,font=\fontsize{8}{10}\selectfont] (generator) at (3.6,0) {Borrador SOAP};
+\draw[connector] (conversation.east) -- (generator.north west);
+\draw[connector] (chart.east) -- (generator.west);
+\draw[connector] (manual.east) -- (generator.south west);
+\node[soaprow] (s) at (8.35,1.7) {\textbf{S · Subjetivo} \hfill {\color{teal}\scriptsize Conversación}\\Se encuentra bien; tensión en casa 135/85.};
+\node[soaprow] (o) at (8.35,.6) {\textbf{O · Objetivo} \hfill {\color{amber}\scriptsize Observación + historia}\\Tensión medida: 138/86 mmHg.\\Historia: losartán 50 mg/día.};
+\node[soaprow] (a) at (8.35,-.55) {\textbf{A · Valoración} \hfill {\color{teal}\scriptsize Médico · conversación}\\Hipertensión estable, según el médico.};
+\node[soaprow] (p) at (8.35,-1.55) {\textbf{P · Plan} \hfill {\color{teal}\scriptsize Médico · conversación}\\Mantener tratamiento; revisión en 3 meses.};
+\draw[connector] (generator.east) -- ++(.35,0) |- (s.west);
+\draw[connector] (generator.east) -- ++(.35,0) |- (o.west);
+\draw[connector] (generator.east) -- ++(.35,0) |- (a.west);
+\draw[connector] (generator.east) -- ++(.35,0) |- (p.west);
+\end{tikzpicture}

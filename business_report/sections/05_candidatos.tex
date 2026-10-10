@@ -1,0 +1,42 @@
+% !TEX root = ../main.tex
+\clearpage
+\section{Opciones y selección corta}
+\label{sec:candidatos}
+La muestra comprende \textbf{43 proveedores}: 20 del conjunto inicial, 22 adicionales del registro NHS y AWS HealthScribe, incorporado el 17 de septiembre de 2026. La inclusión en dicho registro responde a un procedimiento de autocertificación y no constituye una aprobación clínica general~\cite{EK6X6DWK}. Los apéndices presentan el inventario completo y sus fuentes. La preselección responde a los requisitos del hospital: procesamiento remoto admisible, ENS ALTA, atención en español e integración ambiental con HCIS. No establece una clasificación de calidad clínica del mercado.
+
+\subsection{Certificación ENS, integración con HCIS y precio}
+\textbf{Tandem, Invox Genesis y Solventum Align} se priorizan para solicitar documentación y demostraciones por la evidencia o declaraciones ENS identificadas y su presencia comercial o asistencial en España. Ninguno reúne todavía todos los requisitos acreditados. La tabla resume ENS, integración y precio; los párrafos siguientes completan los factores de la sección~\ref{sec:evaluacion} con datos, evidencia clínica y español. La preselección documental no equivale a una recomendación de compra.
+\begin{small}
+\begin{longtable}{L{.14\linewidth}L{.25\linewidth}L{.23\linewidth}L{.26\linewidth}}
+\toprule
+Candidato & ENS ALTA & Integración ambiental con HCIS & Precio y forma de cobro \\
+\midrule\endhead
+Tandem & Certificado Bureau Veritas examinado; copia pública parcial (página 1 de 2). & El proveedor indica «no disponible». & Pro: 125 €/usuario/mes, facturado anualmente. Enterprise: por usuario, importe a medida. \\
+Invox Genesis & Obtención anunciada; certificado y alcance Genesis no verificados. & Dictation anuncia HCIS; Genesis no confirmado. & Presupuesto comercial. Importe, unidad facturable y mínimos no publicados en las fuentes consultadas. \\
+Solventum Align & Cumplimiento declarado; verificación del certificado pendiente. & No localizado para Align. & Presupuesto comercial. Importe, volumen incluido y coste de implantación no publicados en las fuentes consultadas. \\
+\bottomrule
+\end{longtable}
+\end{small}
+Fuentes: \fuente{https://trust.tandemhealth.ai/}{expediente Tandem}, \fuente{https://tandemhealth.ai/es/producto/integraciones/hp-his-hp-hcis}{estado HCIS Tandem}, \fuente{https://www.invoxmedical.com/blog/invox-medical-refuerza-su-compromiso-con-la-seguridad-de-la-informacion-con-la-obtencion-de-la-certificacion-iso-27001-y-el-ens-nivel-alto}{ENS Invox}, \fuente{https://dictation.invoxmedical.com/software-medico/dedalus-hcis/}{Dictation--HCIS} y \fuente{https://www.solventum.com/es-es/home/health-information-technology/solutions/fluency-align/}{Align}. Documentación adicional en apéndices~\ref{app:proveedores} y~\ref{app:hcis}. «No localizado» no significa imposibilidad técnica.
+
+\textbf{Lectura económica.} Los importes proceden del corte de mercado del 9 de septiembre de 2026; las fuentes y condiciones están en el apéndice~\ref{app:precios}. La tarifa Pro de Tandem permite cuantificar una licencia, pero no el despliegue hospitalario con HCIS. En los tres casos falta un presupuesto comparable de licencias, consumo, conector, equipos, formación, soporte e impuestos. Una tarifa más transparente facilita presupuestar; no demuestra menor coste total.
+
+\subsection{Aspectos que condicionan la preselección}
+\textbf{Tandem.} En seguridad y datos, aporta documentos externos examinables, declara tratamiento UE y publica subencargados; el dictamen C5 tiene salvedades y el alcance ENS público debe completarse (apéndice~\ref{app:proveedores}). En utilidad clínica, su estudio sueco es observacional y selecciona usuarios con utilización sostenida. El ahorro de tiempo es autodeclarado y no acredita rendimiento en español~\cite{C7S8N9NA}.
+
+\textbf{Invox Genesis.} En seguridad y datos, quedan por verificar el certificado ENS, el país de procesamiento y la cadena contractual. En experiencia asistencial, la Comunidad de Madrid confirma su uso en Psiquiatría del Hospital Fundación Alcorcón. Es una referencia de implantación en España, sin resultados cuantificados que establezcan calidad clínica en español o ahorro de trabajo. Tampoco acredita un despliegue general del SERMAS ni una integración Genesis--HCIS. \fuente{https://www.comunidad.madrid/noticias/2025/06/10/hospital-publico-fundacion-alcorcon-incorpora-aplicacion-ia-optimizar-generacion-documentacion-clinica-partir-entrevistas}{Fuente hospitalaria}; documentación en el apéndice~\ref{app:proveedores}.
+
+\textbf{Solventum Align.} En seguridad y datos, declara almacenamiento y procesamiento UE, con certificado ENS íntegro y condiciones completas de tratamiento pendientes de verificación. En calidad y utilidad clínica, no se identificó un estudio revisado por pares específico de Align, por lo que su oferta en España no basta para acreditar rendimiento en español. Los casos de Fluency Direct corresponden a otro producto (apéndice~\ref{app:proveedores}).
+
+La exigencia de infraestructura propia, la aceptación de dictado o el desarrollo de un conector obligarían a revisar esta selección.
+
+\subsection{Otros proveedores con evidencia relevante para la evaluación}
+Heidi, Nabla, Abridge y Ambience permiten examinar preguntas complementarias. Su literatura justifica incluirlos en el análisis, pero no acredita los requisitos ENS ALTA y HCIS del proyecto. Tampoco permite ordenar estos productos por eficacia a partir de estudios con diseños y contextos diferentes (apéndices~\ref{app:proveedores} y~\ref{app:hcis}).
+
+\textbf{Heidi: evidencia preliminar en español.} Un preprint con simulaciones en cinco países incluye Barcelona y consultas en español. Ofrece un motivo concreto para examinar el producto en pruebas locales, pero no lo convierte en un patrón de calidad lingüística ni demuestra su rendimiento asistencial. El estudio está financiado por Heidi y carece de revisión por pares~\cite{heidiSpanish2026}.
+
+\textbf{Nabla: comparación aleatorizada del trabajo documental.} El ensayo de UCLA compara Nabla, DAX y documentación habitual. Informa una reducción modesta del tiempo con Nabla y aporta un diseño útil para estimar el efecto frente al flujo habitual. Se realizó en un centro y en inglés; no compara Nabla con Abridge o Ambience ni demuestra superioridad sobre ellos~\cite{PR93N8FN}.
+
+\textbf{Abridge: bienestar en varios sistemas sanitarios.} Un estudio de 263 profesionales en seis sistemas estadounidenses compara encuestas antes y después de 30 días de uso. Describe mejoras percibidas de carga documental y bienestar, con participación voluntaria, sin aleatorización y con coautoría del proveedor~\cite{olson2025}. Complementa el ensayo de UCLA con una experiencia multicéntrica, aunque responde a otra pregunta. Su catálogo incluye también una \fuente{https://doi.org/10.1056/AIcs2400977}{publicación sobre aseguramiento de calidad}, recogida en el apéndice~\ref{app:proveedores}.
+
+\textbf{Ambience: organización de la implantación.} La experiencia de Cleveland Clinic describe la incorporación de más de 4.000 profesionales en cuatro meses y las medidas de gobernanza, formación y soporte. Su principal aportación al proyecto es organizativa; el informe descriptivo, con coautoría del proveedor, no establece una ventaja clínica frente a otros productos~\cite{F5FVUMMX}.

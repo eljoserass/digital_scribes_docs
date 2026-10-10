@@ -1,0 +1,35 @@
+% Figuras originales para la versión visual; no codifican resultados medidos.
+\definecolor{pending}{HTML}{AB6A34}
+\colorlet{pendingbg}{pending!8!white}
+\tikzset{
+  vcard/.style={draw=navy!18,fill=pale,rounded corners=3pt,align=center,inner sep=7pt},
+  vgood/.style={vcard,fill=palewarm,draw=irycisgreen!65!navy},
+  vpending/.style={vcard,fill=pendingbg,draw=pending!45},
+  varr/.style={->,line width=1pt,draw=navy!75},
+  vlabel/.style={font=\scriptsize,text=muted,align=center},
+  vnum/.style={circle,fill=navy,text=white,font=\bfseries,minimum size=7mm,inner sep=0pt},
+  pics/keyboard/.style={code={
+    \draw[rounded corners=2pt](-.62,-.32) rectangle(.62,.32);
+    \foreach \x in {-.42,-.21,0,.21,.42}{\foreach \y in {-.1,.13}{\draw(\x-.05,\y)--(\x+.05,\y);}}
+    \draw(-.28,-.23)--(.28,-.23);}},
+  pics/chat/.style={code={
+    \draw[rounded corners=3pt](-.65,.02)--(-.65,.48)--(.3,.48)--(.3,.02)--(-.23,.02)--(-.43,-.18)--(-.43,.02)--cycle;
+    \draw[rounded corners=2pt](.46,.22)--(.67,.22)--(.67,-.32)--(.45,-.32)--(.45,-.51)--(.23,-.32)--(-.15,-.32)--(-.15,-.17);}},
+  pics/note/.style={code={
+    \draw[rounded corners=2pt](-.4,-.53) rectangle(.4,.53);
+    \foreach \y in {.28,.05,-.18}{\draw(-.23,\y)--(.23,\y);}}},
+  pics/clock/.style={code={
+    \draw(0,0) circle(.51);\draw(0,.35)--(0,0)--(.26,-.1);}},
+  pics/shield/.style={code={
+    \draw(0,.57)--(.48,.36)--(.4,-.22)--(0,-.59)--(-.4,-.22)--(-.48,.36)--cycle;
+    \draw(-.21,.02)--(-.05,-.15)--(.26,.19);}},
+  pics/hospital/.style={code={
+    \draw(-.57,-.49) rectangle(.57,.49);\draw(-.16,-.49)--(-.16,-.13)--(.16,-.13)--(.16,-.49);
+    \draw[line width=2pt](-.18,.24)--(.18,.24);\draw[line width=2pt](0,.06)--(0,.42);}},
+  pics/server/.style={code={
+    \foreach \y in {-.32,.04,.4}{\draw[rounded corners=2pt](-.52,\y-.13) rectangle(.52,\y+.13);\fill(-.35,\y)circle(.035);\draw(-.08,\y)--(.33,\y);}}},
+  pics/check/.style={code={\draw[line width=2pt](-.36,0)--(-.1,-.26)--(.43,.34);}},
+  pics/plug/.style={code={
+    \draw(-.26,.05) rectangle(.26,.4);\draw(-.14,.4)--(-.14,.62);\draw(.14,.4)--(.14,.62);\draw(0,.05)--(0,-.2)--(.35,-.2);}},
+}
+\newenvironment{visual}[1][4.7]{\begin{center}\begin{tikzpicture}[x=1cm,y=1cm,every node/.append style={font=\small,align=center}]\path[use as bounding box](0,0) rectangle(14,#1);}{\end{tikzpicture}\end{center}}

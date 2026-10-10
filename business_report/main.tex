@@ -1,0 +1,46 @@
+\documentclass[11pt,a4paper]{article}
+\input{preamble}
+\title{Escribas digitales para la documentación clínica\\\large Evaluación de viabilidad para un hospital con Dedalus HCIS}
+\author{Documento de trabajo para Dirección de Innovación}
+\date{18 de septiembre de 2026}
+
+\begin{document}
+\maketitle
+\begin{center}
+\small Versión preliminar para evaluación institucional.\\
+Mercado: 9 de septiembre de 2026; ampliación AWS: 17 de septiembre de 2026.\\
+Bibliografía: revisión inicial del 11 de septiembre; ampliaciones del 12 y 18 de septiembre de 2026.
+\end{center}
+
+\begin{abstract}
+Los escribas digitales ofrecen una vía para reducir la carga documental mediante la generación de notas a partir de conversaciones clínicas. Este informe examina su posible incorporación a un hospital con Dedalus HCIS y atención en español, a partir de literatura y documentación pública de 43 proveedores. La evidencia muestra beneficios variables y requisitos de seguridad e interoperabilidad pendientes de acreditación. Se presenta una selección corta y una propuesta progresiva de evaluación, cuya arquitectura, servicios participantes, presupuesto y protocolo requieren definición institucional.
+\end{abstract}
+
+\begingroup
+\small
+\setlength{\parskip}{0pt}
+\tableofcontents
+\endgroup
+\clearpage
+
+\input{sections/01_resumen}
+\input{sections/02_motivacion}
+\input{sections/03_flujo}
+\input{sections/04_evaluacion}
+\input{sections/05_candidatos}
+\input{sections/06_lecciones_piloto}
+\input{sections/07_decision}
+\input{sections/declaracion_uso_ia}
+
+\clearpage
+\printbibliography[heading=bibintoc,notkeyword=tecnica,title={Referencias bibliográficas}]
+
+\clearpage
+\appendix
+\input{appendices/01_certificaciones}
+\input{appendices/02_proveedores}
+\input{appendices/03_hcis}
+\input{appendices/04_precios}
+\input{appendices/05_construir}
+\input{appendices/06_evaluacion_piloto}
+\end{document}

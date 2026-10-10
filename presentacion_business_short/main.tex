@@ -1,0 +1,231 @@
+% !LW recipe = latexmk (xelatex)
+\documentclass[aspectratio=169,10pt]{beamer}
+\input{preamble}
+\begin{document}
+
+% 01 · 0:25
+\begin{frame}[t]{Escribas digitales}
+\topic{Qué son, por qué importan y cómo evaluar su encaje}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{.47\textwidth}
+\vspace{3mm}
+{\Large De la consulta a una\par\textbf{nota clínica revisada}.}
+\par\vspace{5mm}
+Para un hospital con atención en español y \textbf{Dedalus HCIS}, el sistema de historia clínica del hospital.
+\par\vspace{4mm}
+\textcolor{teal}{\textbf{10 minutos · 5 bloques}}
+\end{column}
+\begin{column}{.47\textwidth}
+\tableofcontents
+\par\vspace{6mm}
+\irycislogo{44mm}
+\end{column}
+\end{columns}
+\takeaway{Propuesta: comprobar calidad y utilidad local antes de elegir una solución.}
+\sources{Informe completo y guion del proyecto, 18/09/2026. Investigación adicional y comprobaciones selectivas: 07/10/2026. Revisión documental.}
+\end{frame}
+
+\section{Qué es}
+
+% 02 · 0:55
+\begin{frame}[t]{Una nota combina conversación y contexto}
+\topic{El escriba transforma información disponible en un borrador clínico estructurado.}
+\makebox[\textwidth][c]{\input{figures/flujo-hcis}}
+\takeaway{La verificación automática ayuda; el profesional confirma datos y resuelve discrepancias.}
+\sources{\link{https://www.england.nhs.uk/long-read/guidance-on-the-use-of-ai-enabled-ambient-scribing-products-in-health-and-care-settings/}{NHS England, v3, 2026}; \link{https://docs.nabla.com/core-api/reference/2026-04-24/user/generate-note}{Nabla: transcripción y contexto}; esquema conceptual del proyecto. ASR: reconocimiento automático del habla.}
+\end{frame}
+
+% 03 · 1:00
+\begin{frame}[t]{Ejemplo: de tres fuentes a una nota SOAP}
+\topic{Caso ficticio de seguimiento de hipertensión · cada dato conserva su origen.}
+\makebox[\textwidth][c]{\input{figures/nota-soap}}
+\takeaway{Valoración y plan expresados por el médico; contexto de HCIS pendiente de confirmar.}
+\sources{Ejemplo propio, ilustrativo. \link{https://www.ncbi.nlm.nih.gov/books/NBK482263/}{SOAP: Subjetivo, Objetivo, Valoración (Assessment) y Plan}. La ubicación de medicación puede variar según la plantilla.}
+\end{frame}
+
+\section{Por qué importa}
+
+% 04 · 1:05
+\begin{frame}[t]{El beneficio que buscamos: menos carga documental}
+\topic{Recuperar atención y tiempo a lo largo de la jornada.}
+\begin{visual}[4.65]
+\foreach \x/\icon/\title/\sub in {2.2/keyboard/Menos teclado/durante la consulta,7/chat/Más atención/al paciente,11.8/note/Menos pendientes/al terminar}{
+  \node[vcard,minimum width=4cm,minimum height=2.6cm] at(\x,3.15) {};
+  \pic[draw=navy,line width=1.2pt] at(\x,3.75){\icon};
+  \node[font=\bfseries] at(\x,2.85){\title};
+  \node[vlabel] at(\x,2.4){\sub};
+}
+\node[vgood,minimum width=13.5cm,minimum height=1.4cm] at(7,.75){};
+\node[vlabel,text=navy,font=\scriptsize] at(2.5,1.19){Proyección ilustrativa};
+\node[font=\fontsize{27}{30}\selectfont\bfseries] at(2.5,.62){$\approx$5 h/mes};
+\node[align=left,anchor=west,text width=8.5cm] at(4.85,.82){\textbf{menos de documentación por profesional}\\[1mm]\scriptsize Base: 16 min menos por 8 h de consulta programada\\\scriptsize Ejemplo: 8 h de consulta/día · 220 días/año};
+\end{visual}
+\sources{\link{https://jamanetwork.com/journals/jama/fullarticle/2847319}{Rotenstein et al., JAMA, 2026}: asociación observada en cinco centros de EE. UU. Cálculo propio: 4,9 h/mes medio con efecto constante. No reducción demostrada de jornada. Objetivos superiores por evaluar localmente.}
+\end{frame}
+
+% 05 · 0:50
+\begin{frame}[t]{Hay que medir hasta que la nota queda cerrada}
+\topic{El ahorro depende del trabajo que sigue al borrador.}
+\begin{visual}[4.65]
+\node[vcard,minimum width=2.7cm,minimum height=1.6cm] (draft) at(1.5,3){\textbf{Borrador}\\generado};
+\node[vgood,minimum width=2.7cm,minimum height=1.6cm] (review) at(5,3){\textbf{Revisar}\\y corregir};
+\node[vgood,minimum width=2.7cm,minimum height=1.6cm] (save) at(8.5,3){\textbf{Incorporar}\\a HCIS};
+\node[vcard,minimum width=2.7cm,minimum height=1.6cm] (closed) at(12,3){\textbf{Nota}\\cerrada};
+\draw[varr](draft)--(review);\draw[varr](review)--(save);\draw[varr](save)--(closed);
+\draw[navy!55,line width=.8pt](3.55,1.95)--(3.55,1.7)--(13.45,1.7)--(13.45,1.95);
+\pic[draw=navy,line width=1.1pt,scale=.6] at(4.5,.85){clock};
+\node[anchor=west,align=left] at(5.05,.85){\textbf{Tiempo total + correcciones}\\\scriptsize Calidad clínica y uso correcto del contexto};
+\end{visual}
+\sources{Propuesta local de evaluación. \link{https://jamanetwork.com/journals/jama/fullarticle/2847319}{JAMA, 2026}; \link{https://www.jmir.org/2025/1/e64993/}{Biro et al., 2025}. La comparación con el flujo habitual debe incluir revisión, corrección y cierre.}
+\end{frame}
+
+\section{Mercado y encaje}
+
+% 06 · 0:50
+\begin{frame}[t]{El mercado de escribas crece con rapidez}
+\topic{Ingresos estimados de escribas ambientales · Menlo Ventures, 2025.}
+\begin{visual}[4.65]
+\node[anchor=west,font=\scriptsize,text=muted] at(.5,4.38){Millones de dólares};
+\foreach \y/\value in {.7/0,1.7/200,2.7/400,3.7/600}{
+  \draw[navy!10](1.25,\y)--(7.1,\y);
+  \node[anchor=east,font=\scriptsize,text=muted] at(1.1,\y){\value};
+}
+\fill[navy!22,rounded corners=2pt](2,.7)rectangle(3.7,1.95);
+\fill[irycisgreen,rounded corners=2pt](4.9,.7)rectangle(6.6,3.7);
+\node[font=\bfseries] at(2.85,2.22){250*};
+\node[font=\bfseries\Large] at(5.75,3.99){600};
+\node at(2.85,.33){2024*};\node at(5.75,.33){2025};
+\node[font=\fontsize{44}{48}\selectfont\bfseries] at(10.6,3.05){$\times$2,4};
+\node[font=\large] at(10.6,2.17){en ingresos, en un año};
+\node[align=center,text width=5.2cm,font=\small,text=navy] at(10.6,1.15){\textbf{PHTI: entre las adopciones más rápidas de la sanidad reciente}\\[1mm]\scriptsize Valoración sectorial · 2025};
+\end{visual}
+\sources{\link{https://menlovc.com/perspective/2025-the-state-of-ai-in-healthcare/}{Menlo Ventures, 2025}: estimación de ingresos, EE. UU.; fuente inversora. *2024 derivado: 600/2,4. \link{https://www.phti.org/announcement/ai-scribes-reduce-clinician-burnout/}{PHTI, 25/03/2025}: valoración basada en entrevistas y grupo de expertos, sin ranking histórico cuantitativo.}
+\end{frame}
+
+% 07 · 0:25
+\begin{frame}[t]{Muchas ofertas; varias formas de llegar al hospital}
+\topic{Cuatro familias orientativas, que se solapan.}
+\begin{visual}[4.65]
+\node[font=\fontsize{40}{43}\selectfont\bfseries] at(1.7,3.55){43};
+\node[text width=3cm,font=\small] at(1.7,2.5){soluciones y proyectos en nuestro inventario};
+\node[vlabel,text width=3cm] at(1.7,1.65){Septiembre de 2026\\Muestra documental};
+\node[vlabel,text width=3.2cm,text=navy] at(1.7,.7){Quirónsalud: proyecto propio\\Referencia de implantación};
+\foreach \x/\y/\icon/\title/\example in {6.2/3.4/keyboard/Uso individual/Heidi · Noa · Freed,11.1/3.4/hospital/Oferta\\hospitalaria/Tandem · Invox · Align,6.2/1.25/note/Con la historia\\clínica/Microsoft · Oracle · Abridge,11.1/1.25/server/Para construir\\con APIs/Corti · AWS}{
+ \node[vcard,minimum width=4.3cm,minimum height=1.8cm] at(\x,\y){};
+ \pic[draw=navy,line width=1pt,scale=.55] at(\x-1.45,\y+.25){\icon};
+ \node[font=\bfseries\small,text width=3.1cm] at(\x+.3,\y+.27){\title};
+ \node[vlabel,text width=4cm] at(\x,\y-.43){\example};
+}
+\end{visual}
+\sources{Inventario del informe: 09/09/2026 + AWS, 17/09. Familias orientativas. \link{https://www.quironsalud.com/en/communication/current-events/quironsalud-redisena-modelo-asistencial-reafirmandose-human}{Quirónsalud}: proyecto implantado en su red; sin oferta de API comercial acreditada aquí. El recuento no es un censo de proveedores comerciales.}
+\end{frame}
+
+% 08 · 0:35
+\begin{frame}[t]{El encaje que buscamos tiene cuatro piezas}
+\topic{Una buena demo debe convertirse en un flujo viable en nuestro hospital.}
+\begin{visual}[4.65]
+\node[vgood,minimum width=3cm,minimum height=1.1cm,font=\large\bfseries] (fit) at(7,2.4){Encaje local};
+\foreach \x/\y/\name/\title/\sub/\icon in {2.1/3.6/data/Datos y\\seguridad/Condiciones verificadas/shield,11.9/3.6/quality/Calidad en español/Notas clínicas fiables/note,2.1/1.2/integration/HCIS/Leer contexto y guardar/hospital,11.9/1.2/cost/Viabilidad/Coste total y soporte/clock}{
+ \node[vcard,minimum width=4cm,minimum height=1.65cm] (\name) at(\x,\y){};
+ \pic[draw=navy,line width=1pt,scale=.48] at(\x-1.32,\y+.21){\icon};
+ \node[font=\bfseries,text width=2.8cm] at(\x+.36,\y+.2){\title};
+ \node[vlabel,text width=3.7cm] at(\x,\y-.41){\sub};
+ \draw[varr](\name)--(fit);
+}
+\end{visual}
+\sources{Requisitos propuestos en el informe del proyecto: datos, seguridad, calidad, integración y coste. HCIS exige comprobar paciente/episodio, lectura de contexto y devolución de la nota revisada.}
+\end{frame}
+
+% 09 · 0:55
+\begin{frame}[t]{Hay candidatos; el encaje sigue por demostrar}
+\topic{Selección corta del informe · principal incógnita visible: el flujo con HCIS.}
+\begin{visual}[4.7]
+\foreach \x/\title/\status/\detail in {2.2/Tandem/HCIS no disponible/según su ficha pública,7/Invox Genesis/API disponible/conector HCIS por demostrar,11.8/Solventum Align/Integración HCE/HCIS específico por confirmar}{
+ \node[vcard,minimum width=4.25cm,minimum height=3cm] at(\x,3){};
+ \node[font=\bfseries\large,text width=4cm] at(\x,4.05){\title};
+ \pic[draw=navy,line width=1.2pt,scale=.75] at(\x-.65,3.12){plug};
+ \draw[dashed,draw=pending,line width=1.2pt](\x-.35,2.97)--(\x+.1,2.97);
+ \node[draw=navy!40,rounded corners=1pt,font=\scriptsize,inner sep=3pt] at(\x+.7,2.97){HCIS};
+ \node[font=\bfseries\small,text width=3.95cm] at(\x,2.36){\status};
+ \node[vlabel,text width=4cm] at(\x,1.86){\detail};
+}
+\node[vlabel] at(7,1.15){También por cerrar para esta selección};
+\foreach \x/\title in {2.2/Calidad clínica local,7/Expediente de datos,11.8/Coste total}{
+ \node[vpending,minimum width=4.2cm,minimum height=.6cm,font=\small] at(\x,.52){\title};
+}
+\end{visual}
+\sources{\link{https://tandemhealth.ai/es/producto/integraciones/hp-his-hp-hcis}{Tandem HCIS}; \link{https://developer.invoxmedical.com/}{Invox API}; \link{https://www.solventum.com/es-es/home/health-information-technology/solutions/fluency-align/}{Align}. Revisión selectiva 09/10/2026; declaraciones comerciales, sin prueba funcional. Falta de evidencia local no implica imposibilidad técnica.}
+\end{frame}
+
+\section{Discusión: cómo evaluar}
+
+% 10 · 0:45
+\begin{frame}[t]{Dos vías que podemos poner a prueba}
+\topic{La vía local es una opción de exploración, sujeta a recursos.}
+\begin{visual}[4.65]
+\node[vcard,minimum width=5.9cm,minimum height=2.75cm] (vendor) at(3.25,3.1){};
+\node[vgood,minimum width=5.9cm,minimum height=2.75cm] (local) at(10.75,3.1){};
+\pic[draw=navy,line width=1.1pt,scale=.7] at(3.25,3.85){hospital};
+\pic[draw=navy,line width=1.1pt,scale=.7] at(10.75,3.85){server};
+\node[font=\bfseries\large] at(3.25,3.05){Proveedor};
+\node[font=\bfseries\large] at(10.75,3.05){Prototipo local};
+\node[vlabel,text width=5.3cm] at(3.25,2.26){Producto y soporte existentes\\Condiciones + integración por cerrar};
+\node[vlabel,text width=5.3cm] at(10.75,2.26){Control de datos y versiones\\Desarrollo + operación propios};
+\node[vgood,minimum width=6.3cm,minimum height=.8cm,font=\bfseries] (compare) at(7,.6){Misma evaluación de calidad y esfuerzo};
+\draw[varr](vendor.south)--(3.25,1.17)--(compare.west);
+\draw[varr](local.south)--(10.75,1.17)--(compare.east);
+\end{visual}
+\sources{Propuesta del proyecto. Referencias exploratorias: \link{https://github.com/sammargolis/OpenScribe}{OpenScribe}, \link{https://github.com/bloodworks-io/phlox}{Phlox}; sin instalación ni validación local. Un prototipo local también necesita seguridad, mantenimiento e integración.}
+\end{frame}
+
+% 11 · 0:55
+\begin{frame}[t]{Los mismos casos permiten una comparación justa}
+\topic{El banco de casos sirve para decidir qué solución merece un piloto.}
+\begin{visual}[4.65]
+\node[vcard,minimum width=3.1cm,minimum height=2.35cm] (cases) at(1.65,2.65){\textbf{Mismos casos}\\[3mm]Audio\\Contexto fechado\\Observaciones};
+\node[vcard,minimum width=2.3cm,minimum height=.9cm] (a) at(5.5,3.7){Solución A};
+\node[vcard,minimum width=2.3cm,minimum height=.9cm] (b) at(5.5,2.65){Solución B};
+\node[vgood,minimum width=2.3cm,minimum height=.9cm] (c) at(5.5,1.6){Prototipo};
+\foreach \n in {a,b,c}{\draw[varr](cases.east)--(3.65,2.65)|-(\n.west);}
+\node[vcard,minimum width=3.15cm,minimum height=2.45cm] (notes) at(9.2,2.65){\textbf{Misma revisión}\\[3mm]Errores y omisiones\\Uso del contexto\\Correcciones};
+\foreach \n in {a,b,c}{\draw[varr](\n.east)--(7.15,0 |- \n.east)|-(notes.west);}
+\node[vgood,minimum width=2.3cm,minimum height=1.3cm,font=\bfseries] (decision) at(12.55,2.65){Elegir\\piloto};
+\draw[varr](notes)--(decision);
+\node[vlabel,text width=12cm] at(7,.48){Pruebas repetibles por lotes + revisión clínica de muestras y casos señalados};
+\end{visual}
+\sources{Diseño propuesto, basado en \link{https://www.jmir.org/2025/1/e64993/}{Biro et al., 2025} y \link{https://aclanthology.org/2025.emnlp-industry.104/}{Zhou et al., 2025}. Casos de ajuste separados de evaluación; revisión clínica. El ahorro real se comprueba después, en el piloto asistencial.}
+\end{frame}
+
+\section{Conclusión y siguientes pasos}
+
+% 12 · 0:45
+\begin{frame}[t]{Siguiente paso: comparar antes de pilotar}
+\topic{Cada etapa deja un resultado que permite decidir la siguiente.}
+\begin{visual}[4.65]
+\foreach \x/\n/\title/\sub in {1.7/1/Cerrar\\condiciones/Datos · HCIS · coste,5.2/2/Preparar casos/Español + referencia,8.7/3/Comparar notas/Calidad + correcciones,12.2/4/Piloto\\supervisado/Ahorro + uso real}{
+ \node[vnum] at(\x,4.05){\n};
+ \node[vcard,minimum width=3.1cm,minimum height=1.7cm] (step\n) at(\x,2.6){};
+ \node[font=\bfseries,text width=2.9cm] at(\x,2.95){\title};
+ \node[vlabel,text width=2.9cm] at(\x,2.27){\sub};
+}
+\draw[varr](step1)--(step2);\draw[varr](step2)--(step3);\draw[varr](step3)--(step4);
+\node[vgood,minimum width=12.9cm,minimum height=.85cm,font=\bfseries] at(7,.8){Decisión del siguiente hito: qué solución pilotar y con qué condiciones};
+\end{visual}
+\sources{Propuesta del proyecto: requisitos y criterios de éxito por acordar; candidatos y posible comparador local. El piloto procede si la comparación acredita calidad y viabilidad suficientes.}
+\end{frame}
+
+% 13 · 0:35
+\begin{frame}[t]{La decisión ahora: iniciar una evaluación local}
+\topic{La oportunidad está clara. El encaje debe demostrarse en nuestro flujo.}
+\begin{visual}[4.65]
+\node[font=\fontsize{24}{28}\selectfont\bfseries,align=left,anchor=west,text width=13.4cm] at(.3,3.65){Elegir qué pilotar\\con evidencia propia.};
+\foreach \x/\icon/\title in {2.3/note/Notas fiables,7/clock/Menos trabajo,11.7/hospital/Integración HCIS}{
+ \pic[draw=navy,line width=1.25pt,scale=.6] at(\x,1.95){\icon};
+ \node[font=\bfseries] at(\x,1.14){\title};
+}
+\node[vgood,minimum width=13.3cm,minimum height=.65cm,font=\small] at(7,.25){Para arrancar: un servicio · responsables clínico y técnico · recursos acotados};
+\end{visual}
+\sources{Conclusión y propuesta del proyecto. Próximo entregable: comparación de calidad, esfuerzo e integración para decidir el alcance del piloto.}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,146 @@
+[
+  {
+    "slide": 1,
+    "title": "Construir un escriba digital médico",
+    "seconds": 30,
+    "section": "1 · Consulta y nota"
+  },
+  {
+    "slide": 2,
+    "title": "El objetivo: cerrar una nota útil con menos esfuerzo",
+    "seconds": 45,
+    "section": "1 · Consulta y nota"
+  },
+  {
+    "slide": 3,
+    "title": "La consulta produce tres fuentes de información",
+    "seconds": 75,
+    "section": "1 · Consulta y nota"
+  },
+  {
+    "slide": 4,
+    "title": "SOAP organiza hechos, valoración y decisiones",
+    "seconds": 90,
+    "section": "1 · Consulta y nota"
+  },
+  {
+    "slide": 5,
+    "title": "Una pipeline con entradas y salidas explícitas",
+    "seconds": 75,
+    "section": "1 · Consulta y nota"
+  },
+  {
+    "slide": 6,
+    "title": "Cada nivel responde a una pregunta distinta",
+    "seconds": 90,
+    "section": "2 · Evaluación y datos"
+  },
+  {
+    "slide": 7,
+    "title": "Del benchmark general al caso clínico español",
+    "seconds": 90,
+    "section": "2 · Evaluación y datos"
+  },
+  {
+    "slide": 8,
+    "title": "Del micrófono a una representación acústica",
+    "seconds": 60,
+    "section": "3 · Audio y hablantes"
+  },
+  {
+    "slide": 9,
+    "title": "ASR: tres formas de aprender audio→texto",
+    "seconds": 105,
+    "section": "3 · Audio y hablantes"
+  },
+  {
+    "slide": 10,
+    "title": "El mismo WER puede ocultar errores muy distintos",
+    "seconds": 90,
+    "section": "3 · Audio y hablantes"
+  },
+  {
+    "slide": 11,
+    "title": "Voz, palabras y rol son etiquetas diferentes",
+    "seconds": 75,
+    "section": "3 · Audio y hablantes"
+  },
+  {
+    "slide": 12,
+    "title": "Diarización: agrupar voces o predecir actividad",
+    "seconds": 90,
+    "section": "3 · Audio y hablantes"
+  },
+  {
+    "slide": 13,
+    "title": "Reconocer texto y hablantes en una misma salida",
+    "seconds": 75,
+    "section": "3 · Audio y hablantes"
+  },
+  {
+    "slide": 14,
+    "title": "Recuperar contexto exige paciente, fecha y procedencia",
+    "seconds": 90,
+    "section": "4 · De contexto a nota"
+  },
+  {
+    "slide": 15,
+    "title": "Generar una nota también exige seleccionar información",
+    "seconds": 75,
+    "section": "4 · De contexto a nota"
+  },
+  {
+    "slide": 16,
+    "title": "Entrenar generación: del token al resumen candidato",
+    "seconds": 90,
+    "section": "4 · De contexto a nota"
+  },
+  {
+    "slide": 17,
+    "title": "Verificar hechos y buscar omisiones",
+    "seconds": 90,
+    "section": "4 · De contexto a nota"
+  },
+  {
+    "slide": 18,
+    "title": "Un fallo temprano puede cambiar la nota final",
+    "seconds": 75,
+    "section": "4 · De contexto a nota"
+  },
+  {
+    "slide": 19,
+    "title": "Un experimento común permite localizar los fallos",
+    "seconds": 90,
+    "section": "5 · Experimento y despliegue"
+  },
+  {
+    "slide": 20,
+    "title": "Entrenamiento y ejecución tienen restricciones distintas",
+    "seconds": 75,
+    "section": "5 · Experimento y despliegue"
+  },
+  {
+    "slide": 21,
+    "title": "Arquitectura propuesta para un prototipo local",
+    "seconds": 75,
+    "section": "5 · Experimento y despliegue"
+  },
+  {
+    "slide": 22,
+    "title": "Medir con la configuración que se desplegará",
+    "seconds": 45,
+    "section": "5 · Experimento y despliegue"
+  },
+  {
+    "slide": 23,
+    "title": "Siguientes pasos: un baseline y evidencia comparable",
+    "seconds": 60,
+    "section": "6 · Siguientes pasos"
+  },
+  {
+    "slide": 24,
+    "title": "El primer entregable es una evaluación reproducible",
+    "seconds": 45,
+    "section": "6 · Siguientes pasos"
+  }
+]
