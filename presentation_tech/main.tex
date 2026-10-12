@@ -167,7 +167,7 @@
       \end{block}
     \end{column}
   \end{columns}
-  \sources{\link{https://www.openslr.org/12}{LibriSpeech}; \link{https://groups.inf.ed.ac.uk/ami/corpus/}{AMI}; \link{https://arxiv.org/abs/2205.12446}{FLEURS}; \link{https://github.com/babylonhealth/primock57}{PriMock57}; \link{https://github.com/microsoft/clinical_visit_note_summarization_corpus}{ACI}; \link{https://github.com/abachaa/MTS-Dialog}{MTS}; \link{https://zenodo.org/records/17280661}{TEME}. Horas TEME: suma local de los 90 MP3.}
+  \sources{\link{https://www.openslr.org/12}{LibriSpeech}; \link{https://groups.inf.ed.ac.uk/ami/corpus/}{AMI}; \link{https://arxiv.org/abs/2205.12446}{FLEURS}; \link{https://github.com/babylonhealth/primock57}{PriMock57}; \link{https://github.com/microsoft/clinical_visit_note_summarization_corpus}{ACI}; \link{https://github.com/abachaa/MTS-Dialog}{MTS}; \link{https://zenodo.org/records/17280661}{TEME}.}
 \end{frame}
 
 \setpart{3/6 · Audio y hablantes}
@@ -523,7 +523,7 @@
 
   \topic{El frontend usa la misma pipeline y los mismos tipos de datos.}
   \begin{figurecanvas}[4.3]
-    \node[box,align=left,text width=4.5cm,minimum height=1cm] (cli) at (3,3.4) {\textbf{CLI}\\\texttt{scribnic consulta.wav}\\JSON con turnos y borrador};
+    \node[box,align=left,text width=4.5cm,minimum height=1cm] (cli) at (3,3.4) {\textbf{CLI}\\Cargar archivo y ejecutar pipeline\\Resultados estructurados};
     \node[good,align=left,text width=4.5cm,minimum height=1cm] (app) at (10.9,3.4) {\textbf{Propuesto · Aplicación}\\Grabar / cargar audio\\Revisar y editar la nota};
     \draw[arr] (cli.east)--node[tinylabel,above]{nuevo cliente}(app.west);
     \node[box,text width=7.7cm] (core) at (7,1.85) {\textbf{Core Python reutilizable}\\Modelos intercambiables + configuración};
@@ -533,7 +533,6 @@
     \node[good,text width=2.7cm] (note) at (12,.45) {\textbf{Borrador}\\texto generado};
     \draw[arr] (audio)--(turns); \draw[arr] (turns)--(note);
   \end{figurecanvas}
-  \sources{Código local: \texttt{scribnic/core.py}, \texttt{models.py}, \texttt{factory.py} y CLI. El núcleo y los tipos existen; el cliente de revisión y la evaluación clínica están pendientes.}
 
 \end{frame}
 
@@ -558,16 +557,15 @@
 \begin{frame}{Evaluación del sistema desplegado}
 
   \topic{Comprobar calidad y funcionamiento en la configuración de uso.}
-  \begin{figurecanvas}[4.1]
-    \node[box,text width=2.6cm] (a) at (1.65,2.65) {Casos y referencias\\fijados};
-    \node[box,text width=3.5cm] (b) at (6.5,3.3) {Entorno experimental\\modelo + prompt + motor};
-    \node[box,text width=3.5cm] (c) at (6.5,1.9) {Entorno de despliegue\\hardware + precisión + captura};
-    \node[good,text width=3.2cm,minimum height=2.1cm] (d) at (12,2.65) {Errores de la nota\\Latencia p50 / p95\\Tiempo de proceso/audio\\Memoria y concurrencia};
+  \begin{figurecanvas}[4.7]
+    \node[box,text width=2.6cm] (a) at (1.65,2.8) {Casos y referencias\\fijados};
+    \node[box,text width=3.9cm,minimum height=1.15cm] (b) at (6.65,3.8) {\underline{\textbf{Entorno experimental}}\\[2mm]Modelo, prompt y motor};
+    \node[box,text width=3.9cm,minimum height=1.15cm] (c) at (6.65,1.8) {\underline{\textbf{Entorno de despliegue}}\\[2mm]PC objetivo, precisión y captura};
+    \node[good,align=left,text width=3.1cm,minimum height=2.5cm] (d) at (12.3,2.8) {\textbf{Qué medimos}\begin{itemize}\setlength{\itemsep}{2pt}\item Calidad y atribución\item Latencias\item Memoria y concurrencia\end{itemize}};
     \draw[arr] (a.east)--++(.35,0)|-(b.west); \draw[arr] (a.east)--++(.35,0)|-(c.west);
     \draw[arr] (b.east)--(d.west); \draw[arr] (c.east)--(d.west);
     \node[tinylabel,text width=12.5cm] at (7,.45) {Después de cada cambio, repetir la evaluación. En piloto: fallos, ediciones y muestra revisada de calidad.};
   \end{figurecanvas}
-  \sources{Protocolo propuesto. \link{https://github.com/SYSTRAN/faster-whisper}{faster-whisper}; \link{https://github.com/ggml-org/whisper.cpp}{whisper.cpp}. Sin benchmark de rendimiento local todavía.}
 
 \end{frame}
 
@@ -576,14 +574,15 @@
 % 30 — 65s · acumulado 29:10
 \begin{frame}{Datos del primer experimento}
 
-  \topic{Adaptar SCRIBE a nuestros datos y ejecución local; añadir contexto clínico.}
-  \begin{figurecanvas}[4.2]
-    \node[box,text width=3.6cm,minimum height=3.4cm] at (2.1,2.45) {\textbf{1 · Componentes}\\[2mm]TEME: ASR español TTS\\PriMock57: audio, turnos\\y notas en inglés\\[2mm]Referencias públicas};
-    \node[box,text width=3.6cm,minimum height=3.4cm] at (7,2.45) {\textbf{2 · Contexto y nota}\\[2mm]10 casos con contexto\\5 consultas PriMock\\adaptadas al español\\[2mm]Referencias revisadas};
-    \node[good,text width=3.6cm,minimum height=3.4cm] at (11.9,2.45) {\textbf{3 · Protocolo clínico}\\[2mm]Hechos y fuentes esperados\\Errores, omisiones y edición\\Acuerdo entre revisores\\[2mm]Test separado del ajuste};
-    \node[tinylabel,text width=13cm] at (7,.25) {Números propuestos para una prueba de viabilidad. Datos sintéticos y traducciones no sustituyen una evaluación posterior con consultas reales.};
+  \topic{Los datos públicos permiten arrancar; nuestro caso requiere referencias clínicas propias.}
+  \begin{figurecanvas}[4.8]
+    \node[box,text width=5.8cm,minimum height=3.8cm] at (3.5,2.65) {};
+    \node[good,text width=5.8cm,minimum height=3.8cm] at (10.5,2.65) {};
+    \node[plain,anchor=north west,text width=5.7cm] at (.65,4.28) {\textbf{Ya disponibles}\begin{itemize}\setlength{\itemsep}{4pt}\item \textbf{PriMock57:} audio, turnos y notas; inglés.\item \textbf{TEME:} audio sintético y texto; español.\end{itemize}};
+    \node[plain,anchor=north west,text width=5.7cm] at (7.65,4.28) {\textbf{Preparar con clínicos}\begin{itemize}\setlength{\itemsep}{4pt}\item Consultas en español y notas revisadas.\item Historia fechada del mismo paciente.\item Hechos esperados y criterios de revisión.\end{itemize}};
+    \node[plain,align=center,text width=13cm,font=\bfseries,text=navy] at (7,.35) {Probar el protocolo con datos públicos → preparar el test clínico español};
   \end{figurecanvas}
-  \sources{Plan del proyecto; \link{https://zenodo.org/records/17280661}{TEME-v1}; \link{https://github.com/babylonhealth/primock57}{PriMock57}; \link{https://doi.org/10.1038/s41746-025-01622-1}{Marco clínico de evaluación}. Ampliaciones: bag-of-ideas.md y anexo D.}
+  \sources{\link{https://zenodo.org/records/17280661}{TEME-v1}; \link{https://github.com/babylonhealth/primock57}{PriMock57}; \link{https://doi.org/10.1038/s41746-025-01622-1}{Marco clínico de evaluación}.}
 
 \end{frame}
 
@@ -619,7 +618,7 @@
     FactEHR & 2.168 notas; 987.266 pares de inferencia; 1.036 ejemplos humanos & Verificación: distinguir datos generados de validación humana.\\
     \bottomrule
   \end{tabularx}}
-  \sources{\link{https://aclanthology.org/2025.resourceful-1.12/}{Common Voice ES}; \link{https://arxiv.org/abs/2012.01477}{DIHARD III}; \link{https://www.robots.ox.ac.uk/~vgg/data/voxconverse/}{VoxConverse}; \link{https://arxiv.org/abs/2308.14089}{MedAlign}; \link{https://aclanthology.org/D18-1187/}{MedNLI}; \link{https://physionet.org/content/mimic-iv-note/2.2/}{MIMIC-IV-Note}; \link{https://github.com/som-shahlab/factehr}{FactEHR}. Detalle de versiones y acceso: README.md.}
+  \sources{\link{https://aclanthology.org/2025.resourceful-1.12/}{Common Voice ES}; \link{https://arxiv.org/abs/2012.01477}{DIHARD III}; \link{https://www.robots.ox.ac.uk/~vgg/data/voxconverse/}{VoxConverse}; \link{https://arxiv.org/abs/2308.14089}{MedAlign}; \link{https://aclanthology.org/D18-1187/}{MedNLI}; \link{https://physionet.org/content/mimic-iv-note/2.2/}{MIMIC-IV-Note}; \link{https://github.com/som-shahlab/factehr}{FactEHR}.}
 \end{frame}
 
 \begin{frame}[noframenumbering]{B · Tarea, métrica y loss: mapa de consulta}
@@ -636,7 +635,7 @@
     Sistema completo & Calidad de nota + revisión + tiempo + incidencias & Depende de la arquitectura. No existe una única loss estándar audio→nota.\\
     \bottomrule
   \end{tabularx}}
-  \sources{\link{https://web.stanford.edu/~jurafsky/slp3/16.pdf}{Jurafsky y Martin, cap. 16}; \link{https://arxiv.org/abs/1909.05952}{EEND}; \link{https://aclanthology.org/2022.acl-long.207/}{BRIO}; \link{https://arxiv.org/abs/2004.04906}{DPR}; \link{https://aclanthology.org/D18-1187/}{MedNLI}. Catálogo ampliado: README.md.}
+  \sources{\link{https://web.stanford.edu/~jurafsky/slp3/16.pdf}{Jurafsky y Martin, cap. 16}; \link{https://arxiv.org/abs/1909.05952}{EEND}; \link{https://aclanthology.org/2022.acl-long.207/}{BRIO}; \link{https://arxiv.org/abs/2004.04906}{DPR}; \link{https://aclanthology.org/D18-1187/}{MedNLI}.}
 \end{frame}
 
 \begin{frame}[noframenumbering]{C · Hechos intermedios: tres implementaciones}
@@ -650,7 +649,7 @@
     \bottomrule
   \end{tabularx}}
   \takeaway{Experimento propuesto: directo frente a hechos con fuente + diálogo, manteniendo casos, contexto, plantilla y generador.}
-  \sources{\link{https://aclanthology.org/2023.clinicalnlp-1.18/}{Singh et al. §3.1.2}; \link{https://arxiv.org/abs/2610.01234}{ASCRIBE §3.1 y prompt A.3}; \link{https://doi.org/10.3390/info17040355}{KOSMOS §2}. Ficha: comprension-clinica.md.}
+  \sources{\link{https://aclanthology.org/2023.clinicalnlp-1.18/}{Singh et al. §3.1.2}; \link{https://arxiv.org/abs/2610.01234}{ASCRIBE §3.1 y prompt A.3}; \link{https://doi.org/10.3390/info17040355}{KOSMOS §2}.}
 \end{frame}
 
 \begin{frame}[noframenumbering]{D · Ideas para ampliar los datos}
@@ -662,7 +661,7 @@
     \draw[arr] (a)--(b); \draw[arr] (b)--(c);
     \node[tinylabel,text width=13cm] at (7,.55) {MIRA aporta un entorno EHR/paciente para decisiones clínicas; no un corpus audio→nota. Adaptar PriMock al español y recoger consultas reales son otras vías.};
   \end{figurecanvas}
-  \sources{\link{https://synthetichealth.github.io/synthea/}{Synthea}; \link{https://doi.org/10.1038/s41586-026-10675-5}{MIRA (2026; acceso MIMIC controlado)}; \link{https://github.com/babylonhealth/primock57}{PriMock57}. Propuestas y límites en bag-of-ideas.md.}
+  \sources{\link{https://synthetichealth.github.io/synthea/}{Synthea}; \link{https://doi.org/10.1038/s41586-026-10675-5}{MIRA (2026; acceso MIMIC controlado)}; \link{https://github.com/babylonhealth/primock57}{PriMock57}.}
 \end{frame}
 
 \begin{frame}[noframenumbering]{E · Lecturas para preparar la discusión}
@@ -672,12 +671,11 @@
     La consulta y la nota & \link{https://pmc.ncbi.nlm.nih.gov/articles/PMC8075472/}{The anatomy of clinical documentation}; \link{https://doi.org/10.1093/jamia/ocaa199}{Safe use of the EHR}. Contenido, fuentes y revisión.\\
     Audio y ASR & \link{https://web.stanford.edu/~jurafsky/slp3/15.pdf}{Jurafsky, cap. 15} y \link{https://web.stanford.edu/~jurafsky/slp3/16.pdf}{cap. 16}; \link{https://arxiv.org/abs/2212.04356}{Whisper}. Señal, características y reconocimiento.\\
     Hablantes & \link{https://arxiv.org/abs/1909.05952}{EEND}; \link{https://www.isca-archive.org/interspeech_2023/plaquet23_interspeech.html}{powerset}; \link{https://github.com/fgnt/meeteval}{MeetEval}. Actividad, atribución y protocolo.\\
-    Selección y contexto & \link{https://arxiv.org/abs/2610.01234}{ASCRIBE}; \link{https://doi.org/10.3390/info17040355}{KOSMOS}; \link{https://aclanthology.org/2023.clinicalnlp-1.18/}{Nuance}. Leer método y limitaciones; ficha comprension-clinica.md.\\
+    Selección y contexto & \link{https://arxiv.org/abs/2610.01234}{ASCRIBE}; \link{https://doi.org/10.3390/info17040355}{KOSMOS}; \link{https://aclanthology.org/2023.clinicalnlp-1.18/}{Nuance}. Leer método y limitaciones.\\
     Evaluación de notas & \link{https://aclanthology.org/2022.acl-long.394/}{Moramarco et al.}; \link{https://proceedings.mlr.press/v333/latif26a.html}{Robust SOAP}; \link{https://arxiv.org/abs/2501.16672}{VeriFact}. Revisión, omisión y soporte.\\
     \bottomrule
   \end{tabularx}
   \vspace{3mm}
-  \smallnote{Guion con hilo, tiempos y transiciones: guion-presentacion.md\\Preguntas de defensa y ejercicios: preguntas-defensa.md · Datos y volúmenes: README.md}
 \end{frame}
 
 

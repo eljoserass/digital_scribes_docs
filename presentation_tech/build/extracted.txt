@@ -162,23 +162,23 @@ Fuentes: Moramarco et al., evaluación y post-edición; Marco clínico de evalua
 Datos de evaluación
 Primero referencias estándar; después datos que se acerquen al uso previsto.
 
-1 · Referencias generales                  2 · Consulta clínica en inglés              3 · Aproximación al español
-LibriSpeech                                PriMock57                                   clínico
-960 h de entrenamiento ASR;                57 consultas simuladas; 8 h 38              TEME-v1
-inglés leído.                              min; audio, turnos y notas.                 90 diálogos, 2.330 turnos, 3,96 h
-                                                                                       de audio TTS; dos voces.
+1 · Referencias generales                  2 · Consulta clínica en inglés   3 · Aproximación al español
+LibriSpeech                                PriMock57                        clínico
+960 h de entrenamiento ASR;                57 consultas simuladas; 8 h 38   TEME-v1
+inglés leído.                              min; audio, turnos y notas.      90 diálogos, 2.330 turnos, 3,96 h
+                                                                            de audio TTS; dos voces.
 AMI                                        ACI-Bench
-Unas 100 h de reuniones; audio             207 encuentros simulados;                   Útil para explorar ASR; sin
-y hablantes.                               transcripciones y notas; sin                tiempos de referencia para
-                                           audio público.                              evaluar DER directamente.
+Unas 100 h de reuniones; audio             207 encuentros simulados;        Útil para explorar ASR; sin
+y hablantes.                               transcripciones y notas; sin     tiempos de referencia para
+                                           audio público.                   evaluar DER directamente.
 FLEURS
-102 idiomas, unas 12 h/idioma;             MTS-Dialog                                  Conjunto local propuesto
-incluye español.                           1.701 pares breves                          Consultas y notas revisadas del
-                                           diálogo–sección.                            escenario de uso.
+102 idiomas, unas 12 h/idioma;             MTS-Dialog                       Conjunto local propuesto
+incluye español.                           1.701 pares breves               Consultas y notas revisadas del
+                                           diálogo–sección.                 escenario de uso.
 
-Fuentes: LibriSpeech; AMI; FLEURS; PriMock57; ACI; MTS; TEME. Horas TEME: suma local de los 90 MP3.
+Fuentes: LibriSpeech; AMI; FLEURS; PriMock57; ACI; MTS; TEME.
 
- 2/6 · Evaluación y datos                                                                             Borrador · 12/10/2026 · 8/31
+ 2/6 · Evaluación y datos                                                             Borrador · 12/10/2026 · 8/31
 Señal y representación acústica
 
 «She just had a baby»: la misma frase en onda y espectrograma.
@@ -598,26 +598,26 @@ Cálculo orientativo de memoria y almacenamiento con modelos pequeños cuantizad
 El frontend usa la misma pipeline y los mismos tipos de datos.
 
 
-         CLI                                                                           Propuesto · Aplicación
-                                                               nuevo cliente
-         scribnic consulta.wav                                                         Grabar / cargar audio
-         JSON con turnos y borrador                                                    Revisar y editar la nota
+       CLI
+                                                                   Propuesto · Aplicación
+       Cargar archivo y ejecutar               nuevo cliente
+                                                                   Grabar / cargar audio
+       pipeline
+                                                                   Revisar y editar la nota
+       Resultados estructurados
+
+                                       Core Python reutilizable
+                                 Modelos intercambiables + configuración
+
+             Audio
+                                                   Turnos                            Borrador
+         ruta · duración
+                                       inicio · fin · hablante · texto            texto generado
+           · muestreo
 
 
-                                                Core Python reutilizable
-                                          Modelos intercambiables + configuración
 
-               Audio
-                                                                Turnos                                          Borrador
-           ruta · duración
-                                                    inicio · fin · hablante · texto                          texto generado
-             · muestreo
-
-Fuentes: Código local: scribnic/core.py, models.py, factory.py y CLI. El núcleo y los tipos existen; el cliente de revisión y la evaluación
-clínica están pendientes.
-
-
-  5/6 · Adaptación y despliegue                                                                               Borrador · 12/10/2026 · 27/31
+ 5/6 · Adaptación y despliegue                                                     Borrador · 12/10/2026 · 27/31
 Captura e integración
 
 La plataforma determina cómo llega la información y cómo se revisa.
@@ -651,56 +651,43 @@ implementados.
 Comprobar calidad y funcionamiento en la configuración de uso.
 
 
-                                                  Entorno experimental                                   Errores de la nota
-                                                        modelo +                                         Latencia p50 / p95
-            Casos y                                 prompt + motor                                           Tiempo de
-          referencias
-                                                 Entorno de despliegue                                     proceso/audio
-             fijados
-                                                      hardware +                                             Memoria y
-                                                  precisión + captura                                       concurrencia
 
+                                              Entorno experimental
+                                                                                                  Qué medimos
+                                             Modelo, prompt y motor                                 • Calidad y
+          Casos y                                                                                     atribución
+        referencias
+                                                                                                     • Latencias
+           fijados                           Entorno de despliegue
+                                                                                                     • Memoria y
+                                                   PC objetivo,                                        concurrencia
+                                                precisión y captura
 
-             Después de cada cambio, repetir la evaluación. En piloto: fallos, ediciones y muestra revisada de calidad.
-
-
-
-
-Fuentes: Protocolo propuesto. faster-whisper; whisper.cpp. Sin benchmark de rendimiento local todavía.
+           Después de cada cambio, repetir la evaluación. En piloto: fallos, ediciones y muestra revisada de calidad.
 
 
 
-  5/6 · Adaptación y despliegue                                                                            Borrador · 12/10/2026 · 29/31
+
+ 5/6 · Adaptación y despliegue                                                                      Borrador · 12/10/2026 · 29/31
 Datos del primer experimento
-
-Adaptar SCRIBE a nuestros datos y ejecución local; añadir contexto clínico.
-
-
-                                                                                                    3 · Protocolo clínico
-         1 · Componentes
-                                                      2 · Contexto y nota
-                                                                                                    Hechos y fuentes
-           TEME: ASR
-                                                     10 casos con contexto                              esperados
-           español TTS
-                                                      5 consultas PriMock                           Errores, omisiones
-     PriMock57: audio, turnos
-                                                     adaptadas al español                                y edición
-         y notas en inglés
-                                                                                                  Acuerdo entre revisores
-                                                     Referencias revisadas
-       Referencias públicas
-                                                                                                  Test separado del ajuste
-
-                               Números propuestos para una prueba de viabilidad. Datos sintéticos y
-                             traducciones no sustituyen una evaluación posterior con consultas reales.
+Los datos públicos permiten arrancar; nuestro caso requiere referencias clínicas propias.
 
 
 
-Fuentes: Plan del proyecto; TEME-v1; PriMock57; Marco clínico de evaluación. Ampliaciones: bag-of-ideas.md y anexo D.
+        Ya disponibles                                      Preparar con clínicos
+          • PriMock57: audio, turnos y notas;                 • Consultas en español y notas
+            inglés.                                             revisadas.
+            • TEME: audio sintético y texto;                  • Historia fechada del mismo
+              español.                                          paciente.
+                                                              • Hechos esperados y criterios de
+                                                                revisión.
+
+         Probar el protocolo con datos públicos → preparar el test clínico español
 
 
-  6/6 · Plan de trabajo                                                                                   Borrador · 12/10/2026 · 30/31
+Fuentes: TEME-v1; PriMock57; Marco clínico de evaluación.
+
+  6/6 · Plan de trabajo                                                             Borrador · 12/10/2026 · 30/31
 Propuesta de trabajo
 
 Construir un baseline local y averiguar dónde necesita mejorar.
@@ -727,117 +714,113 @@ calidad y viabilidad.
 A · Datasets: referencias adicionales y volumen
 Una selección para profundizar; horas, encuentros y pares miden cosas distintas.
 
- Recurso                    Volumen                                      Uso y límite principal
+ Recurso                   Volumen                                     Uso y límite principal
 
- Common Voice 17 ·          2.220 h totales; 562 h validadas             ASR general en español; lectura, no consulta.
+ Common Voice 17 ·         2.220 h totales; 562 h validadas            ASR general en español; lectura, no consulta.
  ES
- DIHARD III                 Dev: 34,15 h / 254 grabaciones;              Diarización en dominios diversos; fijar protocolo.
-                            eval: 33,01 h / 259
- VoxConverse                Más de 50 h, según página del                Vídeo multihablante; distinto del entorno clínico.
-                            corpus
- MedAlign                   983 instrucciones; 303 respuestas            Uso de historia clínica; no corpus audio→SOAP.
-                            de referencia; 276 EHR
- MedNLI                     14.049 pares: 11.232 / 1.395 / 1.422         Inferencia clínica textual; dominio hospitalario.
- MIMIC-IV-Note 2.2          331.794 altas; 2.321.355 informes            Documentación clínica; sin audio emparejado.
-                            radiológicos
- FactEHR                    2.168 notas; 987.266 pares de                Verificación: distinguir datos generados de
-                            inferencia; 1.036 ejemplos humanos           validación humana.
+ DIHARD III                Dev: 34,15 h / 254 grabaciones;             Diarización en dominios diversos; fijar protocolo.
+                           eval: 33,01 h / 259
+ VoxConverse               Más de 50 h, según página del               Vídeo multihablante; distinto del entorno clínico.
+                           corpus
+ MedAlign                  983 instrucciones; 303 respuestas           Uso de historia clínica; no corpus audio→SOAP.
+                           de referencia; 276 EHR
+ MedNLI                    14.049 pares: 11.232 / 1.395 / 1.422        Inferencia clínica textual; dominio hospitalario.
+ MIMIC-IV-Note 2.2         331.794 altas; 2.321.355 informes           Documentación clínica; sin audio emparejado.
+                           radiológicos
+ FactEHR                   2.168 notas; 987.266 pares de               Verificación: distinguir datos generados de
+                           inferencia; 1.036 ejemplos humanos          validación humana.
 
-Fuentes: Common Voice ES; DIHARD III; VoxConverse; MedAlign; MedNLI; MIMIC-IV-Note; FactEHR. Detalle de versiones y acceso:
-README.md.
+Fuentes: Common Voice ES; DIHARD III; VoxConverse; MedAlign; MedNLI; MIMIC-IV-Note; FactEHR.
 
- Anexos · Fuera de los 30 minutos                                                                    Borrador · 12/10/2026 · Anexo
+ Anexos · Fuera de los 30 minutos                                                                Borrador · 12/10/2026 · Anexo
 B · Tarea, métrica y loss: mapa de consulta
 
- Tarea                      Evaluación                                 Objetivos de entrenamiento habituales
+ Tarea                      Evaluación                            Objetivos de entrenamiento habituales
 
- ASR                        WER / CER; entidades y errores             CTC; CE/NLL; transducer. Preentrenamiento
-                            clínicos                                   autosupervisado según modelo.
- Diarización                DER / JER, con collar y                    BCE + PIT (EEND); CE powerset; pérdidas de
-                            solapamiento definidos                     embeddings, p. ej. margen angular.
- Transcripción              cpWER / tcpWER; WER y DER                  CE sobre secuencias serializadas o pérdidas
- diarizada                  complementarios                            separadas en sistemas modulares.
- Recuperación               Recall@k / nDCG; paciente, fecha           Contrastiva para retrievers densos; CE/ranking en
-                            y relevancia                               rerankers.
- Generación de nota         ROUGE/BERTScore + hechos,                  CE/NLL; ranking de candidatos (BRIO);
-                            omisiones, contradicciones y               ponderación clínica según trabajo.
+ ASR                        WER / CER; entidades y errores        CTC; CE/NLL; transducer. Preentrenamiento
+                            clínicos                              autosupervisado según modelo.
+ Diarización                DER / JER, con collar y               BCE + PIT (EEND); CE powerset; pérdidas de
+                            solapamiento definidos                embeddings, p. ej. margen angular.
+ Transcripción              cpWER / tcpWER; WER y DER             CE sobre secuencias serializadas o pérdidas
+ diarizada                  complementarios                       separadas en sistemas modulares.
+ Recuperación               Recall@k / nDCG; paciente, fecha      Contrastiva para retrievers densos; CE/ranking en
+                            y relevancia                          rerankers.
+ Generación de nota         ROUGE/BERTScore + hechos,             CE/NLL; ranking de candidatos (BRIO);
+                            omisiones, contradicciones y          ponderación clínica según trabajo.
                             revisión clínica
- Verificación               Precision/recall/F1; calibración;          CE para clasificación de inferencia; CE de
-                            errores por tipo                           generación, si se adapta un LLM.
- Sistema completo           Calidad de nota + revisión + tiempo        Depende de la arquitectura. No existe una única
-                            + incidencias                              loss estándar audio→nota.
+ Verificación               Precision/recall/F1; calibración;     CE para clasificación de inferencia; CE de
+                            errores por tipo                      generación, si se adapta un LLM.
+ Sistema completo           Calidad de nota + revisión + tiempo   Depende de la arquitectura. No existe una única
+                            + incidencias                         loss estándar audio→nota.
 
-Fuentes: Jurafsky y Martin, cap. 16; EEND; BRIO; DPR; MedNLI. Catálogo ampliado: README.md.
+Fuentes: Jurafsky y Martin, cap. 16; EEND; BRIO; DPR; MedNLI.
 
- Anexos · Fuera de los 30 minutos                                                              Borrador · 12/10/2026 · Anexo
+ Anexos · Fuera de los 30 minutos                                                         Borrador · 12/10/2026 · Anexo
 C · Hechos intermedios: tres implementaciones
 Representar hechos del encuentro es distinto de recuperar historia externa.
 
- Trabajo                  Qué hace                                              Qué limita la conclusión
+ Trabajo                 Qué hace                                     Qué limita la conclusión
 
- Nuance (2023)            Hechos extraídos de notas de referencia               ≈900.000 encuentros privados en inglés. No
-                          como prefijo de entrenamiento; en                     incorpora HCIS por retrieval.
-                          inferencia, genera hechos y después nota
-                          desde la transcripción.
- ASCRIBE (2026)           Hechos atómicos + soporte + relevancia                Tailandés; muestra clínica pequeña; jueces
-                          antes de SOAP; prompting y adaptación                 LLM y validación limitada con un médico.
-                          con rewards.                                          Preprint.
- KOSMOS (2026)            Entidades, atributos y relaciones con                 Mejoras modestas; extracción sin evaluación
-                          procedencia; compara transcripción +                  independiente; no demuestra menor tiempo
-                          nodos/grafo.                                          de revisión.
+ Nuance (2023)           Hechos extraídos de notas de referencia      ≈900.000 encuentros privados en inglés. No
+                         como prefijo de entrenamiento; en            incorpora HCIS por retrieval.
+                         inferencia, genera hechos y después nota
+                         desde la transcripción.
+ ASCRIBE (2026)          Hechos atómicos + soporte + relevancia       Tailandés; muestra clínica pequeña; jueces
+                         antes de SOAP; prompting y adaptación        LLM y validación limitada con un médico.
+                         con rewards.                                 Preprint.
+ KOSMOS (2026)           Entidades, atributos y relaciones con        Mejoras modestas; extracción sin evaluación
+                         procedencia; compara transcripción +         independiente; no demuestra menor tiempo
+                         nodos/grafo.                                 de revisión.
 
 
  Experimento propuesto: directo frente a hechos con fuente + diálogo, manteniendo casos, contexto,
  plantilla y generador.
-Fuentes: Singh et al. §3.1.2; ASCRIBE §3.1 y prompt A.3; KOSMOS §2. Ficha: comprension-clinica.md.
-  Anexos · Fuera de los 30 minutos                                                                   Borrador · 12/10/2026 · Anexo
+Fuentes: Singh et al. §3.1.2; ASCRIBE §3.1 y prompt A.3; KOSMOS §2.
+ Anexos · Fuera de los 30 minutos                                                        Borrador · 12/10/2026 · Anexo
 D · Ideas para ampliar los datos
 
 Experimentos posibles después del primer conjunto de viabilidad.
 
-         Historia simulada                            Consulta simulada
-                                                                                                      Nota y revisión
-           Synthea / FHIR                              Guion y audio TTS
-                                                                                                    Hechos esperados
-           Antecedentes y                                  Actores o
-                                                                                                    Clínicos y ediciones
-            discrepancias                                agente de voz
-                                                                                                       Juez calibrado
-             Casos con                                  Ruido, canales
-                                                                                                        con revisores
-        información ausente                               y variantes
+        Historia simulada                            Consulta simulada
+                                                                                                Nota y revisión
+           Synthea / FHIR                            Guion y audio TTS
+                                                                                              Hechos esperados
+           Antecedentes y                                Actores o
+                                                                                              Clínicos y ediciones
+            discrepancias                              agente de voz
+                                                                                                 Juez calibrado
+             Casos con                                Ruido, canales
+                                                                                                  con revisores
+        información ausente                             y variantes
 
-                          MIRA aporta un entorno EHR/paciente para decisiones clínicas; no un corpus
-                        audio→nota. Adaptar PriMock al español y recoger consultas reales son otras vías.
-
-
-
-
-Fuentes: Synthea; MIRA (2026; acceso MIMIC controlado); PriMock57. Propuestas y límites en bag-of-ideas.md.
+                         MIRA aporta un entorno EHR/paciente para decisiones clínicas; no un corpus
+                       audio→nota. Adaptar PriMock al español y recoger consultas reales son otras vías.
 
 
 
-  Anexos · Fuera de los 30 minutos                                                                      Borrador · 12/10/2026 · Anexo
+
+Fuentes: Synthea; MIRA (2026; acceso MIMIC controlado); PriMock57.
+
+
+
+ Anexos · Fuera de los 30 minutos                                                                Borrador · 12/10/2026 · Anexo
 E · Lecturas para preparar la discusión
 
 
- Para entender…                Empezaría por…
+Para entender…                Empezaría por…
 
- La consulta y la nota         The anatomy of clinical documentation; Safe use of the EHR. Contenido,
-                               fuentes y revisión.
- Audio y ASR                   Jurafsky, cap. 15 y cap. 16; Whisper. Señal, características y
-                               reconocimiento.
- Hablantes                     EEND; powerset; MeetEval. Actividad, atribución y protocolo.
- Selección y contexto          ASCRIBE; KOSMOS; Nuance. Leer método y limitaciones; ficha
-                               comprension-clinica.md.
- Evaluación de notas           Moramarco et al.; Robust SOAP; VeriFact. Revisión, omisión y soporte.
-Guion con hilo, tiempos y transiciones: guion-presentacion.md
-
-Preguntas de defensa y ejercicios: preguntas-defensa.md · Datos y volúmenes: README.md
+La consulta y la nota         The anatomy of clinical documentation; Safe use of the EHR. Contenido,
+                              fuentes y revisión.
+Audio y ASR                   Jurafsky, cap. 15 y cap. 16; Whisper. Señal, características y
+                              reconocimiento.
+Hablantes                     EEND; powerset; MeetEval. Actividad, atribución y protocolo.
+Selección y contexto          ASCRIBE; KOSMOS; Nuance. Leer método y limitaciones.
+Evaluación de notas           Moramarco et al.; Robust SOAP; VeriFact. Revisión, omisión y soporte.
 
 
 
- Anexos · Fuera de los 30 minutos                                                    Borrador · 12/10/2026 · Anexo
+
+Anexos · Fuera de los 30 minutos                                                    Borrador · 12/10/2026 · Anexo
 F · CTC, transducer y atención
 
 Tres familias que siguen en uso.

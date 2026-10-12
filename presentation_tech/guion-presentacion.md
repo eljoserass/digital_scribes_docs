@@ -482,7 +482,7 @@ En revisión puede haber ediciones por sección o instrucciones por voz. Eso gen
 
 Fijamos casos y referencias y comparamos el entorno experimental con el destino: motor, precisión, hardware, preparación y captura. Debemos registrar también modelo, prompt y decodificación.
 
-Medimos contenido y atribución junto con latencia mediana y percentil 95, memoria y concurrencia. El factor de tiempo real es tiempo de procesamiento dividido por duración de audio; depende de qué etapas incluyamos.
+Medimos contenido y atribución junto con latencias, memoria y concurrencia. Los mismos casos permiten comprobar si la configuración de uso conserva la calidad obtenida durante la experimentación.
 
 Tras cambiar motor o cuantización repetimos calidad. En un piloto añadimos fallos de operación, ediciones y una muestra revisada de notas. Las ediciones son señales útiles, pero no equivalen por sí solas a etiquetas de todos los errores: un profesional puede aceptar algo incorrecto.
 
@@ -494,17 +494,17 @@ Tras cambiar motor o cuantización repetimos calidad. En un piloto añadimos fal
 
 **1:05 · acumulado 29:10 · 6 · Plan de trabajo**
 
-**Mensaje:** Adaptamos el marco SCRIBE a nuestros datos y a la ejecución local.
+**Mensaje:** Separar datos disponibles de las referencias que necesitamos preparar para nuestro caso.
 
-La idea es reproducir la lógica de evaluación por etapas y de la nota completa, con revisión clínica, métricas, jueces contrastados y simulaciones. Español, contexto longitudinal y restricciones del PC son aspectos que debemos concretar. Primero podemos comprobar partes del protocolo con PriMock y explorar ASR español sintético con TEME.
+PriMock ofrece audio, turnos y notas en inglés para probar el circuito de evaluación; TEME permite explorar transcripción de español sintético. Ninguno aporta toda la combinación de consulta española, historia longitudinal y nota revisada que necesitaríamos para validar nuestro caso.
 
-Proponemos diez casos controlados con contexto y cinco consultas adaptadas al español y revisadas. Son cantidades de viabilidad, no validación del producto. Necesitamos hechos esperados, fuentes, rúbrica y acuerdo entre revisores; separar los casos de ajuste de los de test.
+Con clínicos tendremos que preparar consultas en español y notas de referencia, historia fechada del mismo paciente y hechos esperados con criterios de revisión. Los primeros casos pueden ser controlados o adaptados: servirían para comprobar el protocolo, sin sustituir la evaluación posterior con consultas reales.
 
-Los autores usan datos clínicos que no son públicos. Tendremos que preparar nuestras referencias y evaluar con clínicos. Datos sintéticos y traducciones no sustituyen una evaluación posterior del escenario real.
+La secuencia es empezar con los datos públicos, preparar después el test español y mantenerlo separado de los casos usados para ajustar prompts o modelos. El volumen se concreta con la disponibilidad y el coste de revisión; los diez casos y cinco adaptaciones de la ficha son ideas iniciales, no un tamaño validado.
 
-**Figura:** Recorrer componentes, contexto y protocolo clínico.
+**Figura:** Dos grupos con bullets: disponible y por preparar. Terminar en la secuencia de trabajo inferior.
 
-**Transición:** El primer entregable será un baseline medible y un informe de dónde falla.
+**Transición:** Eso permite construir un baseline medible y un informe de dónde falla.
 
 ## 31. Propuesta de trabajo
 

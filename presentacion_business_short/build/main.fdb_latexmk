@@ -1,10 +1,10 @@
 # Fdb version 4
-["xdvipdfmx"] 1791810705.32633 "build/main.xdv" "build/main.pdf" "build/main" 1791810708.49368 0
-  "build/main.xdv" 1791810705.24114 251184 cfa756146c666a3ecb3baa3d1d3bbdb4 "xelatex"
+["xdvipdfmx"] 1791822622.7509 "build/main.xdv" "build/main.pdf" "build/main" 1791822625.97535 0
+  "build/main.xdv" 1791822622.67062 258928 03f9bbe871c88a2a1d3e3e35f86db637 "xelatex"
   (generated)
   "build/main.pdf"
   (rewritten before read)
-["xelatex"] 1791810703.73586 "main.tex" "build/main.xdv" "main" 1791810708.4917 0
+["xelatex"] 1791822621.49769 "main.tex" "build/main.xdv" "main" 1791822625.97353 0
   "/etc/texmf/web2c/texmf.cnf" 1788443718.53639 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -210,16 +210,16 @@
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1788443810 5948431 5b1974e4fa296845f0ac7a805d8a5ddf ""
   "assets/escriba-consulta-v1.png" 1791810459.66156 1829111 2b05d091ac531f2ae941a27d265f7c99 ""
   "assets/logo-irycis-oficial.png" 1791374057.74433 195624 2ea3eb348c6dcc306295401361b0a46c ""
-  "build/main.aux" 1791810705.23878 4231 7a6f2d08fbe4e0776e1545d571fb5e02 "xelatex"
-  "build/main.nav" 1791810705.24114 2240 e9eda55062152bfea9f5ad59c5bd5415 "xelatex"
-  "build/main.out" 1791810705.23986 705 ca13a65b301fdc080044d1e1b7b38229 "xelatex"
-  "build/main.toc" 1791810705.24114 306 2289ce771373f89af62ef0efd7457d32 "xelatex"
+  "build/main.aux" 1791822622.66911 4696 9c4815edd9b6a39bfe97511145428cbd "xelatex"
+  "build/main.nav" 1791822622.67062 2240 e9eda55062152bfea9f5ad59c5bd5415 "xelatex"
+  "build/main.out" 1791822622.66944 705 ca13a65b301fdc080044d1e1b7b38229 "xelatex"
+  "build/main.toc" 1791822622.67062 306 2289ce771373f89af62ef0efd7457d32 "xelatex"
   "figures/estilo.tex" 1791374224.46577 531 b7af8304a1148b7ebafca5a1372acb9a ""
   "figures/flujo-simple.tex" 1791810703.61698 793 b840585b8ff7bb9c166985c03f1b49d8 ""
   "figures/nota-soap.tex" 1791534757.89754 2124 b92f59c6d838f4dfd223f507b21ac4f5 ""
   "figures/visual-style.tex" 1791529196.52634 2321 0533dbe101ee029258b7e54220c521b6 ""
   "main.tex" 1791810703.61803 15405 99313626302ed6d55c1400bc6458ef5b ""
-  "preamble.tex" 1791810627.29407 2435 8bdfc6c71163903ea1c67542d3778eb6 ""
+  "preamble.tex" 1791822568.53429 2555 931b9b02ff5c9be157b4823a62f7f099 ""
   (generated)
   "build/main.aux"
   "build/main.log"

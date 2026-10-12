@@ -1,10 +1,10 @@
 # Fdb version 4
-["xdvipdfmx"] 1791820838.11649 "build/main.xdv" "build/main.pdf" "build/main" 1791820838.49174 0
-  "build/main.xdv" 1791820838.04308 593432 ad1e972904ec4bb9faaade1b9c60a539 "xelatex"
+["xdvipdfmx"] 1791827577.22225 "build/main.xdv" "build/main.pdf" "build/main" 1791827577.60861 0
+  "build/main.xdv" 1791827577.15049 610668 1c5600c3a1e2117d211d73e6fac3f9e4 "xelatex"
   (generated)
   "build/main.pdf"
   (rewritten before read)
-["xelatex"] 1791820836.06912 "main.tex" "build/main.xdv" "main" 1791820838.48985 0
+["xelatex"] 1791827575.13533 "main.tex" "build/main.xdv" "main" 1791827577.60669 0
   "/etc/texmf/web2c/texmf.cnf" 1788443718.53639 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -215,16 +215,16 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1769369718 41603 27f93b3067076450172040dcd57ca8b3 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1788443810 5948431 5b1974e4fa296845f0ac7a805d8a5ddf ""
   "assets/logo-irycis-oficial.png" 1791461047.50301 195624 2ea3eb348c6dcc306295401361b0a46c ""
-  "build/main.aux" 1791820838.04109 6970 ecaf2da2faac7c5647383d4e234b87ef "xelatex"
-  "build/main.nav" 1791820838.04264 3887 ad129dd7e8def54c7bfed8e69e894be3 "xelatex"
-  "build/main.out" 1791820838.04141 84 a78486327a3d8162e2e0bd93a1c55db9 "xelatex"
+  "build/main.aux" 1791827577.14749 8302 ffa0e1b1cc44f7105d31c2679e9d9410 "xelatex"
+  "build/main.nav" 1791827577.15022 3887 ad129dd7e8def54c7bfed8e69e894be3 "xelatex"
+  "build/main.out" 1791827577.14891 84 a78486327a3d8162e2e0bd93a1c55db9 "xelatex"
   "figures/asr-architectures.tex" 1791807015.52336 1444 5938ed7872955bc13ab95d8ea82a0c89 ""
   "figures/jurafsky-spectrogram.pdf" 1791620335.80111 36886 7dfcba947ff612560c3d410e1b8371f8 ""
   "figures/jurafsky-wave.pdf" 1791620334.6447 43648 b973bd9ab8c3829fcbf7139fabfb4abf ""
   "figures/scribe-figure1a.pdf" 1791808287.00768 488279 2f260fa8403fa9dbfefccd697fdc9778 ""
   "figures/scribe-figure1b.pdf" 1791808287.74454 488279 e98901ba9e40aa42a4b62af90a51fb95 ""
-  "main.tex" 1791820702.81058 50787 b5e245c0f725e0654af4cd44a4d867f1 ""
-  "preamble.tex" 1791808286.20897 3277 d797fa83f19b752519b3578eac7e35e8 ""
+  "main.tex" 1791827574.94583 50161 f817c43f1cfa6a51fafed29e39e64e79 ""
+  "preamble.tex" 1791822568.48229 3391 bba4e1bf95f6b0d400e54a9d648bed10 ""
   (generated)
   "build/main.aux"
   "build/main.log"

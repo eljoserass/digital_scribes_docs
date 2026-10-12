@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025/Debian) (preloaded format=xelatex 2026.9.3)  12 OCT 2026 18:00
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025/Debian) (preloaded format=xelatex 2026.9.3)  12 OCT 2026 19:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -943,7 +943,7 @@ File: tikzlibrarybackgrounds.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 zlibrarybabel.code.tex
 File: tikzlibrarybabel.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 56.
+Package hyperref Info: Option `colorlinks' set `true' on input line 59.
 ) (build/main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
@@ -1467,12 +1467,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: A78486327A3D8162E2E0BD93A1C55DB9;84.
  ) 
 Here is how much of TeX's memory you used:
- 29119 strings out of 468173
- 615619 string characters out of 5435521
- 1063133 words of memory out of 5000000
- 57241 multiletter control sequences out of 15000+600000
- 634809 words of font info for 115 fonts, out of 8000000 for 9000
+ 29271 strings out of 468173
+ 619505 string characters out of 5435521
+ 1065404 words of memory out of 5000000
+ 57395 multiletter control sequences out of 15000+600000
+ 634801 words of font info for 114 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 128i,13n,123p,492b,1060s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,14n,123p,484b,1059s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on build/main.xdv (37 pages, 593432 bytes).
+Output written on build/main.xdv (37 pages, 610668 bytes).

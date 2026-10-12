@@ -1,0 +1,286 @@
+Escribas digitales
+Qué son, por qué importan y cómo evaluar su encaje
+                                                                      1. Qué es
+De la consulta a una                                                  2. Por qué importa
+nota clínica revisada.                                                3. Mercado y encaje
+                                                                      4. Discusión: cómo evaluar
+                                                                      5. Conclusión y siguientes pasos
+Para un hospital con atención en español y
+Dedalus HCIS, el sistema de historia
+clínica del hospital.
+
+10 minutos · 5 bloques
+ Propuesta: comprobar calidad y utilidad local antes de elegir una solución.
+
+
+Fuentes: Informe completo y guion del proyecto, 18/09/2026. Investigación adicional y comprobaciones selectivas: 07/10/2026. Revisión
+documental.
+
+
+ Introducción · recorrido                                                                                          12/10/2026 · 1/13
+Un asistente para documentar la consulta
+El médico conversa con el paciente; el escriba prepara la nota.
+
+                                                                                         Consulta + contexto
+                                                                                             Voz · datos clínicos
+
+
+
+                                                                                           Borrador de nota
+                                                                                           Información organizada
+
+
+
+                                                                                         Revisión del médico
+                                                                                         Aprueba y guarda en HCIS
+
+
+
+ Historia y observaciones, cuando están disponibles. El médico revisa y aprueba.
+Fuentes: NHS England, v3, 2026; Nabla: transcripción y contexto. Esquema conceptual; ilustración generada con IA como metáfora del
+asistente.
+ 1/5 · Qué es                                                                                                    12/10/2026 · 2/13
+Ejemplo: de tres fuentes a una nota SOAP
+Caso ficticio de seguimiento de hipertensión · cada dato conserva su origen.
+
+  Conversación
+  Paciente: «Bien; tensión en casa                                    S · Subjetivo                       Conversación
+  135/85».                                                            Se encuentra bien; tensión en casa 135/85.
+  Médico: «Hipertensión estable;
+  mantener tratamiento; revisión en                                   O · Objetivo                  Observación + historia
+  3 meses».                                                           Tensión medida: 138/86 mmHg.
+                                                   Borrador           Historia: losartán 50 mg/día.
+  Historia clínica registrada                       SOAP
+                                                                      A · Valoración               Médico · conversación
+  Hipertensión; losartán 50 mg/día.
+                                                                      Hipertensión estable, según el médico.
+
+  Observación / entrada manual                                        P · Plan                      Médico · conversación
+  Tensión medida: 138/86 mmHg.                                        Mantener tratamiento; revisión en 3 meses.
+
+ Valoración y plan expresados por el médico; contexto de HCIS pendiente de confirmar.
+Fuentes: Ejemplo propio, ilustrativo. SOAP: Subjetivo, Objetivo, Valoración (Assessment) y Plan. La ubicación de medicación puede
+variar según la plantilla.
+ 1/5 · Qué es                                                                                                      12/10/2026 · 3/13
+El beneficio que buscamos: menos carga documental
+Recuperar atención y tiempo a lo largo de la jornada.
+
+
+
+
+          Menos teclado                                Más atención                            Menos pendientes
+            durante la consulta                             al paciente                                 al terminar
+
+
+
+              Proyección ilustrativa           menos de documentación por profesional
+
+     ≈5 h/mes                                  Base: 16 min menos por 8 h de consulta programada
+                                               Ejemplo: 8 h de consulta/día · 220 días/año
+
+
+
+Fuentes: Rotenstein et al., JAMA, 2026: asociación observada en cinco centros de EE. UU. Cálculo propio: 4,9 h/mes medio con efecto
+constante. No reducción demostrada de jornada. Objetivos superiores por evaluar localmente.
+
+ 2/5 · Por qué importa                                                                                            12/10/2026 · 4/13
+Hay que medir hasta que la nota queda cerrada
+El ahorro depende del trabajo que sigue al borrador.
+
+
+
+
+         Borrador                           Revisar                        Incorporar                           Nota
+         generado                          y corregir                        a HCIS                            cerrada
+
+
+
+
+                                                   Tiempo total + correcciones
+                                                   Calidad clínica y uso correcto del contexto
+
+
+
+
+Fuentes: Propuesta local de evaluación. JAMA, 2026; Biro et al., 2025. La comparación con el flujo habitual debe incluir revisión,
+corrección y cierre.
+
+  2/5 · Por qué importa                                                                                                12/10/2026 · 5/13
+El mercado de escribas crece con rapidez
+Ingresos estimados de escribas ambientales · Menlo Ventures, 2025.
+
+       Millones de dólares
+                                                  600
+
+                                                                                    ×2,4
+       600
+
+
+
+       400
+
+                        250*                                                   en ingresos, en un año
+       200
+                                                                             PHTI: entre las adopciones más
+                                                                              rápidas de la sanidad reciente
+         0                                                                           Valoración sectorial · 2025
+                        2024*                      2025
+
+
+Fuentes: Menlo Ventures, 2025: estimación de ingresos, EE. UU.; fuente inversora. *2024 derivado: 600/2,4. PHTI, 25/03/2025:
+valoración basada en entrevistas y grupo de expertos, sin ranking histórico cuantitativo.
+
+ 3/5 · Mercado y encaje                                                                                            12/10/2026 · 6/13
+Muchas ofertas; varias formas de llegar al hospital
+Cuatro familias orientativas, que se solapan.
+
+
+
+
+          43
+                                                                                                       Oferta
+                                                    Uso individual
+                                                                                                     hospitalaria
+                                                  Heidi · Noa · Freed                          Tandem · Invox · Align
+        soluciones y
+        proyectos en
+      nuestro inventario
+       Septiembre de 2026                           Con la historia                                Para construir
+       Muestra documental
+                                                       clínica                                       con APIs
+  Quirónsalud: proyecto propio                Microsoft · Oracle · Abridge                          Corti · AWS
+  Referencia de implantación
+
+
+
+
+Fuentes: Inventario del informe: 09/09/2026 + AWS, 17/09. Familias orientativas. Quirónsalud: proyecto implantado en su red; sin oferta
+de API comercial acreditada aquí. El recuento no es un censo de proveedores comerciales.
+
+ 3/5 · Mercado y encaje                                                                                              12/10/2026 · 7/13
+El encaje que buscamos tiene cuatro piezas
+Una buena demo debe convertirse en un flujo viable en nuestro hospital.
+
+
+
+                  Datos y                                                                                   Calidad en
+                 seguridad                                                                                   español
+         Condiciones verificadas                                                                      Notas clínicas fiables
+
+
+                                                       Encaje local
+
+                    HCIS                                                                                    Viabilidad
+         Leer contexto y guardar                                                                      Coste total y soporte
+
+
+
+
+Fuentes: Requisitos propuestos en el informe del proyecto: datos, seguridad, calidad, integración y coste. HCIS exige comprobar
+paciente/episodio, lectura de contexto y devolución de la nota revisada.
+
+ 3/5 · Mercado y encaje                                                                                             12/10/2026 · 8/13
+Hay candidatos; el encaje sigue por demostrar
+Selección corta del informe · principal incógnita visible: el flujo con HCIS.
+
+
+
+              Tandem                                 Invox Genesis                             Solventum Align
+
+                          HCIS                                        HCIS                                         HCIS
+
+        HCIS no disponible                              API disponible                             Integración HCE
+          según su ficha pública                   conector HCIS por demostrar                  HCIS específico por confirmar
+
+                                               También por cerrar para esta selección
+
+         Calidad clínica local                       Expediente de datos                                Coste total
+
+
+Fuentes: Tandem HCIS; Invox API; Align. Revisión selectiva 09/10/2026; declaraciones comerciales, sin prueba funcional. Falta de
+evidencia local no implica imposibilidad técnica.
+
+ 3/5 · Mercado y encaje                                                                                            12/10/2026 · 9/13
+Dos vías que podemos poner a prueba
+La vía local es una opción de exploración, sujeta a recursos.
+
+
+
+
+                       Proveedor                                                           Prototipo local
+               Producto y soporte existentes                                              Control de datos y versiones
+             Condiciones + integración por cerrar                                        Desarrollo + operación propios
+
+
+
+
+                                     Misma evaluación de calidad y esfuerzo
+
+
+Fuentes: Propuesta del proyecto. Referencias exploratorias: OpenScribe, Phlox; sin instalación ni validación local. Un prototipo local
+también necesita seguridad, mantenimiento e integración.
+
+  4/5 · Discusión: cómo evaluar                                                                                       12/10/2026 · 10/13
+Los mismos casos permiten una comparación justa
+El banco de casos sirve para decidir qué solución merece un piloto.
+
+
+
+
+                                               Solución A
+       Mismos casos                                                           Misma revisión
+                                                                                                                    Elegir
+          Audio                                Solución B                   Errores y omisiones
+     Contexto fechado                                                        Uso del contexto                       piloto
+      Observaciones                                                            Correcciones
+                                                Prototipo
+
+
+                           Pruebas repetibles por lotes + revisión clínica de muestras y casos señalados
+
+
+
+Fuentes: Diseño propuesto, basado en Biro et al., 2025 y Zhou et al., 2025. Casos de ajuste separados de evaluación; revisión clínica. El
+ahorro real se comprueba después, en el piloto asistencial.
+
+ 4/5 · Discusión: cómo evaluar                                                                                       12/10/2026 · 11/13
+Siguiente paso: comparar antes de pilotar
+Cada etapa deja un resultado que permite decidir la siguiente.
+
+
+
+                 1                                 2                                 3                                 4
+
+          Cerrar                                                                                                 Piloto
+                                        Preparar casos                   Comparar notas
+        condiciones                                                                                           supervisado
+       Datos · HCIS · coste              Español + referencia             Calidad + correcciones               Ahorro + uso real
+
+
+
+
+            Decisión del siguiente hito: qué solución pilotar y con qué condiciones
+
+
+
+Fuentes: Propuesta del proyecto: requisitos y criterios de éxito por acordar; candidatos y posible comparador local. El piloto procede si la
+comparación acredita calidad y viabilidad suficientes.
+
+  5/5 · Conclusión y siguientes pasos                                                                                   12/10/2026 · 12/13
+La decisión ahora: iniciar una evaluación local
+La oportunidad está clara. El encaje debe demostrarse en nuestro flujo.
+
+
+
+     Elegir qué pilotar
+     con evidencia propia.
+
+             Notas fiables                             Menos trabajo                             Integración HCIS
+
+                Para arrancar: un servicio · responsables clínico y técnico · recursos acotados
+
+Fuentes: Conclusión y propuesta del proyecto. Próximo entregable: comparación de calidad, esfuerzo e integración para decidir el
+alcance del piloto.
+
+ 5/5 · Conclusión y siguientes pasos                                                                               12/10/2026 · 13/13
+

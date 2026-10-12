@@ -257,7 +257,7 @@ Underfull \hbox (badness 1859) in paragraph at lines 430--430
 [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35]
 [36] (./figures/asr-architectures.tex) [37] (build/main.aux) )
 (see the transcript file for additional information)
-Output written on build/main.xdv (37 pages, 593432 bytes).
+Output written on build/main.xdv (37 pages, 610668 bytes).
 Transcript written on build/main.log.
 Latexmk: Getting log file 'build/main.log'
 Latexmk: Examining 'build/main.fls'
@@ -279,7 +279,7 @@ Running 'xdvipdfmx -E -o "build/main.pdf"  "build/main.xdv"'
 ------------
 build/main.xdv -> build/main.pdf
 [1][2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20][21][22][23][24][25][26][27][28][29][30][31][32][33][34][35][36][37]
-1306969 bytes written
+1303998 bytes written
 Latexmk: All targets (build/main.xdv build/main.pdf) are up-to-date
 
 mkdir -p build/previews

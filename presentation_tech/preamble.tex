@@ -28,9 +28,12 @@
 \inappendixfalse
 \setbeamertemplate{frametitle}{\vspace{2mm}\strut\insertframetitle\strut\par\vspace{1mm}}
 \setbeamertemplate{footline}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south,inner sep=0pt] at ([yshift=2mm]current page.south) {\irycislogo{18mm}};
+  \end{tikzpicture}%
   \hspace{8mm}\textcolor{green}{\rule{.65mm}{2mm}}\hspace{1.5mm}%
   {\color{muted}\fontsize{7}{8}\selectfont\deckpart}%
-  \hfill\raisebox{-1mm}[0pt][0pt]{\irycislogo{18mm}}\hfill%
+  \hfill%
   {\color{muted}\fontsize{7}{8}\selectfont Borrador · 12/10/2026 · \ifinappendix Anexo\else\insertframenumber/31\fi}%
   \hspace{8mm}\vspace{3mm}}
 \newcommand{\topic}[1]{{\small\color{muted}#1}\par\vspace{2mm}}
