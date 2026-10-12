@@ -133,48 +133,54 @@
   },
   {
     "slide": 23,
-    "title": "Robust SOAP: probar errores controlados",
-    "seconds": 100,
+    "title": "Evaluar cada etapa: SCRIBE",
+    "seconds": 65,
     "section": "4 · Diálogo, contexto y nota"
   },
   {
     "slide": 24,
+    "title": "Combinar evaluadores",
+    "seconds": 35,
+    "section": "4 · Diálogo, contexto y nota"
+  },
+  {
+    "slide": 25,
     "title": "Qué adaptar y con qué datos",
     "seconds": 60,
     "section": "5 · Adaptación y despliegue"
   },
   {
-    "slide": 25,
+    "slide": 26,
     "title": "Un escriba en el PC del médico",
     "seconds": 80,
     "section": "5 · Adaptación y despliegue"
   },
   {
-    "slide": 26,
+    "slide": 27,
     "title": "Scribnic: de la CLI a una aplicación",
     "seconds": 60,
     "section": "5 · Adaptación y despliegue"
   },
   {
-    "slide": 27,
+    "slide": 28,
     "title": "Captura e integración",
     "seconds": 65,
     "section": "5 · Adaptación y despliegue"
   },
   {
-    "slide": 28,
+    "slide": 29,
     "title": "Evaluación del sistema desplegado",
     "seconds": 60,
     "section": "5 · Adaptación y despliegue"
   },
   {
-    "slide": 29,
+    "slide": 30,
     "title": "Datos del primer experimento",
     "seconds": 65,
     "section": "6 · Plan de trabajo"
   },
   {
-    "slide": 30,
+    "slide": 31,
     "title": "Propuesta de trabajo",
     "seconds": 50,
     "section": "6 · Plan de trabajo"

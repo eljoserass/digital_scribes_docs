@@ -431,19 +431,41 @@
   \sources{\link{https://proceedings.mlr.press/v333/latif26a.html}{Latif et al., Robust SOAP (2026)}; \link{https://doi.org/10.1038/s41746-025-01622-1}{Marco de evaluación clínica (2025)}. Esquema causal propuesto; sin resultados experimentales.}
 \end{frame}
 
-% 23 — 100s · acumulado 22:40
-\begin{frame}{Robust SOAP: probar errores controlados}
-  \topic{Texto original / texto con un error → mismo generador → comparar hechos de las notas.}
-  \begin{center}
-    \includegraphics[width=14cm,height=4.45cm,keepaspectratio]{figures/robust-soap-table1.pdf}
-  \end{center}
-  \smallnote{51 consultas de PriMock tras depuración; 44 errores inducidos. Evalúan sobre texto, sin ejecutar ASR ni evaluar diarización. Nuestra ampliación: español, audio real del pipeline y recursos locales.}
-  \sources{\link{https://proceedings.mlr.press/v333/latif26a.html}{Latif et al., CHIL 2026}, tabla 1, p. 454: recorte original, © autores. Evaluación: hechos frente a nota de referencia; adiciones contrastadas con el diálogo. Resultados originales: anexo F.}
+% 23 — 65s · acumulado 22:05
+\begin{frame}{Evaluar cada etapa: SCRIBE}
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{.73\textwidth}
+      \centering\includegraphics[width=\linewidth,height=5.7cm,keepaspectratio]{figures/scribe-figure1a.pdf}
+    \end{column}
+    \begin{column}{.25\textwidth}
+      \small\textbf{40 consultas reales}\par\vspace{4mm}
+      Evaluar cada salida.\par\vspace{3mm}
+      Introducir errores y medir su efecto en la nota.\par\vspace{4mm}
+      \textcolor{muted}{Nuestro siguiente paso: adaptar el protocolo a datos españoles y ejecución local.}
+    \end{column}
+  \end{columns}
+  \sources{\link{https://doi.org/10.1038/s41746-025-01622-1}{Wang et al., npj Digital Medicine (2025)}, fig. 1a, p. 3. Panel original sin modificar, © autores, \link{https://creativecommons.org/licenses/by-nc-nd/4.0/}{CC BY-NC-ND 4.0}. Stack del estudio, no implementación de Scribnic.}
+\end{frame}
+
+% 24 — 35s · acumulado 22:40
+\begin{frame}{Combinar evaluadores}
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{.65\textwidth}
+      \centering\includegraphics[width=\linewidth,height=5.65cm,keepaspectratio]{figures/scribe-figure1b.pdf}
+    \end{column}
+    \begin{column}{.32\textwidth}
+      \small\textbf{Revisión clínica}\par Criterio y referencias.\par\vspace{3mm}
+      \textbf{Métricas}\par Comparación reproducible.\par\vspace{3mm}
+      \textbf{Juez LLM}\par Evaluación a escala, contrastada con revisores.\par\vspace{4mm}
+      \textcolor{muted}{El diagrama resume el enfoque; no garantiza que un juez acierte.}
+    \end{column}
+  \end{columns}
+  \sources{\link{https://doi.org/10.1038/s41746-025-01622-1}{Wang et al. (2025)}, fig. 1b, p. 3. Panel original sin modificar, © autores, \link{https://creativecommons.org/licenses/by-nc-nd/4.0/}{CC BY-NC-ND 4.0}. Explicación de la derecha: síntesis para esta presentación.}
 \end{frame}
 
 \setpart{5/6 · Adaptación y despliegue}
 
-% 24 — 60s · acumulado 23:40
+% 25 — 60s · acumulado 23:40
 \begin{frame}{Qué adaptar y con qué datos}
 
   \topic{Del error de contenido al coste de ejecutarlo: calidad, tiempo y memoria.}
@@ -462,7 +484,7 @@
 
 \end{frame}
 
-% 25 — 80s · acumulado 25:00
+% 26 — 80s · acumulado 25:00
 \begin{frame}{Un escriba en el PC del médico}
 
   \topic{Configuración candidata: audio y nota procesados en el propio equipo.}
@@ -480,7 +502,7 @@
 
 \end{frame}
 
-% 26 — 60s · acumulado 26:00
+% 27 — 60s · acumulado 26:00
 \begin{frame}{Scribnic: de la CLI a una aplicación}
 
   \topic{El frontend usa la misma pipeline y los mismos tipos de datos.}
@@ -499,7 +521,7 @@
 
 \end{frame}
 
-% 27 — 65s · acumulado 27:05
+% 28 — 65s · acumulado 27:05
 \begin{frame}{Captura e integración}
 
   \topic{La plataforma determina cómo llega la información y cómo se revisa.}
@@ -516,7 +538,7 @@
 
 \end{frame}
 
-% 28 — 60s · acumulado 28:05
+% 29 — 60s · acumulado 28:05
 \begin{frame}{Evaluación del sistema desplegado}
 
   \topic{Comprobar calidad y funcionamiento en la configuración de uso.}
@@ -535,21 +557,21 @@
 
 \setpart{6/6 · Plan de trabajo}
 
-% 29 — 65s · acumulado 29:10
+% 30 — 65s · acumulado 29:10
 \begin{frame}{Datos del primer experimento}
 
-  \topic{Adaptar Robust SOAP a nuestros datos y ejecución local; añadir audio, hablantes y contexto.}
+  \topic{Adaptar SCRIBE a nuestros datos y ejecución local; añadir contexto clínico.}
   \begin{figurecanvas}[4.2]
     \node[box,text width=3.6cm,minimum height=3.4cm] at (2.1,2.45) {\textbf{1 · Componentes}\\[2mm]TEME: ASR español TTS\\PriMock57: audio, turnos\\y notas en inglés\\[2mm]Referencias públicas};
     \node[box,text width=3.6cm,minimum height=3.4cm] at (7,2.45) {\textbf{2 · Contexto y nota}\\[2mm]10 casos con contexto\\5 consultas PriMock\\adaptadas al español\\[2mm]Referencias revisadas};
     \node[good,text width=3.6cm,minimum height=3.4cm] at (11.9,2.45) {\textbf{3 · Protocolo clínico}\\[2mm]Hechos y fuentes esperados\\Errores, omisiones y edición\\Acuerdo entre revisores\\[2mm]Test separado del ajuste};
     \node[tinylabel,text width=13cm] at (7,.25) {Números propuestos para una prueba de viabilidad. Datos sintéticos y traducciones no sustituyen una evaluación posterior con consultas reales.};
   \end{figurecanvas}
-  \sources{Plan del proyecto; \link{https://proceedings.mlr.press/v333/latif26a.html}{Robust SOAP como referencia metodológica}. \link{https://zenodo.org/records/17280661}{TEME-v1}; \link{https://github.com/babylonhealth/primock57}{PriMock57}; \link{https://doi.org/10.1038/s41746-025-01622-1}{Marco clínico de evaluación}. Ampliaciones: bag-of-ideas.md y anexo D.}
+  \sources{Plan del proyecto; \link{https://zenodo.org/records/17280661}{TEME-v1}; \link{https://github.com/babylonhealth/primock57}{PriMock57}; \link{https://doi.org/10.1038/s41746-025-01622-1}{Marco clínico de evaluación}. Ampliaciones: bag-of-ideas.md y anexo D.}
 
 \end{frame}
 
-% 30 — 50s · acumulado 30:00
+% 31 — 50s · acumulado 30:00
 \begin{frame}{Propuesta de trabajo}
 
   \topic{Construir un baseline local y averiguar dónde necesita mejorar.}
@@ -641,13 +663,6 @@
   \vspace{3mm}
   \smallnote{Guion con hilo, tiempos y transiciones: guion-presentacion.md\\Preguntas de defensa y ejercicios: preguntas-defensa.md · Datos y volúmenes: README.md}
 \end{frame}
-\begin{frame}[noframenumbering]{F · Robust SOAP: resultados publicados}
-  \topic{Tabla original: cobertura, omisiones, contradicciones y contenido añadido.}
-  \begin{center}
-    \includegraphics[width=13.5cm]{figures/robust-soap-table2.pdf}
-  \end{center}
-  \smallnote{Resultados de los autores en inglés, con jueces LLM. «Elaboration» recoge contenido adicional respaldado por el diálogo: no equivale a alucinación, pese a la flecha descendente del original. No es un ranking de modelos locales.}
-  \sources{\link{https://proceedings.mlr.press/v333/latif26a.html}{Latif et al., CHIL 2026}, tabla 2, p. 456: recorte sin modificar, © autores. Limitaciones de reproducción y lectura de las métricas: ficha robust-soap.md.}
-\end{frame}
+
 
 \end{document}

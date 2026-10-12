@@ -1,6 +1,6 @@
 # Source list — escribas digitales médicos
 
-La [presentación renovada](build/main.pdf), del **12/10/2026**, tiene **30 diapositivas principales para unos 30 minutos**, con figuras, fuentes enlazadas y seis anexos. [Guion con hilo, transiciones y tiempos](guion-presentacion.md) · [fuente editable](main.tex) · [plan de tiempos](slide-plan.json).
+La [presentación renovada](build/main.pdf), del **12/10/2026**, tiene **31 diapositivas principales para unos 30 minutos**, con figuras, fuentes enlazadas y cinco anexos. [Guion con hilo, transiciones y tiempos](guion-presentacion.md) · [fuente editable](main.tex) · [plan de tiempos](slide-plan.json).
 
 Para compilar desde esta carpeta: `make` (XeLaTeX y latexmk). `make previews` exporta las páginas a JPEG en `build/previews/`. Las figuras acústicas son recortes atribuidos de Jurafsky; los esquemas son TikZ en `main.tex` y `figures/asr-architectures.tex`. [Origen y regeneración de las figuras](figures/README.md) e [identidad IRYCIS](assets/README.md).
 
@@ -12,7 +12,7 @@ Notas breves: [common challenges](common_challenges.md) y [qué es una nota clí
 
 [Bag of ideas](bag-of-ideas.md): historiales simulados, consultas sintéticas, PriMock57 en español, evaluación con médicos y jueces automáticos; referencias y primeros experimentos para ampliar el cierre.
 
-Para el experimento principal: [Robust SOAP, método y límites](robust-soap.md), con sus tablas originales en el PDF.
+Para el marco de evaluación: [SCRIBE, figura 1 y límites](scribe-evaluacion.md), con los paneles originales (a) y (b) en el PDF. [Robust SOAP](robust-soap.md) queda como lectura complementaria sobre hechos y perturbaciones.
 
 Para preparar la revisión: [conversación, contexto y hechos clínicos](comprension-clinica.md), con dos métodos recientes y límites de verificación; [preguntas de defensa y mini examen](preguntas-defensa.md). Scribnic y su estado actual se recogen en el [bag de ideas](bag-of-ideas.md#9-scribnic-núcleo-local-reutilizable-y-clientes-separados).
 

@@ -1,6 +1,6 @@
 # Guion — Construir un escriba digital médico
 
-Versión renovada del **12/10/2026**. Acompaña a [main.pdf](build/main.pdf): **30 diapositivas principales, 30 minutos previstos y seis anexos**. Los tiempos incluyen señalar figuras y pausas; falta ensayarlos. Las preguntas quedan fuera de los 30 minutos.
+Versión renovada del **12/10/2026**. Acompaña a [main.pdf](build/main.pdf): **31 diapositivas principales, 30 minutos previstos y cinco anexos**. Los tiempos incluyen señalar figuras y pausas; falta ensayarlos. Las preguntas quedan fuera de los 30 minutos.
 
 ## El recorrido en un minuto
 
@@ -28,9 +28,9 @@ El ejemplo clínico es ficticio. Los esquemas de pipeline y experimentos son pro
 | Consulta y nota | 1–6 | 3:40 | 3:40 |
 | Evaluación y datos | 7–8 | 1:55 | 5:35 |
 | Audio y hablantes | 9–17 | 9:25 | 15:00 |
-| Diálogo, contexto y nota | 18–23 | 7:40 | 22:40 |
-| Adaptación y despliegue | 24–28 | 5:25 | 28:05 |
-| Plan de trabajo | 29–30 | 1:55 | 30:00 |
+| Diálogo, contexto y nota | 18–24 | 7:40 | 22:40 |
+| Adaptación y despliegue | 25–29 | 5:25 | 28:05 |
+| Plan de trabajo | 30–31 | 1:55 | 30:00 |
 
 ## 1. Construir un escriba digital médico
 
@@ -374,23 +374,37 @@ Conservar transcripción, tiempos y vínculo con audio facilita localizar el fal
 
 **Transición:** Podemos convertir ese ejemplo en un experimento.
 
-## 23. Robust SOAP: probar errores controlados
+## 23. Evaluar cada etapa: SCRIBE
 
-**1:40 · acumulado 22:40 · 4 · Diálogo, contexto y nota**
+**1:05 · acumulado 22:05 · 4 · Diálogo, contexto y nota**
 
-**Mensaje:** Robust SOAP ofrece un protocolo concreto para estudiar cómo el error textual llega a la nota.
+**Mensaje:** SCRIBE conecta cada componente del escriba con una evaluación concreta.
 
-Los autores revisan PriMock57 y conservan 51 consultas tras corregir inconsistencias y excluir casos problemáticos. Comparan hechos de las notas generadas con la referencia; lo añadido se contrasta con el diálogo para distinguir información respaldada de contenido inventado.
+Esta es la figura original de Wang y colaboradores. Evalúan un escriba propio con 40 grabaciones reales de consultas prenatales. El diagrama sigue audio, transcripción, atribución de hablantes y nota; debajo muestra cómo comprobar cada salida y cómo introducir errores para estudiar qué llega al documento final.
 
-Para robustez, introducen un error por transcripción y generan otra nota con el mismo modelo. La tabla es la original: borrar un término, una cifra, un diagnóstico o una mención de síntomas; invertir una negación; sustituir un término por otro parecido. Señalaré solo dos ejemplos, la dosis y la negación. Analizan 44 errores inducidos.
+Señalaré tres zonas: evaluación de transcripción, evaluación de atribución y evaluación de nota. En esta última combinan revisión, métricas, jueces y simulaciones. Nuestro plan se parece a ese marco, adaptado a nuestros datos, español y ejecución local; aún no es una réplica realizada.
 
-Esto aísla sensibilidad a errores controlados del texto. No ejecutan ASR ni evalúan un diarizador: parten de transcripciones. Tampoco podemos concluir que los roles del diálogo sean irrelevantes. Nuestra adaptación añadiría errores de nuestro audio y atribución, datos españoles y medidas de ejecución local. El estudio no mide tiempo de edición por usuarios finales; eso lo tendríamos que incorporar.
+**Aclaración oral si surge:** Sí tratan diarización, pero su método asigna hablantes sobre el texto con LLM tras transcribir. No es la misma operación que agrupar voces acústicamente. También simulan errores de atribución. No confundamos este paper con Robust SOAP, que se centra en notas y perturbaciones textuales.
 
-**Figura:** Leer dos filas de la tabla, no las seis. Resultados originales en el anexo F.
+**Figura:** Recorrer la fila superior y las tres zonas inferiores, sin leer todas las celdas. El stack es el de los autores, no el nuestro.
 
-**Transición:** Según el fallo observado, la intervención puede estar en el modelo, el prompt o la ejecución.
+**Transición:** El segundo panel explica por qué combinan varias formas de evaluar.
 
-## 24. Qué adaptar y con qué datos
+## 24. Combinar evaluadores
+
+**0:35 · acumulado 22:40 · 4 · Diálogo, contexto y nota**
+
+**Mensaje:** Cada evaluador aporta una perspectiva y tiene límites.
+
+La revisión clínica aporta criterio y referencias, pero consume tiempo. Las métricas facilitan comparaciones repetibles; no capturan toda la importancia clínica. Un juez LLM puede ampliar la escala, pero necesitamos contrastarlo con revisores y medir sus propios errores.
+
+El Venn es una propuesta conceptual del paper, no una garantía de que los LLM entiendan correctamente todos los casos. Para nosotros, la pregunta práctica es qué automatizar después de comprobar su acuerdo con los médicos.
+
+**Figura:** Señalar los tres círculos, sin leer cada intersección.
+
+**Transición:** Esas evaluaciones orientan qué adaptar; además mediremos tiempo y memoria en el equipo de uso.
+
+## 25. Qué adaptar y con qué datos
 
 **1:00 · acumulado 23:40 · 5 · Adaptación y despliegue**
 
@@ -404,7 +418,7 @@ También puede ser correcta pero tardar demasiado o no caber en memoria. Ahí pr
 
 **Transición:** Concretemos una configuración candidata para el PC del médico.
 
-## 25. Un escriba en el PC del médico
+## 26. Un escriba en el PC del médico
 
 **1:20 · acumulado 25:00 · 5 · Adaptación y despliegue**
 
@@ -420,7 +434,7 @@ Fijaremos equipo, versiones, duración de consulta, contexto y concurrencia. Med
 
 **Transición:** Scribnic permite probar componentes y reutilizar después la pipeline desde una interfaz.
 
-## 26. Scribnic: de la CLI a una aplicación
+## 27. Scribnic: de la CLI a una aplicación
 
 **1:00 · acumulado 26:00 · 5 · Adaptación y despliegue**
 
@@ -434,7 +448,7 @@ La propuesta es que una aplicación de escritorio o web use ese mismo núcleo pa
 
 **Transición:** La plataforma elegida determinará la captura y cómo llega el resultado al profesional.
 
-## 27. Captura e integración
+## 28. Captura e integración
 
 **1:05 · acumulado 27:05 · 5 · Adaptación y despliegue**
 
@@ -450,7 +464,7 @@ En revisión puede haber ediciones por sección o instrucciones por voz. Eso gen
 
 **Transición:** El sistema final debe volver a medirse en ese entorno.
 
-## 28. Evaluación del sistema desplegado
+## 29. Evaluación del sistema desplegado
 
 **1:00 · acumulado 28:05 · 5 · Adaptación y despliegue**
 
@@ -466,23 +480,23 @@ Tras cambiar motor o cuantización repetimos calidad. En un piloto añadimos fal
 
 **Transición:** Nos queda concretar los datos para poner en marcha ese protocolo.
 
-## 29. Datos del primer experimento
+## 30. Datos del primer experimento
 
 **1:05 · acumulado 29:10 · 6 · Plan de trabajo**
 
-**Mensaje:** Adaptamos el protocolo de Robust SOAP a nuestros datos y a la ejecución local.
+**Mensaje:** Adaptamos el marco SCRIBE a nuestros datos y a la ejecución local.
 
-Es casi una réplica metodológica, con extensiones que debemos distinguir: español, audio y atribución de hablantes, contexto longitudinal y restricciones del PC. Primero podemos comprobar la evaluación por hechos y perturbaciones en PriMock. TEME ayuda a explorar ASR español sintético.
+La idea es reproducir la lógica de evaluación por etapas y de la nota completa, con revisión clínica, métricas, jueces contrastados y simulaciones. Español, contexto longitudinal y restricciones del PC son aspectos que debemos concretar. Primero podemos comprobar partes del protocolo con PriMock y explorar ASR español sintético con TEME.
 
-Proponemos diez casos controlados con contexto y cinco consultas adaptadas al español y revisadas para comprobar el procedimiento. Son cantidades de viabilidad, no validación del producto. Necesitamos hechos esperados, fuentes, rúbrica y acuerdo entre revisores; separar los casos de ajuste de los de test.
+Proponemos diez casos controlados con contexto y cinco consultas adaptadas al español y revisadas. Son cantidades de viabilidad, no validación del producto. Necesitamos hechos esperados, fuentes, rúbrica y acuerdo entre revisores; separar los casos de ajuste de los de test.
 
-Después incorporaremos errores producidos por el sistema completo y revisión de notas por clínicos. Datos sintéticos y traducciones no sustituyen una evaluación posterior del escenario real.
+Los autores usan datos clínicos que no son públicos. Tendremos que preparar nuestras referencias y evaluar con clínicos. Datos sintéticos y traducciones no sustituyen una evaluación posterior del escenario real.
 
 **Figura:** Recorrer componentes, contexto y protocolo clínico.
 
 **Transición:** El primer entregable será un baseline medible y un informe de dónde falla.
 
-## 30. Propuesta de trabajo
+## 31. Propuesta de trabajo
 
 **0:50 · acumulado 30:00 · 6 · Plan de trabajo**
 
@@ -500,16 +514,17 @@ El hospital aporta profesionales capaces de definir una nota útil y revisar err
 
 ## Anexos y preparación
 
-No recorrer los seis anexos dentro de los 30 minutos. Usarlos si aparece una pregunta:
+No recorrer los cinco anexos dentro de los 30 minutos. Usarlos si aparece una pregunta:
 
 - **A · Datasets y volumen:** modalidades, tamaños y acceso; [catálogo con fuentes](README.md).
 - **B · Tarea, métrica y loss:** explicar qué se optimiza frente a qué se evalúa. En Nuance se combina CE con ranking de candidatos basado en ROUGE-L; no es una loss de seguridad clínica.
 - **C · Hechos intermedios:** Nuance, ASCRIBE y KOSMOS; [ficha que leer primero](comprension-clinica.md).
 - **D · Ampliar los datos:** historia simulada, consulta, perturbaciones y revisión; [bag de ideas](bag-of-ideas.md).
-- **F · Robust SOAP:** tabla original de resultados; leer [método y límites](robust-soap.md). No interpretar su ranking como evaluación local.
 - **E · Lecturas:** elegir método y limitaciones de cada referencia antes de profundizar.
 
-Lectura mínima para defender el bloque nuevo: [comprension-clinica.md](comprension-clinica.md), después **ASCRIBE §3.1 y prompt A.3**, **KOSMOS §2 y limitaciones**, y **Nuance §3.1.2**. Para verificación: **VeriFact, esquema y evaluación**, y **Robust SOAP, método de hechos/omisiones y perturbación de ASR**. Las fuentes originales están enlazadas en la ficha.
+Para las figuras de evaluación: [ficha SCRIBE](scribe-evaluacion.md), figura 1 y Methods del artículo.
+
+Lectura mínima para defender el bloque de generación: [comprension-clinica.md](comprension-clinica.md), después **ASCRIBE §3.1 y prompt A.3**, **KOSMOS §2 y limitaciones**, y **Nuance §3.1.2**. Para verificación: **VeriFact, esquema y evaluación**, y **Robust SOAP, método de hechos/omisiones y perturbación de ASR**. Las fuentes originales están enlazadas en la ficha.
 
 Practicar con [preguntas de defensa y mini examen](preguntas-defensa.md). Si no podemos explicar entrada, salida, mecanismo, datos de evaluación y un límite de un método, hay que releer esa parte antes de presentarla.
 

@@ -32,4 +32,4 @@ Añadiríamos audio procesado por nuestros modelos, atribución de hablantes, ca
 
 **Leer primero:** figura 1; §§4.1 y 5.1 para las dos fases; tabla 1 y §5.1.2 para robustez; §7 para límites. Tabla 2 para interpretar resultados, no para elegir nuestro modelo local.
 
-Los [recortes originales](figures/README.md) conservan las tablas sin editar; tabla 1 en el cuerpo, tabla 2 en el anexo F.
+Los [recortes originales](figures/README.md) conservan las tablas sin editar; material auxiliar fuera del PDF. El marco principal de la presentación usa [SCRIBE de Wang et al.](scribe-evaluacion.md), un artículo distinto.

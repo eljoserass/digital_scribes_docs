@@ -45,6 +45,14 @@ Referencias para el dibujo: [Jurafsky y Martin, cap. 16](https://web.stanford.ed
 
 [Tabla 1](robust-soap-table1.pdf) (p. 454 / página 7 del PDF) contiene la taxonomía de perturbaciones; [tabla 2](robust-soap-table2.pdf) (p. 456 / página 9) contiene los resultados publicados. **Latif et al., CHIL 2026, PMLR 333**, © autores. [Artículo y PDF original](https://proceedings.mlr.press/v333/latif26a.html).
 
-Son recortes vectoriales sin modificar celdas, flechas ni captions. Se usa la copia proporcionada en Zotero; no se incluye el artículo completo. La tabla 1 está en el cuerpo y la 2 en el anexo F. La interpretación y las limitaciones están en [robust-soap.md](../robust-soap.md).
+Son recortes vectoriales sin modificar celdas, flechas ni captions. Se usa la copia proporcionada en Zotero; no se incluye el artículo completo. Estos recortes quedan como material auxiliar y ya no aparecen en la presentación; el marco de evaluación usa ahora la figura 1 de Wang et al. La interpretación y las limitaciones están en [robust-soap.md](../robust-soap.md).
 
 Regenerar con `python3 figures/extract_robust_soap_tables.py /ruta/al/articulo.pdf`. El script registra páginas y coordenadas, elimina contenido externo al recorte con Ghostscript y genera PNG de revisión. La figura del decoder y los ejemplos DER/cpWER son propios; los valores ilustrativos no son resultados de modelos.
+
+## SCRIBE: figura 1 de Wang et al.
+
+[Panel (a)](scribe-figure1a.pdf) · [panel (b)](scribe-figure1b.pdf), ambos de la **figura 1, página 3**, de Wang et al., *An evaluation framework for ambient digital scribing tools in clinical applications*, npj Digital Medicine 8, 358 (2025). [Artículo original](https://doi.org/10.1038/s41746-025-01622-1). © autores, [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+Se reproducen los paneles completos, sin alterar contenido, etiquetas, colores ni relaciones. Solo se separan los paneles del resto de la página; la explicación en español queda fuera de la imagen. No se reproduce el artículo completo. El panel (a) muestra el stack y marco del estudio; el (b), una comparación conceptual de evaluadores.
+
+Regenerar con `python3 figures/extract_scribe_figure.py /ruta/al/paper.pdf`; por defecto usa la copia de Zotero. El script registra las coordenadas y elimina contenido exterior con Ghostscript. [Ficha de lectura](../scribe-evaluacion.md).

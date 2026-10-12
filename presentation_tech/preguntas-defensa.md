@@ -86,7 +86,7 @@ Por pregunta: **0** no la puedes explicar; **1** entiendes la idea pero no sabes
 | 3 · diarización | [dscore](https://github.com/nryant/dscore); [EEND](https://arxiv.org/abs/1909.05952) | Permutaciones, actividad, solapamiento y por qué rol no equivale a voz. |
 | 4–5 · contexto/verificación | [Ficha de hechos y contexto](comprension-clinica.md); después [VeriFact](https://arxiv.org/abs/2501.16672) | Distinguir retrieval, extracción, generación y verificación; qué referencia necesita su evaluador. |
 | 6 y 8 · datos/experimento | [Catálogo](README.md), [bag de ideas](bag-of-ideas.md), [ACI-Bench](https://www.nature.com/articles/s41597-023-02487-3) | Modalidades disponibles, splits y una comparación con entradas controladas. |
-| 7 y 9 · adaptar/ejecutar | [Guion 24–28](guion-presentacion.md); [faster-whisper](https://github.com/SYSTRAN/faster-whisper) | Qué error aborda cada intervención y cómo medir el runtime final. |
+| 7 y 9 · adaptar/ejecutar | [Guion 25–29](guion-presentacion.md); [faster-whisper](https://github.com/SYSTRAN/faster-whisper) | Qué error aborda cada intervención y cómo medir el runtime final. |
 | 10 · clínicos y juez | [Moramarco et al.](https://aclanthology.org/2022.acl-long.394/); [checklists de feedback](https://aclanthology.org/2025.emnlp-industry.104/) | Calidad, edición, acuerdo humano y errores que un juez deja pasar. |
 
 Para cada paper que llevemos a la charla, poder decir **entrada → método → evaluación → límite para nuestro caso**. Si una respuesta está pendiente, terminar con el experimento que la resolvería y el dato que falta.
@@ -95,4 +95,4 @@ Para cada paper que llevemos a la charla, poder decir **entrada → método → 
 
 - **¿Todo ASR actual es encoder–decoder con atención?** No. Explica CTC, predictor/joiner de transducer y decoder de atención; cita Parakeet TDT como derivado vigente. No confundas decoder neuronal con greedy/beam search.
 - **¿Puede haber WER 0 y cpWER mayor que 0?** Sí: en el ejemplo de «tengo tos / desde cuándo», mover «desde» al otro hablante genera una inserción y una eliminación sobre cuatro palabras: cpWER 50 %.
-- **¿Replicamos Robust SOAP?** Adaptamos el protocolo por hechos y perturbaciones. Español, audio, hablantes, historia y medidas del PC son extensiones. Su estudio no ejecuta ASR ni permite concluir que diarización sea inútil; [ficha breve](robust-soap.md).
+- **¿Replicamos SCRIBE?** Adaptamos su marco por etapas, nota completa, evaluación humana/automática y simulaciones. Datos españoles, historia y medidas del PC deben concretarse. Wang et al. sí evalúan atribución de hablantes sobre texto mediante LLM; [ficha breve](scribe-evaluacion.md). Robust SOAP es otro trabajo, complementario para perturbaciones y evaluación por hechos.
