@@ -522,11 +522,10 @@ Fuentes: Latif et al., Robust SOAP (2026); Marco de evaluación clínica (2025).
 
 
 
-Fuentes: Wang et al., npj Digital Medicine (2025), fig. 1a, p. 3. Panel original sin modificar, © autores, CC BY-NC-ND 4.0. Stack del estudio, no
-implementación de Scribnic.
+Fuentes: Wang et al., npj Digital Medicine (2025), fig. 1a, p. 3. Panel original sin modificar, © autores, CC BY-NC-ND 4.0.
 
 
-  4/6 · Diálogo, contexto y nota                                                                                Borrador · 12/10/2026 · 23/31
+  4/6 · Diálogo, contexto y nota                                                                                 Borrador · 12/10/2026 · 23/31
 Combinar evaluadores
 
                                                                                                   Revisión clínica
