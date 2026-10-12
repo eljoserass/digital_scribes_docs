@@ -34,7 +34,7 @@ Ese puede ser el baseline. Adaptaríamos después de localizar un fallo repetido
 
 **8. ¿Qué necesita para correr local? ¿Podemos dar cifras?**
 
-La configuración candidata es MOSS 0.9B para texto/hablantes y Qwen3-0.6B para nota. Para hacerse idea, la slide estima **4–8 GB de RAM del proceso**, con motores C++/GGUF, audio de 15–30 min y contexto del generador de 4–8k. Un PC de 16 GB sería el punto de partida para probar, no un requisito mínimo validado. Las referencias de velocidad son de clips/motores distintos: MOSS/transcribe.cpp en Ryzen 7 PRO 4750U y Qwen/Ember en i5-1135G7. No tenemos aún un benchmark propio de la consulta completa. [Fuentes, cálculo y límites](recursos-locales.md).
+La configuración candidata es MOSS 0.9B para texto/hablantes y Qwen3-0.6B para nota. Estimamos **1–2 GB de archivos de modelos** cuantizados a 4–8 bits y **4–8 GB de RAM para procesos**, con audio de 15–30 min y contexto del generador de 4–8k. Son rangos bajo esos supuestos, no límites universales; falta medir memoria máxima real. llama.cpp/GGUF y LiteRT-LM/Gemma ilustran ejecución local. El tiempo queda pendiente de medir con modelo, motor y hardware declarados, y después en el equipo de uso. [Fuentes y cálculo](recursos-locales.md).
 
 **9. ¿Cuál sería nuestra aportación frente a productos existentes?**
 

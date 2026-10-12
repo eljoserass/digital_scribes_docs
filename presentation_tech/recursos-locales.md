@@ -1,42 +1,48 @@
-# Recursos locales: de dónde salen las cifras de la slide 26
+# Recursos locales: cálculo de RAM y almacenamiento
 
-Revisión del 12/10/2026. La slide muestra **un presupuesto de memoria y dos referencias externas de velocidad**, no un benchmark propio de la pipeline. Se retiraron las fuentes del pie para darle espacio a las tres tarjetas; quedan aquí y en el guion.
+12/10/2026 · Apoyo para la slide 26. **Estimación de planificación**, sin benchmark de velocidad ni ejecución de un modelo nuevo en esta revisión.
 
-## RAM: presupuesto aproximado de 4–8 GB
+## Lo que cabe en disco: aproximadamente 1–2 GB de modelos
 
-Supuestos: MOSS 0.9B Q8_0 en un motor C++/GGUF, Qwen3-0.6B Q8_0, consulta de 15–30 minutos, contexto del generador de 4–8k tokens, un usuario. Un PC con **16 GB totales** sería un punto de partida para probar y dejar margen al sistema/HCIS; no es un requisito mínimo validado.
+Configuración del ejemplo: MOSS 0.9B para transcripción/hablantes y Qwen3-0.6B para nota. Suman aproximadamente **1,5 mil millones de parámetros**.
 
-| Parte | Cálculo de planificación |
-|---|---|
-| Pesos de MOSS Q8_0 | El port de `transcribe.cpp` publica un archivo de ≈987 MB. |
-| Estado adicional de MOSS | El mismo port propone ≈85 MB por minuto de audio: ≈1,28–2,55 GB para 15–30 min, además de los pesos. Es una aproximación específica de esa implementación. |
-| Pesos de Qwen Q8_0 | Archivo oficial ≈639 MB. |
-| KV cache de Qwen | Con cache FP16: 28 capas × 2 (K,V) × 8 cabezas KV × 128 dimensiones × 2 bytes = 114.688 bytes/token. A 4.096–8.192 tokens: ≈0,47–0,94 GB. |
-| Subtotal calculable | ≈3,37–5,12 GB, antes de buffers, activaciones, runtime, temporales y diferencias de implementación. |
-| Presupuesto mostrado | **4–8 GB para procesos**, redondeando con margen de trabajo. Es una estimación, no una medida de RAM máxima. |
+```text
+Tamaño nominal de pesos ≈ parámetros × bits por peso / 8
 
-Fuentes: [MOSS/transcribe.cpp: modelo, memoria y benchmarks](https://github.com/handy-computer/transcribe.cpp/blob/main/docs/models/moss-transcribe-diarize.md), [archivo oficial Qwen GGUF](https://huggingface.co/Qwen/Qwen3-0.6B-GGUF/tree/main), [configuración oficial Qwen3-0.6B](https://huggingface.co/Qwen/Qwen3-0.6B/blob/main/config.json).
+1,5B × 4 bits / 8 ≈0,75 GB
+1,5B × 8 bits / 8 ≈1,50 GB
+```
 
-Los valores del cálculo están en GB decimales; el KV de 4k/8k equivale a 448/896 MiB. Un contexto mayor necesita más cache. Una consulta larga puede superar 8k tokens al añadir la historia: la cifra no presupone que toda consulta de 30 min quepa en ese límite. Hay que medir con la entrada real o evaluar la estrategia de selección/chunking.
+Los archivos reales añaden metadatos, escalas de cuantización y tensores que conservan más precisión. Por eso mostramos **≈1–2 GB de archivos de modelos**, como orden de magnitud para cuantización de 4–8 bits.
 
-Tampoco trasladar el rango a PyTorch FP32: sus pesos, buffers y entorno pueden consumir más. El port usado para estas cifras valida sobre todo inglés/chino; no hemos comprobado equivalencia ni calidad clínica española de esa implementación respecto al modelo actual.
+Un punto de referencia concreto: el port de MOSS publica un GGUF Q8_0 de ≈987 MB; el GGUF oficial Qwen Q8_0 ocupa ≈639 MB. Juntos: **≈1,63 GB**, antes de bibliotecas, entorno, audio y datos. [MOSS/transcribe.cpp](https://github.com/handy-computer/transcribe.cpp/blob/main/docs/models/moss-transcribe-diarize.md#download) · [Qwen GGUF oficial](https://huggingface.co/Qwen/Qwen3-0.6B-GGUF/tree/main).
 
-## Audio: 35,3 segundos en 21,08 segundos
+**Cuantizar** representa pesos con menos bits. Reduce archivos y memoria de pesos; no reduce automáticamente el KV cache ni elimina buffers. La calidad tras cuantizar también se evalúa. `llama.cpp` es un motor que usa GGUF; GGUF es un formato, no una técnica única de cuantización. [llama.cpp](https://github.com/ggml-org/llama.cpp).
 
-El mantenedor de `transcribe.cpp` publica para MOSS Q8_0, en **CPU de un AMD Ryzen 7 PRO 4750U**, 21,08 s de cómputo para el clip `dots` de 35,3 s. Incluye mel, encoder y decode; media de tres iteraciones tras un warmup, commit `218aeae3`, 14/09/2026. El clip `jfk` de 11 s tarda 7,54 s. [Medición y reproducción del autor](https://github.com/handy-computer/transcribe.cpp/blob/main/docs/models/moss-transcribe-diarize.md#amd-ryzen-7-pro-4750u).
+## Lo que ocupa al ejecutar: aproximadamente 4–8 GB
 
-Esto sitúa un motor CPU especializado por debajo de tiempo real en **esos clips**. No permite multiplicar linealmente por 30 minutos: el contexto y coste de decode crecen con la grabación. Tampoco mide una consulta médica española completa ni proporciona p50/p95 de un despliegue.
+Supuestos: motores C++/GGUF, MOSS y Qwen Q8_0, audio de **15–30 min**, contexto del generador de **4–8k tokens**, cache de Qwen FP16 y un usuario.
 
-Como segunda referencia técnica, [moss-transcribe.cpp de LocalAI](https://github.com/localai-org/moss-transcribe.cpp/blob/master/benchmarks/BENCHMARK.md) publica en una CPU x86 de 20 núcleos, limitada a 8 hilos, F32: 11 s de audio →6,5 s; 44 s →24,2 s; 132 s →102,8 s. Son pruebas calientes, excluyendo carga. La CPU exacta no se identifica; por eso esa tabla no se presenta como un benchmark i5.
+| Parte | Orden de magnitud |
+|---|---:|
+| Pesos de ambos modelos | ≈1,63 GB |
+| Estado adicional de MOSS | ≈1,28–2,55 GB |
+| KV cache de Qwen | ≈0,47–0,94 GB |
+| Subtotal calculable | ≈3,37–5,12 GB |
+| Con buffers, activaciones y margen del motor | **≈4–8 GB para procesos**, estimado |
 
-## Generador: unos 7 tokens/s en un i5
+Para MOSS, el port propone ≈85 MB adicionales por minuto de audio; es una aproximación de esa implementación. Para Qwen, su configuración da 28 capas, 8 cabezas KV y dimensión 128. La cache FP16 usa `28 × 2(K,V) × 8 × 128 × 2 bytes =114.688 bytes/token`: ≈0,47/0,94 GB para 4.096/8.192 tokens. [Memoria de MOSS](https://github.com/handy-computer/transcribe.cpp/blob/main/docs/models/moss-transcribe-diarize.md#memory-and-length) · [Configuración oficial Qwen](https://huggingface.co/Qwen/Qwen3-0.6B/blob/main/config.json).
 
-Un experimento del autor del motor **Ember** publica para **Qwen3-0.6B Q8_0 en i5-1135G7**, 6,97 tokens/s con un hilo y 5,89 con cuatro. Medianas de 2–3 ejecuciones tras warmup. Es una medición histórica y orientativa de ese motor experimental, no de llama.cpp. [Experimento y código](https://voidwest.dev/research-notes/crossover-point-cpu-llm-decode.html).
+Los GB son decimales. **4 y 8 GB no son mínimos/máximos universales**: el rango redondea un cálculo bajo estas hipótesis. Contexto más largo, FP32, otra implementación o concurrencia pueden necesitar más. Una consulta de 30 min con historia puede superar 8k tokens. El presupuesto tampoco incluye toda la RAM del sistema, HCIS y otras aplicaciones. Falta medir el máximo real.
 
-Cálculo mostrado: **500 / 6,97 ≈72 s** para generar 500 tokens a ese ritmo. Es extrapolación aritmética, no una nota médica de 500 tokens medida. No incluye prefill (leer el prompt), carga, ASR ni comprobación. El coste real cambia con longitud de contexto, tokens de razonamiento, configuración y hardware. llama.cpp sigue siendo un motor candidato a medir en el proyecto.
+## Un ejemplo de ejecución en móvil: LiteRT-LM y Gemma
 
-## Qué mediríamos nosotros
+Google ofrece **LiteRT-LM** para ejecutar LLMs localmente en distintas plataformas, incluidos móviles. Su **AI Edge Gallery** muestra ejecución sin conexión; la documentación incluye Gemma y una configuración de Gemma3-1B en Samsung S24 Ultra. [Documentación oficial](https://developers.google.com/edge/litert-lm/overview) · [Proyecto](https://github.com/google-ai-edge/LiteRT-LM).
 
-Una consulta corta y una de 15–30 minutos, con configuración/versiones fijadas, modelo frío y cargado. Registrar RAM máxima del proceso y del flujo, tiempo ASR, prefill, decode y tiempo total. Repetir suficientes casos para p50/p95, además de calidad, omisiones, atribución y ediciones clínicas.
+Sirve como ejemplo de que existen motores y modelos para dispositivos pequeños. No extrapolamos su velocidad ni memoria al escriba MOSS+generador, y no asumimos calidad de notas españolas. En la slide lo mencionamos sin cifras de rendimiento.
 
-La [guía de intuición](guia-intuicion.md) explica tokens/s, p50/p95 y el resto de las tareas. Los benchmarks citados son de los autores de sus motores, sin reproducción local todavía.
+## Tiempo: lo mediremos después
+
+Retiramos las cifras externas de segundos y tokens/s de la presentación, guion y guía. Una prueba en nuestro PC sería un benchmark de desarrollo, identificado por modelo, precisión, motor, hardware, duración y contexto. Para decidir uso clínico, después se medirá en los equipos objetivo.
+
+Todavía no estimamos tiempo por consulta. La [guía de intuición](guia-intuicion.md) mantiene p50/p95 y RTF como conceptos para diseñar esa futura medición.

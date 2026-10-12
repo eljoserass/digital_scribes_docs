@@ -486,29 +486,24 @@
 
 % 26 — 80s · acumulado 25:00
 \begin{frame}{Un escriba en el PC del médico}
-  \topic{Configuración candidata y cálculo orientativo para las primeras pruebas.}
-  \begin{figurecanvas}[5.45]
-    \node[box,text width=1.1cm] (a) at (1.0,4.95) {Audio};
-    \node[good,text width=3.4cm] (b) at (5.05,4.95) {\textbf{MOSS 0.9B}\\\scriptsize Texto + hablantes};
-    \node[good,text width=3.4cm] (c) at (11.0,4.95) {\textbf{Qwen3-0.6B}\\\scriptsize Borrador de nota};
+  \topic{Cálculo orientativo de memoria y almacenamiento con modelos pequeños cuantizados.}
+  \begin{figurecanvas}[5.2]
+    \node[box,text width=1.1cm] (a) at (1.0,4.75) {Audio};
+    \node[good,text width=3.4cm] (b) at (5.05,4.75) {\textbf{MOSS 0.9B}\\\scriptsize Texto + hablantes};
+    \node[good,text width=3.4cm] (c) at (11.0,4.75) {\textbf{Qwen3-0.6B}\\\scriptsize Borrador de nota};
     \draw[arr] (a)--(b); \draw[arr] (b)--(c);
-    \foreach \x in {2.3,7.0,11.7}{\node[box,fill=white,text width=3.85cm,minimum height=2.65cm] at (\x,2.7) {};}
-    \node[plain,align=center,font=\bfseries\scriptsize] at (2.3,3.63) {RAM DEL PROCESO};
-    \node[plain,align=center,font=\fontsize{19}{22}\selectfont\bfseries,text=navy] at (2.3,3.07) {4–8 GB};
-    \node[plain,align=center,font=\scriptsize] at (2.3,2.54) {\textbf{Estimación}};
-    \node[tinylabel,text width=3.9cm] at (2.3,2.1) {Audio: 15–30 min · contexto: 4–8k\\Motores C++ y GGUF cuantizados};
-    \node[tinylabel,text width=3.9cm,text=navy] at (2.3,1.6) {Probar en PC de 16 GB};
-    \node[plain,align=center,font=\bfseries\scriptsize] at (7,3.63) {AUDIO + HABLANTES};
-    \node[plain,align=center,font=\fontsize{19}{22}\selectfont\bfseries,text=navy] at (7,3.07) {21 s};
-    \node[plain,align=center,font=\scriptsize] at (7,2.54) {\textbf{para 35 s de audio}};
-    \node[tinylabel,text width=3.9cm] at (7,2.1) {Ryzen 7 PRO 4750U · CPU\\MOSS Q8\_0 · transcribe.cpp};
-    \node[tinylabel,text width=3.9cm,text=navy] at (7,1.6) {Clip corto · modelo ya cargado};
-    \node[plain,align=center,font=\bfseries\scriptsize] at (11.7,3.63) {GENERAR TEXTO};
-    \node[plain,align=center,font=\fontsize{19}{22}\selectfont\bfseries,text=navy] at (11.7,3.07) {≈72 s};
-    \node[plain,align=center,font=\scriptsize] at (11.7,2.54) {\textbf{500 tokens de salida}};
-    \node[tinylabel,text width=3.9cm] at (11.7,2.1) {i5-1135G7 · CPU\\Qwen Q8\_0 · Ember · ≈7 tokens/s};
-    \node[tinylabel,text width=3.9cm,text=navy] at (11.7,1.6) {Decode; prefill aparte};
-    \node[tinylabel,text width=13.8cm] at (7,.35) {Cifras orientativas: RAM estimada y benchmarks de motores distintos.\\Falta medir calidad y tiempo de una consulta completa en nuestro equipo.};
+    \foreach \x in {3.3,10.3}{\node[box,fill=white,text width=5.1cm,minimum height=2.05cm] at (\x,2.95) {};}
+    \node[plain,align=center,font=\bfseries\scriptsize] at (3.3,3.64) {MODELOS EN DISCO};
+    \node[plain,align=center,font=\fontsize{19}{22}\selectfont\bfseries,text=navy] at (3.3,3.06) {≈1–2 GB};
+    \node[tinylabel,text width=5cm] at (3.3,2.39) {Ambos modelos cuantizados a 4–8 bits\\Sin contar audio, datos ni entorno};
+    \node[plain,align=center,font=\bfseries\scriptsize] at (10.3,3.64) {RAM DEL PROCESO};
+    \node[plain,align=center,font=\fontsize{19}{22}\selectfont\bfseries,text=navy] at (10.3,3.06) {≈4–8 GB};
+    \node[tinylabel,text width=5cm] at (10.3,2.39) {Estimación con margen de trabajo\\Audio 15–30 min · contexto 4–8k};
+    \node[plain,align=center,font=\small,text width=13cm] at (7,1.44) {\textbf{Disco:} pesos cuantizados\qquad\textbf{RAM:} pesos + contexto + buffers};
+    \draw[navy!55,rounded corners=1.5pt] (.85,.28) rectangle (1.18,.86);
+    \draw[navy!55] (.96,.35)--(1.07,.35);
+    \node[plain,anchor=west,text width=11.8cm,font=\scriptsize] at (1.5,.6) {\textbf{LiteRT-LM + Gemma:} Google también ofrece ejecución local en móviles.};
+    \node[tinylabel,text width=13.8cm] at (7,.05) {Orden de magnitud, no mínimo/máximo validado. Tiempo y calidad: medir después en el equipo de uso.};
   \end{figurecanvas}
 \end{frame}
 

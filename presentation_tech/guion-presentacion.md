@@ -422,19 +422,21 @@ También puede ser correcta pero tardar demasiado o no caber en memoria. Ahí pr
 
 **1:20 · acumulado 25:00 · 5 · Adaptación y despliegue**
 
-**Mensaje:** Podemos dar órdenes de magnitud, siempre vinculados al motor, duración y contexto.
+**Mensaje:** Podemos estimar tamaño de modelos y memoria; el tiempo de ejecución lo mediremos.
 
-Para hacernos una idea, un presupuesto inicial de cuatro a ocho gigas de RAM para los procesos es razonable bajo estas hipótesis: MOSS cuantizado con motor C++, consulta de quince a treinta minutos, Qwen pequeño y contexto de cuatro a ocho mil tokens. Es una estimación de planificación, no una medición del escriba. Un PC de dieciséis gigas sería el punto de partida para probar, dejando espacio al sistema y otras aplicaciones.
+La configuración del dibujo combina MOSS de 0,9B para texto y hablantes con un generador pequeño, Qwen de 0,6B. Juntos suman aproximadamente mil quinientos millones de parámetros. A cuatro u ocho bits, el cálculo nominal de pesos queda entre 0,75 y 1,5 gigas; al añadir metadatos y tensores que conservan mayor precisión, hablamos de aproximadamente uno a dos gigas en archivos de modelos.
 
-Hay benchmarks publicados en CPUs de portátil. Un port de MOSS en transcribe.cpp tarda unos veintiún segundos para treinta y cinco segundos de audio en un Ryzen 7 PRO 4750U. Es un clip corto con el modelo ya cargado; no permite prometer cuánto tardará una consulta completa ni qué calidad tendrá en español clínico.
+Para RAM hay que sumar contexto, estado del audio, activaciones y buffers. Con una consulta de quince a treinta minutos y un generador con cuatro a ocho mil tokens de contexto, dejamos un presupuesto aproximado de cuatro a ocho gigas para los procesos. Es un rango de planificación bajo esas hipótesis, no un mínimo y máximo demostrado. Tampoco incluye toda la memoria del sistema y de HCIS.
 
-Para Qwen3-0.6B, un benchmark del motor experimental Ember en un i5-1135G7 obtiene unos siete tokens por segundo con Q8_0. Quinientos tokens de salida serían unos setenta y dos segundos solo de generación; falta procesar el prompt y cargar el modelo. llama.cpp sigue siendo un motor candidato, pero ese número de Ember no es una medida de llama.cpp ni de nuestra nota médica.
+Existen motores pensados para estos tamaños: llama.cpp con GGUF y, como ejemplo de otra plataforma, LiteRT-LM de Google con Gemma en móviles. Eso muestra una vía de ejecución en dispositivos pequeños. La nota clínica española y la configuración completa siguen necesitando evaluación.
 
-**Figura:** RAM estimada, una medida de audio y una medida de generación. Son referencias distintas, no tiempos que podamos sumar como un benchmark completo.
+**Figura:** Dos cantidades distintas: tamaño en disco y RAM al ejecutar. Pesos cuantizados para el disco; pesos más contexto y memoria de trabajo para RAM.
 
-**Transición:** El núcleo permite intercambiar motores y reutilizar luego la pipeline desde una interfaz.
+**Tiempo de inferencia:** queda pendiente. Medirlo en nuestro PC sería un benchmark de desarrollo, con su hardware/configuración completos; no sustituye la prueba en el equipo que vaya a usar el médico.
 
-**Para preguntas:** [cálculo de memoria, motores y límites](recursos-locales.md). El consumo de audio crece con su duración; el del generador, con el contexto. Las cifras no son un requisito mínimo validado.
+**Transición:** El núcleo permite intercambiar modelos y motores y reutilizar la pipeline desde una interfaz.
+
+**Para preguntas:** [cálculo de RAM/disco, cuantización y fuentes](recursos-locales.md). No se ha instalado ni ejecutado aquí un nuevo modelo para obtener estas cifras.
 
 ## 27. Scribnic: de la CLI a una aplicación
 

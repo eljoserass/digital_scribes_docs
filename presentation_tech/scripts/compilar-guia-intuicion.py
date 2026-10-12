@@ -12,11 +12,11 @@ Puedes leer por bloques. Primero mira la figura, recorre el ejemplo y después l
 |---|---|---|
 | CTC, RNN-T, atención y decoder | [Audio y hablantes](#audio-y-hablantes) | 9–11 |
 | WER, DER, cpWER y tcpWER | [Audio y hablantes](#audio-y-hablantes) | 12–17 |
-| p50, p95, latencia y RTF | [Audio y hablantes](#audio-y-hablantes) | 26 y 29 |
+| p50, p95, latencia y RTF | [Audio y hablantes](#audio-y-hablantes) | 29 |
 | Hechos, generador, historia y verificador | [De la consulta a la nota](#de-la-consulta-a-la-nota) | 18–22 |
 | SCRIBE: médicos, métricas calibradas y juez | [De la consulta a la nota](#de-la-consulta-a-la-nota) | 23–24 |
 | Robust SOAP, KOSMOS, ASCRIBE y Nuance | [Qué hace cada paper](#qué-hace-cada-paper) | 19 y lecturas |
-| Cálculo local de RAM y tiempos | [RAM y latencia](#ram-y-latencia) | 26 |
+| Cálculo local de RAM y disco | [RAM y almacenamiento](#ram-y-almacenamiento) | 26 |
 
 El hilo: **reconocer qué se dijo → atribuirlo → seleccionar información → redactar → comprobar respaldo y cobertura → medir utilidad y ejecución**. Cada etapa puede introducir errores. Una salida intermedia visible permite localizarlos; no garantiza que desaparezcan.
 
@@ -30,13 +30,15 @@ for title,filename,start in chapters:
  body=re.sub(r'^(#{2,5}) ',r'\1# ',body,flags=re.M)
  body=re.sub(r'(!\[[^\]]*\]\([^\n)]*)\.svg\)',r'\1.png)',body)
  out+=f'## {title}\n\n'+body.rstrip()+'\n\n'
-out+='''## RAM y latencia
+out+='''## RAM y almacenamiento
 
-La slide 26 es un cálculo inicial, con **4–8 GB de RAM para procesos** bajo hipótesis concretas y un PC de 16 GB para comenzar a medir. Ese presupuesto cambia con duración, contexto, runtime y cuantización.
+La slide 26 es un cálculo inicial: **1–2 GB en archivos de modelos** y **4–8 GB de RAM para los procesos** de una configuración pequeña cuantizada. RAM y disco son cantidades distintas; el contexto y la memoria de trabajo se añaden al ejecutar.
 
-Las referencias de velocidad no son de nuestra pipeline: un port de MOSS tarda **21 s para 35 s de audio** en CPU Ryzen 7 PRO 4750U; un experimento de Qwen en Ember ronda **7 tokens/s en i5-1135G7**. A ese ritmo, 500 tokens son unos **72 s de decode**, antes de procesar el prompt. Son clips/motores distintos: no sumar como si fuese una consulta completa medida.
+La cuenta nominal de pesos es `parámetros × bits por peso / 8`. MOSS 0,9B + Qwen 0,6B suman ≈1,5B parámetros: a 4–8 bits, ≈0,75–1,5 GB antes de metadatos y tensores en mayor precisión. De ahí el orden de magnitud de 1–2 GB en disco. Para RAM se añaden estado del audio, KV cache, buffers y margen del motor. El rango usa audio de 15–30 min y contexto del generador de 4–8k: no es un límite universal.
 
-La [ficha de recursos locales](recursos-locales.md) contiene fuentes, cálculo y límites. Recuerda separar **carga → prefill → decode**, y **RAM del proceso** de **RAM total del PC**.
+Como ejemplo de ejecución en dispositivos pequeños, Google ofrece **LiteRT-LM y Gemma en móviles**. Eso no demuestra que nuestro escriba completo tenga latencia o calidad clínica suficientes. La [ficha de recursos locales](recursos-locales.md) contiene fuentes y el cálculo.
+
+**El tiempo de inferencia queda pendiente de medir.** Una prueba en nuestro PC deberá declarar modelo, precisión, motor, hardware y entrada. Para valorar uso clínico, se repetirá en el equipo objetivo. No se ha ejecutado un modelo nuevo en esta revisión.
 
 ## Para comprobar que tienes el recorrido
 
