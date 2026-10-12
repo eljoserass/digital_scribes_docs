@@ -2,157 +2,181 @@
   {
     "slide": 1,
     "title": "Construir un escriba digital médico",
-    "seconds": 30,
+    "seconds": 20,
     "section": "1 · Consulta y nota"
   },
   {
     "slide": 2,
     "title": "Objetivo y alcance",
-    "seconds": 45,
+    "seconds": 30,
     "section": "1 · Consulta y nota"
   },
   {
     "slide": 3,
     "title": "Información del encuentro",
-    "seconds": 60,
+    "seconds": 40,
     "section": "1 · Consulta y nota"
   },
   {
     "slide": 4,
     "title": "La nota SOAP",
-    "seconds": 75,
+    "seconds": 55,
     "section": "1 · Consulta y nota"
   },
   {
     "slide": 5,
     "title": "Pipeline del escriba",
-    "seconds": 50,
+    "seconds": 35,
     "section": "1 · Consulta y nota"
   },
   {
     "slide": 6,
-    "title": "Evaluación",
-    "seconds": 60,
-    "section": "2 · Evaluación y datos"
+    "title": "Del escriba al flujo clínico",
+    "seconds": 40,
+    "section": "1 · Consulta y nota"
   },
   {
     "slide": 7,
-    "title": "Datos de evaluación",
-    "seconds": 80,
+    "title": "Evaluación",
+    "seconds": 50,
     "section": "2 · Evaluación y datos"
   },
   {
     "slide": 8,
-    "title": "Señal y representación acústica",
-    "seconds": 70,
-    "section": "3 · Audio y hablantes"
+    "title": "Datos de evaluación",
+    "seconds": 65,
+    "section": "2 · Evaluación y datos"
   },
   {
     "slide": 9,
-    "title": "Modelos de ASR",
-    "seconds": 90,
+    "title": "Señal y representación acústica",
+    "seconds": 60,
     "section": "3 · Audio y hablantes"
   },
   {
     "slide": 10,
-    "title": "WER y errores clínicos",
-    "seconds": 70,
+    "title": "CTC, transducer y atención",
+    "seconds": 80,
     "section": "3 · Audio y hablantes"
   },
   {
     "slide": 11,
-    "title": "Diarización: tiempo, hablante y rol",
-    "seconds": 60,
+    "title": "Qué hace el decoder",
+    "seconds": 70,
     "section": "3 · Audio y hablantes"
   },
   {
     "slide": 12,
-    "title": "Modelos de diarización",
-    "seconds": 80,
+    "title": "WER y errores clínicos",
+    "seconds": 60,
     "section": "3 · Audio y hablantes"
   },
   {
     "slide": 13,
-    "title": "Transcripción con hablantes",
-    "seconds": 50,
+    "title": "Diarización: tiempo, hablante y rol",
+    "seconds": 45,
     "section": "3 · Audio y hablantes"
   },
   {
     "slide": 14,
-    "title": "Generación de notas",
-    "seconds": 60,
-    "section": "4 · Diálogo, contexto y nota"
+    "title": "Modelos de diarización",
+    "seconds": 65,
+    "section": "3 · Audio y hablantes"
   },
   {
     "slide": 15,
-    "title": "Selección de hechos",
-    "seconds": 100,
-    "section": "4 · Diálogo, contexto y nota"
+    "title": "DER: cuánto tiempo se atribuyó mal",
+    "seconds": 65,
+    "section": "3 · Audio y hablantes"
   },
   {
     "slide": 16,
-    "title": "Contexto de la historia clínica",
-    "seconds": 90,
-    "section": "4 · Diálogo, contexto y nota"
+    "title": "Transcripción con hablantes",
+    "seconds": 40,
+    "section": "3 · Audio y hablantes"
   },
   {
     "slide": 17,
-    "title": "Comprobaciones de la nota",
-    "seconds": 90,
-    "section": "4 · Diálogo, contexto y nota"
+    "title": "Palabras correctas, hablante equivocado",
+    "seconds": 80,
+    "section": "3 · Audio y hablantes"
   },
   {
     "slide": 18,
-    "title": "Propagación de errores",
-    "seconds": 60,
+    "title": "Generación de notas",
+    "seconds": 45,
     "section": "4 · Diálogo, contexto y nota"
   },
   {
     "slide": 19,
-    "title": "Experimento por etapas",
-    "seconds": 90,
+    "title": "Selección de hechos",
+    "seconds": 85,
     "section": "4 · Diálogo, contexto y nota"
   },
   {
     "slide": 20,
-    "title": "Qué adaptar y con qué datos",
-    "seconds": 80,
-    "section": "5 · Adaptación y despliegue"
+    "title": "Qué aporta la historia clínica",
+    "seconds": 100,
+    "section": "4 · Diálogo, contexto y nota"
   },
   {
     "slide": 21,
-    "title": "Recursos para ejecución local",
-    "seconds": 65,
-    "section": "5 · Adaptación y despliegue"
+    "title": "Qué comprueba el verificador",
+    "seconds": 85,
+    "section": "4 · Diálogo, contexto y nota"
   },
   {
     "slide": 22,
-    "title": "Scribnic: núcleo y clientes",
-    "seconds": 65,
-    "section": "5 · Adaptación y despliegue"
+    "title": "Propagación de errores",
+    "seconds": 45,
+    "section": "4 · Diálogo, contexto y nota"
   },
   {
     "slide": 23,
-    "title": "Captura e integración",
-    "seconds": 75,
-    "section": "5 · Adaptación y despliegue"
+    "title": "Robust SOAP: probar errores controlados",
+    "seconds": 100,
+    "section": "4 · Diálogo, contexto y nota"
   },
   {
     "slide": 24,
-    "title": "Evaluación del sistema desplegado",
-    "seconds": 65,
+    "title": "Qué adaptar y con qué datos",
+    "seconds": 60,
     "section": "5 · Adaptación y despliegue"
   },
   {
     "slide": 25,
-    "title": "Datos del primer experimento",
-    "seconds": 75,
-    "section": "6 · Plan de trabajo"
+    "title": "Un escriba en el PC del médico",
+    "seconds": 80,
+    "section": "5 · Adaptación y despliegue"
   },
   {
     "slide": 26,
-    "title": "Propuesta de trabajo",
+    "title": "Scribnic: de la CLI a una aplicación",
+    "seconds": 60,
+    "section": "5 · Adaptación y despliegue"
+  },
+  {
+    "slide": 27,
+    "title": "Captura e integración",
     "seconds": 65,
+    "section": "5 · Adaptación y despliegue"
+  },
+  {
+    "slide": 28,
+    "title": "Evaluación del sistema desplegado",
+    "seconds": 60,
+    "section": "5 · Adaptación y despliegue"
+  },
+  {
+    "slide": 29,
+    "title": "Datos del primer experimento",
+    "seconds": 65,
+    "section": "6 · Plan de trabajo"
+  },
+  {
+    "slide": 30,
+    "title": "Propuesta de trabajo",
+    "seconds": 50,
     "section": "6 · Plan de trabajo"
   }
 ]

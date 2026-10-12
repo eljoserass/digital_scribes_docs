@@ -1,10 +1,10 @@
 # Fdb version 4
-["xdvipdfmx"] 1791621590.07989 "build/main.xdv" "build/main.pdf" "build/main" 1791621590.70562 0
-  "build/main.xdv" 1791621589.99153 521720 a1164ad4f63a0c4d7f56232983a8dcc7 "xelatex"
+["xdvipdfmx"] 1791807888.95931 "build/main.xdv" "build/main.pdf" "build/main" 1791807889.76028 0
+  "build/main.xdv" 1791807888.808 566684 4b05e821064ec5147a50bff70905b741 "xelatex"
   (generated)
   "build/main.pdf"
   (rewritten before read)
-["xelatex"] 1791621585.76065 "main.tex" "build/main.xdv" "main" 1791621590.70205 0
+["xelatex"] 1791807885.02431 "main.tex" "build/main.xdv" "main" 1791807889.75685 0
   "/etc/texmf/web2c/texmf.cnf" 1788443718.53639 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -20,7 +20,6 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm" 1136768653 1520 eccf95517727cb11801f4f1aee3a21b4 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm" 1136768653 1524 d89e2d087a9828407a196f428428ef4a ""
-  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr5.tfm" 1136768653 1220 ad296dff3c8796c18053ab7b9f86ad7c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1136768653 1300 b62933e007d01cfd073f79b963c01526 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1136768653 1292 21c1c5bfeaebccffdb478fd231a0997d ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1136768653 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
@@ -216,14 +215,16 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1769369718 41603 27f93b3067076450172040dcd57ca8b3 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1788443810 5948431 5b1974e4fa296845f0ac7a805d8a5ddf ""
   "assets/logo-irycis-oficial.png" 1791461047.50301 195624 2ea3eb348c6dcc306295401361b0a46c ""
-  "build/main.aux" 1791621589.98907 5986 a456ac8e9f59d602440efad39518108c "xelatex"
-  "build/main.nav" 1791621589.99119 3329 b44a6f15d05f00fe8fd1e5fda4fad2d4 "xelatex"
-  "build/main.out" 1791621589.99007 84 a78486327a3d8162e2e0bd93a1c55db9 "xelatex"
-  "figures/asr-architectures.tex" 1791621363.89491 3465 14961daec7777bea32ccc594b522c1df ""
+  "build/main.aux" 1791807888.80511 6799 36bf6a64f0ddd3ad49ad4662566dfc9e "xelatex"
+  "build/main.nav" 1791807888.808 3794 32bfd071b08ed773f0b857c8921bfd1e "xelatex"
+  "build/main.out" 1791807888.80569 84 a78486327a3d8162e2e0bd93a1c55db9 "xelatex"
+  "figures/asr-architectures.tex" 1791807015.52336 1444 5938ed7872955bc13ab95d8ea82a0c89 ""
   "figures/jurafsky-spectrogram.pdf" 1791620335.80111 36886 7dfcba947ff612560c3d410e1b8371f8 ""
   "figures/jurafsky-wave.pdf" 1791620334.6447 43648 b973bd9ab8c3829fcbf7139fabfb4abf ""
-  "main.tex" 1791621585.23807 43171 fd7b6051eca9a39d67ea9c1c67384ff6 ""
-  "preamble.tex" 1791620263.15437 3277 1e0c56ec21cac76daca9e47c22a95eef ""
+  "figures/robust-soap-table1.pdf" 1791807577.7464 17979 24129b94bfabe584b80e5469c5079843 ""
+  "figures/robust-soap-table2.pdf" 1791807578.24049 18792 ff727cf661ef3a70c64dd8139802428a ""
+  "main.tex" 1791807884.83051 48618 0e3ca42c47ad5dd10be0e9ac26676d16 ""
+  "preamble.tex" 1791807576.89161 3277 a0610434806026fc5f7cac15aafdd95d ""
   (generated)
   "build/main.aux"
   "build/main.log"

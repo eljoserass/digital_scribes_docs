@@ -1,42 +1,21 @@
-% Input inside \begin{figurecanvas}[4.3]. Own diagram, based on SLP ch. 16.
-% This file supplies TikZ nodes only; styles and colours come from preamble.tex.
-\begin{scope}[every node/.append style={font=\sffamily\fontsize{8}{9.5}\selectfont}]
-  \tikzset{box/.append style={inner sep=3pt,font=\sffamily\fontsize{7.5}{9}\selectfont},good/.append style={inner sep=3pt,font=\sffamily\fontsize{7.5}{9}\selectfont}}
-  \draw[navy!14,line width=.5pt] (4.55,.12)--(4.55,4.25);
-  \draw[navy!14,line width=.5pt] (9.35,.12)--(9.35,4.25);
-  \node[plain,font=\sffamily\bfseries\small] at (2.20,4.08) {CTC};
-  \node[plain,font=\sffamily\bfseries\small] at (6.95,4.08) {Encoder--decoder};
-  \node[plain,font=\sffamily\bfseries\small] at (11.80,4.08) {RNN-T};
-
-  % CTC: emissions are indexed by acoustic frames, then collapsed.
-  \node[box,text width=3.20cm,minimum height=.55cm] (ctcencoder) at (2.20,3.35) {Encoder acústico};
-  \node[good,text width=3.20cm,minimum height=.66cm] (ctclabels) at (2.20,2.42) {Etiqueta por frame\\\texttt{t t \_ o \_ s s}};
-  \draw[arr] (ctcencoder)--(ctclabels);
-  \node[box,text width=3.20cm,minimum height=.58cm] (ctccollapse) at (2.20,1.40) {Colapsar\\$\to$ «tos»};
-  \draw[arr] (ctclabels)--(ctccollapse);
-  \node[tinylabel,font=\sffamily\fontsize{7}{8}\selectfont] at (3.30,1.91) {\texttt{\_}: blank};
-  \node[plain,align=center,text width=4.05cm,font=\sffamily\fontsize{7.5}{9}\selectfont] at (2.20,.40) {Greedy sencillo.\\Etiquetas independientes dado el audio.};
-
-  % AED: attention to encoded audio plus autoregressive text feedback.
-  \node[box,text width=1.60cm,minimum height=.66cm] (aedencoder) at (5.85,3.20) {Encoder\\acústico};
-  \node[good,text width=1.62cm,minimum height=.66cm] (aeddecoder) at (8.00,2.32) {Decoder};
-  \draw[arr] (aedencoder.east) -| (aeddecoder.north);
-  \node[tinylabel,font=\sffamily\fontsize{7}{8}\selectfont] at (7.63,3.53) {atención};
-  \node[box,text width=1.40cm,minimum height=.59cm] (aedprefix) at (5.85,1.62) {Texto previo\\«to»};
-  \draw[arr] (aedprefix.east) -| (aeddecoder.south west);
-  \node[plain,align=center,text width=1.65cm,font=\sffamily\fontsize{8}{9.5}\selectfont] (aednext) at (8.00,1.12) {Token «s»};
-  \draw[arr] (aeddecoder)--(aednext);
-  \draw[arr] (aednext.west)--(7.05,1.12)--(7.05,.90)--(5.85,.90)--(aedprefix.south);
-  \node[plain,align=center,text width=4.20cm,font=\sffamily\fontsize{7.5}{9}\selectfont] at (6.95,.35) {Whisper atiende al audio del segmento.\\Decoding token a token.};
-
-  % Transducer: an acoustic state and the emitted prefix meet at a joiner.
-  \node[box,text width=1.60cm,minimum height=.66cm] (rnntencoder) at (10.50,3.20) {Encoder\\acústico};
-  \node[box,text width=1.50cm,minimum height=.66cm] (rnntpredictor) at (12.95,3.20) {Predictor\\prefijo «to»};
-  \node[good,text width=2.20cm,minimum height=.50cm] (rnntjoin) at (11.80,2.27) {Red conjunta};
-  \draw[arr] (rnntencoder.south)--(rnntjoin.north west);
-  \draw[arr] (rnntpredictor.south)--(rnntjoin.north east);
-  \node[plain,align=center,font=\sffamily\fontsize{8}{9.5}\selectfont] (rnntnext) at (11.80,1.55) {Token «s» o blank};
-  \draw[arr] (rnntjoin)--(rnntnext);
-  \node[plain,align=center,text width=4.10cm,font=\sffamily\fontsize{7.5}{9}\selectfont] at (11.80,1.02) {Token $\to$ texto; blank $\to$ audio.};
-  \node[plain,align=center,text width=4.15cm,font=\sffamily\fontsize{7.5}{9}\selectfont] at (11.80,.35) {Incremental con encoder causal.\\Decoding más complejo.};
+% Own schematic: reference milestones and mechanisms, not a replacement timeline.
+% Input inside figurecanvas[4.3].
+\begin{scope}[every node/.append style={font=\fontsize{9}{11}\selectfont}]
+  \draw[navy!15] (4.6,.25)--(4.6,4.2);
+  \draw[navy!15] (9.35,.25)--(9.35,4.2);
+  \node[plain,align=center,font=\bfseries\small] at (2.2,3.95) {CTC · 2006};
+  \node[plain,align=center,font=\bfseries\small] at (6.95,3.95) {RNN-T · 2012};
+  \node[plain,align=center,font=\bfseries\small] at (11.8,3.95) {Atención · 2015};
+  \node[box,text width=3.35cm] (a) at (2.2,2.85) {Encoder acústico\\→ etiqueta por frame};
+  \node[good,text width=3.35cm] (b) at (2.2,1.65) {Colapsar repeticiones\\y símbolos blank};
+  \draw[arr] (a)--(b);
+  \node[plain,align=center,text width=4.1cm] at (2.2,.55) {\textbf{Ejemplo}\\Parakeet-CTC};
+  \node[box,text width=3.4cm] (c) at (6.95,2.85) {Estado de audio\\+ predictor del texto};
+  \node[good,text width=3.4cm] (d) at (6.95,1.65) {Emitir token\\o avanzar en el audio};
+  \draw[arr] (c)--(d);
+  \node[plain,align=center,text width=4.2cm] at (6.95,.55) {\textbf{Derivado actual}\\Parakeet-TDT v3};
+  \node[box,text width=3.45cm] (e) at (11.8,2.85) {Audio codificado\\+ texto anterior};
+  \node[good,text width=3.45cm] (f) at (11.8,1.65) {Decoder con atención\\→ siguiente token};
+  \draw[arr] (e)--(f);
+  \node[plain,align=center,text width=4.2cm] at (11.8,.55) {\textbf{Ejemplos}\\Whisper · Canary};
 \end{scope}

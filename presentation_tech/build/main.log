@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025/Debian) (preloaded format=xelatex 2026.9.3)  10 OCT 2026 10:39
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025/Debian) (preloaded format=xelatex 2026.9.3)  12 OCT 2026 14:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1210,10 +1210,6 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 ]
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
-File: figures/jurafsky-wave.pdf Graphic file (type pdf)
-<use figures/jurafsky-wave.pdf>
-File: figures/jurafsky-spectrogram.pdf Graphic file (type pdf)
-<use figures/jurafsky-spectrogram.pdf>
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
  [8
@@ -1221,42 +1217,10 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 ]
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
-
-(./figures/asr-architectures.tex
-LaTeX Font Info:    Calculating math sizes for size <7.5> on input line 15.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <7.5> not available
-(Font)              size <7> substituted on input line 15.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.75> not available
-(Font)              size <5> substituted on input line 15.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 15.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.75> not available
-(Font)              size <5> substituted on input line 15.
-
-LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 15.
-
-)
+File: figures/jurafsky-wave.pdf Graphic file (type pdf)
+<use figures/jurafsky-wave.pdf>
+File: figures/jurafsky-spectrogram.pdf Graphic file (type pdf)
+<use figures/jurafsky-spectrogram.pdf>
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
  [9
@@ -1264,6 +1228,8 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 ]
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
+
+(./figures/asr-architectures.tex)
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
  [10
@@ -1278,6 +1244,18 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 ]
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
+LaTeX Font Info:    Trying to load font information for U+msa on input line 244
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 244
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
  [12
@@ -1301,7 +1279,8 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
- [15
+
+[15
 
 ]
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
@@ -1313,14 +1292,9 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 ]
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
-
-Underfull \hbox (badness 1859) in paragraph at lines 339--339
-[][][]\TU/TeXGyreHeros(0)/m/n/9 Sin soporte en las entradas 
- []
-
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
-[17
+ [17
 
 ]
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
@@ -1346,9 +1320,14 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 ]
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
+
+Underfull \hbox (badness 1859) in paragraph at lines 415--415
+[][][]\TU/TeXGyreHeros(0)/m/n/9 Sin soporte en las entradas 
+ []
+
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
- [21
+[21
 
 ]
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
@@ -1360,6 +1339,8 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 ]
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
+File: figures/robust-soap-table1.pdf Graphic file (type pdf)
+<use figures/robust-soap-table1.pdf>
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
  [23
@@ -1421,6 +1402,44 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
  [31
 
 ]
+File: assets/logo-irycis-oficial.png Graphic file (type bmp)
+<assets/logo-irycis-oficial.png>
+File: assets/logo-irycis-oficial.png Graphic file (type bmp)
+<assets/logo-irycis-oficial.png>
+ [32
+
+]
+File: assets/logo-irycis-oficial.png Graphic file (type bmp)
+<assets/logo-irycis-oficial.png>
+File: assets/logo-irycis-oficial.png Graphic file (type bmp)
+<assets/logo-irycis-oficial.png>
+ [33
+
+]
+File: assets/logo-irycis-oficial.png Graphic file (type bmp)
+<assets/logo-irycis-oficial.png>
+File: assets/logo-irycis-oficial.png Graphic file (type bmp)
+<assets/logo-irycis-oficial.png>
+ [34
+
+]
+File: assets/logo-irycis-oficial.png Graphic file (type bmp)
+<assets/logo-irycis-oficial.png>
+File: assets/logo-irycis-oficial.png Graphic file (type bmp)
+<assets/logo-irycis-oficial.png>
+ [35
+
+]
+File: assets/logo-irycis-oficial.png Graphic file (type bmp)
+<assets/logo-irycis-oficial.png>
+File: figures/robust-soap-table2.pdf Graphic file (type pdf)
+<use figures/robust-soap-table2.pdf>
+File: assets/logo-irycis-oficial.png Graphic file (type bmp)
+<assets/logo-irycis-oficial.png>
+
+[36
+
+]
 \tf@nav=\write6
 \openout6 = `main.nav'.
 
@@ -1430,8 +1449,7 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-
-(build/main.aux
+ (build/main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -1439,21 +1457,16 @@ LaTeX Info: Redefining \% on input line 11.
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
-
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 1.25pt have occurred.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: A78486327A3D8162E2E0BD93A1C55DB9;84.
  ) 
 Here is how much of TeX's memory you used:
- 29223 strings out of 468173
- 617627 string characters out of 5435521
- 1068646 words of memory out of 5000000
- 57342 multiletter control sequences out of 15000+600000
- 636654 words of font info for 128 fonts, out of 8000000 for 9000
+ 29101 strings out of 468173
+ 615086 string characters out of 5435521
+ 1063069 words of memory out of 5000000
+ 57230 multiletter control sequences out of 15000+600000
+ 633707 words of font info for 104 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 128i,12n,123p,492b,1060s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,13n,123p,492b,1060s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on build/main.xdv (31 pages, 521720 bytes).
+Output written on build/main.xdv (36 pages, 566684 bytes).

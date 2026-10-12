@@ -27,14 +27,24 @@ python3 figures/extract_jurafsky_figures.py /ruta/al/capitulo15.pdf
 
 ## Tres familias de ASR
 
-[asr-architectures.tex](asr-architectures.tex) es un **esquema propio** para incluir dentro de `figurecanvas[4.3]` (14 × 4,3 cm). Muestra cómo sale el texto, con el ejemplo «tos»:
+[asr-architectures.tex](asr-architectures.tex) es un **esquema propio** para incluir dentro de `figurecanvas[4.3]` (14 × 4,3 cm). Muestra cómo sale el texto, con mecanismos, antecedentes y ejemplos actuales:
 
-- **CTC:** etiquetas por frame, blank y colapso; independencia condicional entre etiquetas y posibilidad de greedy sencillo.
-- **Encoder–decoder:** atención al audio y realimentación de los tokens anteriores; el pie se refiere a **Whisper y al audio de su segmento**, sin afirmar que todos los encoder–decoder requieran audio completo.
-- **RNN-T:** encoder, predictor del prefijo y red conjunta; emitir token avanza el texto y emitir blank avanza el audio. La salida incremental requiere un encoder que no dependa de audio futuro; el decoding añade complejidad frente a CTC greedy.
+- **CTC:** etiquetas por frame, blank y colapso; ejemplo actual Parakeet CTC.
+- **RNN-T:** estado acústico y predictor del texto; emisión de tokens y avance temporal. Parakeet TDT es un derivado actual que predice duraciones, no el RNN-T original.
+- **Atención:** audio codificado y texto previo condicionan el siguiente token; ejemplos Whisper y Canary. La diapositiva siguiente abre el decoder Transformer de Whisper y separa red neuronal de greedy/beam search.
+
+Las fechas son hitos bibliográficos, no una cronología de sustitución. Las tres familias siguen en uso.
 
 Referencias para el dibujo: [Jurafsky y Martin, cap. 16](https://web.stanford.edu/~jurafsky/slp3/16.pdf), mismo borrador, **fig. 16.5/p. 8, fig. 16.13/p. 18 y fig. 16.17/p. 22**; [copia de Zotero](/mnt/c/Users/rodri/Zotero/storage/2DGXGMAU/16.pdf). Apoyo para las diferencias y las variantes en streaming: [Prabhavalkar et al., *End-to-End Speech Recognition: A Survey*](https://arxiv.org/abs/2303.03329), §II. Para Whisper: [Radford et al.](https://arxiv.org/abs/2212.04356), §2.2 y fig. 1.
 
 ## Figura sintética del primer borrador
 
 [signal_features.pdf](signal_features.pdf) y [PNG](signal_features.png), generados con [render_signal.py](render_signal.py), se conservan como material auxiliar. Muestran una señal armónica sintética a 16 kHz, STFT (ventana de 25 ms, avance de 10 ms) y 40 bandas log-Mel. **No son voz ni audio clínico.** Desde `presentation_tech/`: `python3 figures/render_signal.py`.
+
+## Robust SOAP: tablas originales
+
+[Tabla 1](robust-soap-table1.pdf) (p. 454 / página 7 del PDF) contiene la taxonomía de perturbaciones; [tabla 2](robust-soap-table2.pdf) (p. 456 / página 9) contiene los resultados publicados. **Latif et al., CHIL 2026, PMLR 333**, © autores. [Artículo y PDF original](https://proceedings.mlr.press/v333/latif26a.html).
+
+Son recortes vectoriales sin modificar celdas, flechas ni captions. Se usa la copia proporcionada en Zotero; no se incluye el artículo completo. La tabla 1 está en el cuerpo y la 2 en el anexo F. La interpretación y las limitaciones están en [robust-soap.md](../robust-soap.md).
+
+Regenerar con `python3 figures/extract_robust_soap_tables.py /ruta/al/articulo.pdf`. El script registra páginas y coordenadas, elimina contenido externo al recorte con Ghostscript y genera PNG de revisión. La figura del decoder y los ejemplos DER/cpWER son propios; los valores ilustrativos no son resultados de modelos.

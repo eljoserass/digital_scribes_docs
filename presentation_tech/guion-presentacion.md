@@ -1,6 +1,6 @@
 # Guion — Construir un escriba digital médico
 
-Versión renovada del **10/10/2026**. Acompaña a [main.pdf](build/main.pdf): **26 diapositivas principales, 30 minutos previstos y cinco anexos**. Los tiempos incluyen señalar figuras y pausas; falta ensayarlos. Las preguntas quedan fuera de los 30 minutos.
+Versión renovada del **12/10/2026**. Acompaña a [main.pdf](build/main.pdf): **30 diapositivas principales, 30 minutos previstos y seis anexos**. Los tiempos incluyen señalar figuras y pausas; falta ensayarlos. Las preguntas quedan fuera de los 30 minutos.
 
 ## El recorrido en un minuto
 
@@ -25,16 +25,16 @@ El ejemplo clínico es ficticio. Los esquemas de pipeline y experimentos son pro
 
 | Bloque | Diapositivas | Tiempo | Acumulado |
 |---|---|---:|---:|
-| Consulta y nota | 1–5 | 4:20 | 4:20 |
-| Evaluación y datos | 6–7 | 2:20 | 6:40 |
-| Audio y hablantes | 8–13 | 7:00 | 13:40 |
-| Diálogo, contexto y nota | 14–19 | 8:10 | 21:50 |
-| Adaptación y despliegue | 20–24 | 5:50 | 27:40 |
-| Plan de trabajo | 25–26 | 2:20 | 30:00 |
+| Consulta y nota | 1–6 | 3:40 | 3:40 |
+| Evaluación y datos | 7–8 | 1:55 | 5:35 |
+| Audio y hablantes | 9–17 | 9:25 | 15:00 |
+| Diálogo, contexto y nota | 18–23 | 7:40 | 22:40 |
+| Adaptación y despliegue | 24–28 | 5:25 | 28:05 |
+| Plan de trabajo | 29–30 | 1:55 | 30:00 |
 
 ## 1. Construir un escriba digital médico
 
-**0:30 · acumulado 0:30 · 1 · Consulta y nota**
+**0:20 · acumulado 0:20 · 1 · Consulta y nota**
 
 **Mensaje:** Seguir la información del encuentro hasta una nota revisada.
 
@@ -48,7 +48,7 @@ El recorrido conecta la tarea clínica con modelos, datos, evaluación y ejecuci
 
 ## 2. Objetivo y alcance
 
-**0:45 · acumulado 1:15 · 1 · Consulta y nota**
+**0:30 · acumulado 0:50 · 1 · Consulta y nota**
 
 **Mensaje:** Medir el trabajo completo, incluida la revisión.
 
@@ -62,7 +62,7 @@ Queremos una nota correcta que reduzca el esfuerzo de cerrarla. Contaremos tambi
 
 ## 3. Información del encuentro
 
-**1:00 · acumulado 2:15 · 1 · Consulta y nota**
+**0:40 · acumulado 1:30 · 1 · Consulta y nota**
 
 **Mensaje:** Conversación, historia y observaciones aportan datos distintos.
 
@@ -78,7 +78,7 @@ El bloque inferior reúne las entradas para generar, todavía no es la nota. La 
 
 ## 4. La nota SOAP
 
-**1:15 · acumulado 3:30 · 1 · Consulta y nota**
+**0:55 · acumulado 2:25 · 1 · Consulta y nota**
 
 **Mensaje:** La nota selecciona y organiza información con una función clínica.
 
@@ -94,7 +94,7 @@ SOAP es un ejemplo. Cada servicio puede necesitar otros campos y estilos. Defini
 
 ## 5. Pipeline del escriba
 
-**0:50 · acumulado 4:20 · 1 · Consulta y nota**
+**0:35 · acumulado 3:00 · 1 · Consulta y nota**
 
 **Mensaje:** Cada etapa necesita entradas y salidas inspeccionables.
 
@@ -106,11 +106,25 @@ El esquema describe funciones. No implica que todas estén implementadas ni que 
 
 **Figura:** Seguir el flujo horizontal y después las dos entradas adicionales.
 
-**Transición:** Antes de elegir modelos, fijemos cómo detectar si el sistema funciona.
+**Transición:** Antes de evaluarlo, situemos el producto dentro del flujo clínico.
 
-## 6. Evaluación
+## 6. Del escriba al flujo clínico
 
-**1:00 · acumulado 5:20 · 2 · Evaluación y datos**
+**0:40 · acumulado 3:40 · 1 · Consulta y nota**
+
+**Mensaje:** La nota es el punto de entrada a un flujo clínico más amplio.
+
+Tandem presenta su dirección de producto como un sistema operativo para clínicas: preparar la consulta con la historia, documentar, facilitar acceso a evidencia, codificar y organizar seguimiento. Abridge también anuncia funciones antes, durante y después del encuentro. Hay funcionalidades disponibles y otras sujetas a despliegue y mercado; son fuentes comerciales, no evidencia de eficacia.
+
+Apoyar decisiones puede incluir consultar guías en el contexto del paciente. No lo equiparemos con diagnosticar autónomamente. Nuestro alcance sigue siendo documentar y revisar la nota; cada ampliación necesita datos y evaluación propios.
+
+**Figura:** Recorrer antes, durante y después; señalar la nota como alcance actual.
+
+**Transición:** Para construir esa parte necesitamos definir cómo sabremos que funciona.
+
+## 7. Evaluación
+
+**0:50 · acumulado 4:30 · 2 · Evaluación y datos**
 
 **Mensaje:** Evaluar componentes, contenido y utilidad responde a preguntas diferentes.
 
@@ -124,9 +138,9 @@ En el uso clínico medimos correcciones, esfuerzo de revisión y tiempo total. U
 
 **Transición:** La siguiente pregunta es con qué datos podemos medir cada nivel.
 
-## 7. Datos de evaluación
+## 8. Datos de evaluación
 
-**1:20 · acumulado 6:40 · 2 · Evaluación y datos**
+**1:05 · acumulado 5:35 · 2 · Evaluación y datos**
 
 **Mensaje:** No tenemos un único corpus público que cubra todo nuestro caso de uso.
 
@@ -140,9 +154,9 @@ TEME aporta 90 diálogos médicos en español y unas cuatro horas de audio TTS. 
 
 **Transición:** Entramos ahora en el audio, empezando por lo que ve el modelo.
 
-## 8. Señal y representación acústica
+## 9. Señal y representación acústica
 
-**1:10 · acumulado 7:50 · 3 · Audio y hablantes**
+**1:00 · acumulado 6:35 · 3 · Audio y hablantes**
 
 **Mensaje:** La representación acústica conserva información distinta del texto.
 
@@ -156,43 +170,55 @@ Antes del modelo ya importan micrófono, canales, muestreo, ruido y compresión.
 
 **Transición:** Con esa secuencia acústica, ¿cómo se producen las palabras?
 
-## 9. Modelos de ASR
+## 10. CTC, transducer y atención
 
-**1:30 · acumulado 9:20 · 3 · Audio y hablantes**
+**1:20 · acumulado 7:55 · 3 · Audio y hablantes**
 
-**Mensaje:** CTC, encoder–decoder y transducer producen texto de formas distintas.
+**Mensaje:** CTC, transducer y atención conviven; las fechas no son una sucesión de reemplazos.
 
-CTC asigna etiquetas a frames acústicos. Repeticiones y blanks permiten que muchos alineamientos representen el mismo texto. En este ejemplo, colapsar la secuencia da «tos». El decoding greedy es sencillo; su factorización no condiciona cada etiqueta en el texto previo. Puede combinarse con decodificación más rica.
+Las tres rutas convierten representaciones del audio en tokens. CTC predice etiquetas por paso acústico y colapsa repeticiones y blancos. Es sencillo de decodificar, pero su salida básica no condiciona cada etiqueta en el texto anterior.
 
-En encoder–decoder, el decoder usa texto previo y atención al audio para producir el siguiente token. Whisper atiende al segmento de audio y genera token a token. Eso integra contexto textual, con coste de decodificación autoregresiva.
+RNN-T significa Recurrent Neural Network Transducer. Combina el encoder acústico con un predictor del texto previo y una red conjunta. Puede emitir un token sin avanzar el audio; el blanco avanza el tiempo. Esto permite aprender el alineamiento y usar contexto textual. Que sea incremental depende también del encoder. Los derivados siguen vigentes: Parakeet TDT predice además duraciones para saltar pasos, así que no es idéntico al RNN-T original.
 
-En RNN-T, una red conjunta combina estado acústico y prefijo textual. Emitir un token avanza el texto; emitir blank avanza el audio. Puede funcionar incrementalmente con un encoder causal, pero la arquitectura concreta y el decoding importan.
+El encoder–decoder con atención, como Whisper, consulta el audio y los tokens anteriores al generar cada token. Hay modelos actuales en las tres familias. «Encoder–decoder» en sentido amplio no basta para distinguirlas: aquí hablamos específicamente del basado en atención.
 
-Estos mecanismos explican opciones de entrenamiento e inferencia. Elegiremos modelos concretos midiendo calidad clínica en español, velocidad y memoria. Las losses quedan en el anexo.
+**Figura:** Comparar cómo cada ruta produce texto; las fechas sitúan antecedentes.
 
-**Figura:** CTC: leer secuencia y colapsar. AED: seguir bucle de texto. RNN-T: token frente a blank.
+**Transición:** Abramos ese decoder con un ejemplo de Whisper.
 
-**Transición:** Pasamos del mecanismo a cómo medir su salida.
+## 11. Qué hace el decoder
 
-## 10. WER y errores clínicos
+**1:10 · acumulado 9:05 · 3 · Audio y hablantes**
 
-**1:10 · acumulado 10:30 · 3 · Audio y hablantes**
+**Mensaje:** El decoder neuronal y el algoritmo de decoding son cosas distintas.
 
-**Mensaje:** WER cuenta errores por palabras, no su gravedad clínica.
+En Whisper, el decoder es un Transformer. Recibe los tokens anteriores, aplica atención sobre ese texto y sobre la representación del audio, y devuelve probabilidades para el siguiente token. Incluye capas de atención y redes feed-forward; no es simplemente una convolución. Las probabilidades de la figura son inventadas para ilustrar el mecanismo.
 
-WER es sustituciones más eliminaciones más inserciones, dividido por el número de palabras de la referencia. Aquí hay siete.
+Después hay que elegir una secuencia. Greedy toma el token más probable en cada paso; beam search mantiene varias hipótesis. Ese procedimiento es el decoding. En CTC también decodificamos, aunque no haya un decoder autoregresivo como el de Whisper. En un transducer intervienen el predictor del prefijo y la red conjunta. Los tres producen texto, con mecanismos distintos.
 
-Cambiar «el» por «este» produce un error; eliminar «no» también. Ambos dan 14,3 por ciento, aunque el segundo invierte un dato clínico.
+El contexto textual ayuda a resolver ambigüedad, pero una salida plausible puede ser incorrecta respecto al audio.
 
-Mantendríamos WER con una normalización documentada y añadiríamos análisis de términos, negación, dosis y fechas. Esas categorías permiten saber qué falla y seleccionar casos para revisión clínica. Para demostrar que una corrección de vocabulario o un fine-tuning ayuda, repetimos esa evaluación en un test separado; no basta con corregir los ejemplos que vimos.
+**Figura:** Seguir audio y prefijo → distribución → elección → realimentación.
 
-**Figura:** Comparar las dos frases y explicar S, D, I y N.
+**Transición:** Midamos primero las palabras y después qué errores importan clínicamente.
 
-**Transición:** Reconocer palabras deja otra pregunta: quién las dijo.
+## 12. WER y errores clínicos
 
-## 11. Diarización: tiempo, hablante y rol
+**1:00 · acumulado 10:05 · 3 · Audio y hablantes**
 
-**1:00 · acumulado 11:30 · 3 · Audio y hablantes**
+**Mensaje:** WER cuenta ediciones; la gravedad clínica necesita otra lectura.
+
+Word Error Rate suma sustituciones, eliminaciones e inserciones, dividido por las palabras de referencia. En estos ejemplos cambia una palabra de siete. El valor es el mismo, pero perder una negación cambia el hecho clínico.
+
+¿Qué hacemos con ello? Desglosar nombres de fármacos, dosis, negación y omisiones con referencias revisadas. Para vocabulario raro podemos probar hotwords si el modelo los admite. Si persisten fallos sistemáticos, considerar fine-tuning con audio y texto clínico español, manteniendo un test separado. No asumimos que una corrección con LLM recupere lo que no se oyó: también puede inventarlo.
+
+**Figura:** Señalar S, D, I y N; comparar el significado de ambos errores.
+
+**Transición:** Aunque las palabras estén bien, todavía podemos atribuirlas a otra persona.
+
+## 13. Diarización: tiempo, hablante y rol
+
+**0:45 · acumulado 10:50 · 3 · Audio y hablantes**
 
 **Mensaje:** Hablante anónimo, rol clínico e identidad son etiquetas diferentes.
 
@@ -206,41 +232,69 @@ La diferencia importa para la nota: una pregunta del clínico no equivale a un s
 
 **Transición:** Veamos dos maneras de estimar la actividad de hablantes.
 
-## 12. Modelos de diarización
+## 14. Modelos de diarización
 
-**1:20 · acumulado 12:50 · 3 · Audio y hablantes**
+**1:05 · acumulado 11:55 · 3 · Audio y hablantes**
 
-**Mensaje:** Las familias de diarización cambian qué se modela y dónde se puede intervenir.
+**Mensaje:** Agrupar voces y predecir actividad conjunta son dos formas de resolver la tarea.
 
-En una ruta modular detectamos o segmentamos voz, obtenemos embeddings y agrupamos intervalos. Podemos sustituir etapas y analizar dónde falla. El agrupamiento necesita suficiente evidencia acústica: turnos muy cortos o ruido pueden dificultar la representación y las asignaciones.
+En una pipeline modular detectamos regiones de habla, calculamos vectores que describen la voz y agrupamos los parecidos. La segmentación es localizar intervalos; el embedding representa características de la voz. Podemos sustituir o adaptar esos módulos, pero sus errores se acumulan.
 
-EEND predice actividad por frame y hablante; admite varios hablantes activos simultáneamente. La gestión del número de hablantes y de sesiones largas depende de la variante. No hay una superioridad automática por ser end-to-end.
+EEND recibe una secuencia de características acústicas y aprende, por paso temporal, qué hablantes están activos; varios pueden estarlo a la vez. «Red temporal» quería decir una red que procesa secuencias, por ejemplo un Transformer, no una arquitectura concreta. Aprender actividad conjunta ayuda a representar solapamientos. La duración y el número de hablantes admitidos dependen de la variante.
 
-DER suma voz omitida, falsas alarmas y confusión de hablante respecto al tiempo de habla de referencia. JER compara regiones por hablante. Fijamos tolerancia alrededor de límites, conocida como collar, y tratamiento del solapamiento. También evaluamos atribución de palabras: un error temporal puede afectar mucho o poco al contenido final.
+**Figura:** Comparar las dos rutas hasta llegar a intervalos con hablantes.
 
-**Figura:** Seguir ambas rutas; señalar la actividad simultánea de EEND.
+**Transición:** Para evaluarlos, contemos segundos de habla atribuidos incorrectamente.
 
-**Transición:** Podemos obtener texto y hablantes por separado o en una salida conjunta.
+## 15. DER: cuánto tiempo se atribuyó mal
 
-## 13. Transcripción con hablantes
+**1:05 · acumulado 13:00 · 3 · Audio y hablantes**
 
-**0:50 · acumulado 13:40 · 3 · Audio y hablantes**
+**Mensaje:** DER mide tiempo, no palabras.
 
-**Mensaje:** Comparar las rutas sobre una misma transcripción con hablantes.
+Diarization Error Rate suma habla omitida, falsa alarma y confusión de hablante, dividido por el tiempo de habla de referencia. Antes se emparejan las etiquetas arbitrarias: llamar S1 a quien la referencia llama S2 no es por sí solo un error.
 
-La salida que queremos son palabras con tiempos y etiquetas de hablante. Podemos construirla combinando ASR, diarización y alineamiento, o con un modelo conjunto como MOSS.
+Aquí hay diez segundos de habla, sin solapamiento. El cambio correcto ocurre en el segundo cinco, pero el modelo lo retrasa al seis: un segundo de confusión, DER del diez por ciento. No hay omisiones ni falsas alarmas en este ejemplo.
 
-cpWER concatena el texto por hablante y permite permutar las etiquetas, porque S1 y S2 son nombres arbitrarios. tcpWER incorpora restricciones temporales. Complementan WER y DER calculados por separado.
+Hay que declarar si se puntúan solapamientos y qué margen se excluye alrededor de los límites, el collar. Cambiar ese protocolo cambia el resultado. DER no sabe si la palabra mal atribuida era una alergia o una despedida.
 
-La comparación relevante será sobre consultas: reconocimiento, atribución, latencia y memoria. Un resultado en otro dominio no establece calidad clínica en español. La salida de la derecha es ilustrativa, no un resultado nuestro.
+**Figura:** Señalar el intervalo rojo y el denominador de diez segundos.
 
-**Figura:** Dos rutas llegan al mismo contrato de salida.
+**Transición:** Cuando obtenemos texto y hablantes juntos, necesitamos medir también las palabras atribuidas.
 
-**Transición:** Tenemos el diálogo documentado. Ahora toca decidir qué llevar a la nota.
+## 16. Transcripción con hablantes
 
-## 14. Generación de notas
+**0:40 · acumulado 13:40 · 3 · Audio y hablantes**
 
-**1:00 · acumulado 14:40 · 4 · Diálogo, contexto y nota**
+**Mensaje:** Texto y hablantes pueden salir de módulos separados o de un modelo conjunto.
+
+La ruta modular alinea texto ASR con segmentos de diarización. Otra ruta genera texto, tiempos y etiquetas de hablante conjuntamente, como MOSS. Una salida común permite comparar ambas sin cambiar el resto del sistema: inicio, fin, hablante y texto.
+
+SOT, Serialized Output Training, es una forma de ordenar texto y separadores en una secuencia objetivo. No hace falta desarrollar aquí su entrenamiento. Lo relevante es comprobar qué información entrega el modelo y cómo falla.
+
+**Figura:** Seguir ambas rutas hacia el mismo formato de turnos.
+
+**Transición:** Este ejemplo muestra por qué WER solo no basta para compararlas.
+
+## 17. Palabras correctas, hablante equivocado
+
+**1:20 · acumulado 15:00 · 3 · Audio y hablantes**
+
+**Mensaje:** Una transcripción puede tener todas las palabras y atribuirlas mal.
+
+La referencia dice S1: «tengo tos» y S2: «desde cuándo». La predicción contiene las mismas palabras en orden, pero asigna «desde» a S1. WER global da cero.
+
+cpWER significa Concatenated minimum-Permutation Word Error Rate. Concatenamos el texto de cada hablante y buscamos el mejor emparejamiento de etiquetas. En este caso hay una inserción en S1 y una eliminación en S2: dos errores entre cuatro palabras, cincuenta por ciento. La permutación evita penalizar un simple cambio de nombres de hablante.
+
+tcpWER significa Time-Constrained minimum-Permutation Word Error Rate. Añade límites temporales a qué palabras pueden alinearse, con una tolerancia fijada en el protocolo. Así dificulta emparejar una palabra con otra repetición muy lejana en la consulta. Necesitamos tiempos fiables para calcularlo.
+
+**Figura:** Seguir la palabra «desde»; explicar sus dos efectos en el cálculo.
+
+**Transición:** Ya tenemos diálogo atribuido. Convertirlo en nota exige seleccionar y organizar información.
+
+## 18. Generación de notas
+
+**0:45 · acumulado 15:45 · 4 · Diálogo, contexto y nota**
 
 **Mensaje:** El baseline generativo necesita un contrato clínico antes que una arquitectura sofisticada.
 
@@ -254,9 +308,9 @@ Podemos comparar plantillas y prompts sobre encuentros fijados. Si encontramos e
 
 **Transición:** ¿Se selecciona lo relevante mientras se redacta o antes?
 
-## 15. Selección de hechos
+## 19. Selección de hechos
 
-**1:40 · acumulado 16:20 · 4 · Diálogo, contexto y nota**
+**1:25 · acumulado 17:10 · 4 · Diálogo, contexto y nota**
 
 **Mensaje:** Los hechos intermedios son una hipótesis que comparar, no una garantía.
 
@@ -272,43 +326,41 @@ Nuance, en 2023, es un antecedente de planificación con hechos. Ninguno de esto
 
 **Transición:** Extraer del diálogo es distinto de seleccionar información de la historia.
 
-## 16. Contexto de la historia clínica
+## 20. Qué aporta la historia clínica
 
-**1:30 · acumulado 17:50 · 4 · Diálogo, contexto y nota**
+**1:40 · acumulado 18:50 · 4 · Diálogo, contexto y nota**
 
-**Mensaje:** Incorporar HCIS exige seleccionar registros y conservar su procedencia.
+**Mensaje:** La historia aporta información que puede no repetirse durante la consulta.
 
-Primero identificamos paciente y encuentro y fijamos un corte temporal. Conservamos antecedentes relevantes de otros episodios: no limitamos la historia al encuentro actual. Si hay pocos campos relevantes, podemos usar una consulta estructurada y añadirlos al prompt. Si la historia es extensa, podemos recuperar fragmentos y comparar estrategias. RAG organiza ese acceso; no obliga a usar una base vectorial.
+«Mantenemos el tratamiento habitual» no contiene el nombre ni la dosis. Un registro reciente puede aportar esa información, conservando fecha y procedencia. Si no hay un estado fiable, no debemos completar por intuición. El contexto también puede estar obsoleto o contradecir lo dicho hoy.
 
-El ejemplo muestra medicación activa en 2021, suspendida en 2025 y una afirmación actual del paciente. Recuperar solo la frase más parecida puede dar una versión antigua. Debemos conservar fuentes, fechas y discrepancias para revisión.
+Primero fijamos paciente y corte temporal. Después seleccionamos registros pertinentes, con consultas estructuradas o retrieval; una historia corta puede entrar directamente. RAG es una opción para seleccionar contexto, no un requisito universal ni una garantía de mejora.
 
-Medimos relevancia de lo recuperado y efecto en la nota: datos vigentes, paciente correcto y contradicciones. MedAlign ayuda a estudiar instrucciones sobre historias, pero no valida nuestro recuperador. El conector y el protocolo todavía son trabajo pendiente.
+Hay evidencia inicial: Zuckerman y colaboradores comparan documentación con y sin historia en 354 encuentros y encuentran mayor completitud. Es un preprint con evaluación principalmente automática, revisión humana limitada y autores vinculados al proveedor. Nos sirve para justificar una comparación, no para prometer el mismo efecto en español o con nuestro modelo.
 
-**Figura:** Seguir historia → filtro → selección → contexto; terminar en la discrepancia.
+**Figura:** Mostrar qué dato falta en la conversación y qué fuente permite añadirlo.
 
-**Transición:** Con esas entradas, ¿qué comprobaciones podemos hacer al borrador?
+**Transición:** Una vez generado el borrador, podemos comprobar qué afirmaciones están respaldadas.
 
-## 17. Comprobaciones de la nota
+## 21. Qué comprueba el verificador
 
-**1:30 · acumulado 19:20 · 4 · Diálogo, contexto y nota**
+**1:25 · acumulado 20:15 · 4 · Diálogo, contexto y nota**
 
-**Mensaje:** Comprobar soporte es posible sin gold por encuentro; evaluar el comprobador requiere anotación.
+**Mensaje:** Ejecutar un chequeo y demostrar que acierta requieren información distinta.
 
-«Niega fiebre» tiene soporte en la conversación. «Toma actualmente X» puede entrar en conflicto con una suspensión. «Auscultación normal» no está respaldada por las entradas disponibles.
+Durante el uso, un verificador puede contrastar cada afirmación de la nota con la transcripción y la historia disponible. La salida distingue soporte, contradicción o evidencia insuficiente, idealmente con el fragmento correspondiente. No necesita una nota de referencia para cada consulta.
 
-Podemos buscar esos estados sin una nota de referencia en cada encuentro. Pero para saber si el verificador acierta necesitamos una muestra anotada: medir falsos avisos, errores que deja pasar y calibración.
+Para evaluar ese verificador sí necesitamos casos anotados: médicos revisan afirmaciones y evidencia, y medimos qué errores detecta y qué falsas alarmas produce. La comprobación automática también puede fallar. Además, verificar solo lo escrito no detecta todos los hechos importantes que faltan.
 
-Además, todas las frases pueden tener soporte y aun así faltar un dato importante, como el seguimiento. La completitud necesita criterios de qué debía incluirse. VeriFact estudia verificación contra EHR; Robust SOAP analiza hechos y omisiones usando referencias y conversación.
+Robust SOAP ilustra otra distinción útil para evaluación: algo ausente de la nota de referencia puede estar respaldado por el diálogo. No debemos llamar alucinación a cualquier diferencia respecto a una única nota.
 
-El soporte en una fuente tampoco prueba verdad clínica ni vigencia. Es una señal de revisión con límites propios.
+**Figura:** Recorrer las tres afirmaciones y separar «en uso» de «para evaluarlo».
 
-**Figura:** Nota → evidencia; después preguntar qué evidencia importante no llegó a la nota.
+**Transición:** Si se pierde información antes de generar, estos controles pueden compartir el mismo error.
 
-**Transición:** Hay otro límite: el verificador puede compartir el error de entrada.
+## 22. Propagación de errores
 
-## 18. Propagación de errores
-
-**1:00 · acumulado 20:20 · 4 · Diálogo, contexto y nota**
+**0:45 · acumulado 21:00 · 4 · Diálogo, contexto y nota**
 
 **Mensaje:** Los errores de entrada pueden sobrevivir a la generación y la comprobación.
 
@@ -322,73 +374,69 @@ Conservar transcripción, tiempos y vínculo con audio facilita localizar el fal
 
 **Transición:** Podemos convertir ese ejemplo en un experimento.
 
-## 19. Experimento por etapas
+## 23. Robust SOAP: probar errores controlados
 
-**1:30 · acumulado 21:50 · 4 · Diálogo, contexto y nota**
+**1:40 · acumulado 22:40 · 4 · Diálogo, contexto y nota**
 
-**Mensaje:** Las ablaciones necesitan casos con referencias compatibles, no solo una tabla.
+**Mensaje:** Robust SOAP ofrece un protocolo concreto para estudiar cómo el error textual llega a la nota.
 
-Partimos de casos con texto, hablantes y contexto revisados. En A usamos esas referencias. En B sustituimos el texto por ASR; en C también cambiamos hablantes por predicciones; en D introducimos contexto recuperado.
+Los autores revisan PriMock57 y conservan 51 consultas tras corregir inconsistencias y excluir casos problemáticos. Comparan hechos de las notas generadas con la referencia; lo añadido se contrasta con el diálogo para distinguir información respaldada de contenido inventado.
 
-Mantenemos generador, plantilla, casos y criterios. Comparamos errores de la nota y ediciones. Para B proyectamos palabras ASR sobre intervalos de hablante de referencia mediante tiempos, con una regla explícita para solapamientos y revisión de casos ambiguos. No copiamos etiquetas por correspondencia textual.
+Para robustez, introducen un error por transcripción y generan otra nota con el mismo modelo. La tabla es la original: borrar un término, una cifra, un diagnóstico o una mención de síntomas; invertir una negación; sustituir un término por otro parecido. Señalaré solo dos ejemplos, la dosis y la negación. Analizan 44 errores inducidos.
 
-Las diferencias miden sensibilidad en esta configuración, no una fracción universal de culpa de cada componente: hay interacciones. Si no tenemos historia emparejada en un corpus, hacemos el experimento de contexto en casos controlados separados. Y variantes sintéticas del mismo paciente o caso permanecen en el mismo split para evitar fuga.
+Esto aísla sensibilidad a errores controlados del texto. No ejecutan ASR ni evalúan un diarizador: parten de transcripciones. Tampoco podemos concluir que los roles del diálogo sean irrelevantes. Nuestra adaptación añadiría errores de nuestro audio y atribución, datos españoles y medidas de ejecución local. El estudio no mide tiempo de edición por usuarios finales; eso lo tendríamos que incorporar.
 
-**Figura:** Leer A→B→C→D; señalar qué cambia cada vez.
+**Figura:** Leer dos filas de la tabla, no las seis. Resultados originales en el anexo F.
 
-**Transición:** Cuando un fallo aparece de forma consistente, elegimos una intervención.
+**Transición:** Según el fallo observado, la intervención puede estar en el modelo, el prompt o la ejecución.
 
-## 20. Qué adaptar y con qué datos
+## 24. Qué adaptar y con qué datos
 
-**1:20 · acumulado 23:10 · 5 · Adaptación y despliegue**
+**1:00 · acumulado 23:40 · 5 · Adaptación y despliegue**
 
-**Mensaje:** Adaptar tiene sentido cuando hay un error definido y datos adecuados.
+**Mensaje:** El diagnóstico del fallo orienta qué adaptar y qué medir después.
 
-Si ASR falla en fármacos o acentos, probamos preparación, vocabulario o un baseline distinto. Si persiste, fine-tuning requiere audio y transcripción médica española revisada, con test separado.
+Si el ASR falla en términos o acentos, podemos probar vocabulario y, si hace falta, ajustar con audio y texto revisado. Si la nota omite hechos o tiene un formato inadecuado, probamos plantilla, prompt o selección de información, con referencias clínicas.
 
-Si el problema es estilo o selección, trabajamos sobre plantilla, instrucciones y hechos. Una adaptación del generador necesita ejemplos y un objetivo coherente con la evaluación; optimizar una loss textual no garantiza fidelidad.
+También puede ser correcta pero tardar demasiado o no caber en memoria. Ahí probamos un modelo menor, otro motor o cuantización. La evaluación incorpora calidad, tiempo y recursos en el equipo de uso: una optimización es útil si conserva calidad suficiente.
 
-Si falla latencia o memoria, cambiamos motor, tamaño o precisión y repetimos calidad. Entrenar y optimizar la ejecución son intervenciones diferentes. La tabla conecta cada decisión con la evidencia que necesitaríamos, antes de invertir en entrenamiento.
+**Figura:** Recorrer las tres filas como fallo → intervención → datos necesarios.
 
-**Figura:** Leer cada fila desde problema hasta datos.
+**Transición:** Concretemos una configuración candidata para el PC del médico.
 
-**Transición:** La ejecución local añade una restricción concreta: recursos disponibles.
+## 25. Un escriba en el PC del médico
 
-## 21. Recursos para ejecución local
+**1:20 · acumulado 25:00 · 5 · Adaptación y despliegue**
 
-**1:05 · acumulado 24:15 · 5 · Adaptación y despliegue**
+**Mensaje:** Hay candidatos pequeños para probar en local; falta medir el sistema completo.
 
-**Mensaje:** Estimar memoria orienta candidatos; el consumo real se mide.
+MOSS-Transcribe-Diarize de 0.9B produce texto y hablantes. Su código contempla CPU y GPU. Eso demuestra una ruta de ejecución, no que vaya suficientemente rápido en cualquier PC.
 
-El README de Whisper estima unas dos, cinco y diez gigas de VRAM para small, medium y large en su implementación. Son referencias aproximadas; otros motores y precisiones cambian el consumo. Tampoco dicen cómo funcionarán en nuestro audio médico español.
+Para la nota podemos empezar con Qwen3-0.6B en llama.cpp, que admite CPU y aceleración GPU si existe. El archivo oficial GGUF Q8_0 ocupa 639 MB en disco. La memoria de ejecución será mayor por buffers, contexto y estados; no es una cifra de RAM total del escriba. Un modelo tan pequeño es un candidato para medir, no una garantía de calidad clínica.
 
-Para un LLM de siete mil millones de parámetros, los pesos nominales ocupan unos catorce gigas en FP16 o tres y medio a cuatro bits. Faltan sobrecostes de cuantización, KV cache, buffers y los otros componentes.
+Fijaremos equipo, versiones, duración de consulta, contexto y concurrencia. Mediremos memoria máxima, tiempo y contenido de la nota. Si no da calidad o velocidad suficiente, esa evidencia dirá qué componente cambiar.
 
-Procesar por etapas o mantener modelos residentes cambia el presupuesto. Mediremos calidad, memoria, tiempo y concurrencia con el hardware objetivo; estos números todavía no dimensionan un servicio clínico.
+**Figura:** Señalar los dos modelos dentro del PC y las tres medidas pendientes.
 
-**Figura:** Comparar barras de ASR y después cálculo nominal del LLM.
+**Transición:** Scribnic permite probar componentes y reutilizar después la pipeline desde una interfaz.
 
-**Transición:** ¿Dónde encajan los modelos en el código que ya existe?
+## 26. Scribnic: de la CLI a una aplicación
 
-## 22. Scribnic: núcleo y clientes
+**1:00 · acumulado 26:00 · 5 · Adaptación y despliegue**
 
-**1:05 · acumulado 25:20 · 5 · Adaptación y despliegue**
+**Mensaje:** La interfaz puede cambiar mientras el núcleo y los datos siguen siendo reutilizables.
 
-**Mensaje:** Scribnic tiene una base reutilizable, con evaluación y producto aún por construir.
+Hoy Scribnic tiene un núcleo Python, modelos intercambiables, configuración y una CLI. Los datos principales son el audio, los turnos con tiempo y hablante, y el borrador. Esa estructura permite probar backends sin ligar la lógica a una pantalla.
 
-Scribnic ya separa core Python, backends y CLI. Tiene contratos para audio, intervalos de texto, hablantes y salida de pipeline. Puede combinar transcripción y diarización, usar reconocimiento conjunto y añadir generación opcional.
+La propuesta es que una aplicación de escritorio o web use ese mismo núcleo para grabar o cargar, revisar y editar. La CLI sigue sirviendo para experimentos. El cliente clínico, la integración de historia y la evaluación clínica aún están pendientes; no estamos mostrando un producto terminado.
 
-Esa separación permite reutilizar el núcleo desde un runner o un cliente. Ahora mismo el frontend es la CLI. El runner de evaluación, el contrato de contexto clínico y una aplicación de revisión son ampliaciones propuestas.
+**Figura:** De terminal a aplicación; ambos apuntan al mismo núcleo y formato de datos.
 
-Los tests de contratos y la existencia de adaptadores no prueban calidad clínica ni que cada modelo sea viable en nuestro hardware. El siguiente paso es usar esa base para ejecutar casos y producir resultados comparables, antes de construir toda la aplicación.
+**Transición:** La plataforma elegida determinará la captura y cómo llega el resultado al profesional.
 
-**Figura:** Distinguir bloques existentes y conexiones discontinuas propuestas.
+## 27. Captura e integración
 
-**Transición:** Cuando diseñemos el cliente, captura e integración pasarán a primer plano.
-
-## 23. Captura e integración
-
-**1:15 · acumulado 26:35 · 5 · Adaptación y despliegue**
+**1:05 · acumulado 27:05 · 5 · Adaptación y despliegue**
 
 **Mensaje:** La plataforma y el flujo pueden cambiar las entradas y el trabajo de revisión.
 
@@ -402,9 +450,9 @@ En revisión puede haber ediciones por sección o instrucciones por voz. Eso gen
 
 **Transición:** El sistema final debe volver a medirse en ese entorno.
 
-## 24. Evaluación del sistema desplegado
+## 28. Evaluación del sistema desplegado
 
-**1:05 · acumulado 27:40 · 5 · Adaptación y despliegue**
+**1:00 · acumulado 28:05 · 5 · Adaptación y despliegue**
 
 **Mensaje:** La configuración desplegada forma parte del sistema evaluado.
 
@@ -418,25 +466,25 @@ Tras cambiar motor o cuantización repetimos calidad. En un piloto añadimos fal
 
 **Transición:** Nos queda concretar los datos para poner en marcha ese protocolo.
 
-## 25. Datos del primer experimento
+## 29. Datos del primer experimento
 
-**1:15 · acumulado 28:55 · 6 · Plan de trabajo**
+**1:05 · acumulado 29:10 · 6 · Plan de trabajo**
 
-**Mensaje:** Empezar con una prueba pequeña revisada y declarar qué no puede demostrar.
+**Mensaje:** Adaptamos el protocolo de Robust SOAP a nuestros datos y a la ejecución local.
 
-Propongo dos niveles iniciales. TEME permite explorar ASR en español médico sintético. PriMock permite probar el protocolo con audio, turnos y notas en inglés.
+Es casi una réplica metodológica, con extensiones que debemos distinguir: español, audio y atribución de hablantes, contexto longitudinal y restricciones del PC. Primero podemos comprobar la evaluación por hechos y perturbaciones en PriMock. TEME ayuda a explorar ASR español sintético.
 
-Para acercarnos a la nota española, podríamos preparar diez casos con contexto y adaptar cinco consultas PriMock: traducir diálogo y nota, revisar consistencia y generar o grabar audio. Anotamos lo realmente pronunciado y sus tiempos, incluidos errores de TTS; el guion no es automáticamente la transcripción gold. Son números de viabilidad, no validación de seguridad.
+Proponemos diez casos controlados con contexto y cinco consultas adaptadas al español y revisadas para comprobar el procedimiento. Son cantidades de viabilidad, no validación del producto. Necesitamos hechos esperados, fuentes, rúbrica y acuerdo entre revisores; separar los casos de ajuste de los de test.
 
-Los clínicos revisan hechos esperados, fuentes y errores, y comprobamos acuerdo antes de ampliar. Separaremos ajuste y test por caso. Después necesitaremos consultas reales del escenario, con un circuito institucional de recogida y revisión. Simulación, actores y jueces calibrados quedan desarrollados en el anexo y el bag de ideas.
+Después incorporaremos errores producidos por el sistema completo y revisión de notas por clínicos. Datos sintéticos y traducciones no sustituyen una evaluación posterior del escenario real.
 
-**Figura:** Distinguir corpus públicos, datos que crearíamos y anotación clínica.
+**Figura:** Recorrer componentes, contexto y protocolo clínico.
 
-**Transición:** El primer entregable puede quedar definido con estas piezas.
+**Transición:** El primer entregable será un baseline medible y un informe de dónde falla.
 
-## 26. Propuesta de trabajo
+## 30. Propuesta de trabajo
 
-**1:05 · acumulado 30:00 · 6 · Plan de trabajo**
+**0:50 · acumulado 30:00 · 6 · Plan de trabajo**
 
 **Mensaje:** Entregar una evaluación que permita decidir qué mejorar.
 
@@ -452,12 +500,13 @@ El hospital aporta profesionales capaces de definir una nota útil y revisar err
 
 ## Anexos y preparación
 
-No recorrer los cinco anexos dentro de los 30 minutos. Usarlos si aparece una pregunta:
+No recorrer los seis anexos dentro de los 30 minutos. Usarlos si aparece una pregunta:
 
 - **A · Datasets y volumen:** modalidades, tamaños y acceso; [catálogo con fuentes](README.md).
 - **B · Tarea, métrica y loss:** explicar qué se optimiza frente a qué se evalúa. En Nuance se combina CE con ranking de candidatos basado en ROUGE-L; no es una loss de seguridad clínica.
 - **C · Hechos intermedios:** Nuance, ASCRIBE y KOSMOS; [ficha que leer primero](comprension-clinica.md).
 - **D · Ampliar los datos:** historia simulada, consulta, perturbaciones y revisión; [bag de ideas](bag-of-ideas.md).
+- **F · Robust SOAP:** tabla original de resultados; leer [método y límites](robust-soap.md). No interpretar su ranking como evaluación local.
 - **E · Lecturas:** elegir método y limitaciones de cada referencia antes de profundizar.
 
 Lectura mínima para defender el bloque nuevo: [comprension-clinica.md](comprension-clinica.md), después **ASCRIBE §3.1 y prompt A.3**, **KOSMOS §2 y limitaciones**, y **Nuance §3.1.2**. Para verificación: **VeriFact, esquema y evaluación**, y **Robust SOAP, método de hechos/omisiones y perturbación de ASR**. Las fuentes originales están enlazadas en la ficha.
@@ -468,6 +517,6 @@ Practicar con [preguntas de defensa y mini examen](preguntas-defensa.md). Si no 
 
 Los **10 casos con contexto y cinco adaptaciones** son una propuesta de trabajo, no datos ya preparados ni un cálculo de potencia. El experimento de contexto puede usar historias controladas separadas de los corpora acústicos. Solo podrá hacerse la ablación completa donde existan referencias compatibles de todas las entradas.
 
-Para concretar el baseline: elegir un ASR multilingüe disponible, un backend de diarización y un generador local que quepan en el hardware; fijar versiones y configuración. Whisper + diarizador + LLM con plantilla es un punto de partida posible, pendiente de medir frente a los adaptadores actuales. No se presenta aquí un ranking propio.
+Para concretar el baseline: elegir un ASR multilingüe disponible, un backend de diarización y un generador local que quepan en el hardware; fijar versiones y configuración. MOSS 0.9B + Qwen3-0.6B con plantilla es una configuración candidata, pendiente de medir frente a otras opciones. No se presenta aquí un ranking propio.
 
 Las observaciones del vídeo de Tandem sirvieron para pensar en flujo y producto. No se ha obtenido una transcripción completa verificable del vídeo: no atribuimos como hechos comprobados su stack, fine-tuning ni resultados. Las funcionalidades citadas vienen de documentación primaria del producto.

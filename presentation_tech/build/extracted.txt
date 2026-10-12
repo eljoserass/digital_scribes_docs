@@ -13,7 +13,7 @@ Tareas, evaluación, modelos y ejecución local
 
 
 
- 1/6 · Consulta y nota                                            Borrador · 10/10/2026 · 1/26
+ 1/6 · Consulta y nota                                            Borrador · 12/10/2026 · 1/30
 Objetivo y alcance
 
 Documentar el encuentro y facilitar la revisión del profesional.
@@ -35,7 +35,7 @@ codificación o ayuda a decisiones; aquí estudiamos la nota.
 Fuentes: Ash et al., Safe use of the EHR; Coiera et al., Taking note; Tandem: funciones declaradas del producto.
 
 
-  1/6 · Consulta y nota                                                                                        Borrador · 10/10/2026 · 2/26
+  1/6 · Consulta y nota                                                                                        Borrador · 12/10/2026 · 2/30
 Información del encuentro
 Ejemplo ficticio que seguiremos hasta la nota.
 
@@ -61,7 +61,7 @@ Ejemplo ficticio que seguiremos hasta la nota.
 
 Fuentes: The anatomy of clinical documentation (2021); MedAlign (2023). Ejemplo propio.
 
-  1/6 · Consulta y nota                                                                                Borrador · 10/10/2026 · 3/26
+  1/6 · Consulta y nota                                                                                Borrador · 12/10/2026 · 3/30
 La nota SOAP
 Una forma habitual de estructurar la nota; las plantillas cambian entre servicios.
 
@@ -86,7 +86,7 @@ Contexto adicional: alergia registrada en 2019, pendiente de confirmar. Puede ap
 de antecedentes/alergias.
 Fuentes: SOAP Notes, StatPearls; The anatomy of clinical documentation. Ejemplo ficticio; A y P documentan al clínico.
 
-  1/6 · Consulta y nota                                                                                       Borrador · 10/10/2026 · 4/26
+  1/6 · Consulta y nota                                                                                       Borrador · 12/10/2026 · 4/30
 Pipeline del escriba
 Entradas y salidas que podamos inspeccionar.
 
@@ -110,7 +110,30 @@ señales de revisión; su fiabilidad también se evalúa.
 Fuentes: Diseño de trabajo, no implementación completa. Evaluación clínica por etapas; Singh et al.; VeriFact. HCIS: sistema de información
 clínica.
 
-  1/6 · Consulta y nota                                                                                       Borrador · 10/10/2026 · 5/26
+  1/6 · Consulta y nota                                                                                       Borrador · 12/10/2026 · 5/30
+Del escriba al flujo clínico
+
+La expansión de producto: «medical OS» conectado a la historia clínica.
+
+
+                                                                Durante
+                  Antes                                                                                        Después
+                                                            Documentar
+         Resumir la historia                                el encuentro                                 Codificación
+        Preparar la consulta                                  Consultar                              Órdenes y seguimiento
+                                                          evidencia clínica
+
+
+                                    Nuestro alcance: generar y revisar la nota.
+                          Apoyo a decisiones y automatización requieren evaluación propia.
+
+
+
+Fuentes: Dirección comercial, no evidencia de eficacia: Tandem: roadmap 2026; Tandem: apoyo con fuentes; Abridge: flujo clínico;
+codificación. Disponibilidad variable por función y mercado.
+
+
+  1/6 · Consulta y nota                                                                                      Borrador · 12/10/2026 · 6/30
 Evaluación
 El éxito se mide en la nota y en el trabajo necesario para cerrarla.
 
@@ -135,7 +158,7 @@ El éxito se mide en la nota y en el trabajo necesario para cerrarla.
 
 Fuentes: Moramarco et al., evaluación y post-edición; Marco clínico de evaluación (2025).
 
-  2/6 · Evaluación y datos                                                                  Borrador · 10/10/2026 · 6/26
+  2/6 · Evaluación y datos                                                                  Borrador · 12/10/2026 · 7/30
 Datos de evaluación
 Primero referencias estándar; después datos que se acerquen al uso previsto.
 
@@ -155,10 +178,10 @@ incluye español.                           1.701 pares breves                  
 
 Fuentes: LibriSpeech; AMI; FLEURS; PriMock57; ACI; MTS; TEME. Horas TEME: suma local de los 90 MP3.
 
- 2/6 · Evaluación y datos                                                                             Borrador · 10/10/2026 · 7/26
+ 2/6 · Evaluación y datos                                                                             Borrador · 12/10/2026 · 8/30
 Señal y representación acústica
 
-La misma frase vista como onda, palabras y energía por frecuencia.
+«She just had a baby»: la misma frase en onda y espectrograma.
 
 Onda y alineamiento                                                                                Espectrograma
 
@@ -186,33 +209,54 @@ clínica. Whisper: entrada log-Mel.
 
 
 
-    3/6 · Audio y hablantes                                                                                                                           Borrador · 10/10/2026 · 8/26
-Modelos de ASR
-Cómo pasar de estados acústicos a una secuencia de texto.
+    3/6 · Audio y hablantes                                                                                                                           Borrador · 12/10/2026 · 9/30
+CTC, transducer y atención
 
-                    CTC                                  Encoder–decoder                                         RNN-T
-                                                                        atención
-             Encoder acústico                         Encoder                                       Encoder                Predictor
-                                                      acústico                                      acústico              prefijo «to»
-            Etiqueta por frame
-               tt_o_ss                                                     Decoder                             Red conjunta
-                              _: blank                 Texto
-                  Colapsar                             previo                                             Token «s» o blank
-                  → «tos»                               «to»
-                                                                          Token «s»                Token → texto; blank → audio.
-             Greedy sencillo.                             Whisper atiende al
-                                                                                                  Incremental con encoder causal.
-        Etiquetas independientes                         audio del segmento.
-                                                                                                      Decoding más complejo.
-              dado el audio.                            Decoding token a token.
+Tres familias que siguen en uso.
 
-Elegir un modelo concreto exige medir español clínico, velocidad y memoria. La familia de arquitectura por sí sola
-no determina su calidad.
-Fuentes: Esquema propio: Jurafsky y Martin, cap. 16; Prabhavalkar et al., survey; Whisper. Ejemplo de caracteres simplificado.
 
-  3/6 · Audio y hablantes                                                                                      Borrador · 10/10/2026 · 9/26
+              CTC · 2006                                 RNN-T · 2012                               Atención · 2015
+
+         Encoder acústico                              Estado de audio                              Audio codificado
+        → etiqueta por frame                         + predictor del texto                          + texto anterior
+
+        Colapsar repeticiones                            Emitir token                            Decoder con atención
+          y símbolos blank                          o avanzar en el audio                         → siguiente token
+
+               Ejemplo                                 Derivado actual                                 Ejemplos
+             Parakeet-CTC                              Parakeet-TDT v3                              Whisper · Canary
+
+
+Fuentes: CTC (2006); RNN-T (2012); atención para ASR (2015). Ejemplos actuales: Parakeet CTC; Parakeet TDT; Canary. Fechas de trabajos
+de referencia; las familias coexisten.
+
+
+  3/6 · Audio y hablantes                                                                               Borrador · 12/10/2026 · 10/30
+Qué hace el decoder
+Ejemplo: el decoder Transformer de Whisper.
+
+                                                                                                   Probabilidad
+                                                                                                     del token
+      Audio codificado                                                                             fiebre: 0,6 ·
+                                               Decoder neuronal
+                                                                                                  dolor: 0,3 · …
+                                                Atención al audio
+                                                 y al texto previo
+        Texto anterior                        + capas feed-forward
+         «no refiere»                                                                              Decoding
+                                                                                                    Greedy /
+                                                                                                  beam search
+                                                    añadir «fiebre» y repetir
+
+
+
+La red calcula probabilidades; el algoritmo de decoding elige la secuencia. CTC usa colapso de etiquetas; RNN-T
+combina predictor del texto y estado acústico.
+Fuentes: Jurafsky y Martin, cap. 16; Whisper; Survey ASR. Probabilidades y tokens ilustrativos.
+
+  3/6 · Audio y hablantes                                                                              Borrador · 12/10/2026 · 11/30
 WER y errores clínicos
-Referencia: «el paciente no refiere fiebre desde ayer» · 7 palabras.
+WER = Word Error Rate. Referencia: «el paciente no refiere fiebre desde ayer» · 7 palabras.
 
 
    A · Sustitución
@@ -229,75 +273,100 @@ Referencia: «el paciente no refiere fiebre desde ayer» · 7 palabras.
 
 S: sustituciones · D: eliminaciones · I: inserciones · N: palabras de referencia.
 
- Añadir revisión de entidades, negaciones, dosis, fechas y su impacto clínico. El WER sigue siendo
- útil para diagnosticar ASR.
+ Qué hacemos: anotar errores clínicos; probar vocabulario/hotwords para términos y adaptar ASR si
+ persisten. Volver a medir negación, dosis y omisiones en test.
 Fuentes: Definición y cálculo: JiWER; evaluación médica: Medical ASR benchmark (2024); TEME. Ejemplo propio.
-  3/6 · Audio y hablantes                                                                               Borrador · 10/10/2026 · 10/26
+  3/6 · Audio y hablantes                                                                               Borrador · 12/10/2026 · 12/30
 Diarización: tiempo, hablante y rol
 
-Un identificador de hablante no identifica por sí mismo a una persona ni su rol clínico.
+S1/S2 identifican voces dentro del audio. El rol clínico es otra etiqueta.
 
 
    1. Quién habla y cuándo
 
 
-                    0s                          2s                         4s                        6s                    8s
+                    0s                          2s                         4s                     6s                    8s
 
      Hablante S1
 
      Hablante S2
 
                                                                      solapamientos
-                                                                                               3. Qué rol tiene
-                      2. Qué dice
-                                                                                                S1: clínico · S2:
-                S1: «¿Ha tenido fiebre?»
-                                                                                             paciente, tras validarlo
+
+                      2. Qué dice                                                        3. Rol, tras comprobarlo
+                S1: «¿Ha tenido fiebre?»                                                 S1: clínico · S2: paciente
+
 
 Fuentes: DIHARD III; dscore. Línea temporal ilustrativa; el rol es una etiqueta adicional.
 
 
-  3/6 · Audio y hablantes                                                                                    Borrador · 10/10/2026 · 11/26
+  3/6 · Audio y hablantes                                                                                 Borrador · 12/10/2026 · 13/30
 Modelos de diarización
-Dos familias; ruido, turnos cortos y solapamiento ponen a prueba ambas.
-
-    Modular
-
-            Voz /                             Embeddings                                                         S1, S2…
-                                                                                     Clustering                 por intervalo
-         segmentación                           de voz
-
-    End-to-end neural diarization (EEND)
-                                                                                          Actividad por
-           Secuencia
-                                              Red temporal                              frame y hablante
-            acústica
-                                                                                    S1: 1 1 0 1 · S2: 0 1 1 0
+Ambas rutas reciben audio y producen intervalos de actividad por hablante.
 
 
-Modular: etapas sustituibles; el agrupamiento necesita suficiente evidencia de voz. EEND: modela actividad
-simultánea; la generalización al número de hablantes y sesiones largas depende del modelo. Medir: DER/JER, con
-tolerancia temporal y solapamiento definidos.
-Fuentes: Fujita et al., EEND (2019); Plaquet y Bredin, powerset (2023); pyannote; TitaNet.
+  Ruta modular
+      Detectar habla                                                     Agrupar vectores
+                                         Vector de voz                                                          S1 / S2
+       y dividir en                                                         del mismo                         por intervalo
+                                         por intervalo
+        intervalos                                                           hablante
+                              Etapas sustituibles; los turnos cortos o ruidosos dificultan agrupar voces.
 
-  3/6 · Audio y hablantes                                                                              Borrador · 10/10/2026 · 12/26
+  EEND · End-to-End Neural Diarization
+      Características                   Red secuencial
+                                                                                  Actividad simultánea
+        de audio                            p. ej.,
+                                                                                 S1: 1 1 0 1 · S2: 0 1 1 0
+        por frame                        Transformer
+
+
+EEND aprende actividad conjunta y solapamientos. El manejo de sesiones largas y del número de hablantes
+depende de la variante.
+Fuentes: EEND con self-attention; pyannote; powerset. Esquemas simplificados.
+
+  3/6 · Audio y hablantes                                                                               Borrador · 12/10/2026 · 14/30
+DER: cuánto tiempo se atribuyó mal
+
+Diarization Error Rate · ejemplo sin solapamientos ni tolerancia en los límites.
+
+
+                   0s                                               5s       6s                                     10 s
+
+   Referencia                              S1                                               S2
+
+
+    Predicción                             S1                                                    S2
+
+                                                                  1 s confundido
+
+                                   habla omitida + falsa alarma + confusión                            1
+                      DER =                                                                      =       = 10 %
+                                        tiempo de habla de referencia                                 10
+
+
+Fuentes: dscore; MeetEval. Etiquetas emparejadas con la referencia; ejemplo propio. Collar = margen temporal que el protocolo puede excluir
+al puntuar.
+
+
+  3/6 · Audio y hablantes                                                                                   Borrador · 12/10/2026 · 15/30
 Transcripción con hablantes
 
 La transcripción diarizada puede ser modular o conjunta.
 
 
                                 ASR + diarización
-                                  + alineación                           [00:02--00:04] [S1]
-                                                                         «¿Ha tenido fiebre?»
+                                  + alineación                                [00:02--00:04] [S1]
+                                                                              «¿Ha tenido fiebre?»
       Audio
-                                                                         [00:04--00:06] [S2]
+                                                                              [00:04--00:06] [S2]
                                  Modelo conjunto
-                                                                         «No he tenido fiebre».
-                                   ej.: MOSS*
+                                                                              «No he tenido fiebre».
+                                  MOSS 0.9B*
 
 
-                         cpWER: texto con atribución de hablante · tcpWER: añade restricciones temporales
-                               Comparar reconocimiento, atribución y coste en consultas clínicas.
+                                             Una salida común: inicio · fin · hablante · texto
+
 
 
 * MOSS-Transcribe-Diarize. Salida ilustrativa; las etiquetas no establecen por sí solas los roles.
@@ -305,7 +374,27 @@ La transcripción diarizada puede ser modular o conjunta.
 Fuentes: MOSS-Transcribe-Diarize (2026); MeetEval. Salida ilustrativa.
 
 
-  3/6 · Audio y hablantes                                                                          Borrador · 10/10/2026 · 13/26
+  3/6 · Audio y hablantes                                                                          Borrador · 12/10/2026 · 16/30
+Palabras correctas, hablante equivocado
+cpWER: concatenated minimum-permutation Word Error Rate.
+
+
+                    Referencia                                          Predicción
+                S1: «tengo tos»                                 S1: «tengo tos desde»                              WER global
+              S2: «desde cuándo»                                    S2: «cuándo»                                     0%
+
+                             Por hablante: una inserción en S1 + una eliminación en S2
+                                       cpWER        =     2/4    =      50 %
+
+                        tcpWER: Time-Constrained minimum-Permutation WER
+              Añade tiempo: las palabras solo se emparejan si sus intervalos son compatibles.
+
+
+Se busca la mejor permutación de S1/S2: cambiar sus nombres no es un error. En tcpWER hay que fijar la
+tolerancia temporal.
+Fuentes: MeetEval: definiciones y cálculo. Ejemplo propio, sin puntuación. «desde» cambia de hablante; el orden global de palabras se
+conserva.
+  3/6 · Audio y hablantes                                                                                   Borrador · 12/10/2026 · 17/30
 Generación de notas
 Primero definir qué documentar y cómo debe verse la salida.
 
@@ -330,7 +419,7 @@ Primero definir qué documentar y cómo debe verse la salida.
  Comparar plantillas y prompts sobre los mismos encuentros antes de decidir si hace falta adaptar
  pesos.
 Fuentes: ACI-Bench; Moramarco et al.. Baseline propuesto para el proyecto.
-  4/6 · Diálogo, contexto y nota                                                                           Borrador · 10/10/2026 · 14/26
+  4/6 · Diálogo, contexto y nota                                                                           Borrador · 12/10/2026 · 18/30
 Selección de hechos
 La relevancia puede decidirse al redactar o representarse antes de la nota.
 
@@ -352,32 +441,30 @@ comparar; la extracción puede introducir omisiones.
 Fuentes: ASCRIBE (2026, preprint; tailandés); KOSMOS (2026); antecedente: Chain-of-Clinical-Facts, Nuance (2023). Sin validación local en
 español.
 
-  4/6 · Diálogo, contexto y nota                                                                           Borrador · 10/10/2026 · 15/26
-Contexto de la historia clínica
-Seleccionar registros externos es una tarea distinta de extraer hechos del diálogo.
+  4/6 · Diálogo, contexto y nota                                                                           Borrador · 12/10/2026 · 19/30
+Qué aporta la historia clínica
+Completar información que la conversación presupone o no repite.
+
+            Conversación
+           «Mantenemos el
+        tratamiento habitual»                                                        Nota con contexto
+                                                                                  Continuidad del tratamiento.
+                                                                                 X consta en el registro previo.
+          Registro reciente
+         Tratamiento X activo
+          con fecha y fuente
+
+               Paciente y corte temporal → seleccionar registros → contexto con procedencia
 
 
+¿Mejora la calidad? Un preprint con 354 encuentros encuentra mayor completitud. Evaluación principalmente
+automática y autores del proveedor; falta validación local. Más contexto también puede introducir datos obsoletos.
 
-          Historia                         Identificar
-                                                                           Seleccionar                    Contexto para
-        medicación,                         paciente
-                                                                             consulta                     generar la nota
-         alergias,                        y encuentro
-                                                                           estructurada                     con fuente
-          notas y                          fijar corte
-                                                                            o retrieval                      y fecha
-        resultados                          temporal
-
-                   2021: «X activa» · 2025: «X suspendida» · hoy: el paciente dice tomar X
-                  Conservar la discrepancia para revisión; no resolverla por similitud textual.
+Fuentes: Ejemplo propio, no recomendación clínica. Zuckerman et al. (2025), ambient-only vs. historia; RAG; procedencia FHIR.
 
 
-Conservar antecedentes relevantes de otros episodios. Contexto corto: selección estructurada; historia extensa:
-comparar retrieval. Medir relevancia, vigencia y efecto en la nota.
-Fuentes: Diseño propuesto. RAG; FHIR Provenance. MedAlign estudia instrucciones sobre EHR, no valida este conector ni recuperador.
-
-  4/6 · Diálogo, contexto y nota                                                                         Borrador · 10/10/2026 · 16/26
-Comprobaciones de la nota
+  4/6 · Diálogo, contexto y nota                                                                           Borrador · 12/10/2026 · 20/30
+Qué comprueba el verificador
 ¿Qué respalda cada afirmación y qué información relevante falta?
 
 
@@ -394,10 +481,10 @@ Fuentes: Diseño propuesto. RAG; FHIR Provenance. MedAlign estudia instrucciones
 
 
 
- Se puede buscar soporte sin nota gold por caso. Medir si el verificador acierta y qué omite exige una
- muestra anotada.
+ En uso: contrasta nota con conversación e historia. Para evaluarlo: médicos etiquetan ejemplos y
+ medimos cuántos avisos y errores detecta correctamente.
 Fuentes: VeriFact; FactEHR; Evaluación mediante checklists (2025). Ejemplos ficticios.
-  4/6 · Diálogo, contexto y nota                                                                     Borrador · 10/10/2026 · 17/26
+  4/6 · Diálogo, contexto y nota                                                                     Borrador · 12/10/2026 · 21/30
 Propagación de errores
 Propagación ilustrativa: una transcripción errónea puede producir una nota muy fluida.
 
@@ -417,101 +504,102 @@ Propagación ilustrativa: una transcripción errónea puede producir una nota mu
  Si generador y verificador leen el mismo ASR erróneo, pueden compartir el fallo. Conservar el
  vínculo con el audio.
 Fuentes: Latif et al., Robust SOAP (2026); Marco de evaluación clínica (2025). Esquema causal propuesto; sin resultados experimentales.
-  4/6 · Diálogo, contexto y nota                                                                            Borrador · 10/10/2026 · 18/26
-Experimento por etapas
-Casos con referencias: mantener generador y plantilla; variar una entrada.
+  4/6 · Diálogo, contexto y nota                                                                            Borrador · 12/10/2026 · 22/30
+Robust SOAP: probar errores controlados
+Texto original / texto con un error → mismo generador → comparar hechos de las notas.
 
-          Texto                           Hablantes                      Contexto                        Comparación
-  A       Referencia                      Referencia                     Validado                        Entradas revisadas
-  B       ASR                             Referencia                     Validado                        A→B: sensibilidad a
-                                                                                                         ASR
-  C       ASR                             Predichos                      Validado                        B→C: sensibilidad a
-                                                                                                         atribución
-  D       ASR                             Predichos                      Recuperado                      C→D: sensibilidad al
-                                                                                                         contexto
+                                     Table 1: Taxonomy of transcription errors for robustness analysis.
+
+                ID         Error Type                     Description                     Example
+                (1)        Censor Medical Term            Remove drug names, condi-       “metformin” → [BLANK]
+                                                          tions, allergies
+                (2)        Censor Numerical Value         Remove doses, frequencies,      “aspirin, seventy five milligrams,
+                                                          durations                       once a day” → “aspirin, once a day”
+                (3)        Censor Diagnosis               Remove diagnostic terms         “You seem to have labyrinthitis” →
+                                                                                          “You seem to have”
+                (4)        Symptom Omission               Remove entire symptom           Complete sentence removal
+                                                          mention dialogue
+                (5)        Negation Flip                  Invert yes/no responses         “no fever” → “fever”
+                (6)        Medical Homophone              Replace    with    similar-     “Trimethoprim” → “Triamterene”
+                                                          sounding medical term
 
 
-Datos separados                                                       Evaluación compartida
-Separar ajuste y test por paciente/encuentro; las                     Revisión clínica con rúbrica: errores y edición.
-variantes sintéticas del mismo caso van juntas.                       Alinear palabras ASR con hablantes de referencia.
-Fuentes: Diseño propuesto, inspirado en Robust SOAP; Moramarco et al.; evaluación por etapas. Requiere referencias alineadas; las
-diferencias dependen del resto de la configuración.
-
-  4/6 · Diálogo, contexto y nota                                                                           Borrador · 10/10/2026 · 19/26
+51 consultas de PriMock tras depuración; 44 errores inducidos. Evalúan sobre texto, sin ejecutar ASR ni evaluar
+diarización. Nuestra ampliación: español, audio real del pipeline y recursos locales.
+Fuentes: Latif et al., CHIL 2026, tabla 1, p. 454: recorte original, © autores. Evaluación: hechos frente a nota de referencia; adiciones
+contrastadas con el diálogo. Resultados originales: anexo F.
+  4/6 · Diálogo, contexto y nota                                                                                  Borrador · 12/10/2026 · 23/30
 Qué adaptar y con qué datos
 
-La intervención debe responder a un fallo observado.
+Del error de contenido al coste de ejecutarlo: calidad, tiempo y memoria.
 
 
-   Problema medido                           Intervención candidata                       Datos y comprobación
-                                                     Configuración,
-        Terminología médica                                                                   Audio + texto revisado
-                                                       vocabulario
-          y acento en ASR                                                                      test clínico español
-                                                   o fine-tuning ASR
-                                                    Plantilla, prompt,
-          Estilo, selección
-                                                        extracción                           Diálogo/contexto + nota
-             de hechos
-                                                      o adaptación                             criterios de clínicos
-         o uso del contexto
-                                                      del generador                               Mismos casos
-        Latencia o memoria                      Motor, tamaño de modelo                             y hardware
-            insuficientes                            o cuantización                             calidad + tiempo
-                                                                                                    + memoria
+ Fallo                            Qué probar                         Qué necesitamos
+
+ Términos o acentos               Vocabulario / hotwords;            Audio y texto revisado; test clínico
+ en ASR                           fine-tuning si persiste            español
+ Formato u omisiones              Plantilla, prompt o selección      Diálogo/contexto y nota; rúbrica clínica
+ de la nota                       de hechos
+ Tiempo o memoria                 Motor, modelo pequeño o            Mismos casos en el PC objetivo; calidad
+ excesivos                        cuantización                       y recursos
 
 
-Fuentes: Plan propuesto. Whisper; LoRA; ASCRIBE: adaptación de generación; faster-whisper. Losses de entrenamiento en anexo B.
+Fuentes: Plan propuesto. MOSS: hotwords; LoRA; ASCRIBE; llama.cpp.
 
 
 
-  5/6 · Adaptación y despliegue                                                                         Borrador · 10/10/2026 · 20/26
-Recursos para ejecución local
+ 5/6 · Adaptación y despliegue                                                            Borrador · 12/10/2026 · 24/30
+Un escriba en el PC del médico
 
-Órdenes de magnitud para elegir qué medir; no son un presupuesto del sistema.
-
-
-   Whisper: VRAM aproximada
-                                                                                        LLM de 7B: solo pesos
-   small                     ≈2 GB
-
-                                                                                              FP16: ≈14 GB
-   medium                                   ≈5 GB                                             4 bits: ≈3,5 GB
-
-   large                                                            ≈10 GB           Añadir KV cache, buffers,
-                                                                                   ASR/diarización y concurrencia.
-                  El motor y la precisión cambian consumo y velocidad. Cuantizar exige volver a medir calidad.
+Configuración candidata: audio y nota procesados en el propio equipo.
 
 
+      PC LOCAL · CPU; ACELERACIÓN GPU SI ESTÁ DISPONIBLE
 
-Fuentes: Whisper README: estimaciones de su implementación. Cálculo nominal de pesos 7B: parámetros × bits / 8, GB decimales; no
-medición. whisper.cpp.
-
-
- 5/6 · Adaptación y despliegue                                                                         Borrador · 10/10/2026 · 21/26
-Scribnic: núcleo y clientes
-
-Base del proyecto actual y ampliaciones propuestas.
-
-
-                                                   Core Python existente                                        Runner de
-                                                                                                                evaluación
-                                                Contratos de audio y spans                                      propuesto
-         CLI actual                             Backends ASR, diarización
-                                                y reconocimiento conjunto                                  Cliente desktop
-                                                   Generación opcional                                        propuesto
-
-                         Pendiente: contrato de contexto clínico, referencias/métricas y cliente de revisión.
-                               Los adaptadores y tests de contratos no demuestran calidad clínica.
+                                                                                        Qwen3-0.6B
+                                       MOSS 0.9B                      turnos            GGUF Q8_0
+          Audio                      Texto + hablantes
+                                                                                         · llama.cpp
+                                        CPU / GPU
+                                                                                      Nota · CPU / GPU
+                   MOSS: soporte CPU en el código. Qwen: archivo oficial de 639 MB; la RAM total será mayor.
 
 
 
-
-Fuentes: Inspección del código local (10/10/2026): mypipe/src/scribnic/core.py, models.py, factory.py y README.md. Estado del
-proyecto; no resultados de evaluación.
+         Prueba pendiente: RAM máxima, tiempo por consulta y calidad de la nota en español.
 
 
- 5/6 · Adaptación y despliegue                                                                          Borrador · 10/10/2026 · 22/26
+
+Fuentes: MOSS 0.9B; selección CPU/GPU; Qwen oficial: tamaño en disco; llama.cpp. Sin benchmark propio ni calidad clínica demostrada.
+
+
+
+  5/6 · Adaptación y despliegue                                                                          Borrador · 12/10/2026 · 25/30
+Scribnic: de la CLI a una aplicación
+
+El frontend usa la misma pipeline y los mismos tipos de datos.
+
+
+         Hoy · CLI                                                                     Propuesto · Aplicación
+                                                               nuevo cliente
+         scribnic consulta.wav                                                         Grabar / cargar audio
+         JSON con turnos y borrador                                                    Revisar y editar la nota
+
+
+                                                Core Python reutilizable
+                                          Modelos intercambiables + configuración
+
+               Audio
+                                                                Turnos                                          Borrador
+           ruta · duración
+                                                    inicio · fin · hablante · texto                          texto generado
+             · muestreo
+
+Fuentes: Código local: scribnic/core.py, models.py, factory.py y CLI. El núcleo y los tipos existen; el cliente de revisión y la evaluación
+clínica están pendientes.
+
+
+  5/6 · Adaptación y despliegue                                                                               Borrador · 12/10/2026 · 26/30
 Captura e integración
 
 La plataforma determina cómo llega la información y cómo se revisa.
@@ -539,7 +627,7 @@ Fuentes: Captura web; WebRTC; FHIR DocumentReference; Tandem: edición por voz y
 implementados.
 
 
- 5/6 · Adaptación y despliegue                                                                      Borrador · 10/10/2026 · 23/26
+ 5/6 · Adaptación y despliegue                                                                      Borrador · 12/10/2026 · 27/30
 Evaluación del sistema desplegado
 
 Comprobar calidad y funcionamiento en la configuración de uso.
@@ -564,37 +652,37 @@ Fuentes: Protocolo propuesto. faster-whisper; whisper.cpp. Sin benchmark de rend
 
 
 
-  5/6 · Adaptación y despliegue                                                                            Borrador · 10/10/2026 · 24/26
+  5/6 · Adaptación y despliegue                                                                            Borrador · 12/10/2026 · 28/30
 Datos del primer experimento
 
-Propuesta acotada para probar el protocolo; no validar todavía el producto.
+Adaptar Robust SOAP a nuestros datos y ejecución local; añadir audio, hablantes y contexto.
 
 
-                                                                                                    3 · Protocolo clínico
+                                                                                                  3 · Protocolo clínico
          1 · Componentes
-                                                      2 · Contexto y nota
-                                                                                                    Hechos y fuentes
+                                                     2 · Contexto y nota
+                                                                                                   Hechos y fuentes
            TEME: ASR
-                                                     10 casos con contexto                              esperados
+                                                    10 casos con contexto                              esperados
            español TTS
-                                                      5 consultas PriMock                           Errores, omisiones
+                                                     5 consultas PriMock                           Errores, omisiones
      PriMock57: audio, turnos
-                                                     adaptadas al español                                y edición
+                                                    adaptadas al español                                y edición
          y notas en inglés
-                                                                                                  Acuerdo entre revisores
-                                                     Referencias revisadas
+                                                                                                 Acuerdo entre revisores
+                                                    Referencias revisadas
        Referencias públicas
-                                                                                                  Test separado del ajuste
+                                                                                                Test separado del ajuste
+
                                Números propuestos para una prueba de viabilidad. Datos sintéticos y
                              traducciones no sustituyen una evaluación posterior con consultas reales.
 
 
+Fuentes: Plan del proyecto; Robust SOAP como referencia metodológica. TEME-v1; PriMock57; Marco clínico de evaluación. Ampliaciones:
+bag-of-ideas.md y anexo D.
 
 
-Fuentes: Plan del proyecto. TEME-v1; PriMock57; Marco clínico de evaluación. Ampliaciones: bag-of-ideas.md y anexo D.
-
-
-  6/6 · Plan de trabajo                                                                                   Borrador · 10/10/2026 · 25/26
+  6/6 · Plan de trabajo                                                                                 Borrador · 12/10/2026 · 29/30
 Propuesta de trabajo
 
 Construir un baseline local y averiguar dónde necesita mejorar.
@@ -617,7 +705,7 @@ El hospital aporta acceso a criterios clínicos y revisores. El objetivo abierto
 calidad y viabilidad.
 
 
- 6/6 · Plan de trabajo                                                                       Borrador · 10/10/2026 · 26/26
+ 6/6 · Plan de trabajo                                                                       Borrador · 12/10/2026 · 30/30
 A · Datasets: referencias adicionales y volumen
 Una selección para profundizar; horas, encuentros y pares miden cosas distintas.
 
@@ -640,7 +728,7 @@ Una selección para profundizar; horas, encuentros y pares miden cosas distintas
 Fuentes: Common Voice ES; DIHARD III; VoxConverse; MedAlign; MedNLI; MIMIC-IV-Note; FactEHR. Detalle de versiones y acceso:
 README.md.
 
- Anexos · Fuera de los 30 minutos                                                                    Borrador · 10/10/2026 · Anexo
+ Anexos · Fuera de los 30 minutos                                                                    Borrador · 12/10/2026 · Anexo
 B · Tarea, métrica y loss: mapa de consulta
 
  Tarea                      Evaluación                                 Objetivos de entrenamiento habituales
@@ -663,7 +751,7 @@ README.md.
 
 Fuentes: Jurafsky y Martin, cap. 16; EEND; BRIO; DPR; MedNLI. Catálogo ampliado: README.md.
 
- Anexos · Fuera de los 30 minutos                                                              Borrador · 10/10/2026 · Anexo
+ Anexos · Fuera de los 30 minutos                                                              Borrador · 12/10/2026 · Anexo
 C · Hechos intermedios: tres implementaciones
 Representar hechos del encuentro es distinto de recuperar historia externa.
 
@@ -684,7 +772,7 @@ Representar hechos del encuentro es distinto de recuperar historia externa.
  Experimento propuesto: directo frente a hechos con fuente + diálogo, manteniendo casos, contexto,
  plantilla y generador.
 Fuentes: Singh et al. §3.1.2; ASCRIBE §3.1 y prompt A.3; KOSMOS §2. Ficha: comprension-clinica.md.
-  Anexos · Fuera de los 30 minutos                                                                   Borrador · 10/10/2026 · Anexo
+  Anexos · Fuera de los 30 minutos                                                                   Borrador · 12/10/2026 · Anexo
 D · Ideas para ampliar los datos
 
 Experimentos posibles después del primer conjunto de viabilidad.
@@ -711,7 +799,7 @@ Fuentes: Synthea; MIRA (2026; acceso MIMIC controlado); PriMock57. Propuestas y 
 
 
 
-  Anexos · Fuera de los 30 minutos                                                                      Borrador · 10/10/2026 · Anexo
+  Anexos · Fuera de los 30 minutos                                                                      Borrador · 12/10/2026 · Anexo
 E · Lecturas para preparar la discusión
 
 
@@ -731,5 +819,27 @@ Preguntas de defensa y ejercicios: preguntas-defensa.md · Datos y volúmenes: R
 
 
 
- Anexos · Fuera de los 30 minutos                                                    Borrador · 10/10/2026 · Anexo
+ Anexos · Fuera de los 30 minutos                                                    Borrador · 12/10/2026 · Anexo
+F · Robust SOAP: resultados publicados
+Tabla original: cobertura, omisiones, contradicciones y contenido añadido.
+
+     Table 2: Overall model performance on SOAP note generation. Best values are bolded, second-best are
+     underlined. Values represent mean ± standard deviation across all consultations.
+
+         Model                 Coverage ↑           Omission ↓          Contradiction ↓            Addition ↓         Elaboration ↓
+         GPT-4.1               81.84 ± 0.70         10.38 ± 0.55            7.78 ± 0.16            0.61 ± 0.03          20.85 ± 0.19
+         GPT-4.1 mini          79.29 ± 1.26         13.60 ± 1.48            7.12 ± 0.22            1.14 ± 0.24          19.93 ± 0.52
+         GPT-4o                69.14 ± 0.22         23.96 ± 0.02            6.89 ± 0.19            0.39 ± 0.04          18.91 ± 1.20
+         GPT-5.2               83.93 ± 1.15          9.20 ± 0.23            6.88 ± 0.91           0.24 ± 0.06           22.27 ± 0.13
+         GPT-5                85.28 ± 0.34          8.48 ± 0.23            6.24 ± 0.11             0.41 ± 0.16          22.70 ± 0.39
+         GPT-5 mini            78.94 ± 0.60         13.18 ± 0.69            7.88 ± 0.09            2.02 ± 0.39         18.54 ± 2.47
+         GPT-5 nano            77.63 ± 1.38         14.82 ± 0.41            7.54 ± 0.97            4.00 ± 0.16          21.98 ± 0.45
+         o3                    83.52 ± 0.11          9.92 ± 1.24            6.56 ± 1.13            3.50 ± 0.82          20.37 ± 0.13
+
+
+Resultados de los autores en inglés, con jueces LLM. «Elaboration» recoge contenido adicional respaldado por el
+diálogo: no equivale a alucinación, pese a la flecha descendente del original. No es un ranking de modelos locales.
+Fuentes: Latif et al., CHIL 2026, tabla 2, p. 456: recorte sin modificar, © autores. Limitaciones de reproducción y lectura de las métricas: ficha
+robust-soap.md.
+  Anexos · Fuera de los 30 minutos                                                                                Borrador · 12/10/2026 · Anexo
 

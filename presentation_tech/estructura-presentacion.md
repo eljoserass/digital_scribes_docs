@@ -1,17 +1,18 @@
 # Estructura provisional — construir un escriba digital médico
 
-Draft de trabajo, actualizado el **10/10/2026**. Aquí está el hilo y una bolsa de lecturas por sección; el [catálogo de datasets, métricas, losses y arquitecturas](README.md) queda separado. La [presentación renovada](build/main.pdf) concreta este material en **26 diapositivas / unos 30 minutos**, más cinco anexos; [guion con mensajes, transiciones y tiempos](guion-presentacion.md).
+Draft de trabajo, actualizado el **12/10/2026**. Aquí está el hilo y una bolsa de lecturas por sección; el [catálogo de datasets, métricas, losses y arquitecturas](README.md) queda separado. La [presentación renovada](build/main.pdf) concreta este material en **30 diapositivas / unos 30 minutos**, más seis anexos; [guion con mensajes, transiciones y tiempos](guion-presentacion.md).
 
 Hilo: **consulta y nota → evaluación y datos → audio y hablantes → diálogo, contexto y nota → adaptación y despliegue → primer experimento**. En cada tarea, explicar qué se resuelve, cómo se modela y cómo se mide. Los modelos recientes sirven para comparar alternativas, sin asumir SOTA clínica.
 
-| Bloque del PDF | Diapositivas | Tiempo previsto |
-|---|---|---:|
-| Consulta y nota | 1–5 | 4:20 |
-| Evaluación y datos | 6–7 | 2:20 |
-| Audio y hablantes | 8–13 | 7:00 |
-| Diálogo, contexto y nota | 14–19 | 8:10 |
-| Adaptación y despliegue | 20–24 | 5:50 |
-| Plan de trabajo | 25–26 | 2:20 |
+| Bloque | Diapositivas | Tiempo | Acumulado |
+|---|---|---:|---:|
+| Consulta y nota | 1–6 | 3:40 | 3:40 |
+| Evaluación y datos | 7–8 | 1:55 | 5:35 |
+| Audio y hablantes | 9–17 | 9:25 | 15:00 |
+| Diálogo, contexto y nota | 18–23 | 7:40 | 22:40 |
+| Adaptación y despliegue | 24–28 | 5:25 | 28:05 |
+| Plan de trabajo | 29–30 | 1:55 | 30:00 |
+
 
 Las secciones siguientes son una bolsa de lectura más amplia que el PDF. Las losses quedan en el anexo B; los hechos intermedios en C y la ampliación de datos en D.
 

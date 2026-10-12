@@ -54,6 +54,14 @@ El corpus de **≈900.000 encuentros es propietario**, no un dataset público di
 
 **Leer:** §3.1, figura 1 y prompt del apéndice A.3; después limitaciones. Pregunta: ¿qué decide el modelo y qué criterios aportaron médicos? [Prompts publicados](https://github.com/loolootech/ascribe/tree/main/prompts).
 
+## ¿La historia mejora la nota?
+
+Puede aportar información que no se repite en el encuentro, como el tratamiento al que se refiere «seguir igual». Recuperarla exige identificar paciente, fecha y estado; incluir más texto también puede introducir datos antiguos o contradictorios.
+
+[Zuckerman et al., 2025 — Ambient Only vs. Longitudinal Data-Enhanced AI Documentation](https://doi.org/10.1101/2025.11.07.25339620) compara ambas condiciones en **354 encuentros de atención primaria** y encuentra mayor completitud en la valoración documentada. Es un preprint, con evaluación principalmente automática, auditoría humana limitada y autores vinculados al proveedor. Justifica probar el contexto; no demuestra mejora de nuestro modelo en español. El resumen y el texto completo difieren al describir el tamaño de la revisión humana, por lo que no usamos un porcentaje de validación.
+
+Nuestro experimento tendría los mismos encuentros, generador y plantilla con/sin historia; anotaría hechos esperados y comprobaría procedencia, vigencia y contradicciones.
+
 ## Dónde queda MedAlign
 
 [MedAlign](https://arxiv.org/abs/2308.14089) contiene instrucciones de clínicos sobre historias longitudinales: **983 instrucciones, 303 respuestas de referencia y 276 historias**. Ayuda a estudiar tareas con contexto EHR. No ofrece una receta ya validada de audio + HCIS → nota ni resuelve nuestro recuperador. Leerlo si profundizamos en contexto longitudinal; no hace falta convertirlo en la referencia principal del bloque.
@@ -76,3 +84,5 @@ Conservar transcripción y vínculo temporal con audio facilita auditar esos err
 Comparar dos baselines: **generación directa** y **hechos con fuente + transcripción → nota**, con los mismos casos, contexto, plantilla y generador. Evaluar selección de hechos, contenido final, discrepancias, esfuerzo de edición y coste/latencia. Introducir recuperación automática de historia como otro experimento, cuando tengamos entradas y referencias que permitan medirla.
 
 Antes de presentar una arquitectura, poder responder: **qué información recibe, qué transforma, qué evidencia devuelve, qué pierde y cómo lo sabremos**. Practicarlo con las [preguntas y el mini examen](preguntas-defensa.md).
+
+Para el experimento de perturbaciones y la lectura de sus tablas: [Robust SOAP](robust-soap.md).
