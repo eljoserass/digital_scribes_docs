@@ -1,6 +1,6 @@
 # Estructura provisional — construir un escriba digital médico
 
-Draft de trabajo, actualizado el **12/10/2026**. Aquí está el hilo y una bolsa de lecturas por sección; el [catálogo de datasets, métricas, losses y arquitecturas](README.md) queda separado. La [presentación renovada](build/main.pdf) concreta este material en **31 diapositivas / unos 30 minutos**, más cinco anexos; [guion con mensajes, transiciones y tiempos](guion-presentacion.md).
+Draft de trabajo, actualizado el **12/10/2026**. Aquí está el hilo y una bolsa de lecturas por sección; el [catálogo de datasets, métricas, losses y arquitecturas](README.md) queda separado. La [presentación renovada](build/main.pdf) concreta este material en **31 diapositivas / unos 30 minutos**, más seis anexos; [guion con mensajes, transiciones y tiempos](guion-presentacion.md).
 
 Hilo: **consulta y nota → evaluación y datos → audio y hablantes → diálogo, contexto y nota → adaptación y despliegue → primer experimento**. En cada tarea, explicar qué se resuelve, cómo se modela y cómo se mide. Los modelos recientes sirven para comparar alternativas, sin asumir SOTA clínica.
 
@@ -8,14 +8,14 @@ Hilo: **consulta y nota → evaluación y datos → audio y hablantes → diálo
 |---|---|---:|---:|
 | Consulta y nota | 1–6 | 3:40 | 3:40 |
 | Evaluación y datos | 7–8 | 1:55 | 5:35 |
-| Audio y hablantes | 9–17 | 9:25 | 15:00 |
-| Diálogo, contexto y nota | 18–24 | 7:40 | 22:40 |
+| Audio y hablantes | 9–17 | 8:50 | 14:25 |
+| Diálogo, contexto y nota | 18–24 | 8:15 | 22:40 |
 | Adaptación y despliegue | 25–29 | 5:25 | 28:05 |
 | Plan de trabajo | 30–31 | 1:55 | 30:00 |
 
 
 
-Las secciones siguientes son una bolsa de lectura más amplia que el PDF. Las losses quedan en el anexo B; los hechos intermedios en C y la ampliación de datos en D.
+Las secciones siguientes son una bolsa de lectura más amplia que el PDF. Las losses quedan en el anexo B; los hechos intermedios en C y la ampliación de datos en D. La comparación CTC/RNN-T/atención pasa al anexo F; el bloque principal explica encoder/decoder y conecta después con las rutas de generación por texto o audio.
 
 Apoyos breves para preparar estos bloques: [common challenges](common_challenges.md) y [contexto de la nota clínica](clinical_note_context.md).
 
@@ -129,6 +129,7 @@ Modelo de trabajo: **audio → ASR/atribución de hablantes → selección y gen
 **Lecturas**
 
 - [Ficha de conversación, contexto y hechos](comprension-clinica.md) — Leer primero: separa tareas y explica qué prueban las referencias siguientes.
+- [Evidencia del contexto](evidencia-contexto-notas.md) — Qué comparan las ablaciones y por qué no demuestran automáticamente el efecto de añadir historia del paciente.
 - [ASCRIBE](https://arxiv.org/abs/2610.01234) — Hechos, fragmentos de soporte y relevancia antes de SOAP; estudiar §3.1 y prompt A.3, teniendo presentes sus límites de idioma y evaluación.
 - [KOSMOS](https://doi.org/10.3390/info17040355) — Entidades, atributos y relaciones con procedencia; comparar nodos frente a grafo y revisar las mejoras modestas.
 - [Nuance, §3.1.2](https://aclanthology.org/2023.clinicalnlp-1.18/) — Chain-of-Clinical-Facts como prefijo generativo; ≈900.000 encuentros privados, sin retrieval HCIS.

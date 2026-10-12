@@ -10,6 +10,24 @@ Además, durante entrenamiento solemos conocer **lo que se dijo**, pero no el in
 
 **Encoder** significa aquí la red que convierte el audio en representaciones útiles. Puede contener convoluciones, atención, recurrencia o combinaciones. La familia de ASR se distingue también por cómo produce y entrena la salida. [Prabhavalkar et al., survey de ASR, §II](https://arxiv.org/abs/2303.03329).
 
+### Qué hay dentro de un encoder acústico
+
+![De onda y log-Mel a convoluciones, contexto y secuencia de vectores; comparación con un speaker encoder que aplica pooling.](assets/intuicion/encoders.png)
+
+[Versión SVG editable](assets/intuicion/encoders.svg).
+
+Una ruta concreta para imaginarlo es la de **Whisper**: audio → log-Mel → convoluciones → bloques Transformer → secuencia de vectores. Las convoluciones detectan patrones locales y una de ellas reduce la resolución temporal; los bloques Transformer combinan información entre posiciones. La salida todavía no es una transcripción. [Whisper, §2.2](https://arxiv.org/abs/2212.04356).
+
+**Log-Mel** es una representación de cómo cambia la energía por bandas de frecuencia. El encoder transforma esas características en `h1, h2, h3…`: una lista de números por paso. No hay una casilla cuyo significado garantizado sea «la palabra alergia» ni una posición obligatoria por palabra.
+
+**¿Por qué combinar convoluciones y atención?** Las primeras capturan patrones locales; la atención conecta posiciones más lejanas. Conformer combina ambas dentro de sus bloques, además de reducir la secuencia en la entrada. Es otra implementación del encoder, no una cuarta forma de colapsar texto junto a CTC/RNN-T/atención. [Conformer, §2 y figura 1](https://arxiv.org/abs/2005.08100).
+
+### Encoder acústico frente a speaker encoder
+
+Para ASR interesa conservar la evolución temporal de los sonidos y obtener texto. Para comparar voces interesa resumir rasgos de un **segmento** en un vector. Un speaker encoder suele aplicar **pooling**: agregar muchos pasos acústicos, por ejemplo mediante medias y variación, para producir una representación de longitud fija.
+
+Eso permite comparar segmentos de duraciones diferentes. La diferencia clave es el objetivo de entrenamiento y la salida que necesitamos: **secuencia para reconocer habla; vector por segmento para comparar voces**. No implica que ambas redes eliminen perfectamente toda información ajena a su tarea. [x-vectors, arquitectura y statistics pooling](https://www.danielpovey.com/files/2018_icassp_xvectors.pdf).
+
 ## 2. CTC: predecir etiquetas y comprimirlas
 
 **Connectionist Temporal Classification.** En cada paso acústico se predice un token o un símbolo **blank**: «no emitir un token aquí». Blank no significa necesariamente que el paciente esté callado.
@@ -62,7 +80,7 @@ Permite una producción incremental del texto; el streaming completo depende tam
 
 En un encoder–decoder con atención, el encoder representa el audio y el decoder genera texto token a token. Para cada decisión consulta el texto anterior y las representaciones acústicas.
 
-La **atención** calcula cuánto peso dar a distintas representaciones. Por ejemplo, al generar el siguiente token después de «no refiere», el decoder combina información de las posiciones acústicas que le resultan útiles. No es una frontera exacta de palabra ni una explicación clínica de por qué se escribió algo.
+La **atención** calcula cuánto peso dar a distintas representaciones. Por ejemplo, al generar el siguiente token después de «no refiere», el decoder combina información de las posiciones acústicas que le resultan útiles. No es una frontera exacta de palabra ni una explicación clínica de por qué se escribió algo. [Atención para ASR](https://arxiv.org/abs/1506.07503).
 
 En **Whisper**, el decoder es un Transformer: atención al texto previo, atención al audio y capas feed-forward. Hay un encoder de audio separado. **No es simplemente una convolution que transforma audio en una frase.** [Whisper, §2.2 y figura 1](https://arxiv.org/abs/2212.04356).
 
@@ -107,6 +125,43 @@ S2, acompañante: «Yo también soy alérgica a penicilina».
 Saber quién habla ayuda a separar personas, pero sigue haciendo falta interpretar «mi madre». Una diarización perfecta no basta para rellenar correctamente la alergia del paciente.
 
 Otro caso: el paciente propone suspender un fármaco y el médico decide mantenerlo. Atribuir las intervenciones permite distinguir una petición del plan clínico. Son **casos para incluir en nuestra evaluación**, no cifras publicadas de mejora.
+
+### Embeddings: poner segmentos parecidos en el mismo grupo
+
+![Varios segmentos pasan por el mismo speaker encoder y pooling; sus vectores se agrupan por parecido de voz. El plano es ilustrativo, no una proyección real.](assets/intuicion/embeddings-voz.png)
+
+[Versión SVG editable](assets/intuicion/embeddings-voz.svg).
+
+Un **embedding de voz** es una lista de números que sirve para comparar segmentos. Queremos que la voz de una persona resulte parecida a sí misma aunque diga palabras distintas, y que pueda distinguirse de otras voces.
+
+En un entrenamiento típico, la red aprende a distinguir **identidades de hablante** en grabaciones etiquetadas. Después aprovechamos una representación interna para comparar voces nuevas; no necesitamos que pertenezcan a las identidades de entrenamiento. [Snyder et al., x-vectors, §2.3 y §3](https://www.danielpovey.com/files/2018_icassp_xvectors.pdf).
+
+**Coseno** compara la dirección de dos vectores; un valor alto indica parecido según esa representación. **Clustering** decide qué segmentos agrupar a partir de esas similitudes. En la figura, e1/e3 forman S1 y e2/e4 forman S2. El dibujo en dos dimensiones solo explica la agrupación.
+
+TitaNet es un ejemplo de speaker encoder: convoluciones y pooling con atención producen un vector por segmento; después se pueden comparar y agrupar vectores para diarización. [TitaNet, arquitectura y diarización](https://arxiv.org/abs/2110.04410).
+
+El vector **no incluye un nombre o rol garantizado**. Ruido, canal y segmentos breves o mezclados pueden alterar la representación y la agrupación. Un esquema modular necesita resolver también detección de habla, fronteras y solapamiento; «embedding + clustering» describe su idea central, no todos sus pasos. [Revisión de diarización](https://arxiv.org/abs/2101.09624).
+
+### EEND: predecir directamente actividades de hablantes
+
+![EEND transforma la secuencia acústica en probabilidades de actividad por hablante; dos salidas pueden estar activas a la vez. PIT elige una correspondencia entre canales y hablantes para toda la secuencia.](assets/intuicion/eend.png)
+
+[Versión SVG editable](assets/intuicion/eend.svg).
+
+**End-to-End Neural Diarization** formula la tarea como actividades por tiempo: para cada paso, ¿está activo S1?, ¿está activo S2? Una red recibe características acústicas y devuelve una probabilidad para cada salida.
+
+No necesita una fase separada de extracción de embeddings y clustering. Sí tiene representaciones internas. La clasificación es **multietiqueta**: las salidas de dos hablantes pueden estar activas a la vez, como en `t3` del dibujo. Esa propiedad permite representar solapamiento. [EEND original](https://arxiv.org/abs/1909.05952).
+
+El original usa una BLSTM, que procesa una secuencia hacia delante y atrás. Una variante usa atención Transformer para relacionar posiciones de esa secuencia. «Red temporal» aquí significa que procesa pasos de audio; no implica una sola arquitectura concreta. [EEND con self-attention](https://arxiv.org/abs/1909.06247).
+
+**PIT, permutation-invariant training:** en la referencia llamamos A/B a las voces, pero la red puede asignarlas a sus salidas en orden B/A. Comparamos ambas correspondencias y entrenamos con el menor error. La correspondencia se aplica a **toda la secuencia**, no se intercambia libremente en cada frame. Así penalizamos actividades incorrectas, sin castigar nombres arbitrarios de los canales. Esa comparación usa una loss de actividades —entropía cruzada binaria en el original—; DER es la métrica de evaluación. [Objetivo de EEND, §2.2](https://arxiv.org/abs/1909.05952).
+
+| Ruta | Intuición y decisión pendiente |
+|---|---|
+| Embeddings + clustering | Comparar segmentos de voz; inspeccionar agrupaciones y sus fallos. Resolver ventanas y solapamientos. |
+| EEND | Predecir actividades conjuntamente, incluido solapamiento. El manejo del número de hablantes y la duración depende de la variante. |
+
+Ninguna de las dos identifica automáticamente «médico/paciente» ni convierte el audio en nota. Seguimos evaluando la atribución y el contenido final.
 
 ### Qué evidencia tenemos de que ayuda
 

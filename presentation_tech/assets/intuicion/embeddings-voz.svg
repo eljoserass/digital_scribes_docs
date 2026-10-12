@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660" role="img" aria-labelledby="title desc">
+<title id="title">Embeddings de voz: comparar segmentos</title><desc id="desc">Una red compartida transforma diferentes segmentos en vectores de voz. Vectores cercanos se agrupan en hablantes. El plano es un dibujo ilustrativo, no una proyección de datos reales.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00547a"/></marker></defs>
+<rect width="1200" height="660" fill="white"/>
+<text x="32" y="43" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#00547a" font-weight="bold" text-anchor="start">Embeddings de voz: comparar segmentos</text>
+<text x="32" y="79" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#62747e" font-weight="normal" text-anchor="start">Queremos reconocer una voz aunque cambien las palabras.</text>
+<rect x="32" y="112" width="196" height="56" rx="10" fill="#eff5f8" stroke="#00547a" stroke-width="1.5"/>
+<text x="130" y="147" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183747" font-weight="normal" text-anchor="middle">Segmento 1</text>
+<line x1="228" y1="140" x2="304" y2="277" stroke="#00547a" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="32" y="194" width="196" height="56" rx="10" fill="#eff5f8" stroke="#00547a" stroke-width="1.5"/>
+<text x="130" y="229" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183747" font-weight="normal" text-anchor="middle">Segmento 2</text>
+<line x1="228" y1="222" x2="304" y2="277" stroke="#00547a" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="32" y="276" width="196" height="56" rx="10" fill="#eff5f8" stroke="#00547a" stroke-width="1.5"/>
+<text x="130" y="311" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183747" font-weight="normal" text-anchor="middle">Segmento 3</text>
+<line x1="228" y1="304" x2="304" y2="277" stroke="#00547a" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="32" y="358" width="196" height="56" rx="10" fill="#eff5f8" stroke="#00547a" stroke-width="1.5"/>
+<text x="130" y="393" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183747" font-weight="normal" text-anchor="middle">Segmento 4</text>
+<line x1="228" y1="386" x2="304" y2="277" stroke="#00547a" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="304" y="182" width="277" height="190" rx="10" fill="#eff5f8" stroke="#00547a" stroke-width="1.5"/>
+<text x="442" y="220" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#00547a" font-weight="bold" text-anchor="middle">La misma red</text>
+<text x="442" y="257" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#183747" font-weight="normal" text-anchor="middle">Speaker encoder</text>
+<text x="442" y="291" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#183747" font-weight="normal" text-anchor="middle">+ pooling temporal</text>
+<text x="442" y="337" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#62747e" font-weight="normal" text-anchor="middle">un vector por segmento</text>
+<line x1="581" y1="277" x2="647" y2="277" stroke="#00547a" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="653" y="144" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#00547a" font-weight="bold" text-anchor="start">e1</text>
+<rect x="703" y="122" width="12" height="35" rx="1" fill="#00547a" stroke="none" stroke-width="1.5"/>
+<rect x="720" y="122" width="12" height="35" rx="1" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<rect x="737" y="122" width="12" height="35" rx="1" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<rect x="754" y="122" width="12" height="35" rx="1" fill="#00547a" stroke="none" stroke-width="1.5"/>
+<text x="653" y="228" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#00547a" font-weight="bold" text-anchor="start">e2</text>
+<rect x="703" y="206" width="12" height="35" rx="1" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<rect x="720" y="206" width="12" height="35" rx="1" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<rect x="737" y="206" width="12" height="35" rx="1" fill="#00547a" stroke="none" stroke-width="1.5"/>
+<rect x="754" y="206" width="12" height="35" rx="1" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<text x="653" y="312" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#00547a" font-weight="bold" text-anchor="start">e3</text>
+<rect x="703" y="290" width="12" height="35" rx="1" fill="#00547a" stroke="none" stroke-width="1.5"/>
+<rect x="720" y="290" width="12" height="35" rx="1" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<rect x="737" y="290" width="12" height="35" rx="1" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<rect x="754" y="290" width="12" height="35" rx="1" fill="#00547a" stroke="none" stroke-width="1.5"/>
+<text x="653" y="396" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#00547a" font-weight="bold" text-anchor="start">e4</text>
+<rect x="703" y="374" width="12" height="35" rx="1" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<rect x="720" y="374" width="12" height="35" rx="1" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<rect x="737" y="374" width="12" height="35" rx="1" fill="#00547a" stroke="none" stroke-width="1.5"/>
+<rect x="754" y="374" width="12" height="35" rx="1" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<line x1="781" y1="277" x2="820" y2="277" stroke="#00547a" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="841" y1="429" x2="1158" y2="429" stroke="#62747e" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="841" y1="429" x2="841" y2="115" stroke="#62747e" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="895" y="124" width="151" height="105" rx="20" fill="#e5f3ec" stroke="#6bbb90" stroke-width="1.5"/>
+<rect x="992" y="301" width="141" height="108" rx="20" fill="#eff5f8" stroke="#00547a" stroke-width="1.5"/>
+<circle cx="925" cy="156" r="7" fill="#00547a"/>
+<text x="938" y="162" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#00547a" font-weight="bold" text-anchor="start">e2</text>
+<circle cx="988" cy="194" r="7" fill="#00547a"/>
+<text x="1001" y="200" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#00547a" font-weight="bold" text-anchor="start">e4</text>
+<circle cx="1020" cy="334" r="7" fill="#00547a"/>
+<text x="1033" y="340" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#00547a" font-weight="bold" text-anchor="start">e1</text>
+<circle cx="1088" cy="375" r="7" fill="#00547a"/>
+<text x="1101" y="381" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#00547a" font-weight="bold" text-anchor="start">e3</text>
+<text x="964" y="114" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#00547a" font-weight="bold" text-anchor="middle">S2</text>
+<text x="1062" y="294" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#00547a" font-weight="bold" text-anchor="middle">S1</text>
+<text x="1000" y="471" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#00547a" font-weight="bold" text-anchor="middle">Agrupar vectores parecidos</text>
+<rect x="32" y="513" width="1127" height="95" rx="10" fill="#eff5f8" stroke="#00547a" stroke-width="1.5"/>
+<text x="56" y="550" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#00547a" font-weight="bold" text-anchor="start">Coseno: comparar la dirección de los vectores. Clustering: decidir qué agrupar.</text>
+<text x="56" y="584" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#183747" font-weight="normal" text-anchor="start">S1/S2 son grupos de voz; no dan nombres ni roles por sí solos.</text>
+<text x="32" y="640" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#62747e" font-weight="normal" text-anchor="start">Plano 2D y colores ilustrativos: no son embeddings reales ni resultados del proyecto.</text>
+</svg>

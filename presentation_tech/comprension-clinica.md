@@ -58,9 +58,11 @@ El corpus de **≈900.000 encuentros es propietario**, no un dataset público di
 
 Puede aportar información que no se repite en el encuentro, como el tratamiento al que se refiere «seguir igual». Recuperarla exige identificar paciente, fecha y estado; incluir más texto también puede introducir datos antiguos o contradictorios.
 
-[Zuckerman et al., 2025 — Ambient Only vs. Longitudinal Data-Enhanced AI Documentation](https://doi.org/10.1101/2025.11.07.25339620) compara ambas condiciones en **354 encuentros de atención primaria** y encuentra mayor completitud en la valoración documentada. Es un preprint, con evaluación principalmente automática, auditoría humana limitada y autores vinculados al proveedor. Justifica probar el contexto; no demuestra mejora de nuestro modelo en español. El resumen y el texto completo difieren al describir el tamaño de la revisión humana, por lo que no usamos un porcentaje de validación.
+[Zuckerman et al., 2025 — Ambient Only vs. Longitudinal Data-Enhanced AI Documentation](https://doi.org/10.1101/2025.11.07.25339620) compara **354 encuentros de atención primaria**: nota ambient frente a una consolidación posterior que añade historia, selección de evidencia y generación con Claude Sonnet 4. Encuentra mejores puntuaciones de completitud, pero **no aísla el efecto de añadir historia** manteniendo el resto constante. Es un preprint con evaluación principalmente automática, auditoría humana limitada y autores vinculados al proveedor. No documenta suficientemente que se mantuviera el mismo generador. El resumen y el texto completo también difieren al describir el tamaño de la revisión humana.
 
-Nuestro experimento tendría los mismos encuentros, generador y plantilla con/sin historia; anotaría hechos esperados y comprobaría procedencia, vigencia y contradicciones.
+Nuance y ASCRIBE sí comparan generación directa y planificación mediante hechos, pero extraídos del propio encuentro. ACI-Bench y PriMock no aportan un benchmark longitudinal con/sin HCIS; MIMIC tiene historia, pero no esas conversaciones emparejadas. **La pregunta sigue abierta para nuestro caso.** La [ficha de evidencia sobre contexto](evidencia-contexto-notas.md) reúne las comparaciones, resultados y límites de cada corpus.
+
+Nuestro experimento tendría los mismos encuentros, generador y plantilla: sin historia, con historia pertinente seleccionada manualmente y con recuperación automática. Anotaríamos hechos esperados y comprobaríamos procedencia, vigencia, contradicciones y esfuerzo de revisión. Así separaríamos el valor de la información del comportamiento del recuperador.
 
 ## Dónde queda MedAlign
 

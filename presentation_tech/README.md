@@ -1,6 +1,6 @@
 # Source list — escribas digitales médicos
 
-La [presentación renovada](build/main.pdf), del **12/10/2026**, tiene **31 diapositivas principales para unos 30 minutos**, con figuras, fuentes enlazadas y cinco anexos. [Guion con hilo, transiciones y tiempos](guion-presentacion.md) · [fuente editable](main.tex) · [plan de tiempos](slide-plan.json).
+La [presentación renovada](build/main.pdf), del **12/10/2026**, tiene **31 diapositivas principales para unos 30 minutos**, con figuras, fuentes enlazadas y seis anexos. [Guion con hilo, transiciones y tiempos](guion-presentacion.md) · [fuente editable](main.tex) · [plan de tiempos](slide-plan.json).
 
 Para compilar desde esta carpeta: `make` (XeLaTeX y latexmk). `make previews` exporta las páginas a JPEG en `build/previews/`. Las figuras acústicas son recortes atribuidos de Jurafsky; los esquemas son TikZ en `main.tex` y `figures/asr-architectures.tex`. [Origen y regeneración de las figuras](figures/README.md) e [identidad IRYCIS](assets/README.md).
 
@@ -14,7 +14,7 @@ Notas breves: [common challenges](common_challenges.md) y [qué es una nota clí
 
 Para el marco de evaluación: [SCRIBE, figura 1 y límites](scribe-evaluacion.md), con los paneles originales (a) y (b) en el PDF. [Robust SOAP](robust-soap.md) queda como lectura complementaria sobre hechos y perturbaciones.
 
-**Empieza por la [guía de intuición con figuras y GIF](guia-intuicion.md):** CTC/RNN-T/atención, métricas, p50/p95, generación, verificación y papers. La [estimación local](recursos-locales.md) documenta RAM, almacenamiento y cuantización de la slide 26; el tiempo queda pendiente de medir.
+**Empieza por la [guía de intuición con figuras y GIF](guia-intuicion.md):** encoders, embeddings de voz, EEND, CTC/RNN-T/atención, métricas, p50/p95, generación, verificación y papers. La [ficha sobre el efecto del contexto](evidencia-contexto-notas.md) distingue historia longitudinal, hechos del diálogo y ejemplos recuperados; la slide 20 queda como pregunta abierta. La [estimación local](recursos-locales.md) documenta RAM, almacenamiento y cuantización de la slide 26; el tiempo queda pendiente de medir.
 
 Para preparar la revisión: [conversación, contexto y hechos clínicos](comprension-clinica.md), con dos métodos recientes y límites de verificación; [preguntas de defensa y mini examen](preguntas-defensa.md). Scribnic y su estado actual se recogen en el [bag de ideas](bag-of-ideas.md#9-scribnic-núcleo-local-reutilizable-y-clientes-separados).
 
@@ -319,5 +319,7 @@ El [inventario de añadidos y la revisión de material](zotero-revision.md) indi
 - [Parakeet TDT 0.6B v3](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3) — Ejemplo actual de transducer con predicción de duraciones; no todas las familias ASR han sido sustituidas por atención.
 - [Qwen3-0.6B GGUF oficial](https://huggingface.co/Qwen/Qwen3-0.6B-GGUF/tree/main) — Archivo Q8_0 de 639 MB como candidato pequeño; tamaño en disco, no RAM total ni validación clínica.
 - [MOSS: selección de dispositivo](https://github.com/OpenMOSS/MOSS-Transcribe-Diarize/blob/main/moss_transcribe_diarize/inference_utils.py) — Ruta CPU/GPU verificable en código; queda pendiente medir rendimiento en el PC objetivo.
-- [Contexto longitudinal frente a audio solo](https://doi.org/10.1101/2025.11.07.25339620) — Preprint con 354 encuentros y mayor completitud; límites en la ficha de comprensión clínica.
+- [Contexto longitudinal frente a audio solo](https://doi.org/10.1101/2025.11.07.25339620) — Preprint con 354 encuentros; compara pipelines y no aísla el efecto del historial. [Revisión de la evidencia](evidencia-contexto-notas.md).
+- [Speaker-Reasoner](https://arxiv.org/abs/2604.03074) — Modelo audio-texto iterativo para transcripción, hablantes y tiempos; checkpoint 32B, sin validación de notas clínicas.
+- [LiteRT-LM: tamaños y memoria publicados](https://developers.google.com/edge/litert-lm/overview) — Qwen3-0.6B distribuido en 586 MB y métricas de memoria para otros modelos/dispositivos; [alcance y comparación](recursos-locales.md).
 - [Tandem: dirección de producto](https://tandemhealth.ai/resources/news/building-the-ai-native-operating-system-for-european-clinics) — Preparación, documentación, apoyo clínico, codificación y seguimiento como expansión comercial; distinguir roadmap de disponibilidad y eficacia.

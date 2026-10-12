@@ -196,18 +196,23 @@
 
 \end{frame}
 
-% 10 — 80s · acumulado 07:55
-\begin{frame}{CTC, transducer y atención}
-
-  \topic{Tres familias que siguen en uso.}
-  \begin{figurecanvas}[4.3]
-    \input{figures/asr-architectures}
+% 10 — 45s · acumulado 07:20
+\begin{frame}{El encoder representa el audio}
+  \topic{Antes de escribir, el modelo transforma la señal en una secuencia de vectores.}
+  \begin{figurecanvas}[4.4]
+    \node[box,text width=2.4cm] (a) at (1.55,3.1) {Audio\\\scriptsize Onda o log-Mel};
+    \node[good,text width=3.8cm] (b) at (6.55,3.1) {\textbf{Encoder acústico}\\Convoluciones + contexto\\\scriptsize Ejemplo: Transformer / Conformer};
+    \node[box,text width=2.9cm] (c) at (12,3.1) {Vectores por paso\\\scriptsize Todavía no son palabras};
+    \draw[arr] (a)--(b); \draw[arr] (b)--(c);
+    \node[plain,align=center,text width=4.1cm] at (1.6,1.65) {Variaciones de energía\\y frecuencia};
+    \node[plain,align=center,text width=4.8cm] at (6.55,1.65) {Patrones locales + información\\de otros pasos de la secuencia};
+    \node[plain,align=center,text width=3.8cm] at (12,1.65) {Entrada para reconocer texto\\o para un LLM multimodal};
+    \node[tinylabel,text width=13cm] at (7,.45) {La tarea de entrenamiento determina qué información aprende a representar. Encoder acústico y encoder de voz para identificar hablantes tienen objetivos distintos.};
   \end{figurecanvas}
-  \sources{\link{https://www.cs.toronto.edu/~graves/icml_2006.pdf}{CTC (2006)}; \link{https://arxiv.org/abs/1211.3711}{RNN-T (2012)}; \link{https://arxiv.org/abs/1506.07503}{atención para ASR (2015)}. Ejemplos actuales: \link{https://huggingface.co/nvidia/parakeet-ctc-1.1b}{Parakeet CTC}; \link{https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3}{Parakeet TDT}; \link{https://arxiv.org/abs/2509.14128}{Canary}. Fechas de trabajos de referencia; las familias coexisten.}
-
+  \sources{\link{https://arxiv.org/abs/2212.04356}{Whisper}; \link{https://arxiv.org/abs/2005.08100}{Conformer}. Esquema propio; no todas las arquitecturas usan estos mismos bloques. CTC, transducer y atención: anexo F.}
 \end{frame}
 
-% 11 — 70s · acumulado 09:05
+% 11 — 70s · acumulado 08:30
 \begin{frame}{Qué hace el decoder}
 
   \topic{Ejemplo: el decoder Transformer de Whisper.}
@@ -223,12 +228,12 @@
     \draw[arr] (scores)--(choose);
     \draw[arr] (choose.south)--(11.2,.25)--node[tinylabel,above]{añadir «fiebre» y repetir}(1.6,.25)--(text.south);
   \end{figurecanvas}
-  \smallnote{La red calcula probabilidades; el algoritmo de decoding elige la secuencia. CTC usa colapso de etiquetas; RNN-T combina predictor del texto y estado acústico.}
+  \smallnote{La red calcula probabilidades; el algoritmo de decoding elige la secuencia. El decoder consulta la representación del audio y el texto generado hasta ese momento.}
   \sources{\link{https://web.stanford.edu/~jurafsky/slp3/16.pdf}{Jurafsky y Martin, cap. 16}; \link{https://arxiv.org/abs/2212.04356}{Whisper}; \link{https://arxiv.org/abs/2303.03329}{Survey ASR}. Probabilidades y tokens ilustrativos.}
 
 \end{frame}
 
-% 12 — 60s · acumulado 10:05
+% 12 — 60s · acumulado 09:30
 \begin{frame}{WER y errores clínicos}
   \topic{WER = Word Error Rate. Referencia: «el paciente no refiere fiebre desde ayer» · 7 palabras.}
   \begin{figurecanvas}[3.75]
@@ -243,7 +248,7 @@
   \sources{Definición y cálculo: \link{https://github.com/jitsi/jiwer}{JiWER}; evaluación médica: \link{https://arxiv.org/abs/2406.12387}{Medical ASR benchmark (2024)}; \link{https://doi.org/10.65109/RHNT7438}{TEME}. Ejemplo propio.}
 \end{frame}
 
-% 13 — 45s · acumulado 10:50
+% 13 — 45s · acumulado 10:15
 \begin{frame}{Diarización: tiempo, hablante y rol}
   \topic{S1/S2 identifican voces dentro del audio. El rol clínico es otra etiqueta.}
   \begin{figurecanvas}[4.2]
@@ -264,7 +269,7 @@
   \sources{\link{https://arxiv.org/abs/2012.01477}{DIHARD III}; \link{https://github.com/nryant/dscore}{dscore}. Línea temporal ilustrativa; el rol es una etiqueta adicional.}
 \end{frame}
 
-% 14 — 65s · acumulado 11:55
+% 14 — 65s · acumulado 11:20
 \begin{frame}{Modelos de diarización}
 
   \topic{Ambas rutas reciben audio y producen intervalos de actividad por hablante.}
@@ -283,11 +288,11 @@
     \draw[arr] (e)--(f); \draw[arr] (f)--(g);
   \end{figurecanvas}
   \smallnote{EEND aprende actividad conjunta y solapamientos. El manejo de sesiones largas y del número de hablantes depende de la variante.}
-  \sources{\link{https://arxiv.org/abs/1909.05952}{EEND con self-attention}; \link{https://huggingface.co/pyannote/speaker-diarization-community-1}{pyannote}; \link{https://www.isca-archive.org/interspeech_2023/plaquet23_interspeech.html}{powerset}. Esquemas simplificados.}
+  \sources{\link{https://arxiv.org/abs/1909.06247}{EEND con self-attention}; \link{https://huggingface.co/pyannote/speaker-diarization-community-1}{pyannote}; \link{https://www.isca-archive.org/interspeech_2023/plaquet23_interspeech.html}{powerset}. Esquemas simplificados.}
 
 \end{frame}
 
-% 15 — 65s · acumulado 13:00
+% 15 — 65s · acumulado 12:25
 \begin{frame}{DER: cuánto tiempo se atribuyó mal}
 
   \topic{Diarization Error Rate · ejemplo sin solapamientos ni tolerancia en los límites.}
@@ -310,7 +315,7 @@
 
 \end{frame}
 
-% 16 — 40s · acumulado 13:40
+% 16 — 40s · acumulado 13:05
 \begin{frame}{Transcripción con hablantes}
   \topic{La transcripción diarizada puede ser modular o conjunta.}
   \begin{figurecanvas}[4.05]
@@ -326,7 +331,7 @@
   \sources{\link{https://arxiv.org/abs/2601.01554}{MOSS-Transcribe-Diarize (2026)}; \link{https://github.com/fgnt/meeteval}{MeetEval}. Salida ilustrativa.}
 \end{frame}
 
-% 17 — 80s · acumulado 15:00
+% 17 — 80s · acumulado 14:25
 \begin{frame}{Palabras correctas, hablante equivocado}
 
   \topic{cpWER: concatenated minimum-permutation Word Error Rate.}
@@ -346,20 +351,30 @@
 
 \setpart{4/6 · Diálogo, contexto y nota}
 
-% 18 — 45s · acumulado 15:45
-\begin{frame}{Generación de notas}
-
-  \topic{Primero definir qué documentar y cómo debe verse la salida.}
+% 18 — 80s · acumulado 15:45
+\begin{frame}{Del audio a la nota: dos rutas}
+  \topic{Las tareas pueden separarse o compartir un modelo; la salida debe poder evaluarse.}
   \begin{figurecanvas}[4.05]
-    \node[box,text width=3.3cm,minimum height=2cm] (a) at (2,2.4) {\textbf{Entradas}\\[3mm]Transcripción y hablantes\\Contexto disponible\\Observaciones};
-    \node[good,text width=3.3cm,minimum height=2cm] (b) at (7,2.4) {\textbf{Generador}\\[3mm]LLM + instrucciones\\Plantilla del servicio\\Criterios de contenido};
-    \node[box,text width=3.3cm,minimum height=2cm] (c) at (12,2.4) {\textbf{Borrador}\\[3mm]Secciones de la nota\\Hechos y procedencia\\Valoración y plan expresados};
-    \draw[arr] (a)--(b); \draw[arr] (b)--(c);
-    \node[tinylabel,text width=12cm] at (7,.6) {El equipo clínico define contenido, estilo y errores relevantes; esas decisiones se convierten en instrucciones y criterios de evaluación.};
+    \begin{scope}[y=.87cm]
+    \node[plain,anchor=west,font=\bfseries] at (.15,4.35) {A · Por etapas};
+    \node[box,text width=1.15cm] (a) at (.85,3.5) {Audio};
+    \node[box,text width=2.25cm] (b) at (3.8,3.5) {ASR + hablantes};
+    \node[good,text width=2.25cm] (c) at (7,3.5) {Texto y turnos};
+    \node[box,text width=1.2cm] (d) at (10,3.5) {LLM};
+    \node[good,text width=1.3cm] (e) at (12.75,3.5) {Nota};
+    \draw[arr] (a)--(b); \draw[arr] (b)--(c); \draw[arr] (c)--(d); \draw[arr] (d)--(e);
+    \node[tinylabel] at (10,4.25) {Contexto disponible};
+    \draw[ctx] (10,4.03)--(d.north);
+    \node[plain,anchor=west,font=\bfseries] at (.15,2.5) {B · Audio en el generador};
+    \node[box,text width=2.5cm] (f) at (1.65,1.6) {Audio + contexto};
+    \node[good,text width=3.7cm] (g) at (7,1.6) {Encoder + LLM multimodal};
+    \node[box,text width=3.25cm] (h) at (12.1,1.6) {Nota y salida auditable\\\scriptsize Texto / tiempos, si los produce};
+    \draw[arr] (f)--(g); \draw[arr] (g)--(h);
+    \node[tinylabel,text width=13.4cm] at (7,.25) {Speaker-Reasoner combina texto, hablantes y tiempos; MOSS lo hace con 0.9B. La ruta audio + contexto → nota clínica sigue siendo una alternativa que evaluar.};
+  \end{scope}
   \end{figurecanvas}
-  \takeaway{Comparar plantillas y prompts sobre los mismos encuentros antes de decidir si hace falta adaptar pesos.}
-  \sources{\link{https://www.nature.com/articles/s41597-023-02487-3}{ACI-Bench}; \link{https://aclanthology.org/2022.acl-long.394/}{Moramarco et al.}. Baseline propuesto para el proyecto.}
-
+  \takeaway{\textbf{¿Qué conservamos para auditar?} Afirmaciones, fuente y vínculo con el audio. Un modelo conjunto también puede devolver resultados intermedios.}
+  \sources{\link{https://arxiv.org/abs/2604.03074}{Speaker-Reasoner}; \link{https://huggingface.co/OpenMOSS-Team/MOSS-Transcribe-Diarize}{MOSS}; \link{https://arxiv.org/abs/2509.17765}{Qwen3-Omni}. Los dos diseños son opciones para el proyecto; estas referencias no validan notas clínicas españolas.}
 \end{frame}
 
 % 19 — 85s · acumulado 17:10
@@ -381,9 +396,9 @@
 \end{frame}
 
 % 20 — 100s · acumulado 18:50
-\begin{frame}{Qué aporta la historia clínica}
+\begin{frame}{¿Cuándo ayuda la historia clínica?}
 
-  \topic{Completar información que la conversación presupone o no repite.}
+  \topic{Pregunta abierta: ¿qué mejora y qué errores introduce añadir historia?}
   \begin{figurecanvas}[3.95]
     \node[box,text width=3.8cm] (a) at (2.2,3.4) {\textbf{Conversación}\\«Mantenemos el\\tratamiento habitual»};
     \node[box,text width=3.8cm] (b) at (2.2,1.5) {\textbf{Registro reciente}\\Tratamiento X activo\\con fecha y fuente};
@@ -391,8 +406,8 @@
     \draw[arr] (a.east)--(c.north west); \draw[ctx] (b.east)--(c.south west);
     \node[plain,align=center,text width=13cm] at (7,.45) {Paciente y corte temporal → seleccionar registros → contexto con procedencia};
   \end{figurecanvas}
-  \smallnote{\textbf{¿Mejora la calidad?} Un preprint con 354 encuentros encuentra mayor completitud. Evaluación principalmente automática y autores del proveedor; falta validación local. Más contexto también puede introducir datos obsoletos.}
-  \sources{Ejemplo propio, no recomendación clínica. \link{https://doi.org/10.1101/2025.11.07.25339620}{Zuckerman et al. (2025), ambient-only vs. historia}; \link{https://arxiv.org/abs/2005.11401}{RAG}; \link{https://hl7.org/fhir/R4/provenance.html}{procedencia FHIR}.}
+  \smallnote{\textbf{Experimento:} mismo encuentro, modelo y plantilla; con/sin contexto. Medir hechos conservados, contradicciones, vigencia y esfuerzo de revisión.}
+  \sources{Ejemplo propio. \link{https://doi.org/10.1101/2025.11.07.25339620}{Zuckerman: comparación de pipelines}; \link{https://www.nature.com/articles/s41597-023-02487-3}{ACI-Bench: límites del contexto}; \link{https://arxiv.org/abs/2005.11401}{RAG}; \link{https://hl7.org/fhir/R4/provenance.html}{procedencia FHIR}.}
 
 \end{frame}
 
@@ -499,11 +514,7 @@
     \node[plain,align=center,font=\bfseries\scriptsize] at (10.3,3.64) {RAM DEL PROCESO};
     \node[plain,align=center,font=\fontsize{19}{22}\selectfont\bfseries,text=navy] at (10.3,3.06) {≈4–8 GB};
     \node[tinylabel,text width=5cm] at (10.3,2.39) {Estimación con margen de trabajo\\Audio 15–30 min · contexto 4–8k};
-    \node[plain,align=center,font=\small,text width=13cm] at (7,1.44) {\textbf{Disco:} pesos cuantizados\qquad\textbf{RAM:} pesos + contexto + buffers};
-    \draw[navy!55,rounded corners=1.5pt] (.85,.28) rectangle (1.18,.86);
-    \draw[navy!55] (.96,.35)--(1.07,.35);
-    \node[plain,anchor=west,text width=11.8cm,font=\scriptsize] at (1.5,.6) {\textbf{LiteRT-LM + Gemma:} Google también ofrece ejecución local en móviles.};
-    \node[tinylabel,text width=13.8cm] at (7,.05) {Orden de magnitud, no mínimo/máximo validado. Tiempo y calidad: medir después en el equipo de uso.};
+    \node[plain,align=center,font=\small,text width=13cm] at (7,1.44) {\textbf{Disco:} pesos cuantizados\qquad\textbf{RAM:} pesos + contexto + memoria de trabajo};
   \end{figurecanvas}
 \end{frame}
 
@@ -669,5 +680,15 @@
   \smallnote{Guion con hilo, tiempos y transiciones: guion-presentacion.md\\Preguntas de defensa y ejercicios: preguntas-defensa.md · Datos y volúmenes: README.md}
 \end{frame}
 
+
+\begin{frame}[noframenumbering]{F · CTC, transducer y atención}
+
+  \topic{Tres familias que siguen en uso.}
+  \begin{figurecanvas}[4.3]
+    \input{figures/asr-architectures}
+  \end{figurecanvas}
+  \sources{\link{https://www.cs.toronto.edu/~graves/icml_2006.pdf}{CTC (2006)}; \link{https://arxiv.org/abs/1211.3711}{RNN-T (2012)}; \link{https://arxiv.org/abs/1506.07503}{atención para ASR (2015)}. Ejemplos actuales: \link{https://huggingface.co/nvidia/parakeet-ctc-1.1b}{Parakeet CTC}; \link{https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3}{Parakeet TDT}; \link{https://arxiv.org/abs/2509.14128}{Canary}. Fechas de trabajos de referencia; las familias coexisten.}
+
+\end{frame}
 
 \end{document}

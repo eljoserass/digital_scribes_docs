@@ -36,6 +36,28 @@ Para una historia pequeña puede bastar una consulta estructurada o una selecci�
 
 La historia tampoco debe borrar una actualización del encuentro: «tratamiento activo» hace un mes y «lo dejé hace dos semanas» hoy constituyen un cambio documentado o una discrepancia que conservar.
 
+**¿Mejora la nota? Es una pregunta abierta para nuestro caso.** Nuance y ASCRIBE comparan formas de organizar hechos del diálogo; no añaden una historia independiente. Zuckerman compara una pipeline ambient con otra que además recupera historia, selecciona y reescribe: no aísla el efecto del contexto. ACI-Bench/PriMock no incluyen el benchmark longitudinal que necesitaríamos. La [ficha de evidencia](evidencia-contexto-notas.md) explica esos controles y propone comparar el mismo generador sin historia, con selección manual y con retrieval automático.
+
+## 2.1. ¿Y si un audio LLM hace varias tareas a la vez?
+
+![Ruta modular y unificación mediante audio LLM](figures/intuicion-generacion/modular-unificada.png)
+
+**Una tarea no exige siempre un modelo independiente.** Podemos usar ASR, diarización y generador separados, o un modelo que produzca texto, hablantes y tiempos conjuntamente. También podemos investigar audio + contexto → nota sin pasar toda la información por una transcripción obligatoria. Son grados distintos de unificación: juntar ASR y hablantes todavía no equivale a tener un escriba completo.
+
+| Ejemplo | Qué unifica o admite | Qué podemos afirmar |
+|---|---|---|
+| **MOSS-Transcribe-Diarize 0,9B** | Audio → texto, tiempos y etiquetas anónimas de hablante | La unificación de ASR y hablantes también existe en modelos pequeños. Su tarea publicada es transcribir, no escribir una nota clínica. [Ficha oficial](https://huggingface.co/OpenMOSS-Team/MOSS-Transcribe-Diarize). |
+| **Speaker-Reasoner, checkpoint 32B** | Audio → texto, hablantes, tiempos y género inferido, con procesamiento iterativo | Especializado en transcripción atribuida. Etiquetar una voz como S1 no identifica a un médico ni a una persona real. [Checkpoint](https://huggingface.co/ASLP-lab/Speaker-Reasoner), [paper](https://arxiv.org/abs/2604.03074). |
+| **Qwen3-Omni-30B-A3B** | Recibe audio/texto y genera respuestas; modelo multimodal MoE | Permite plantear instrucciones sobre audio. Su ficha no demuestra calidad de notas clínicas españolas ni atribución fiable en nuestro dominio. [Ficha oficial](https://huggingface.co/Qwen/Qwen3-Omni-30B-A3B-Instruct). |
+
+En Speaker-Reasoner, «un modelo» no significa «una pasada». Primero hace un inventario global de hablantes; luego propone límites temporales, consulta recortes y continúa hasta consolidar la transcripción. Su caché conserva ejemplos previos de **etiqueta + audio + texto** para mantener coherencia entre fragmentos. Es contexto acústico por hablante, distinto de la KV cache interna que acelera generación. El paper inicial evalúa reuniones en mandarín; estas pruebas no validan nuestro español médico ni una nota SOAP. [Método, §§2.1–2.3](https://arxiv.org/html/2604.03074v1#S2).
+
+Como ejemplo inventado de ese mecanismo: «hay dos voces» → analizar segundos 0–12 → emitir `S1: tengo tos` → conservar ese fragmento como referencia de S1 → analizar el siguiente tramo. La secuencia de decisiones es una estrategia de inferencia; no demuestra razonamiento clínico. Además, en las grabaciones largas sin segmentación, Speaker-Reasoner queda por detrás de Gemini en las métricas publicadas: la ventaja depende del protocolo. [Paper, tabla 2](https://arxiv.org/html/2604.03074v1#S3.T2).
+
+En Qwen, **A3B** expresa unos 3B parámetros activos por token dentro de una arquitectura de mayor tamaño. No significa que todos los pesos que debemos alojar sean 3B. Ni el tamaño del checkpoint ni hacer varias tareas juntas determinan por sí solos la RAM o la latencia. [Qwen3-Omni, informe técnico](https://arxiv.org/abs/2509.17765).
+
+La ruta audio → nota evita que una transcripción textual sea la única entrada acústica del generador, pero puede perder información al seleccionar hechos o al producir la propia nota. Si no emitimos transcripción, tenemos menos salidas intermedias para localizar fallos; aún podemos evaluar con audio y referencias externas. La comparación útil es **misma consulta, contenido final, atribución, evidencia recuperable, tiempo y memoria**. Producir también hechos con fuente o una transcripción es una opción de diseño que habría que probar; no garantiza eliminar errores.
+
 ## 3. Un ejemplo de principio a fin
 
 **Entradas disponibles:**
@@ -173,4 +195,4 @@ Lo defendible hoy es proponer una comparación con mismos casos y rúbrica, revi
 
 Para comprobar que lo tienes: si una nota solo dice «tos de tres días», ¿puede tener todas sus frases respaldadas y seguir siendo mala? Sí: en este ejemplo faltan negación de fiebre, actualización de tratamiento, reacción referida, temperatura y plan. **Factualidad y completitud son preguntas distintas.**
 
-Las tres figuras de esta ficha son esquemas originales del proyecto, no figuras de los papers. El detalle de métodos y resultados de Robust SOAP, KOSMOS y ASCRIBE está en [intuicion-papers.md](intuicion-papers.md).
+Las figuras de esta ficha son esquemas originales del proyecto, no figuras de los papers. El detalle de métodos y resultados de Robust SOAP, KOSMOS y ASCRIBE está en [intuicion-papers.md](intuicion-papers.md).

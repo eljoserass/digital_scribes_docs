@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="765" viewBox="0 0 1200 765" role="img" aria-labelledby="title desc">
+<title id="title">EEND: predecir quién está activo en cada paso</title><desc id="desc">La red produce actividades por hablante y tiempo, con varias salidas altas para solapamiento. PIT compara permutaciones de los canales para que intercambiar S1 y S2 no sea un error de entrenamiento.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00547a"/></marker></defs>
+<rect width="1200" height="765" fill="white"/>
+<text x="32" y="43" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#00547a" font-weight="bold" text-anchor="start">EEND: predecir quién está activo en cada paso</text>
+<text x="32" y="79" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#62747e" font-weight="normal" text-anchor="start">End-to-End Neural Diarization: actividades por tiempo, no palabras.</text>
+<rect x="32" y="113" width="262" height="110" rx="10" fill="#eff5f8" stroke="#00547a" stroke-width="1.5"/>
+<text x="163" y="156" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#00547a" font-weight="bold" text-anchor="middle">Características</text>
+<text x="163" y="189" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#183747" font-weight="normal" text-anchor="middle">secuencia acústica</text>
+<rect x="360" y="113" width="341" height="110" rx="10" fill="#e5f3ec" stroke="#00547a" stroke-width="1.5"/>
+<text x="530" y="151" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#00547a" font-weight="bold" text-anchor="middle">Red que procesa la secuencia</text>
+<text x="530" y="188" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183747" font-weight="normal" text-anchor="middle">BLSTM o Transformer</text>
+<rect x="767" y="113" width="393" height="110" rx="10" fill="#eff5f8" stroke="#00547a" stroke-width="1.5"/>
+<text x="963" y="154" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#00547a" font-weight="bold" text-anchor="middle">Probabilidades de actividad</text>
+<text x="963" y="189" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#183747" font-weight="normal" text-anchor="middle">por hablante y paso acústico</text>
+<line x1="294" y1="168" x2="360" y2="168" stroke="#00547a" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="701" y1="168" x2="767" y2="168" stroke="#00547a" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="32" y="281" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#00547a" font-weight="bold" text-anchor="start">Ejemplo de salida: oscuro = probabilidad alta</text>
+<text x="167" y="353" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#00547a" font-weight="bold" text-anchor="start">Salida S1</text>
+<rect x="290" y="314" width="107" height="57" rx="2" fill="#eff5f8" stroke="#dce5e9" stroke-width="1.5"/>
+<rect x="402" y="314" width="107" height="57" rx="2" fill="#eff5f8" stroke="#dce5e9" stroke-width="1.5"/>
+<rect x="514" y="314" width="107" height="57" rx="2" fill="#00547a" stroke="#dce5e9" stroke-width="1.5"/>
+<rect x="626" y="314" width="107" height="57" rx="2" fill="#00547a" stroke="#dce5e9" stroke-width="1.5"/>
+<rect x="738" y="314" width="107" height="57" rx="2" fill="#00547a" stroke="#dce5e9" stroke-width="1.5"/>
+<rect x="850" y="314" width="107" height="57" rx="2" fill="#eff5f8" stroke="#dce5e9" stroke-width="1.5"/>
+<text x="167" y="415" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#00547a" font-weight="bold" text-anchor="start">Salida S2</text>
+<rect x="290" y="376" width="107" height="57" rx="2" fill="#00547a" stroke="#dce5e9" stroke-width="1.5"/>
+<rect x="402" y="376" width="107" height="57" rx="2" fill="#00547a" stroke="#dce5e9" stroke-width="1.5"/>
+<rect x="514" y="376" width="107" height="57" rx="2" fill="#00547a" stroke="#dce5e9" stroke-width="1.5"/>
+<rect x="626" y="376" width="107" height="57" rx="2" fill="#eff5f8" stroke="#dce5e9" stroke-width="1.5"/>
+<rect x="738" y="376" width="107" height="57" rx="2" fill="#eff5f8" stroke="#dce5e9" stroke-width="1.5"/>
+<rect x="850" y="376" width="107" height="57" rx="2" fill="#eff5f8" stroke="#dce5e9" stroke-width="1.5"/>
+<text x="344" y="298" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#62747e" font-weight="normal" text-anchor="middle">t1</text>
+<text x="456" y="298" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#62747e" font-weight="normal" text-anchor="middle">t2</text>
+<text x="568" y="298" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#62747e" font-weight="normal" text-anchor="middle">t3</text>
+<text x="680" y="298" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#62747e" font-weight="normal" text-anchor="middle">t4</text>
+<text x="792" y="298" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#62747e" font-weight="normal" text-anchor="middle">t5</text>
+<text x="904" y="298" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#62747e" font-weight="normal" text-anchor="middle">t6</text>
+<line x1="568" y1="446" x2="568" y2="470" stroke="#00547a" stroke-width="2"/>
+<text x="568" y="496" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#00547a" font-weight="bold" text-anchor="middle">Solapamiento: dos voces activas</text>
+<text x="904" y="471" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#62747e" font-weight="normal" text-anchor="middle">Sin habla</text>
+<line x1="32" y1="522" x2="1160" y2="522" stroke="#dce5e9" stroke-width="2"/>
+<text x="32" y="562" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#00547a" font-weight="bold" text-anchor="start">PIT: los nombres de las salidas no tienen por qué coincidir con la referencia</text>
+<rect x="32" y="589" width="539" height="94" rx="10" fill="#eff5f8" stroke="#00547a" stroke-width="1.5"/>
+<text x="54" y="626" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183747" font-weight="normal" text-anchor="start">Comparar S1 con A y S2 con B</text>
+<text x="54" y="661" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#62747e" font-weight="normal" text-anchor="start">Calcular el error de toda la secuencia.</text>
+<rect x="611" y="589" width="549" height="94" rx="10" fill="#e5f3ec" stroke="#00547a" stroke-width="1.5"/>
+<text x="633" y="626" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183747" font-weight="normal" text-anchor="start">Comparar S1 con B y S2 con A</text>
+<text x="633" y="661" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#62747e" font-weight="normal" text-anchor="start">Calcular el error de toda la secuencia.</text>
+<text x="32" y="727" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#00547a" font-weight="bold" text-anchor="start">Entrenar con el menor error entre las correspondencias. No cambiar el mapa en cada frame.</text>
+</svg>

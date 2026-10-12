@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025/Debian) (preloaded format=xelatex 2026.9.3)  12 OCT 2026 17:33
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025/Debian) (preloaded format=xelatex 2026.9.3)  12 OCT 2026 18:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1228,8 +1228,6 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 ]
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
-
-(./figures/asr-architectures.tex)
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
  [10
@@ -1239,18 +1237,18 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
- [11
+
+[11
 
 ]
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
-LaTeX Font Info:    Trying to load font information for U+msa on input line 244
+LaTeX Font Info:    Trying to load font information for U+msa on input line 249
 .
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 244
+LaTeX Font Info:    Trying to load font information for U+msb on input line 249
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1321,7 +1319,7 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
 
-Underfull \hbox (badness 1859) in paragraph at lines 415--415
+Underfull \hbox (badness 1859) in paragraph at lines 430--430
 [][][]\TU/TeXGyreHeros(0)/m/n/9 Sin soporte en las entradas 
  []
 
@@ -1440,6 +1438,14 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 [36
 
 ]
+File: assets/logo-irycis-oficial.png Graphic file (type bmp)
+<assets/logo-irycis-oficial.png>
+ (./figures/asr-architectures.tex)
+File: assets/logo-irycis-oficial.png Graphic file (type bmp)
+<assets/logo-irycis-oficial.png>
+ [37
+
+]
 \tf@nav=\write6
 \openout6 = `main.nav'.
 
@@ -1462,11 +1468,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  29119 strings out of 468173
- 615630 string characters out of 5435521
- 1063097 words of memory out of 5000000
+ 615619 string characters out of 5435521
+ 1063133 words of memory out of 5000000
  57241 multiletter control sequences out of 15000+600000
  634809 words of font info for 115 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  128i,13n,123p,492b,1060s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on build/main.xdv (36 pages, 569648 bytes).
+Output written on build/main.xdv (37 pages, 593432 bytes).

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="810" viewBox="0 0 1280 810" role="img" aria-labelledby="title desc">
+<title id="title">Separar módulos o unificar tareas en un audio LLM</title><desc id="desc">Una ruta modular usa módulos de ASR y hablantes, una transcripción atribuida y un generador. Un audio LLM puede combinar ASR, hablantes y tiempos, conservando generación adicional de nota, o se puede investigar salida directa a nota. Esa última flecha representa una hipótesis y no una capacidad clínica demostrada de Speaker-Reasoner o MOSS.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#314a68"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#172f4e}.h{font-size:28px;font-weight:bold}.b{font-size:23px;font-weight:bold}.s{font-size:21px}.xs{font-size:19px}.arr{fill:none;stroke:#314a68;stroke-width:3;marker-end:url(#arrow)}.dash{stroke-dasharray:9 6}.box{stroke:#c9d5df;stroke-width:2;rx:13}</style>
+<rect width="1280" height="810" fill="#fff"/><text x="35" y="48" class="h">Unificar ASR y hablantes no equivale a unificar todo el escriba</text>
+<text x="35" y="105" class="b">A. Ruta modular: salidas entre componentes</text>
+<rect x="35" y="145" width="140" height="100" fill="#e9f0f8" class="box"/><text x="66" y="202" class="b">Audio</text>
+<rect x="225" y="145" width="235" height="100" fill="#f1f5f8" class="box"/><text x="245" y="182" class="b">ASR y hablantes</text><text x="245" y="219" class="s">Modelos separados</text>
+<rect x="510" y="145" width="230" height="100" fill="#f9f0df" class="box"/><text x="530" y="182" class="b">Transcripción</text><text x="530" y="219" class="xs">texto · voz · tiempo</text>
+<rect x="790" y="145" width="205" height="100" fill="#eaf3ef" class="box"/><text x="810" y="182" class="b">Generador</text><text x="810" y="219" class="s">contexto + plantilla</text>
+<rect x="1045" y="145" width="195" height="100" fill="#eef0f8" class="box"/><text x="1097" y="202" class="b">Nota</text>
+<path d="M175 195H220" class="arr"/><path d="M460 195H505" class="arr"/><path d="M740 195H785" class="arr"/><path d="M995 195H1040" class="arr"/>
+<text x="35" y="284" class="s">Podemos medir y sustituir cada salida. Los errores de una etapa pueden pasar a la siguiente.</text>
+<text x="35" y="350" class="b">B. Audio LLM: algunas tareas comparten modelo</text>
+<rect x="35" y="424" width="160" height="116" fill="#e9f0f8" class="box"/><text x="72" y="470" class="b">Audio</text><text x="52" y="509" class="xs">+ instrucciones</text>
+<rect x="270" y="424" width="285" height="116" fill="#eaf3ef" class="box"/><text x="290" y="464" class="b">Audio LLM</text><text x="290" y="502" class="s">Encoder + decoder</text><text x="290" y="529" class="xs">Puede hacer varias pasadas.</text><path d="M195 482H265" class="arr"/>
+<rect x="655" y="387" width="370" height="113" fill="#f9f0df" class="box"/><text x="675" y="424" class="b">Texto + hablantes + tiempos</text><text x="675" y="460" class="s">MOSS 0,9B · Speaker-Reasoner</text><text x="675" y="488" class="xs">Después todavía hace falta la nota.</text><path d="M555 458H600V442H650" class="arr"/>
+<rect x="655" y="542" width="370" height="113" fill="#eef0f8" class="box"/><text x="675" y="580" class="b">Borrador de nota</text><text x="675" y="616" class="s">Audio + contexto → nota</text><text x="675" y="644" class="xs">Ruta clínica que proponemos evaluar.</text><path d="M555 510H600V598H650" class="arr dash"/>
+<text x="1060" y="577" class="xs">Flecha discontinua:</text><text x="1060" y="606" class="xs">hipótesis de diseño,</text><text x="1060" y="635" class="xs">sin validación local.</text>
+<rect x="35" y="696" width="1205" height="82" rx="10" fill="#e9f0f8"/><text x="55" y="728" class="s">Menos modelos no garantiza menos errores. Sin transcripción, cambia cómo localizamos la evidencia.</text><text x="55" y="757" class="xs">Comparar contenido final + atribución + evidencia + tiempo + memoria. Esquema propio; no figura de un paper.</text>
+</svg>

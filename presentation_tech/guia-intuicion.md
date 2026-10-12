@@ -6,7 +6,9 @@ Puedes leer por bloques. Primero mira la figura, recorre el ejemplo y después l
 
 | Lo que quieres entender | Dónde ir | Slides |
 |---|---|---|
-| CTC, RNN-T, atención y decoder | [Audio y hablantes](#audio-y-hablantes) | 9–11 |
+| Encoder acústico y decoder | [Audio y hablantes](#audio-y-hablantes) | 9–11 |
+| Embeddings de voz y EEND | [Audio y hablantes](#audio-y-hablantes) | 13–14 |
+| CTC, RNN-T y atención | [Audio y hablantes](#audio-y-hablantes) | Anexo F |
 | WER, DER, cpWER y tcpWER | [Audio y hablantes](#audio-y-hablantes) | 12–17 |
 | p50, p95, latencia y RTF | [Audio y hablantes](#audio-y-hablantes) | 29 |
 | Hechos, generador, historia y verificador | [De la consulta a la nota](#de-la-consulta-a-la-nota) | 18–22 |
@@ -27,6 +29,24 @@ Una frase corta contiene muchísimos valores de audio. Tras extraer característ
 Además, durante entrenamiento solemos conocer **lo que se dijo**, pero no el instante exacto de cada token. CTC, RNN-T y encoder–decoder con atención resuelven de distintas maneras esa correspondencia. No son tres tipos de espectrograma ni tres tipos de convolution.
 
 **Encoder** significa aquí la red que convierte el audio en representaciones útiles. Puede contener convoluciones, atención, recurrencia o combinaciones. La familia de ASR se distingue también por cómo produce y entrena la salida. [Prabhavalkar et al., survey de ASR, §II](https://arxiv.org/abs/2303.03329).
+
+#### Qué hay dentro de un encoder acústico
+
+![De onda y log-Mel a convoluciones, contexto y secuencia de vectores; comparación con un speaker encoder que aplica pooling.](assets/intuicion/encoders.png)
+
+[Versión SVG editable](assets/intuicion/encoders.svg).
+
+Una ruta concreta para imaginarlo es la de **Whisper**: audio → log-Mel → convoluciones → bloques Transformer → secuencia de vectores. Las convoluciones detectan patrones locales y una de ellas reduce la resolución temporal; los bloques Transformer combinan información entre posiciones. La salida todavía no es una transcripción. [Whisper, §2.2](https://arxiv.org/abs/2212.04356).
+
+**Log-Mel** es una representación de cómo cambia la energía por bandas de frecuencia. El encoder transforma esas características en `h1, h2, h3…`: una lista de números por paso. No hay una casilla cuyo significado garantizado sea «la palabra alergia» ni una posición obligatoria por palabra.
+
+**¿Por qué combinar convoluciones y atención?** Las primeras capturan patrones locales; la atención conecta posiciones más lejanas. Conformer combina ambas dentro de sus bloques, además de reducir la secuencia en la entrada. Es otra implementación del encoder, no una cuarta forma de colapsar texto junto a CTC/RNN-T/atención. [Conformer, §2 y figura 1](https://arxiv.org/abs/2005.08100).
+
+#### Encoder acústico frente a speaker encoder
+
+Para ASR interesa conservar la evolución temporal de los sonidos y obtener texto. Para comparar voces interesa resumir rasgos de un **segmento** en un vector. Un speaker encoder suele aplicar **pooling**: agregar muchos pasos acústicos, por ejemplo mediante medias y variación, para producir una representación de longitud fija.
+
+Eso permite comparar segmentos de duraciones diferentes. La diferencia clave es el objetivo de entrenamiento y la salida que necesitamos: **secuencia para reconocer habla; vector por segmento para comparar voces**. No implica que ambas redes eliminen perfectamente toda información ajena a su tarea. [x-vectors, arquitectura y statistics pooling](https://www.danielpovey.com/files/2018_icassp_xvectors.pdf).
 
 ### 2. CTC: predecir etiquetas y comprimirlas
 
@@ -80,7 +100,7 @@ Permite una producción incremental del texto; el streaming completo depende tam
 
 En un encoder–decoder con atención, el encoder representa el audio y el decoder genera texto token a token. Para cada decisión consulta el texto anterior y las representaciones acústicas.
 
-La **atención** calcula cuánto peso dar a distintas representaciones. Por ejemplo, al generar el siguiente token después de «no refiere», el decoder combina información de las posiciones acústicas que le resultan útiles. No es una frontera exacta de palabra ni una explicación clínica de por qué se escribió algo.
+La **atención** calcula cuánto peso dar a distintas representaciones. Por ejemplo, al generar el siguiente token después de «no refiere», el decoder combina información de las posiciones acústicas que le resultan útiles. No es una frontera exacta de palabra ni una explicación clínica de por qué se escribió algo. [Atención para ASR](https://arxiv.org/abs/1506.07503).
 
 En **Whisper**, el decoder es un Transformer: atención al texto previo, atención al audio y capas feed-forward. Hay un encoder de audio separado. **No es simplemente una convolution que transforma audio en una frase.** [Whisper, §2.2 y figura 1](https://arxiv.org/abs/2212.04356).
 
@@ -125,6 +145,43 @@ S2, acompañante: «Yo también soy alérgica a penicilina».
 Saber quién habla ayuda a separar personas, pero sigue haciendo falta interpretar «mi madre». Una diarización perfecta no basta para rellenar correctamente la alergia del paciente.
 
 Otro caso: el paciente propone suspender un fármaco y el médico decide mantenerlo. Atribuir las intervenciones permite distinguir una petición del plan clínico. Son **casos para incluir en nuestra evaluación**, no cifras publicadas de mejora.
+
+#### Embeddings: poner segmentos parecidos en el mismo grupo
+
+![Varios segmentos pasan por el mismo speaker encoder y pooling; sus vectores se agrupan por parecido de voz. El plano es ilustrativo, no una proyección real.](assets/intuicion/embeddings-voz.png)
+
+[Versión SVG editable](assets/intuicion/embeddings-voz.svg).
+
+Un **embedding de voz** es una lista de números que sirve para comparar segmentos. Queremos que la voz de una persona resulte parecida a sí misma aunque diga palabras distintas, y que pueda distinguirse de otras voces.
+
+En un entrenamiento típico, la red aprende a distinguir **identidades de hablante** en grabaciones etiquetadas. Después aprovechamos una representación interna para comparar voces nuevas; no necesitamos que pertenezcan a las identidades de entrenamiento. [Snyder et al., x-vectors, §2.3 y §3](https://www.danielpovey.com/files/2018_icassp_xvectors.pdf).
+
+**Coseno** compara la dirección de dos vectores; un valor alto indica parecido según esa representación. **Clustering** decide qué segmentos agrupar a partir de esas similitudes. En la figura, e1/e3 forman S1 y e2/e4 forman S2. El dibujo en dos dimensiones solo explica la agrupación.
+
+TitaNet es un ejemplo de speaker encoder: convoluciones y pooling con atención producen un vector por segmento; después se pueden comparar y agrupar vectores para diarización. [TitaNet, arquitectura y diarización](https://arxiv.org/abs/2110.04410).
+
+El vector **no incluye un nombre o rol garantizado**. Ruido, canal y segmentos breves o mezclados pueden alterar la representación y la agrupación. Un esquema modular necesita resolver también detección de habla, fronteras y solapamiento; «embedding + clustering» describe su idea central, no todos sus pasos. [Revisión de diarización](https://arxiv.org/abs/2101.09624).
+
+#### EEND: predecir directamente actividades de hablantes
+
+![EEND transforma la secuencia acústica en probabilidades de actividad por hablante; dos salidas pueden estar activas a la vez. PIT elige una correspondencia entre canales y hablantes para toda la secuencia.](assets/intuicion/eend.png)
+
+[Versión SVG editable](assets/intuicion/eend.svg).
+
+**End-to-End Neural Diarization** formula la tarea como actividades por tiempo: para cada paso, ¿está activo S1?, ¿está activo S2? Una red recibe características acústicas y devuelve una probabilidad para cada salida.
+
+No necesita una fase separada de extracción de embeddings y clustering. Sí tiene representaciones internas. La clasificación es **multietiqueta**: las salidas de dos hablantes pueden estar activas a la vez, como en `t3` del dibujo. Esa propiedad permite representar solapamiento. [EEND original](https://arxiv.org/abs/1909.05952).
+
+El original usa una BLSTM, que procesa una secuencia hacia delante y atrás. Una variante usa atención Transformer para relacionar posiciones de esa secuencia. «Red temporal» aquí significa que procesa pasos de audio; no implica una sola arquitectura concreta. [EEND con self-attention](https://arxiv.org/abs/1909.06247).
+
+**PIT, permutation-invariant training:** en la referencia llamamos A/B a las voces, pero la red puede asignarlas a sus salidas en orden B/A. Comparamos ambas correspondencias y entrenamos con el menor error. La correspondencia se aplica a **toda la secuencia**, no se intercambia libremente en cada frame. Así penalizamos actividades incorrectas, sin castigar nombres arbitrarios de los canales. Esa comparación usa una loss de actividades —entropía cruzada binaria en el original—; DER es la métrica de evaluación. [Objetivo de EEND, §2.2](https://arxiv.org/abs/1909.05952).
+
+| Ruta | Intuición y decisión pendiente |
+|---|---|
+| Embeddings + clustering | Comparar segmentos de voz; inspeccionar agrupaciones y sus fallos. Resolver ventanas y solapamientos. |
+| EEND | Predecir actividades conjuntamente, incluido solapamiento. El manejo del número de hablantes y la duración depende de la variante. |
+
+Ninguna de las dos identifica automáticamente «médico/paciente» ni convierte el audio en nota. Seguimos evaluando la atribución y el contenido final.
 
 #### Qué evidencia tenemos de que ayuda
 
@@ -236,6 +293,28 @@ Si el médico dice «mantenemos el tratamiento habitual», el diálogo puede no 
 Para una historia pequeña puede bastar una consulta estructurada o una selección fija. Para una historia extensa podemos buscar fragmentos y pasarlos al generador: esa es la idea de RAG. Antes de buscar por similitud, hay que limitar **paciente, episodio y fecha**. Una mención muy parecida del paciente incorrecto no sirve.
 
 La historia tampoco debe borrar una actualización del encuentro: «tratamiento activo» hace un mes y «lo dejé hace dos semanas» hoy constituyen un cambio documentado o una discrepancia que conservar.
+
+**¿Mejora la nota? Es una pregunta abierta para nuestro caso.** Nuance y ASCRIBE comparan formas de organizar hechos del diálogo; no añaden una historia independiente. Zuckerman compara una pipeline ambient con otra que además recupera historia, selecciona y reescribe: no aísla el efecto del contexto. ACI-Bench/PriMock no incluyen el benchmark longitudinal que necesitaríamos. La [ficha de evidencia](evidencia-contexto-notas.md) explica esos controles y propone comparar el mismo generador sin historia, con selección manual y con retrieval automático.
+
+### 2.1. ¿Y si un audio LLM hace varias tareas a la vez?
+
+![Ruta modular y unificación mediante audio LLM](figures/intuicion-generacion/modular-unificada.png)
+
+**Una tarea no exige siempre un modelo independiente.** Podemos usar ASR, diarización y generador separados, o un modelo que produzca texto, hablantes y tiempos conjuntamente. También podemos investigar audio + contexto → nota sin pasar toda la información por una transcripción obligatoria. Son grados distintos de unificación: juntar ASR y hablantes todavía no equivale a tener un escriba completo.
+
+| Ejemplo | Qué unifica o admite | Qué podemos afirmar |
+|---|---|---|
+| **MOSS-Transcribe-Diarize 0,9B** | Audio → texto, tiempos y etiquetas anónimas de hablante | La unificación de ASR y hablantes también existe en modelos pequeños. Su tarea publicada es transcribir, no escribir una nota clínica. [Ficha oficial](https://huggingface.co/OpenMOSS-Team/MOSS-Transcribe-Diarize). |
+| **Speaker-Reasoner, checkpoint 32B** | Audio → texto, hablantes, tiempos y género inferido, con procesamiento iterativo | Especializado en transcripción atribuida. Etiquetar una voz como S1 no identifica a un médico ni a una persona real. [Checkpoint](https://huggingface.co/ASLP-lab/Speaker-Reasoner), [paper](https://arxiv.org/abs/2604.03074). |
+| **Qwen3-Omni-30B-A3B** | Recibe audio/texto y genera respuestas; modelo multimodal MoE | Permite plantear instrucciones sobre audio. Su ficha no demuestra calidad de notas clínicas españolas ni atribución fiable en nuestro dominio. [Ficha oficial](https://huggingface.co/Qwen/Qwen3-Omni-30B-A3B-Instruct). |
+
+En Speaker-Reasoner, «un modelo» no significa «una pasada». Primero hace un inventario global de hablantes; luego propone límites temporales, consulta recortes y continúa hasta consolidar la transcripción. Su caché conserva ejemplos previos de **etiqueta + audio + texto** para mantener coherencia entre fragmentos. Es contexto acústico por hablante, distinto de la KV cache interna que acelera generación. El paper inicial evalúa reuniones en mandarín; estas pruebas no validan nuestro español médico ni una nota SOAP. [Método, §§2.1–2.3](https://arxiv.org/html/2604.03074v1#S2).
+
+Como ejemplo inventado de ese mecanismo: «hay dos voces» → analizar segundos 0–12 → emitir `S1: tengo tos` → conservar ese fragmento como referencia de S1 → analizar el siguiente tramo. La secuencia de decisiones es una estrategia de inferencia; no demuestra razonamiento clínico. Además, en las grabaciones largas sin segmentación, Speaker-Reasoner queda por detrás de Gemini en las métricas publicadas: la ventaja depende del protocolo. [Paper, tabla 2](https://arxiv.org/html/2604.03074v1#S3.T2).
+
+En Qwen, **A3B** expresa unos 3B parámetros activos por token dentro de una arquitectura de mayor tamaño. No significa que todos los pesos que debemos alojar sean 3B. Ni el tamaño del checkpoint ni hacer varias tareas juntas determinan por sí solos la RAM o la latencia. [Qwen3-Omni, informe técnico](https://arxiv.org/abs/2509.17765).
+
+La ruta audio → nota evita que una transcripción textual sea la única entrada acústica del generador, pero puede perder información al seleccionar hechos o al producir la propia nota. Si no emitimos transcripción, tenemos menos salidas intermedias para localizar fallos; aún podemos evaluar con audio y referencias externas. La comparación útil es **misma consulta, contenido final, atribución, evidencia recuperable, tiempo y memoria**. Producir también hechos con fuente o una transcripción es una opción de diseño que habría que probar; no garantiza eliminar errores.
 
 ### 3. Un ejemplo de principio a fin
 
@@ -374,7 +453,7 @@ Lo defendible hoy es proponer una comparación con mismos casos y rúbrica, revi
 
 Para comprobar que lo tienes: si una nota solo dice «tos de tres días», ¿puede tener todas sus frases respaldadas y seguir siendo mala? Sí: en este ejemplo faltan negación de fiebre, actualización de tratamiento, reacción referida, temperatura y plan. **Factualidad y completitud son preguntas distintas.**
 
-Las tres figuras de esta ficha son esquemas originales del proyecto, no figuras de los papers. El detalle de métodos y resultados de Robust SOAP, KOSMOS y ASCRIBE está en [intuicion-papers.md](intuicion-papers.md).
+Las figuras de esta ficha son esquemas originales del proyecto, no figuras de los papers. El detalle de métodos y resultados de Robust SOAP, KOSMOS y ASCRIBE está en [intuicion-papers.md](intuicion-papers.md).
 
 ## Qué hace cada paper
 
@@ -545,7 +624,9 @@ La slide 26 es un cálculo inicial: **1–2 GB en archivos de modelos** y **4–
 
 La cuenta nominal de pesos es `parámetros × bits por peso / 8`. MOSS 0,9B + Qwen 0,6B suman ≈1,5B parámetros: a 4–8 bits, ≈0,75–1,5 GB antes de metadatos y tensores en mayor precisión. De ahí el orden de magnitud de 1–2 GB en disco. Para RAM se añaden estado del audio, KV cache, buffers y margen del motor. El rango usa audio de 15–30 min y contexto del generador de 4–8k: no es un límite universal.
 
-Como ejemplo de ejecución en dispositivos pequeños, Google ofrece **LiteRT-LM y Gemma en móviles**. Eso no demuestra que nuestro escriba completo tenga latencia o calidad clínica suficientes. La [ficha de recursos locales](recursos-locales.md) contiene fuentes y el cálculo.
+Los **buffers** son espacios para cálculos temporales, como activaciones y ventanas de audio: la memoria de trabajo que necesita el motor además de los pesos. La KV cache conserva información de atención para reutilizarla al generar. No son cantidades fijas por modelo; cambian con entradas y runtime.
+
+La [ficha de recursos locales](recursos-locales.md) contiene el cálculo y tamaños publicados para motores especializados: por ejemplo, Qwen3-0.6B ocupa 586 MB en la distribución LiteRT-LM. El archivo no equivale a la RAM durante una consulta; todavía hay que añadir el componente acústico y medir la ejecución completa.
 
 **El tiempo de inferencia queda pendiente de medir.** Una prueba en nuestro PC deberá declarar modelo, precisión, motor, hardware y entrada. Para valorar uso clínico, se repetirá en el equipo objetivo. No se ha ejecutado un modelo nuevo en esta revisión.
 

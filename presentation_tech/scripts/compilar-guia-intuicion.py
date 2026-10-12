@@ -10,7 +10,9 @@ Puedes leer por bloques. Primero mira la figura, recorre el ejemplo y después l
 
 | Lo que quieres entender | Dónde ir | Slides |
 |---|---|---|
-| CTC, RNN-T, atención y decoder | [Audio y hablantes](#audio-y-hablantes) | 9–11 |
+| Encoder acústico y decoder | [Audio y hablantes](#audio-y-hablantes) | 9–11 |
+| Embeddings de voz y EEND | [Audio y hablantes](#audio-y-hablantes) | 13–14 |
+| CTC, RNN-T y atención | [Audio y hablantes](#audio-y-hablantes) | Anexo F |
 | WER, DER, cpWER y tcpWER | [Audio y hablantes](#audio-y-hablantes) | 12–17 |
 | p50, p95, latencia y RTF | [Audio y hablantes](#audio-y-hablantes) | 29 |
 | Hechos, generador, historia y verificador | [De la consulta a la nota](#de-la-consulta-a-la-nota) | 18–22 |
@@ -36,7 +38,9 @@ La slide 26 es un cálculo inicial: **1–2 GB en archivos de modelos** y **4–
 
 La cuenta nominal de pesos es `parámetros × bits por peso / 8`. MOSS 0,9B + Qwen 0,6B suman ≈1,5B parámetros: a 4–8 bits, ≈0,75–1,5 GB antes de metadatos y tensores en mayor precisión. De ahí el orden de magnitud de 1–2 GB en disco. Para RAM se añaden estado del audio, KV cache, buffers y margen del motor. El rango usa audio de 15–30 min y contexto del generador de 4–8k: no es un límite universal.
 
-Como ejemplo de ejecución en dispositivos pequeños, Google ofrece **LiteRT-LM y Gemma en móviles**. Eso no demuestra que nuestro escriba completo tenga latencia o calidad clínica suficientes. La [ficha de recursos locales](recursos-locales.md) contiene fuentes y el cálculo.
+Los **buffers** son espacios para cálculos temporales, como activaciones y ventanas de audio: la memoria de trabajo que necesita el motor además de los pesos. La KV cache conserva información de atención para reutilizarla al generar. No son cantidades fijas por modelo; cambian con entradas y runtime.
+
+La [ficha de recursos locales](recursos-locales.md) contiene el cálculo y tamaños publicados para motores especializados: por ejemplo, Qwen3-0.6B ocupa 586 MB en la distribución LiteRT-LM. El archivo no equivale a la RAM durante una consulta; todavía hay que añadir el componente acústico y medir la ejecución completa.
 
 **El tiempo de inferencia queda pendiente de medir.** Una prueba en nuestro PC deberá declarar modelo, precisión, motor, hardware y entrada. Para valorar uso clínico, se repetirá en el equipo objetivo. No se ha ejecutado un modelo nuevo en esta revisión.
 

@@ -210,28 +210,31 @@ clínica. Whisper: entrada log-Mel.
 
 
     3/6 · Audio y hablantes                                                                                                                           Borrador · 12/10/2026 · 9/31
-CTC, transducer y atención
+El encoder representa el audio
 
-Tres familias que siguen en uso.
-
-
-              CTC · 2006                                 RNN-T · 2012                               Atención · 2015
-
-         Encoder acústico                              Estado de audio                              Audio codificado
-        → etiqueta por frame                         + predictor del texto                          + texto anterior
-
-        Colapsar repeticiones                            Emitir token                            Decoder con atención
-          y símbolos blank                          o avanzar en el audio                         → siguiente token
-
-               Ejemplo                                 Derivado actual                                 Ejemplos
-             Parakeet-CTC                              Parakeet-TDT v3                              Whisper · Canary
+Antes de escribir, el modelo transforma la señal en una secuencia de vectores.
 
 
-Fuentes: CTC (2006); RNN-T (2012); atención para ASR (2015). Ejemplos actuales: Parakeet CTC; Parakeet TDT; Canary. Fechas de trabajos
-de referencia; las familias coexisten.
+
+                                                 Encoder acústico
+            Audio                             Convoluciones + contexto                                 Vectores por paso
+        Onda o log-Mel                              Ejemplo: Transformer                              Todavía no son palabras
+                                                         / Conformer
+                                                                                                       Entrada para
+ Variaciones de energía                   Patrones locales + información
+                                                                                                      reconocer texto
+      y frecuencia                        de otros pasos de la secuencia
+                                                                                                 o para un LLM multimodal
+
+                       La tarea de entrenamiento determina qué información aprende a representar. Encoder
+                           acústico y encoder de voz para identificar hablantes tienen objetivos distintos.
 
 
-  3/6 · Audio y hablantes                                                                               Borrador · 12/10/2026 · 10/31
+
+Fuentes: Whisper; Conformer. Esquema propio; no todas las arquitecturas usan estos mismos bloques. CTC, transducer y atención: anexo F.
+
+
+  3/6 · Audio y hablantes                                                                                Borrador · 12/10/2026 · 10/31
 Qué hace el decoder
 Ejemplo: el decoder Transformer de Whisper.
 
@@ -250,8 +253,8 @@ Ejemplo: el decoder Transformer de Whisper.
 
 
 
-La red calcula probabilidades; el algoritmo de decoding elige la secuencia. CTC usa colapso de etiquetas; RNN-T
-combina predictor del texto y estado acústico.
+La red calcula probabilidades; el algoritmo de decoding elige la secuencia. El decoder consulta la representación
+del audio y el texto generado hasta ese momento.
 Fuentes: Jurafsky y Martin, cap. 16; Whisper; Survey ASR. Probabilidades y tokens ilustrativos.
 
   3/6 · Audio y hablantes                                                                              Borrador · 12/10/2026 · 11/31
@@ -395,31 +398,31 @@ tolerancia temporal.
 Fuentes: MeetEval: definiciones y cálculo. Ejemplo propio, sin puntuación. «desde» cambia de hablante; el orden global de palabras se
 conserva.
   3/6 · Audio y hablantes                                                                                   Borrador · 12/10/2026 · 17/31
-Generación de notas
-Primero definir qué documentar y cómo debe verse la salida.
+Del audio a la nota: dos rutas
+Las tareas pueden separarse o compartir un modelo; la salida debe poder evaluarse.
+
+   A · Por etapas                                                                    Contexto disponible
+
+                                ASR +
+      Audio                                               Texto y turnos                    LLM                       Nota
+                               hablantes
+
+   B · Audio en el generador
+                                                                                                    Nota y salida auditable
+                                                         Encoder + LLM
+      Audio + contexto                                                                                     Texto / tiempos,
+                                                           multimodal
+                                                                                                           si los produce
+
+                         Speaker-Reasoner combina texto, hablantes y tiempos; MOSS lo hace con 0.9B.
+                         La ruta audio + contexto → nota clínica sigue siendo una alternativa que evaluar.
 
 
-
-              Entradas                                                                                        Borrador
-                                                              Generador
-         Transcripción                                                                               Secciones de la nota
-                                                        LLM + instrucciones
-          y hablantes                                                                                Hechos y procedencia
-                                                        Plantilla del servicio
-       Contexto disponible                                                                               Valoración y
-                                                       Criterios de contenido
-         Observaciones                                                                                 plan expresados
-
-                                   El equipo clínico define contenido, estilo y errores relevantes; esas
-                                   decisiones se convierten en instrucciones y criterios de evaluación.
-
-
-
-
- Comparar plantillas y prompts sobre los mismos encuentros antes de decidir si hace falta adaptar
- pesos.
-Fuentes: ACI-Bench; Moramarco et al.. Baseline propuesto para el proyecto.
-  4/6 · Diálogo, contexto y nota                                                                           Borrador · 12/10/2026 · 18/31
+ ¿Qué conservamos para auditar? Afirmaciones, fuente y vínculo con el audio. Un modelo conjunto
+ también puede devolver resultados intermedios.
+Fuentes: Speaker-Reasoner; MOSS; Qwen3-Omni. Los dos diseños son opciones para el proyecto; estas referencias no validan notas clínicas
+españolas.
+  4/6 · Diálogo, contexto y nota                                                                        Borrador · 12/10/2026 · 18/31
 Selección de hechos
 La relevancia puede decidirse al redactar o representarse antes de la nota.
 
@@ -442,28 +445,28 @@ Fuentes: ASCRIBE (2026, preprint; tailandés); KOSMOS (2026); antecedente: Chain
 español.
 
   4/6 · Diálogo, contexto y nota                                                                           Borrador · 12/10/2026 · 19/31
-Qué aporta la historia clínica
-Completar información que la conversación presupone o no repite.
+¿Cuándo ayuda la historia clínica?
+Pregunta abierta: ¿qué mejora y qué errores introduce añadir historia?
 
             Conversación
            «Mantenemos el
-        tratamiento habitual»                                                        Nota con contexto
-                                                                                  Continuidad del tratamiento.
-                                                                                 X consta en el registro previo.
-          Registro reciente
-         Tratamiento X activo
-          con fecha y fuente
+        tratamiento habitual»                                                       Nota con contexto
+                                                                                 Continuidad del tratamiento.
+                                                                                X consta en el registro previo.
+         Registro reciente
+        Tratamiento X activo
+         con fecha y fuente
 
                Paciente y corte temporal → seleccionar registros → contexto con procedencia
 
 
-¿Mejora la calidad? Un preprint con 354 encuentros encuentra mayor completitud. Evaluación principalmente
-automática y autores del proveedor; falta validación local. Más contexto también puede introducir datos obsoletos.
+Experimento: mismo encuentro, modelo y plantilla; con/sin contexto. Medir hechos conservados, contradicciones,
+vigencia y esfuerzo de revisión.
 
-Fuentes: Ejemplo propio, no recomendación clínica. Zuckerman et al. (2025), ambient-only vs. historia; RAG; procedencia FHIR.
+Fuentes: Ejemplo propio. Zuckerman: comparación de pipelines; ACI-Bench: límites del contexto; RAG; procedencia FHIR.
 
 
-  4/6 · Diálogo, contexto y nota                                                                           Borrador · 12/10/2026 · 20/31
+  4/6 · Diálogo, contexto y nota                                                                         Borrador · 12/10/2026 · 20/31
 Qué comprueba el verificador
 ¿Qué respalda cada afirmación y qué información relevante falta?
 
@@ -572,26 +575,24 @@ Fuentes: Plan propuesto. MOSS: hotwords; LoRA; ASCRIBE; llama.cpp.
 Cálculo orientativo de memoria y almacenamiento con modelos pequeños cuantizados.
 
 
-                                    MOSS 0.9B                                         Qwen3-0.6B
+                                   MOSS 0.9B                                   Qwen3-0.6B
       Audio
-                                   Texto + hablantes                                 Borrador de nota
+                                  Texto + hablantes                           Borrador de nota
 
 
-                   MODELOS EN DISCO                                          RAM DEL PROCESO
+                   MODELOS EN DISCO                                   RAM DEL PROCESO
 
-                  ≈1–2 GB                                                   ≈4–8 GB
-          Ambos modelos cuantizados a 4–8 bits                         Estimación con margen de trabajo
-            Sin contar audio, datos ni entorno                         Audio 15–30 min · contexto 4–8k
-
-
-                       Disco: pesos cuantizados           RAM: pesos + contexto + buffers
-
-              LiteRT-LM + Gemma: Google también ofrece ejecución local en móviles.
-
-           Orden de magnitud, no mínimo/máximo validado. Tiempo y calidad: medir después en el equipo de uso.
+                  ≈1–2 GB                                            ≈4–8 GB
+          Ambos modelos cuantizados a 4–8 bits                   Estimación con margen de trabajo
+            Sin contar audio, datos ni entorno                   Audio 15–30 min · contexto 4–8k
 
 
- 5/6 · Adaptación y despliegue                                                               Borrador · 12/10/2026 · 26/31
+               Disco: pesos cuantizados          RAM: pesos + contexto + memoria de trabajo
+
+
+
+
+ 5/6 · Adaptación y despliegue                                                        Borrador · 12/10/2026 · 26/31
 Scribnic: de la CLI a una aplicación
 
 El frontend usa la misma pipeline y los mismos tipos de datos.
@@ -837,4 +838,26 @@ Preguntas de defensa y ejercicios: preguntas-defensa.md · Datos y volúmenes: R
 
 
  Anexos · Fuera de los 30 minutos                                                    Borrador · 12/10/2026 · Anexo
+F · CTC, transducer y atención
+
+Tres familias que siguen en uso.
+
+
+              CTC · 2006                                 RNN-T · 2012                               Atención · 2015
+
+         Encoder acústico                              Estado de audio                              Audio codificado
+        → etiqueta por frame                         + predictor del texto                          + texto anterior
+
+        Colapsar repeticiones                            Emitir token                            Decoder con atención
+          y símbolos blank                          o avanzar en el audio                         → siguiente token
+
+               Ejemplo                                 Derivado actual                                 Ejemplos
+             Parakeet-CTC                              Parakeet-TDT v3                              Whisper · Canary
+
+
+Fuentes: CTC (2006); RNN-T (2012); atención para ASR (2015). Ejemplos actuales: Parakeet CTC; Parakeet TDT; Canary. Fechas de trabajos
+de referencia; las familias coexisten.
+
+
+  Anexos · Fuera de los 30 minutos                                                                     Borrador · 12/10/2026 · Anexo
 

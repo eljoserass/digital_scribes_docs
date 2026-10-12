@@ -1,6 +1,6 @@
 # Guion — Construir un escriba digital médico
 
-Versión renovada del **12/10/2026**. Acompaña a [main.pdf](build/main.pdf): **31 diapositivas principales, 30 minutos previstos y cinco anexos**. Los tiempos incluyen señalar figuras y pausas; falta ensayarlos. Las preguntas quedan fuera de los 30 minutos.
+Versión renovada del **12/10/2026**. Acompaña a [main.pdf](build/main.pdf): **31 diapositivas principales, 30 minutos previstos y seis anexos**. Los tiempos incluyen señalar figuras y pausas; falta ensayarlos. Las preguntas quedan fuera de los 30 minutos.
 
 ## El recorrido en un minuto
 
@@ -27,8 +27,8 @@ El ejemplo clínico es ficticio. Los esquemas de pipeline y experimentos son pro
 |---|---|---:|---:|
 | Consulta y nota | 1–6 | 3:40 | 3:40 |
 | Evaluación y datos | 7–8 | 1:55 | 5:35 |
-| Audio y hablantes | 9–17 | 9:25 | 15:00 |
-| Diálogo, contexto y nota | 18–24 | 7:40 | 22:40 |
+| Audio y hablantes | 9–17 | 8:50 | 14:25 |
+| Diálogo, contexto y nota | 18–24 | 8:15 | 22:40 |
 | Adaptación y despliegue | 25–29 | 5:25 | 28:05 |
 | Plan de trabajo | 30–31 | 1:55 | 30:00 |
 
@@ -168,27 +168,27 @@ Antes del modelo ya importan micrófono, canales, muestreo, ruido y compresión.
 
 **Figura:** Alinear una palabra entre las dos figuras; señalar ejes de tiempo y frecuencia.
 
-**Transición:** Con esa secuencia acústica, ¿cómo se producen las palabras?
+**Transición:** El log-Mel es la entrada; veamos cómo aprende el encoder a representarla.
 
-## 10. CTC, transducer y atención
+## 10. El encoder representa el audio
 
-**1:20 · acumulado 7:55 · 3 · Audio y hablantes**
+**0:45 · acumulado 7:20 · 3 · Audio y hablantes**
 
-**Mensaje:** CTC, transducer y atención conviven; las fechas no son una sucesión de reemplazos.
+**Mensaje:** Antes de producir palabras, el modelo transforma el audio en representaciones aprendidas.
 
-Las tres rutas convierten representaciones del audio en tokens. CTC predice etiquetas por paso acústico y colapsa repeticiones y blancos. Es sencillo de decodificar, pero su salida básica no condiciona cada etiqueta en el texto anterior.
+En Whisper, el log-Mel pasa por convoluciones y un Transformer. Las convoluciones combinan patrones locales y reducen pasos; la atención añade información de otros momentos de la secuencia. Conformer también combina convolución y atención, con otra arquitectura.
 
-RNN-T significa Recurrent Neural Network Transducer. Combina el encoder acústico con un predictor del texto previo y una red conjunta. Puede emitir un token sin avanzar el audio; el blanco avanza el tiempo. Esto permite aprender el alineamiento y usar contexto textual. Que sea incremental depende también del encoder. Los derivados siguen vigentes: Parakeet TDT predice además duraciones para saltar pasos, así que no es idéntico al RNN-T original.
+El resultado es una secuencia de vectores: todavía no son palabras. El objetivo de entrenamiento determina qué información aprende a conservar. Un encoder para reconocimiento y uno para comparar voces tienen objetivos diferentes.
 
-El encoder–decoder con atención, como Whisper, consulta el audio y los tokens anteriores al generar cada token. Hay modelos actuales en las tres familias. «Encoder–decoder» en sentido amplio no basta para distinguirlas: aquí hablamos específicamente del basado en atención.
+El anexo F y la guía comparan CTC, RNN-T y atención. Son tres familias vigentes, con formas diferentes de producir texto.
 
-**Figura:** Comparar cómo cada ruta produce texto; las fechas sitúan antecedentes.
+**Figura:** Seguir sonido → representación → entrada para producir texto.
 
-**Transición:** Abramos ese decoder con un ejemplo de Whisper.
+**Transición:** ¿Cómo convierte el decoder esa representación en palabras?
 
 ## 11. Qué hace el decoder
 
-**1:10 · acumulado 9:05 · 3 · Audio y hablantes**
+**1:10 · acumulado 8:30 · 3 · Audio y hablantes**
 
 **Mensaje:** El decoder neuronal y el algoritmo de decoding son cosas distintas.
 
@@ -204,7 +204,7 @@ El contexto textual ayuda a resolver ambigüedad, pero una salida plausible pued
 
 ## 12. WER y errores clínicos
 
-**1:00 · acumulado 10:05 · 3 · Audio y hablantes**
+**1:00 · acumulado 9:30 · 3 · Audio y hablantes**
 
 **Mensaje:** WER cuenta ediciones; la gravedad clínica necesita otra lectura.
 
@@ -218,7 +218,7 @@ Word Error Rate suma sustituciones, eliminaciones e inserciones, dividido por la
 
 ## 13. Diarización: tiempo, hablante y rol
 
-**0:45 · acumulado 10:50 · 3 · Audio y hablantes**
+**0:45 · acumulado 10:15 · 3 · Audio y hablantes**
 
 **Mensaje:** Hablante anónimo, rol clínico e identidad son etiquetas diferentes.
 
@@ -234,7 +234,7 @@ La diferencia importa para la nota: una pregunta del clínico no equivale a un s
 
 ## 14. Modelos de diarización
 
-**1:05 · acumulado 11:55 · 3 · Audio y hablantes**
+**1:05 · acumulado 11:20 · 3 · Audio y hablantes**
 
 **Mensaje:** Agrupar voces y predecir actividad conjunta son dos formas de resolver la tarea.
 
@@ -248,7 +248,7 @@ EEND recibe una secuencia de características acústicas y aprende, por paso tem
 
 ## 15. DER: cuánto tiempo se atribuyó mal
 
-**1:05 · acumulado 13:00 · 3 · Audio y hablantes**
+**1:05 · acumulado 12:25 · 3 · Audio y hablantes**
 
 **Mensaje:** DER mide tiempo, no palabras.
 
@@ -264,7 +264,7 @@ Hay que declarar si se puntúan solapamientos y qué margen se excluye alrededor
 
 ## 16. Transcripción con hablantes
 
-**0:40 · acumulado 13:40 · 3 · Audio y hablantes**
+**0:40 · acumulado 13:05 · 3 · Audio y hablantes**
 
 **Mensaje:** Texto y hablantes pueden salir de módulos separados o de un modelo conjunto.
 
@@ -278,7 +278,7 @@ SOT, Serialized Output Training, es una forma de ordenar texto y separadores en 
 
 ## 17. Palabras correctas, hablante equivocado
 
-**1:20 · acumulado 15:00 · 3 · Audio y hablantes**
+**1:20 · acumulado 14:25 · 3 · Audio y hablantes**
 
 **Mensaje:** Una transcripción puede tener todas las palabras y atribuirlas mal.
 
@@ -292,21 +292,23 @@ tcpWER significa Time-Constrained minimum-Permutation Word Error Rate. Añade l�
 
 **Transición:** Ya tenemos diálogo atribuido. Convertirlo en nota exige seleccionar y organizar información.
 
-## 18. Generación de notas
+## 18. Del audio a la nota: dos rutas
 
-**0:45 · acumulado 15:45 · 4 · Diálogo, contexto y nota**
+**1:20 · acumulado 15:45 · 4 · Diálogo, contexto y nota**
 
-**Mensaje:** El baseline generativo necesita un contrato clínico antes que una arquitectura sofisticada.
+**Mensaje:** Podemos separar las tareas o compartir un modelo; necesitamos evaluar la salida y poder auditarla.
 
-La primera ruta es un LLM que recibe transcripción con hablantes, contexto disponible, observaciones y una plantilla. Define las secciones y conserva los hechos y decisiones documentadas.
+La primera ruta usa texto y turnos como entrada de un LLM, junto con contexto disponible, observaciones y plantilla. En la segunda, el generador recibe audio mediante un encoder y puede acceder a información que una transcripción no conserva. Son alternativas de diseño que compararíamos.
 
-El equipo clínico aporta algo concreto: contenido que debe aparecer, información que sobra, estilo del servicio y ejemplos de errores. Esas decisiones se convierten en instrucciones y en una rúbrica, no solo en un prompt que parece funcionar.
+Speaker-Reasoner integra texto, etiquetas de hablante y tiempos mediante procesamiento iterativo. Su checkpoint es de 32B y no demuestra notas SOAP ni identifica por sí mismo el rol médico/paciente. MOSS hace transcripción y atribución con 0,9B: no podemos afirmar que toda unificación requiera un modelo grande. Tampoco significa que un escriba completo de ese tamaño tenga calidad suficiente.
 
-Podemos comparar plantillas y prompts sobre encuentros fijados. Si encontramos errores persistentes, decidiremos si hace falta extracción adicional, mejores entradas o adaptación de pesos. Ahora vamos a abrir la selección de información.
+Qwen3-Omni es una referencia multimodal; sus 3B activos por token no equivalen a alojar solo 3B pesos. Para comparar la ruta audio → nota necesitamos casos, referencias clínicas, atribución y memoria/tiempo de ejecución.
 
-**Figura:** Entradas → generador con criterios → borrador.
+Una ruta conjunta puede emitir transcripción o hechos intermedios. Decidimos qué conservar para encontrar la evidencia de cada afirmación; juntar modelos no elimina todos los puntos donde puede perderse información. El equipo clínico sigue definiendo contenido, formato y criterios de revisión.
 
-**Transición:** ¿Se selecciona lo relevante mientras se redacta o antes?
+**Figura:** Comparar qué recibe el generador y qué salidas permite inspeccionar cada ruta.
+
+**Transición:** En ambas rutas hay que seleccionar lo relevante: ¿durante la redacción o antes?
 
 ## 19. Selección de hechos
 
@@ -326,21 +328,25 @@ Nuance, en 2023, es un antecedente de planificación con hechos. Ninguno de esto
 
 **Transición:** Extraer del diálogo es distinto de seleccionar información de la historia.
 
-## 20. Qué aporta la historia clínica
+## 20. ¿Cuándo ayuda la historia clínica?
 
 **1:40 · acumulado 18:50 · 4 · Diálogo, contexto y nota**
 
-**Mensaje:** La historia aporta información que puede no repetirse durante la consulta.
+**Mensaje:** La historia puede aportar información ausente del diálogo; si mejora la nota y cuándo, hay que medirlo.
 
-«Mantenemos el tratamiento habitual» no contiene el nombre ni la dosis. Un registro reciente puede aportar esa información, conservando fecha y procedencia. Si no hay un estado fiable, no debemos completar por intuición. El contexto también puede estar obsoleto o contradecir lo dicho hoy.
+«Mantenemos el tratamiento habitual» no contiene nombre ni dosis. Un registro reciente puede aportar esa información con fecha y procedencia. También puede estar obsoleto o contradecir lo dicho hoy. No completaríamos un estado dudoso por intuición.
 
-Primero fijamos paciente y corte temporal. Después seleccionamos registros pertinentes, con consultas estructuradas o retrieval; una historia corta puede entrar directamente. RAG es una opción para seleccionar contexto, no un requisito universal ni una garantía de mejora.
+Primero fijamos paciente y corte temporal; después seleccionamos registros pertinentes. Una consulta estructurada o una selección fija pueden bastar. RAG es una opción de recuperación cuando necesitamos elegir entre muchos registros.
 
-Hay evidencia inicial: Zuckerman y colaboradores comparan documentación con y sin historia en 354 encuentros y encuentran mayor completitud. Es un preprint con evaluación principalmente automática, revisión humana limitada y autores vinculados al proveedor. Nos sirve para justificar una comparación, no para prometer el mismo efecto en español o con nuestro modelo.
+Hay que separar tres intervenciones: historia del paciente, hechos extraídos del mismo encuentro y ejemplos de cómo escribir. Nuance y ASCRIBE estudian la segunda. Zuckerman encuentra mejores puntuaciones en 354 encuentros con una pipeline que añade historia, selección y consolidación; no aísla la historia manteniendo constantes generador y número de pasadas.
 
-**Figura:** Mostrar qué dato falta en la conversación y qué fuente permite añadirlo.
+ACI-Bench y PriMock permiten probar diálogo → nota, pero no ofrecen el benchmark longitudinal emparejado que requiere esta pregunta. MIMIC aporta historia, sin las conversaciones correspondientes. Proponemos el mismo generador sin historia, con historia seleccionada manualmente y con recuperación automática. Medir contenido, vigencia, contradicciones y esfuerzo de revisión.
 
-**Transición:** Una vez generado el borrador, podemos comprobar qué afirmaciones están respaldadas.
+**Figura:** Mostrar qué dato no está en la conversación, qué fuente lo aporta y cómo comprobar el efecto.
+
+**Transición:** Con o sin historia, el borrador necesita comprobaciones de respaldo y cobertura.
+
+**Para preparar preguntas:** [comparaciones, datasets y controles](evidencia-contexto-notas.md).
 
 ## 21. Qué comprueba el verificador
 
@@ -426,9 +432,9 @@ También puede ser correcta pero tardar demasiado o no caber en memoria. Ahí pr
 
 La configuración del dibujo combina MOSS de 0,9B para texto y hablantes con un generador pequeño, Qwen de 0,6B. Juntos suman aproximadamente mil quinientos millones de parámetros. A cuatro u ocho bits, el cálculo nominal de pesos queda entre 0,75 y 1,5 gigas; al añadir metadatos y tensores que conservan mayor precisión, hablamos de aproximadamente uno a dos gigas en archivos de modelos.
 
-Para RAM hay que sumar contexto, estado del audio, activaciones y buffers. Con una consulta de quince a treinta minutos y un generador con cuatro a ocho mil tokens de contexto, dejamos un presupuesto aproximado de cuatro a ocho gigas para los procesos. Es un rango de planificación bajo esas hipótesis, no un mínimo y máximo demostrado. Tampoco incluye toda la memoria del sistema y de HCIS.
+Para RAM hay que sumar contexto, estado del audio y memoria de trabajo: activaciones y espacios temporales para los cálculos. Con una consulta de quince a treinta minutos y un generador con cuatro a ocho mil tokens de contexto, dejamos un presupuesto aproximado de cuatro a ocho gigas para los procesos. Es un rango de planificación bajo esas hipótesis, no un mínimo y máximo demostrado. Tampoco incluye toda la memoria del sistema y de HCIS.
 
-Existen motores pensados para estos tamaños: llama.cpp con GGUF y, como ejemplo de otra plataforma, LiteRT-LM de Google con Gemma en móviles. Eso muestra una vía de ejecución en dispositivos pequeños. La nota clínica española y la configuración completa siguen necesitando evaluación.
+Los tamaños corresponden a la configuración candidata, no a una calidad clínica ya validada. Podemos probar motores compactos como llama.cpp/GGUF u otra distribución especializada; no basta con que el modelo quepa. La ficha compara archivos publicados y distingue esa cifra de la RAM del proceso.
 
 **Figura:** Dos cantidades distintas: tamaño en disco y RAM al ejecutar. Pesos cuantizados para el disco; pesos más contexto y memoria de trabajo para RAM.
 
@@ -518,13 +524,14 @@ El hospital aporta profesionales capaces de definir una nota útil y revisar err
 
 ## Anexos y preparación
 
-No recorrer los cinco anexos dentro de los 30 minutos. Usarlos si aparece una pregunta:
+No recorrer los seis anexos dentro de los 30 minutos. Usarlos si aparece una pregunta:
 
 - **A · Datasets y volumen:** modalidades, tamaños y acceso; [catálogo con fuentes](README.md).
 - **B · Tarea, métrica y loss:** explicar qué se optimiza frente a qué se evalúa. En Nuance se combina CE con ranking de candidatos basado en ROUGE-L; no es una loss de seguridad clínica.
 - **C · Hechos intermedios:** Nuance, ASCRIBE y KOSMOS; [ficha que leer primero](comprension-clinica.md).
 - **D · Ampliar los datos:** historia simulada, consulta, perturbaciones y revisión; [bag de ideas](bag-of-ideas.md).
 - **E · Lecturas:** elegir método y limitaciones de cada referencia antes de profundizar.
+- **F · CTC, transducer y atención:** mecanismos y ejemplos actuales, si preguntan por las familias de ASR.
 
 Para las figuras de evaluación: [ficha SCRIBE](scribe-evaluacion.md), figura 1 y Methods del artículo.
 

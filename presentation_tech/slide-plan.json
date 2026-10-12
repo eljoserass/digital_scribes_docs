@@ -55,8 +55,8 @@
   },
   {
     "slide": 10,
-    "title": "CTC, transducer y atención",
-    "seconds": 80,
+    "title": "El encoder representa el audio",
+    "seconds": 45,
     "section": "3 · Audio y hablantes"
   },
   {
@@ -103,8 +103,8 @@
   },
   {
     "slide": 18,
-    "title": "Generación de notas",
-    "seconds": 45,
+    "title": "Del audio a la nota: dos rutas",
+    "seconds": 80,
     "section": "4 · Diálogo, contexto y nota"
   },
   {
@@ -115,7 +115,7 @@
   },
   {
     "slide": 20,
-    "title": "Qué aporta la historia clínica",
+    "title": "¿Cuándo ayuda la historia clínica?",
     "seconds": 100,
     "section": "4 · Diálogo, contexto y nota"
   },

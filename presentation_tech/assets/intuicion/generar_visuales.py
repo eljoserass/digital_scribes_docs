@@ -1,11 +1,14 @@
 """Figuras propias para intuicion-audio-metricas.md; ejemplos ilustrativos.
 
-Requiere Pillow para el GIF. Ejecutar con Python desde cualquier carpeta.
+Requiere Pillow para el GIF e Inkscape para las versiones PNG nuevas.
+Ejecutar con Python desde cualquier carpeta.
 No descarga datos, modelos ni material de terceros.
 """
 from pathlib import Path
 from html import escape
 from math import sin
+import subprocess
+import shutil
 from PIL import Image, ImageDraw, ImageFont
 
 OUT = Path(__file__).resolve().parent
@@ -190,6 +193,131 @@ def percentiles():
     s.save()
 
 
+def acoustic_encoder():
+    s = Svg("encoders.svg", 1200, 650, "Encoder: del sonido a representaciones útiles", "El audio se transforma en características, patrones locales y vectores contextualizados. ASR conserva una secuencia temporal; un speaker encoder con pooling produce un vector por segmento para comparar voces.")
+    s.text(32, 80, "Ruta ilustrativa tipo Whisper: cada bloque aprende una transformación.", 18, MUTED)
+    boxes = [(32,180,"Audio"),(268,180,"Log-Mel"),(504,205,"Convoluciones"),(764,180,"Transformer")]
+    for x,w,label in boxes:
+        s.rect(x,120,w,126)
+        s.text(x+w/2,150,label,20,NAVY,True,anchor="middle")
+    points = " ".join(f"{50+i*1.9:.2f},{207+17*sin(i*.44)*sin(i*.13):.2f}" for i in range(77))
+    s.parts.append(f'<polyline points="{points}" fill="none" stroke="{NAVY}" stroke-width="2"/>')
+    for col in range(8):
+        for row in range(4):
+            color = ["#00547a","#6bbb90","#b9d8e6","#eff5f8"][(row+col*3)%4]
+            s.rect(289+col*17,167+row*15,15,13,color,"none",0)
+    s.text(606,192,"patrones locales",17,anchor="middle")
+    s.text(606,220,"menos pasos",17,anchor="middle")
+    s.text(854,192,"combinar contexto",17,anchor="middle")
+    s.text(854,220,"entre pasos",17,anchor="middle")
+    for x1,x2 in [(212,268),(448,504),(709,764)]:
+        s.line(x1,184,x2,184,arrow=True)
+    s.line(944,184,979,184,arrow=True)
+    for i in range(4):
+        s.rect(995+i*35,149,22,69,MINT,NAVY,1)
+        s.text(1006+i*35,240,f"h{i+1}",14,anchor="middle")
+    s.text(1057,116,"Vectores",19,NAVY,True,anchor="middle")
+    s.text(1057,273,"secuencia temporal",15,MUTED,anchor="middle")
+    s.text(32,304,"h1, h2… son listas de números aprendidos; todavía no son palabras ni identidades.",20,NAVY,True)
+    s.line(32,335,1159,335,color="#dce5e9")
+    s.text(32,378,"Qué queremos conservar cambia según la tarea",23,NAVY,True)
+    s.rect(32,416,529,157,PALE)
+    s.text(56,451,"Encoder acústico para ASR",22,NAVY,True)
+    s.text(56,489,"Conservar evolución de los sonidos.",20)
+    s.text(56,524,"Secuencia de vectores → salida de texto.",19)
+    s.rect(603,416,556,157,MINT)
+    s.text(627,451,"Speaker encoder + pooling",22,NAVY,True)
+    s.text(627,489,"Resumir rasgos de voz de un segmento.",20)
+    s.text(627,524,"Muchos pasos → un vector para comparar voces.",19)
+    s.text(32,618,"El dibujo no es audio ni un espectrograma real. Otras arquitecturas usan otra ruta.",18,MUTED)
+    s.save()
+
+
+def speaker_embeddings():
+    s = Svg("embeddings-voz.svg",1200,660,"Embeddings de voz: comparar segmentos", "Una red compartida transforma diferentes segmentos en vectores de voz. Vectores cercanos se agrupan en hablantes. El plano es un dibujo ilustrativo, no una proyección de datos reales.")
+    s.text(32,79,"Queremos reconocer una voz aunque cambien las palabras.",19,MUTED)
+    for i,txt in enumerate(["Segmento 1","Segmento 2","Segmento 3","Segmento 4"]):
+        y=112+i*82
+        s.rect(32,y,196,56,PALE)
+        s.text(130,y+35,txt,20,anchor="middle")
+        s.line(228,y+28,304,277,arrow=True)
+    s.rect(304,182,277,190)
+    s.text(442,220,"La misma red",21,NAVY,True,anchor="middle")
+    s.text(442,257,"Speaker encoder",21,anchor="middle")
+    s.text(442,291,"+ pooling temporal",21,anchor="middle")
+    s.text(442,337,"un vector por segmento",17,MUTED,anchor="middle")
+    s.line(581,277,647,277,arrow=True)
+    for i in range(4):
+        y=122+i*84
+        s.text(653,y+22,f"e{i+1}",22,NAVY,True)
+        for col in range(4):
+            color=GREEN if (col+i%2)%3 else NAVY
+            s.rect(703+col*17,y,12,35,color,"none",1)
+    s.line(781,277,820,277,arrow=True)
+    s.line(841,429,1158,429,color=MUTED,arrow=True)
+    s.line(841,429,841,115,color=MUTED,arrow=True)
+    s.rect(895,124,151,105,MINT,GREEN,20)
+    s.rect(992,301,141,108,PALE,NAVY,20)
+    for x,y,label,col in [(925,156,"e2",NAVY),(988,194,"e4",NAVY),(1020,334,"e1",NAVY),(1088,375,"e3",NAVY)]:
+        s.circle(x,y,7,col)
+        s.text(x+13,y+6,label,19,col,True)
+    s.text(964,114,"S2",21,NAVY,True,anchor="middle")
+    s.text(1062,294,"S1",21,NAVY,True,anchor="middle")
+    s.text(1000,471,"Agrupar vectores parecidos",18,NAVY,True,anchor="middle")
+    s.rect(32,513,1127,95,PALE)
+    s.text(56,550,"Coseno: comparar la dirección de los vectores. Clustering: decidir qué agrupar.",20,NAVY,True)
+    s.text(56,584,"S1/S2 son grupos de voz; no dan nombres ni roles por sí solos.",19)
+    s.text(32,640,"Plano 2D y colores ilustrativos: no son embeddings reales ni resultados del proyecto.",18,MUTED)
+    s.save()
+
+
+def eend():
+    s=Svg("eend.svg",1200,765,"EEND: predecir quién está activo en cada paso", "La red produce actividades por hablante y tiempo, con varias salidas altas para solapamiento. PIT compara permutaciones de los canales para que intercambiar S1 y S2 no sea un error de entrenamiento.")
+    s.text(32,79,"End-to-End Neural Diarization: actividades por tiempo, no palabras.",19,MUTED)
+    s.rect(32,113,262,110)
+    s.text(163,156,"Características",21,NAVY,True,anchor="middle")
+    s.text(163,189,"secuencia acústica",19,anchor="middle")
+    s.rect(360,113,341,110,MINT)
+    s.text(530,151,"Red que procesa la secuencia",18,NAVY,True,anchor="middle")
+    s.text(530,188,"BLSTM o Transformer",20,anchor="middle")
+    s.rect(767,113,393,110)
+    s.text(963,154,"Probabilidades de actividad",20,NAVY,True,anchor="middle")
+    s.text(963,189,"por hablante y paso acústico",19,anchor="middle")
+    s.line(294,168,360,168,arrow=True)
+    s.line(701,168,767,168,arrow=True)
+    s.text(32,281,"Ejemplo de salida: oscuro = probabilidad alta",20,NAVY,True)
+    left,top,width,height=290,314,112,62
+    activities=[[0,0,1,1,1,0],[1,1,1,0,0,0]]
+    for i,row in enumerate(activities):
+        s.text(167,top+i*height+39,f"Salida S{i+1}",20,NAVY,True)
+        for j,active in enumerate(row):
+            s.rect(left+j*width,top+i*height,width-5,height-5,NAVY if active else PALE,"#dce5e9",2)
+    for j in range(6):
+        s.text(left+j*width+54,top-16,f"t{j+1}",18,MUTED,anchor="middle")
+    s.line(left+2*width+54,446,left+2*width+54,470,color=NAVY)
+    s.text(left+2*width+54,496,"Solapamiento: dos voces activas",17,NAVY,True,anchor="middle")
+    s.text(left+5*width+54,471,"Sin habla",17,MUTED,anchor="middle")
+    s.line(32,522,1160,522,color="#dce5e9")
+    s.text(32,562,"PIT: los nombres de las salidas no tienen por qué coincidir con la referencia",21,NAVY,True)
+    s.rect(32,589,539,94,PALE)
+    s.text(54,626,"Comparar S1 con A y S2 con B",20)
+    s.text(54,661,"Calcular el error de toda la secuencia.",18,MUTED)
+    s.rect(611,589,549,94,MINT)
+    s.text(633,626,"Comparar S1 con B y S2 con A",20)
+    s.text(633,661,"Calcular el error de toda la secuencia.",18,MUTED)
+    s.text(32,727,"Entrenar con el menor error entre las correspondencias. No cambiar el mapa en cada frame.",19,NAVY,True)
+    s.save()
+
+
+def export_new_pngs():
+    executable=shutil.which("inkscape")
+    if executable is None:
+        print("Inkscape no está instalado: los SVG están disponibles; PNG sin regenerar.")
+        return
+    for stem in ("encoders","embeddings-voz","eend"):
+        subprocess.run([executable,str(OUT/f"{stem}.svg"),"--export-type=png",f"--export-filename={OUT/f'{stem}.png'}"],check=True,capture_output=True)
+
+
 def ctc():
     W,H = 1120,590
     titlefont=ImageFont.truetype(BOLD,28)
@@ -236,6 +364,6 @@ def ctc():
 
 
 if __name__ == "__main__":
-    for build in (transducer,decoder,metrics,percentiles,ctc):
+    for build in (transducer,decoder,metrics,percentiles,ctc,acoustic_encoder,speaker_embeddings,eend,export_new_pngs):
         build()
     print(f"Figuras generadas en {OUT}")

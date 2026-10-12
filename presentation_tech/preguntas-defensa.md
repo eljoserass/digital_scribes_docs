@@ -34,7 +34,7 @@ Ese puede ser el baseline. Adaptaríamos después de localizar un fallo repetido
 
 **8. ¿Qué necesita para correr local? ¿Podemos dar cifras?**
 
-La configuración candidata es MOSS 0.9B para texto/hablantes y Qwen3-0.6B para nota. Estimamos **1–2 GB de archivos de modelos** cuantizados a 4–8 bits y **4–8 GB de RAM para procesos**, con audio de 15–30 min y contexto del generador de 4–8k. Son rangos bajo esos supuestos, no límites universales; falta medir memoria máxima real. llama.cpp/GGUF y LiteRT-LM/Gemma ilustran ejecución local. El tiempo queda pendiente de medir con modelo, motor y hardware declarados, y después en el equipo de uso. [Fuentes y cálculo](recursos-locales.md).
+La configuración candidata es MOSS 0.9B para texto/hablantes y Qwen3-0.6B para nota. Estimamos **1–2 GB de archivos de modelos** cuantizados a 4–8 bits y **4–8 GB de RAM para procesos**, con audio de 15–30 min y contexto del generador de 4–8k. Son rangos bajo esos supuestos, no límites universales; falta medir memoria máxima real. La ficha también recoge archivos y memoria publicados para un motor especializado, con sus condiciones; no se trasladan directamente al escriba completo. El tiempo queda pendiente de medir con modelo, motor y hardware declarados, y después en el equipo de uso. [Fuentes y cálculo](recursos-locales.md).
 
 **9. ¿Cuál sería nuestra aportación frente a productos existentes?**
 
@@ -43,6 +43,10 @@ La hipótesis es combinar un núcleo reutilizable de pipeline/evaluación con cr
 **10. ¿Cómo demostraríais utilidad clínica?**
 
 Con calidad de contenido y con tiempo hasta una nota aprobada, incluyendo revisión, correcciones e incidencias. Una nota más parecida a la referencia o con menos WER no prueba ahorro de trabajo. [Moramarco et al.](https://aclanthology.org/2022.acl-long.394/) evaluaron errores y post-edición con clínicos; nos sirve para diseñar esa parte, sin trasladar automáticamente sus resultados al español o a nuestro flujo.
+
+**¿Tenemos evidencia de que la historia mejora la nota?** Hay una señal de una pipeline enriquecida en Zuckerman, pero no una ablación limpia de historia con el resto constante. Nuance/ASCRIBE prueban hechos del diálogo, otra intervención. ACI-Bench/PriMock carecen de historia longitudinal emparejada y MIMIC carece de la conversación. Lo mediremos con el mismo generador y selección manual/automática. [Ficha de evidencia](evidencia-contexto-notas.md).
+
+**¿Los modelos conjuntos tienen que ser grandes?** MOSS 0,9B unifica ASR y hablantes; Speaker-Reasoner tiene checkpoint 32B. Ninguno de esos tamaños valida por sí solo una nota clínica. Qwen3-Omni A3B activa una parte de los pesos por token, pero alojar el modelo no equivale a guardar solo 3B. La [guía](guia-intuicion.md) distingue tareas y trazabilidad.
 
 ## Mini examen — primero sin mirar las respuestas
 

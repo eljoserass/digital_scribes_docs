@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+<title id="title">Encoder: del sonido a representaciones útiles</title><desc id="desc">El audio se transforma en características, patrones locales y vectores contextualizados. ASR conserva una secuencia temporal; un speaker encoder con pooling produce un vector por segmento para comparar voces.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00547a"/></marker></defs>
+<rect width="1200" height="650" fill="white"/>
+<text x="32" y="43" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#00547a" font-weight="bold" text-anchor="start">Encoder: del sonido a representaciones útiles</text>
+<text x="32" y="80" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#62747e" font-weight="normal" text-anchor="start">Ruta ilustrativa tipo Whisper: cada bloque aprende una transformación.</text>
+<rect x="32" y="120" width="180" height="126" rx="10" fill="#eff5f8" stroke="#00547a" stroke-width="1.5"/>
+<text x="122.0" y="150" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#00547a" font-weight="bold" text-anchor="middle">Audio</text>
+<rect x="268" y="120" width="180" height="126" rx="10" fill="#eff5f8" stroke="#00547a" stroke-width="1.5"/>
+<text x="358.0" y="150" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#00547a" font-weight="bold" text-anchor="middle">Log-Mel</text>
+<rect x="504" y="120" width="205" height="126" rx="10" fill="#eff5f8" stroke="#00547a" stroke-width="1.5"/>
+<text x="606.5" y="150" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#00547a" font-weight="bold" text-anchor="middle">Convoluciones</text>
+<rect x="764" y="120" width="180" height="126" rx="10" fill="#eff5f8" stroke="#00547a" stroke-width="1.5"/>
+<text x="854.0" y="150" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#00547a" font-weight="bold" text-anchor="middle">Transformer</text>
+<polyline points="50.00,207.00 51.90,207.94 53.80,210.37 55.70,213.26 57.60,215.30 59.50,215.32 61.40,212.75 63.30,207.83 65.20,201.58 67.10,195.57 69.00,191.41 70.90,190.31 72.80,192.67 74.70,197.99 76.60,204.98 78.50,211.92 80.40,217.19 82.30,219.70 84.20,219.19 86.10,216.25 88.00,212.13 89.90,208.25 91.80,205.81 93.70,205.36 95.60,206.67 97.50,208.84 99.40,210.62 101.30,210.88 103.20,208.98 105.10,205.08 107.00,200.08 108.90,195.40 110.80,192.55 112.70,192.62 114.60,195.93 116.50,201.91 118.40,209.24 120.30,216.16 122.20,221.04 124.10,222.81 126.00,221.25 127.90,217.03 129.80,211.50 131.70,206.24 133.60,202.57 135.50,201.19 137.40,202.01 139.30,204.17 141.20,206.44 143.10,207.62 145.00,206.97 146.90,204.49 148.80,200.94 150.70,197.59 152.60,195.80 154.50,196.59 156.40,200.25 158.30,206.19 160.20,213.11 162.10,219.30 164.00,223.20 165.90,223.79 167.80,220.95 169.70,215.45 171.60,208.73 173.50,202.50 175.40,198.19 177.30,196.59 179.20,197.64 181.10,200.50 183.00,203.87 184.90,206.42 186.80,207.29 188.70,206.28 190.60,204.00 192.50,201.57 194.40,200.28" fill="none" stroke="#00547a" stroke-width="2"/>
+<rect x="289" y="167" width="15" height="13" rx="0" fill="#00547a" stroke="none" stroke-width="1.5"/>
+<rect x="289" y="182" width="15" height="13" rx="0" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<rect x="289" y="197" width="15" height="13" rx="0" fill="#b9d8e6" stroke="none" stroke-width="1.5"/>
+<rect x="289" y="212" width="15" height="13" rx="0" fill="#eff5f8" stroke="none" stroke-width="1.5"/>
+<rect x="306" y="167" width="15" height="13" rx="0" fill="#eff5f8" stroke="none" stroke-width="1.5"/>
+<rect x="306" y="182" width="15" height="13" rx="0" fill="#00547a" stroke="none" stroke-width="1.5"/>
+<rect x="306" y="197" width="15" height="13" rx="0" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<rect x="306" y="212" width="15" height="13" rx="0" fill="#b9d8e6" stroke="none" stroke-width="1.5"/>
+<rect x="323" y="167" width="15" height="13" rx="0" fill="#b9d8e6" stroke="none" stroke-width="1.5"/>
+<rect x="323" y="182" width="15" height="13" rx="0" fill="#eff5f8" stroke="none" stroke-width="1.5"/>
+<rect x="323" y="197" width="15" height="13" rx="0" fill="#00547a" stroke="none" stroke-width="1.5"/>
+<rect x="323" y="212" width="15" height="13" rx="0" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<rect x="340" y="167" width="15" height="13" rx="0" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<rect x="340" y="182" width="15" height="13" rx="0" fill="#b9d8e6" stroke="none" stroke-width="1.5"/>
+<rect x="340" y="197" width="15" height="13" rx="0" fill="#eff5f8" stroke="none" stroke-width="1.5"/>
+<rect x="340" y="212" width="15" height="13" rx="0" fill="#00547a" stroke="none" stroke-width="1.5"/>
+<rect x="357" y="167" width="15" height="13" rx="0" fill="#00547a" stroke="none" stroke-width="1.5"/>
+<rect x="357" y="182" width="15" height="13" rx="0" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<rect x="357" y="197" width="15" height="13" rx="0" fill="#b9d8e6" stroke="none" stroke-width="1.5"/>
+<rect x="357" y="212" width="15" height="13" rx="0" fill="#eff5f8" stroke="none" stroke-width="1.5"/>
+<rect x="374" y="167" width="15" height="13" rx="0" fill="#eff5f8" stroke="none" stroke-width="1.5"/>
+<rect x="374" y="182" width="15" height="13" rx="0" fill="#00547a" stroke="none" stroke-width="1.5"/>
+<rect x="374" y="197" width="15" height="13" rx="0" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<rect x="374" y="212" width="15" height="13" rx="0" fill="#b9d8e6" stroke="none" stroke-width="1.5"/>
+<rect x="391" y="167" width="15" height="13" rx="0" fill="#b9d8e6" stroke="none" stroke-width="1.5"/>
+<rect x="391" y="182" width="15" height="13" rx="0" fill="#eff5f8" stroke="none" stroke-width="1.5"/>
+<rect x="391" y="197" width="15" height="13" rx="0" fill="#00547a" stroke="none" stroke-width="1.5"/>
+<rect x="391" y="212" width="15" height="13" rx="0" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<rect x="408" y="167" width="15" height="13" rx="0" fill="#6bbb90" stroke="none" stroke-width="1.5"/>
+<rect x="408" y="182" width="15" height="13" rx="0" fill="#b9d8e6" stroke="none" stroke-width="1.5"/>
+<rect x="408" y="197" width="15" height="13" rx="0" fill="#eff5f8" stroke="none" stroke-width="1.5"/>
+<rect x="408" y="212" width="15" height="13" rx="0" fill="#00547a" stroke="none" stroke-width="1.5"/>
+<text x="606" y="192" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#183747" font-weight="normal" text-anchor="middle">patrones locales</text>
+<text x="606" y="220" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#183747" font-weight="normal" text-anchor="middle">menos pasos</text>
+<text x="854" y="192" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#183747" font-weight="normal" text-anchor="middle">combinar contexto</text>
+<text x="854" y="220" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#183747" font-weight="normal" text-anchor="middle">entre pasos</text>
+<line x1="212" y1="184" x2="268" y2="184" stroke="#00547a" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="448" y1="184" x2="504" y2="184" stroke="#00547a" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="709" y1="184" x2="764" y2="184" stroke="#00547a" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="944" y1="184" x2="979" y2="184" stroke="#00547a" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="995" y="149" width="22" height="69" rx="1" fill="#e5f3ec" stroke="#00547a" stroke-width="1.5"/>
+<text x="1006" y="240" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#183747" font-weight="normal" text-anchor="middle">h1</text>
+<rect x="1030" y="149" width="22" height="69" rx="1" fill="#e5f3ec" stroke="#00547a" stroke-width="1.5"/>
+<text x="1041" y="240" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#183747" font-weight="normal" text-anchor="middle">h2</text>
+<rect x="1065" y="149" width="22" height="69" rx="1" fill="#e5f3ec" stroke="#00547a" stroke-width="1.5"/>
+<text x="1076" y="240" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#183747" font-weight="normal" text-anchor="middle">h3</text>
+<rect x="1100" y="149" width="22" height="69" rx="1" fill="#e5f3ec" stroke="#00547a" stroke-width="1.5"/>
+<text x="1111" y="240" font-family="DejaVu Sans, sans-serif" font-size="14" fill="#183747" font-weight="normal" text-anchor="middle">h4</text>
+<text x="1057" y="116" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#00547a" font-weight="bold" text-anchor="middle">Vectores</text>
+<text x="1057" y="273" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#62747e" font-weight="normal" text-anchor="middle">secuencia temporal</text>
+<text x="32" y="304" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#00547a" font-weight="bold" text-anchor="start">h1, h2… son listas de números aprendidos; todavía no son palabras ni identidades.</text>
+<line x1="32" y1="335" x2="1159" y2="335" stroke="#dce5e9" stroke-width="2"/>
+<text x="32" y="378" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#00547a" font-weight="bold" text-anchor="start">Qué queremos conservar cambia según la tarea</text>
+<rect x="32" y="416" width="529" height="157" rx="10" fill="#eff5f8" stroke="#00547a" stroke-width="1.5"/>
+<text x="56" y="451" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#00547a" font-weight="bold" text-anchor="start">Encoder acústico para ASR</text>
+<text x="56" y="489" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183747" font-weight="normal" text-anchor="start">Conservar evolución de los sonidos.</text>
+<text x="56" y="524" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#183747" font-weight="normal" text-anchor="start">Secuencia de vectores → salida de texto.</text>
+<rect x="603" y="416" width="556" height="157" rx="10" fill="#e5f3ec" stroke="#00547a" stroke-width="1.5"/>
+<text x="627" y="451" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#00547a" font-weight="bold" text-anchor="start">Speaker encoder + pooling</text>
+<text x="627" y="489" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183747" font-weight="normal" text-anchor="start">Resumir rasgos de voz de un segmento.</text>
+<text x="627" y="524" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#183747" font-weight="normal" text-anchor="start">Muchos pasos → un vector para comparar voces.</text>
+<text x="32" y="618" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#62747e" font-weight="normal" text-anchor="start">El dibujo no es audio ni un espectrograma real. Otras arquitecturas usan otra ruta.</text>
+</svg>

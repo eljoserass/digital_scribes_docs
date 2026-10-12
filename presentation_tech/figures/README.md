@@ -33,7 +33,7 @@ python3 figures/extract_jurafsky_figures.py /ruta/al/capitulo15.pdf
 - **RNN-T:** estado acústico y predictor del texto; emisión de tokens y avance temporal. Parakeet TDT es un derivado actual que predice duraciones, no el RNN-T original.
 - **Atención:** audio codificado y texto previo condicionan el siguiente token; ejemplos Whisper y Canary. La diapositiva siguiente abre el decoder Transformer de Whisper y separa red neuronal de greedy/beam search.
 
-Las fechas son hitos bibliográficos, no una cronología de sustitución. Las tres familias siguen en uso.
+Las fechas son hitos bibliográficos, no una cronología de sustitución. Las tres familias siguen en uso. La comparación queda en el **anexo F**; el recorrido principal explica primero el encoder (slide 10) y el decoder (11).
 
 Referencias para el dibujo: [Jurafsky y Martin, cap. 16](https://web.stanford.edu/~jurafsky/slp3/16.pdf), mismo borrador, **fig. 16.5/p. 8, fig. 16.13/p. 18 y fig. 16.17/p. 22**; [copia de Zotero](/mnt/c/Users/rodri/Zotero/storage/2DGXGMAU/16.pdf). Apoyo para las diferencias y las variantes en streaming: [Prabhavalkar et al., *End-to-End Speech Recognition: A Survey*](https://arxiv.org/abs/2303.03329), §II. Para Whisper: [Radford et al.](https://arxiv.org/abs/2212.04356), §2.2 y fig. 1.
 

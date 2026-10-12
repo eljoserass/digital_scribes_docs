@@ -5,5 +5,6 @@ Esquemas originales del proyecto, creados el 12/10/2026 para [la guía de genera
 - `generacion`: compara el baseline directo con hechos intermedios y separa contexto externo de información del encuentro.
 - `verificacion`: diferencia respaldo de afirmaciones y cobertura de hechos relevantes.
 - `evaluacion-scribe`: explica revisión humana, métricas, regresión para calibrar métricas y juez LLM. Basado en [Wang et al., Methods y tabla 2](https://doi.org/10.1038/s41746-025-01622-1); la separación ajuste/evaluación es una recomendación para nuestro diseño, no un split documentado del artículo.
+- `modular-unificada`: distingue módulos separados, ASR atribuido conjunto y la hipótesis audio→nota. [Speaker-Reasoner](https://arxiv.org/abs/2604.03074), [MOSS](https://huggingface.co/OpenMOSS-Team/MOSS-Transcribe-Diarize) y [Qwen3-Omni](https://arxiv.org/abs/2509.17765) son referencias de capacidades; la flecha a nota clínica no representa validación de esos modelos como escribas.
 
 Regenerar un PNG: `inkscape generacion.svg --export-type=png --export-filename=generacion.png --export-width=1500`.
