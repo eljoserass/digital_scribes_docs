@@ -422,17 +422,19 @@ También puede ser correcta pero tardar demasiado o no caber en memoria. Ahí pr
 
 **1:20 · acumulado 25:00 · 5 · Adaptación y despliegue**
 
-**Mensaje:** Hay candidatos pequeños para probar en local; falta medir el sistema completo.
+**Mensaje:** Podemos dar órdenes de magnitud, siempre vinculados al motor, duración y contexto.
 
-MOSS-Transcribe-Diarize de 0.9B produce texto y hablantes. Su código contempla CPU y GPU. Eso demuestra una ruta de ejecución, no que vaya suficientemente rápido en cualquier PC.
+Para hacernos una idea, un presupuesto inicial de cuatro a ocho gigas de RAM para los procesos es razonable bajo estas hipótesis: MOSS cuantizado con motor C++, consulta de quince a treinta minutos, Qwen pequeño y contexto de cuatro a ocho mil tokens. Es una estimación de planificación, no una medición del escriba. Un PC de dieciséis gigas sería el punto de partida para probar, dejando espacio al sistema y otras aplicaciones.
 
-Para la nota podemos empezar con Qwen3-0.6B en llama.cpp, que admite CPU y aceleración GPU si existe. El archivo oficial GGUF Q8_0 ocupa 639 MB en disco. La memoria de ejecución será mayor por buffers, contexto y estados; no es una cifra de RAM total del escriba. Un modelo tan pequeño es un candidato para medir, no una garantía de calidad clínica.
+Hay benchmarks publicados en CPUs de portátil. Un port de MOSS en transcribe.cpp tarda unos veintiún segundos para treinta y cinco segundos de audio en un Ryzen 7 PRO 4750U. Es un clip corto con el modelo ya cargado; no permite prometer cuánto tardará una consulta completa ni qué calidad tendrá en español clínico.
 
-Fijaremos equipo, versiones, duración de consulta, contexto y concurrencia. Mediremos memoria máxima, tiempo y contenido de la nota. Si no da calidad o velocidad suficiente, esa evidencia dirá qué componente cambiar.
+Para Qwen3-0.6B, un benchmark del motor experimental Ember en un i5-1135G7 obtiene unos siete tokens por segundo con Q8_0. Quinientos tokens de salida serían unos setenta y dos segundos solo de generación; falta procesar el prompt y cargar el modelo. llama.cpp sigue siendo un motor candidato, pero ese número de Ember no es una medida de llama.cpp ni de nuestra nota médica.
 
-**Figura:** Señalar los dos modelos dentro del PC y las tres medidas pendientes.
+**Figura:** RAM estimada, una medida de audio y una medida de generación. Son referencias distintas, no tiempos que podamos sumar como un benchmark completo.
 
-**Transición:** Scribnic permite probar componentes y reutilizar después la pipeline desde una interfaz.
+**Transición:** El núcleo permite intercambiar motores y reutilizar luego la pipeline desde una interfaz.
+
+**Para preguntas:** [cálculo de memoria, motores y límites](recursos-locales.md). El consumo de audio crece con su duración; el del generador, con el contexto. Las cifras no son un requisito mínimo validado.
 
 ## 27. Scribnic: de la CLI a una aplicación
 

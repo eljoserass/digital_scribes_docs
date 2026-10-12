@@ -486,20 +486,30 @@
 
 % 26 — 80s · acumulado 25:00
 \begin{frame}{Un escriba en el PC del médico}
-
-  \topic{Configuración candidata: audio y nota procesados en el propio equipo.}
-  \begin{figurecanvas}[4.15]
-    \draw[rounded corners=4pt,draw=navy!35,fill=pale] (.1,1.15) rectangle (13.9,3.95);
-    \node[tinylabel,anchor=west] at (.35,3.7) {PC LOCAL · CPU; ACELERACIÓN GPU SI ESTÁ DISPONIBLE};
-    \node[box,fill=white,text width=1.45cm] (a) at (1.3,2.55) {Audio};
-    \node[good,text width=3.1cm,minimum height=1.1cm] (b) at (5.05,2.55) {\textbf{MOSS 0.9B}\\Texto + hablantes\\CPU / GPU};
-    \node[good,text width=3.15cm,minimum height=1.1cm] (c) at (10.25,2.55) {\textbf{Qwen3-0.6B}\\GGUF Q8\_0 · llama.cpp\\Nota · CPU / GPU};
-    \draw[arr] (a)--(b); \draw[arr] (b)--node[tinylabel,above]{turnos}(c);
-    \node[tinylabel,text width=12.5cm] at (7,1.45) {MOSS: soporte CPU en el código. Qwen: archivo oficial de 639 MB; la RAM total será mayor.};
-    \node[plain,align=center,text width=13cm] at (7,.45) {\textbf{Prueba pendiente:} RAM máxima, tiempo por consulta y calidad de la nota en español.};
+  \topic{Configuración candidata y cálculo orientativo para las primeras pruebas.}
+  \begin{figurecanvas}[5.45]
+    \node[box,text width=1.1cm] (a) at (1.0,4.95) {Audio};
+    \node[good,text width=3.4cm] (b) at (5.05,4.95) {\textbf{MOSS 0.9B}\\\scriptsize Texto + hablantes};
+    \node[good,text width=3.4cm] (c) at (11.0,4.95) {\textbf{Qwen3-0.6B}\\\scriptsize Borrador de nota};
+    \draw[arr] (a)--(b); \draw[arr] (b)--(c);
+    \foreach \x in {2.3,7.0,11.7}{\node[box,fill=white,text width=3.85cm,minimum height=2.65cm] at (\x,2.7) {};}
+    \node[plain,align=center,font=\bfseries\scriptsize] at (2.3,3.63) {RAM DEL PROCESO};
+    \node[plain,align=center,font=\fontsize{19}{22}\selectfont\bfseries,text=navy] at (2.3,3.07) {4–8 GB};
+    \node[plain,align=center,font=\scriptsize] at (2.3,2.54) {\textbf{Estimación}};
+    \node[tinylabel,text width=3.9cm] at (2.3,2.1) {Audio: 15–30 min · contexto: 4–8k\\Motores C++ y GGUF cuantizados};
+    \node[tinylabel,text width=3.9cm,text=navy] at (2.3,1.6) {Probar en PC de 16 GB};
+    \node[plain,align=center,font=\bfseries\scriptsize] at (7,3.63) {AUDIO + HABLANTES};
+    \node[plain,align=center,font=\fontsize{19}{22}\selectfont\bfseries,text=navy] at (7,3.07) {21 s};
+    \node[plain,align=center,font=\scriptsize] at (7,2.54) {\textbf{para 35 s de audio}};
+    \node[tinylabel,text width=3.9cm] at (7,2.1) {Ryzen 7 PRO 4750U · CPU\\MOSS Q8\_0 · transcribe.cpp};
+    \node[tinylabel,text width=3.9cm,text=navy] at (7,1.6) {Clip corto · modelo ya cargado};
+    \node[plain,align=center,font=\bfseries\scriptsize] at (11.7,3.63) {GENERAR TEXTO};
+    \node[plain,align=center,font=\fontsize{19}{22}\selectfont\bfseries,text=navy] at (11.7,3.07) {≈72 s};
+    \node[plain,align=center,font=\scriptsize] at (11.7,2.54) {\textbf{500 tokens de salida}};
+    \node[tinylabel,text width=3.9cm] at (11.7,2.1) {i5-1135G7 · CPU\\Qwen Q8\_0 · Ember · ≈7 tokens/s};
+    \node[tinylabel,text width=3.9cm,text=navy] at (11.7,1.6) {Decode; prefill aparte};
+    \node[tinylabel,text width=13.8cm] at (7,.35) {Cifras orientativas: RAM estimada y benchmarks de motores distintos.\\Falta medir calidad y tiempo de una consulta completa en nuestro equipo.};
   \end{figurecanvas}
-  \sources{\link{https://huggingface.co/OpenMOSS-Team/MOSS-Transcribe-Diarize}{MOSS 0.9B}; \link{https://github.com/OpenMOSS/MOSS-Transcribe-Diarize/blob/main/moss_transcribe_diarize/inference_utils.py}{selección CPU/GPU}; \link{https://huggingface.co/Qwen/Qwen3-0.6B-GGUF/tree/main}{Qwen oficial: tamaño en disco}; \link{https://github.com/ggml-org/llama.cpp}{llama.cpp}. Sin benchmark propio ni calidad clínica demostrada.}
-
 \end{frame}
 
 % 27 — 60s · acumulado 26:00
@@ -507,7 +517,7 @@
 
   \topic{El frontend usa la misma pipeline y los mismos tipos de datos.}
   \begin{figurecanvas}[4.3]
-    \node[box,align=left,text width=4.5cm,minimum height=1cm] (cli) at (3,3.4) {\textbf{Hoy · CLI}\\\texttt{scribnic consulta.wav}\\JSON con turnos y borrador};
+    \node[box,align=left,text width=4.5cm,minimum height=1cm] (cli) at (3,3.4) {\textbf{CLI}\\\texttt{scribnic consulta.wav}\\JSON con turnos y borrador};
     \node[good,align=left,text width=4.5cm,minimum height=1cm] (app) at (10.9,3.4) {\textbf{Propuesto · Aplicación}\\Grabar / cargar audio\\Revisar y editar la nota};
     \draw[arr] (cli.east)--node[tinylabel,above]{nuevo cliente}(app.west);
     \node[box,text width=7.7cm] (core) at (7,1.85) {\textbf{Core Python reutilizable}\\Modelos intercambiables + configuración};

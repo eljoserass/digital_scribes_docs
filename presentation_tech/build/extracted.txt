@@ -568,37 +568,36 @@ Fuentes: Plan propuesto. MOSS: hotwords; LoRA; ASCRIBE; llama.cpp.
 
  5/6 · Adaptación y despliegue                                                            Borrador · 12/10/2026 · 25/31
 Un escriba en el PC del médico
+Configuración candidata y cálculo orientativo para las primeras pruebas.
 
-Configuración candidata: audio y nota procesados en el propio equipo.
 
-
-      PC LOCAL · CPU; ACELERACIÓN GPU SI ESTÁ DISPONIBLE
-
-                                                                                        Qwen3-0.6B
-                                       MOSS 0.9B                      turnos            GGUF Q8_0
-          Audio                      Texto + hablantes
-                                                                                         · llama.cpp
-                                        CPU / GPU
-                                                                                      Nota · CPU / GPU
-                   MOSS: soporte CPU en el código. Qwen: archivo oficial de 639 MB; la RAM total será mayor.
+                                     MOSS 0.9B                                           Qwen3-0.6B
+      Audio
+                                    Texto + hablantes                                   Borrador de nota
 
 
 
-         Prueba pendiente: RAM máxima, tiempo por consulta y calidad de la nota en español.
+          RAM DEL PROCESO                         AUDIO + HABLANTES                           GENERAR TEXTO
+
+           4–8 GB                                       21 s                                   ≈72 s
+              Estimación                             para 35 s de audio                    500 tokens de salida
+    Audio: 15–30 min · contexto: 4–8k           Ryzen 7 PRO 4750U · CPU                      i5-1135G7 · CPU
+    Motores C++ y GGUF cuantizados              MOSS Q8_0 · transcribe.cpp            Qwen Q8_0 · Ember · ≈7 tokens/s
+         Probar en PC de 16 GB                 Clip corto · modelo ya cargado              Decode; prefill aparte
 
 
 
-Fuentes: MOSS 0.9B; selección CPU/GPU; Qwen oficial: tamaño en disco; llama.cpp. Sin benchmark propio ni calidad clínica demostrada.
+                            Cifras orientativas: RAM estimada y benchmarks de motores distintos.
+                          Falta medir calidad y tiempo de una consulta completa en nuestro equipo.
 
 
-
-  5/6 · Adaptación y despliegue                                                                          Borrador · 12/10/2026 · 26/31
+ 5/6 · Adaptación y despliegue                                                                   Borrador · 12/10/2026 · 26/31
 Scribnic: de la CLI a una aplicación
 
 El frontend usa la misma pipeline y los mismos tipos de datos.
 
 
-         Hoy · CLI                                                                     Propuesto · Aplicación
+         CLI                                                                           Propuesto · Aplicación
                                                                nuevo cliente
          scribnic consulta.wav                                                         Grabar / cargar audio
          JSON con turnos y borrador                                                    Revisar y editar la nota
