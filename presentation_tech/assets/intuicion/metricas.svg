@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="805" viewBox="0 0 1120 805" role="img" aria-labelledby="title desc">
+<title id="title">Tres preguntas distintas sobre una transcripción</title><desc id="desc">DER mide segundos atribuidos incorrectamente. cpWER mide errores de palabras agrupadas por hablante. tcpWER añade restricciones temporales a los emparejamientos.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00547a"/></marker></defs>
+<rect width="1120" height="805" fill="white"/>
+<text x="32" y="43" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#00547a" font-weight="bold" text-anchor="start">Tres preguntas distintas sobre una transcripción</text>
+<text x="32" y="99" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#00547a" font-weight="bold" text-anchor="start">DER: ¿qué voz estaba hablando en cada intervalo?</text>
+<text x="32" y="162" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#183747" font-weight="normal" text-anchor="start">Referencia</text>
+<rect x="190" y="136" width="385" height="39" rx="0" fill="#eff5f8" stroke="#00547a" stroke-width="1.5"/>
+<rect x="575" y="136" width="385" height="39" rx="0" fill="#e5f3ec" stroke="#00547a" stroke-width="1.5"/>
+<text x="382.5" y="162" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183747" font-weight="normal" text-anchor="middle">S1</text>
+<text x="767.5" y="162" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183747" font-weight="normal" text-anchor="middle">S2</text>
+<text x="32" y="219" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#183747" font-weight="normal" text-anchor="start">Predicción</text>
+<rect x="190" y="193" width="462" height="39" rx="0" fill="#eff5f8" stroke="#00547a" stroke-width="1.5"/>
+<rect x="652" y="193" width="308" height="39" rx="0" fill="#e5f3ec" stroke="#00547a" stroke-width="1.5"/>
+<text x="421.0" y="219" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183747" font-weight="normal" text-anchor="middle">S1</text>
+<text x="806.0" y="219" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183747" font-weight="normal" text-anchor="middle">S2</text>
+<rect x="575" y="190" width="77" height="45" rx="0" fill="none" stroke="#b75940" stroke-width="1.5"/>
+<text x="190" y="258" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#62747e" font-weight="normal" text-anchor="middle">0 s</text>
+<text x="575" y="258" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#62747e" font-weight="normal" text-anchor="middle">5 s</text>
+<text x="652" y="258" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#62747e" font-weight="normal" text-anchor="middle">6 s</text>
+<text x="960" y="258" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#62747e" font-weight="normal" text-anchor="middle">10 s</text>
+<text x="32" y="299" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#00547a" font-weight="bold" text-anchor="start">1 s de confusión / 10 s de habla = 10 % DER. Sin solapamiento; collar = 0.</text>
+<line x1="32" y1="329" x2="1062" y2="329" stroke="#dce5e9" stroke-width="2"/>
+<text x="32" y="372" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#00547a" font-weight="bold" text-anchor="start">cpWER: ¿qué palabras pertenecen a cada hablante?</text>
+<text x="32" y="415" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#62747e" font-weight="bold" text-anchor="start">Referencia</text>
+<text x="550" y="415" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#62747e" font-weight="bold" text-anchor="start">Predicción</text>
+<text x="32" y="455" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#183747" font-weight="normal" text-anchor="start">S1: tengo tos</text>
+<text x="550" y="455" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#183747" font-weight="normal" text-anchor="start">S1: tengo tos desde</text>
+<text x="32" y="495" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#183747" font-weight="normal" text-anchor="start">S2: desde cuándo</text>
+<text x="550" y="495" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#183747" font-weight="normal" text-anchor="start">S2: cuándo</text>
+<text x="32" y="544" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#00547a" font-weight="bold" text-anchor="start">Sin hablantes: mismo texto → WER = 0 %</text>
+<text x="32" y="580" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#b75940" font-weight="bold" text-anchor="start">Por hablante: «desde» sobra en S1 y falta en S2 → 2 / 4 = 50 % cpWER</text>
+<line x1="32" y1="610" x2="1062" y2="610" stroke="#dce5e9" stroke-width="2"/>
+<text x="32" y="651" font-family="DejaVu Sans, sans-serif" font-size="23" fill="#00547a" font-weight="bold" text-anchor="start">tcpWER: ¿las palabras aparecen en un momento compatible?</text>
+<text x="32" y="693" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183747" font-weight="normal" text-anchor="start">Referencia: «no tengo alergias», minuto 1.</text>
+<text x="32" y="729" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#183747" font-weight="normal" text-anchor="start">Predicción: mismo hablante y texto, minuto 20.</text>
+<text x="32" y="772" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#00547a" font-weight="bold" text-anchor="start">cpWER puede dar 0 %; tcpWER penaliza el desfase con una tolerancia razonable.</text>
+</svg>

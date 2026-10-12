@@ -14,6 +14,8 @@ Notas breves: [common challenges](common_challenges.md) y [qué es una nota clí
 
 Para el marco de evaluación: [SCRIBE, figura 1 y límites](scribe-evaluacion.md), con los paneles originales (a) y (b) en el PDF. [Robust SOAP](robust-soap.md) queda como lectura complementaria sobre hechos y perturbaciones.
 
+**Empieza por la [guía de intuición con figuras y GIF](guia-intuicion.md):** CTC/RNN-T/atención, métricas, p50/p95, generación, verificación y papers. La [estimación local](recursos-locales.md) documenta RAM y benchmarks de la slide 26.
+
 Para preparar la revisión: [conversación, contexto y hechos clínicos](comprension-clinica.md), con dos métodos recientes y límites de verificación; [preguntas de defensa y mini examen](preguntas-defensa.md). Scribnic y su estado actual se recogen en el [bag de ideas](bag-of-ideas.md#9-scribnic-núcleo-local-reutilizable-y-clientes-separados).
 
 Se indica cuándo el recurso es clínico, general, simulado o solo textual. Las losses son objetivos de entrenamiento; las métricas evalúan resultados. Los métodos generales son componentes candidatos, no validaciones de un escriba médico en español.

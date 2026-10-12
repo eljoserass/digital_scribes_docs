@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="670" viewBox="0 0 1120 670" role="img" aria-labelledby="title desc">
+<title id="title">p50 y p95: ordenar las esperas</title><desc id="desc">Cien latencias inventadas ordenadas: p50 sesenta segundos, p95 ciento ochenta segundos y máximo seiscientos segundos. El percentil noventa y cinco describe la cola sin ser el máximo.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00547a"/></marker></defs>
+<rect width="1120" height="670" fill="white"/>
+<text x="32" y="43" font-family="DejaVu Sans, sans-serif" font-size="25" fill="#00547a" font-weight="bold" text-anchor="start">p50 y p95: ordenar las esperas</text>
+<text x="32" y="80" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#62747e" font-weight="normal" text-anchor="start">100 ejecuciones ilustrativas, ordenadas de la más rápida a la más lenta.</text>
+<line x1="110" y1="504.0" x2="965" y2="504.0" stroke="#dce5e9" stroke-width="1"/>
+<text x="92" y="510.0" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#62747e" font-weight="normal" text-anchor="end">0 s</text>
+<line x1="110" y1="470.7692307692308" x2="965" y2="470.7692307692308" stroke="#dce5e9" stroke-width="1"/>
+<text x="92" y="476.7692307692308" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#62747e" font-weight="normal" text-anchor="end">60 s</text>
+<line x1="110" y1="404.3076923076923" x2="965" y2="404.3076923076923" stroke="#dce5e9" stroke-width="1"/>
+<text x="92" y="410.3076923076923" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#62747e" font-weight="normal" text-anchor="end">180 s</text>
+<line x1="110" y1="337.8461538461538" x2="965" y2="337.8461538461538" stroke="#dce5e9" stroke-width="1"/>
+<text x="92" y="343.8461538461538" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#62747e" font-weight="normal" text-anchor="end">300 s</text>
+<line x1="110" y1="171.69230769230768" x2="965" y2="171.69230769230768" stroke="#dce5e9" stroke-width="1"/>
+<text x="92" y="177.69230769230768" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#62747e" font-weight="normal" text-anchor="end">600 s</text>
+<line x1="110" y1="504" x2="985" y2="504" stroke="#00547a" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="118.55,492.92 127.10,492.47 135.65,492.02 144.20,491.57 152.75,491.11 161.30,490.66 169.85,490.21 178.40,489.76 186.95,489.31 195.50,488.85 204.05,488.40 212.60,487.95 221.15,487.50 229.70,487.05 238.25,486.59 246.80,486.14 255.35,485.69 263.90,485.24 272.45,484.78 281.00,484.33 289.55,483.88 298.10,483.43 306.65,482.98 315.20,482.52 323.75,482.07 332.30,481.62 340.85,481.17 349.40,480.72 357.95,480.26 366.50,479.81 375.05,479.36 383.60,478.91 392.15,478.46 400.70,478.00 409.25,477.55 417.80,477.10 426.35,476.65 434.90,476.19 443.45,475.74 452.00,475.29 460.55,474.84 469.10,474.39 477.65,473.93 486.20,473.48 494.75,473.03 503.30,472.58 511.85,472.13 520.40,471.67 528.95,471.22 537.50,470.77 546.05,470.77 554.60,469.26 563.15,467.75 571.70,466.24 580.25,464.73 588.80,463.22 597.35,461.71 605.90,460.20 614.45,458.69 623.00,457.17 631.55,455.66 640.10,454.15 648.65,452.64 657.20,451.13 665.75,449.62 674.30,448.11 682.85,446.60 691.40,445.09 699.95,443.58 708.50,442.07 717.05,440.56 725.60,439.05 734.15,437.54 742.70,436.03 751.25,434.52 759.80,433.01 768.35,431.50 776.90,429.99 785.45,428.48 794.00,426.97 802.55,425.45 811.10,423.94 819.65,422.43 828.20,420.92 836.75,419.41 845.30,417.90 853.85,416.39 862.40,414.88 870.95,413.37 879.50,411.86 888.05,410.35 896.60,408.84 905.15,407.33 913.70,405.82 922.25,404.31 930.80,382.15 939.35,360.00 947.90,332.31 956.45,304.62 965.00,171.69" fill="none" stroke="#00547a" stroke-width="4"/>
+<line x1="537.5" y1="504" x2="537.5" y2="470.7692307692308" stroke="#6bbb90" stroke-width="2" stroke-dasharray="6 5"/>
+<circle cx="537.5" cy="470.7692307692308" r="6" fill="#00547a"/>
+<text x="515.5" y="452.7692307692308" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#00547a" font-weight="bold" text-anchor="end">p50 = 60 s</text>
+<text x="537.5" y="533" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#62747e" font-weight="normal" text-anchor="middle">50</text>
+<line x1="922.25" y1="504" x2="922.25" y2="404.3076923076923" stroke="#6bbb90" stroke-width="2" stroke-dasharray="6 5"/>
+<circle cx="922.25" cy="404.3076923076923" r="6" fill="#00547a"/>
+<text x="902.25" y="386.3076923076923" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#00547a" font-weight="bold" text-anchor="end">p95 = 180 s</text>
+<text x="922.25" y="533" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#62747e" font-weight="normal" text-anchor="middle">95</text>
+<line x1="965.0" y1="504" x2="965.0" y2="171.69230769230768" stroke="#6bbb90" stroke-width="2" stroke-dasharray="6 5"/>
+<circle cx="965.0" cy="171.69230769230768" r="6" fill="#00547a"/>
+<text x="945.0" y="153.69230769230768" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#b75940" font-weight="bold" text-anchor="end">máx. = 600 s</text>
+<text x="965.0" y="533" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#62747e" font-weight="normal" text-anchor="middle">100</text>
+<text x="538" y="561" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#00547a" font-weight="normal" text-anchor="middle">Posición al ordenar las 100 ejecuciones →</text>
+<text x="32" y="609" font-family="DejaVu Sans, sans-serif" font-size="21" fill="#00547a" font-weight="bold" text-anchor="start">p50: espera típica.  p95: límite para aproximadamente 95 de cada 100 casos.</text>
+<text x="32" y="644" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#62747e" font-weight="normal" text-anchor="start">Las cinco ejecuciones más lentas pueden superar p95; aquí una tarda 10 minutos.</text>
+</svg>
