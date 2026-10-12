@@ -1,0 +1,12 @@
+% !TEX root = ../main.tex
+% Las etapas internas se explican en la presentación técnica.
+\begin{tikzpicture}[x=1cm,y=1cm,
+  scribeStep/.style={vcard,text width=4.2cm,minimum height=1.05cm,font=\small},
+  arrow/.style={->,line width=1pt,draw=navy!75}]
+\path[use as bounding box] (0,0) rectangle (5.7,4.65);
+\node[scribeStep] (input) at (2.85,3.9) {\textbf{Consulta + contexto}\\[1mm]\scriptsize Voz · datos clínicos};
+\node[scribeStep,fill=palewarm,draw=irycisgreen!65!navy] (draft) at (2.85,2.35) {\textbf{Borrador de nota}\\[1mm]\scriptsize Información organizada};
+\node[scribeStep] (doctor) at (2.85,.8) {\textbf{Revisión del médico}\\[1mm]\scriptsize Aprueba y guarda en HCIS};
+\draw[arrow] (input.south)--(draft.north);
+\draw[arrow] (draft.south)--(doctor.north);
+\end{tikzpicture}

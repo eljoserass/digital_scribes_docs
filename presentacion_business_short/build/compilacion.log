@@ -4,8 +4,10 @@ Latexmk: This is Latexmk, John Collins, 15 June 2025. Version 4.87.
 Latexmk: applying rule 'xelatex'...
 Rule 'xelatex':  Reasons for rerun
 Changed files or newly in use/created:
+  figures/flujo-simple.tex
   main.tex
 Category 'changed_user':
+  figures/flujo-simple.tex
   main.tex
 
 ------------
@@ -245,11 +247,11 @@ y-English.dict)
 ry-English.dict)
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-theorem-dictiona
 ry-English.dict) (build/main.nav) (build/main.toc) [1]
-(./figures/flujo-hcis.tex) [2] (./figures/nota-soap.tex) [3] [4]
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd) [5] [6] [7] [8]
-[9] [10] [11] [12] [13] [14] (build/main.aux) )
-Output written on build/main.xdv (14 pages, 279360 bytes).
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(./figures/flujo-simple.tex) [2] (./figures/nota-soap.tex) [3] [4] [5] [6]
+[7] [8] [9] [10] [11] [12] [13] (build/main.aux) )
+Output written on build/main.xdv (13 pages, 251184 bytes).
 SyncTeX written on build/main.synctex.gz.
 Transcript written on build/main.log.
 Latexmk: Getting log file 'build/main.log'
@@ -271,7 +273,7 @@ Run number 1 of rule 'xdvipdfmx'
 Running 'xdvipdfmx -E -o "build/main.pdf"  "build/main.xdv"'
 ------------
 build/main.xdv -> build/main.pdf
-[1][2][3][4][5][6][7][8][9][10][11][12][13][14]
-196248 bytes written
+[1][2][3][4][5][6][7][8][9][10][11][12][13]
+1784826 bytes written
 Latexmk: All targets (build/main.xdv build/main.pdf) are up-to-date
 

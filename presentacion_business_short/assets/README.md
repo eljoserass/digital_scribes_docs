@@ -7,3 +7,9 @@
 - Paleta basada en los colores predominantes del logo, convertidos de su perfil Adobe RGB a sRGB: azul `#00547A` y verde `#6BBB90`. Los fondos y el verde oscuro de los diagramas son mezclas para mantener legibilidad. Estos valores proceden del archivo, no de un manual de identidad.
 
 El estilo se define en [figures/estilo.tex](../figures/estilo.tex), compartido por la presentación y las figuras independientes.
+
+## Ilustración del escriba
+
+[escriba-consulta-v1.png](escriba-consulta-v1.png), generada el 12/10/2026 con el tool integrado `image_gen`, fondo transparente. [Prompt completo](escriba-consulta-v1-prompt.txt).
+
+Metáfora visual: una médica conversa con un paciente mientras un robot pequeño toma notas. Se usa en la diapositiva 2; representa el papel del software, no hardware que se proponga desplegar. La composición usa azul y verde próximos a la paleta del deck. El PNG conserva su canal alfa original.

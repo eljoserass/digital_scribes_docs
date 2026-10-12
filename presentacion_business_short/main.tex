@@ -28,11 +28,18 @@ Para un hospital con atención en español y \textbf{Dedalus HCIS}, el sistema d
 \section{Qué es}
 
 % 02 · 0:55
-\begin{frame}[t]{Una nota combina conversación y contexto}
-\topic{El escriba transforma información disponible en un borrador clínico estructurado.}
-\makebox[\textwidth][c]{\input{figures/flujo-hcis}}
-\takeaway{La verificación automática ayuda; el profesional confirma datos y resuelve discrepancias.}
-\sources{\link{https://www.england.nhs.uk/long-read/guidance-on-the-use-of-ai-enabled-ambient-scribing-products-in-health-and-care-settings/}{NHS England, v3, 2026}; \link{https://docs.nabla.com/core-api/reference/2026-04-24/user/generate-note}{Nabla: transcripción y contexto}; esquema conceptual del proyecto. ASR: reconocimiento automático del habla.}
+\begin{frame}[t]{Un asistente para documentar la consulta}
+\topic{El médico conversa con el paciente; el escriba prepara la nota.}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{.57\textwidth}
+\centering\includegraphics[width=\linewidth,height=4.65cm,keepaspectratio]{assets/escriba-consulta-v1.png}
+\end{column}
+\begin{column}{.41\textwidth}
+\centering\input{figures/flujo-simple}
+\end{column}
+\end{columns}
+\takeaway{Historia y observaciones, cuando están disponibles. El médico revisa y aprueba.}
+\sources{\link{https://www.england.nhs.uk/long-read/guidance-on-the-use-of-ai-enabled-ambient-scribing-products-in-health-and-care-settings/}{NHS England, v3, 2026}; \link{https://docs.nabla.com/core-api/reference/2026-04-24/user/generate-note}{Nabla: transcripción y contexto}. Esquema conceptual; ilustración generada con IA como metáfora del asistente.}
 \end{frame}
 
 % 03 · 1:00

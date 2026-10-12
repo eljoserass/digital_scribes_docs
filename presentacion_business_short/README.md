@@ -1,11 +1,13 @@
 # Presentación business short
 
-Versión visual del **09/10/2026**: **13 diapositivas para unos 10 minutos**, en LaTeX Beamer 16:9. Las diapositivas 1–3 mantienen el recorrido; explican HCIS y escriben completas las siglas clínicas. Desde la 4, figuras breves sustituyen listas y tablas; los detalles quedan en el guion y en el informe.
+Versión visual del **12/10/2026**: **13 diapositivas para unos 10 minutos**, en LaTeX Beamer 16:9. La diapositiva 2 combina una ilustración del asistente con tres pasos: consulta/contexto, borrador y revisión. La 3 muestra SOAP y la procedencia clínica de los datos. Desde la 4, figuras breves sustituyen listas y tablas; los detalles quedan en el guion y en el informe.
 
 - [PDF de la presentación](build/main.pdf).
 - [Guion con tiempos y notas para preguntas](guion-presentacion.md).
 - [Contexto, investigación y fuentes](contexto-investigacion.md).
 - [Contenido editable](main.tex) y [estilo](preamble.tex).
+- [Ilustración del escriba](assets/escriba-consulta-v1.png), generada con IA; [prompt](assets/escriba-consulta-v1-prompt.txt).
+- [Flujo simplificado de la diapositiva 2](figures/flujo-simple.tex). El esquema detallado se conserva como apoyo.
 - Diagramas editables: [flujo con contexto HCIS](figures/flujo-hcis.tex) y [ejemplo SOAP](figures/nota-soap.tex).
 - Las diez figuras añadidas están en [main.tex](main.tex), con [iconos y estilos TikZ](figures/visual-style.tex). El gráfico de mercado es original, basado en las cifras de Menlo 2025.
 - Imágenes reutilizables: [flujo HCIS PNG](figures/flujo-hcis.png) y [nota SOAP PNG](figures/nota-soap.png); originales vectoriales en [flujo PDF](build/flujo-hcis-standalone.pdf) y [SOAP PDF](build/nota-soap-standalone.pdf).
@@ -16,7 +18,7 @@ La cifra **≈5 h/mes menos de documentación** se integra en la diapositiva de 
 
 ## Recorrido
 
-1. Qué es: flujo completo con conversación, contexto HCIS y observaciones; ejemplo SOAP con procedencia de los datos.
+1. Qué es: flujo resumido con conversación, contexto HCIS y observaciones; ejemplo SOAP con procedencia de los datos.
 2. Por qué importa: carga documental, oportunidad y ahorro neto que evaluar.
 3. Mercado y encaje: expansión con cifras, familias de ofertas, cuatro requisitos locales y estado HCIS de los tres candidatos.
 4. Discusión: proveedor y posible prototipo local; los mismos casos y criterios para elegir qué pilotar.

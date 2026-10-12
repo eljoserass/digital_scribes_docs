@@ -1,0 +1,9 @@
+Use case: illustration-story
+Asset type: illustration for slide 2 of a Spanish hospital business presentation about digital medical scribes.
+Primary request: Show a doctor talking attentively with a patient while a small friendly robot assistant sits beside the doctor, quietly taking notes on a tablet or notepad. The doctor and patient maintain eye contact; the robot is an unobtrusive documentation helper.
+Scene: a simple contemporary consulting room, seated doctor and patient across a small desk, robot beside the doctor. Three clearly readable subjects, no other people.
+Style: polished understated editorial illustration, flat shapes with a little soft volume, restrained and professional rather than childish, expressive natural poses.
+Composition: compact landscape vignette, complete figures and objects, generous clean margins, suitable at small scale on a white slide. Robot noticeably smaller than the humans.
+Palette: navy blue #00547A, soft hospital green #6BBB90, white and neutral tones; natural skin tones.
+Text: none. No logos, watermark, speech bubbles, diagram arrows, or legible writing.
+Transparent background; the scene must integrate on a white slide. No background rectangle or checkerboard texture.

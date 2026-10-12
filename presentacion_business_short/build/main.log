@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025/Debian) (preloaded format=xelatex 2026.9.3)  9 OCT 2026 11:06
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025/Debian) (preloaded format=xelatex 2026.9.3)  12 OCT 2026 15:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1417,8 +1417,21 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 ]
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
+File: assets/escriba-consulta-v1.png Graphic file (type bmp)
+<assets/escriba-consulta-v1.png>
+LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
 
-(./figures/flujo-hcis.tex)
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(./figures/flujo-simple.tex)
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
  [2
@@ -1434,19 +1447,7 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 ]
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
-LaTeX Font Info:    Calculating math sizes for size <27> on input line 64.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
+LaTeX Font Info:    Calculating math sizes for size <27> on input line 71.
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
  [4
@@ -1461,7 +1462,7 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 ]
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
-LaTeX Font Info:    Calculating math sizes for size <44> on input line 103.
+LaTeX Font Info:    Calculating math sizes for size <44> on input line 110.
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
  [6
@@ -1471,15 +1472,15 @@ File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
- [7
+
+[7
 
 ]
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
 <assets/logo-irycis-oficial.png>
-
-[8
+ [8
 
 ]
 File: assets/logo-irycis-oficial.png Graphic file (type bmp)
@@ -1538,12 +1539,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: CA13A65B301FDC080044D1E1B7B38229;705.
  ) 
 Here is how much of TeX's memory you used:
- 29343 strings out of 468173
- 621627 string characters out of 5435521
- 1073274 words of memory out of 5000000
- 57472 multiletter control sequences out of 15000+600000
- 637780 words of font info for 130 fonts, out of 8000000 for 9000
+ 29318 strings out of 468173
+ 621473 string characters out of 5435521
+ 1073519 words of memory out of 5000000
+ 57435 multiletter control sequences out of 15000+600000
+ 639511 words of font info for 142 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 128i,12n,123p,433b,946s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,12n,123p,433b,1088s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on build/main.xdv (13 pages, 264896 bytes).
+Output written on build/main.xdv (13 pages, 251184 bytes).

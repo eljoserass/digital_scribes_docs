@@ -1,13 +1,13 @@
 # Escribas digitales · guion de 10 minutos
 
-Versión visual: **09/10/2026**. [PDF](build/main.pdf) · [Fuente editable](main.tex) · [Investigación](contexto-investigacion.md).
+Versión visual: **12/10/2026**. [PDF](build/main.pdf) · [Fuente editable](main.tex) · [Investigación](contexto-investigacion.md).
 
 **13 diapositivas, cinco secciones, 10 minutos aproximados.** El ahorro mensual se integra en la figura de beneficios, con el resultado base y las hipótesis a la vista. Las ideas se reparten en figuras breves; los detalles comerciales quedan en el informe y en estas notas. Los tiempos incluyen señalar las figuras y hacer pausas; son una pauta pendiente de ensayo. Preguntas después.
 
 | Diapositiva | Idea | Tiempo | Acumulado |
 | --- | --- | ---: | ---: |
 | 1 | Escribas digitales | 0:25 | 0:25 |
-| 2 | Una nota combina conversación y contexto | 0:55 | 1:20 |
+| 2 | Un asistente para documentar la consulta | 0:55 | 1:20 |
 | 3 | Ejemplo: de tres fuentes a una nota SOAP | 1:00 | 2:20 |
 | 4 | El beneficio que buscamos: menos carga documental | 1:05 | 3:25 |
 | 5 | Hay que medir hasta que la nota queda cerrada | 0:50 | 4:15 |
@@ -26,15 +26,17 @@ Versión visual: **09/10/2026**. [PDF](build/main.pdf) · [Fuente editable](main
 
 **Transición:** señalar el bloque 1 del índice y abrir el funcionamiento.
 
-## 2. Una nota combina conversación y contexto · 0:55
+## 2. Un asistente para documentar la consulta · 0:55
 
-«Un escriba genera un borrador clínico a partir de la conversación. El modelo completo incorpora también el contexto que tenemos en la historia y las observaciones del profesional. En este esquema, el audio se transforma en texto, se identifican los hablantes, se organiza la información clínica y se genera la nota. Después hay comprobaciones y una revisión profesional antes de incorporarla a HCIS.
+«Podemos imaginar al escriba como un asistente que toma notas mientras el médico y el paciente conversan. El robot es una metáfora del software. El sistema recoge la conversación y, cuando están disponibles, la historia clínica y las observaciones del profesional.
 
-Las dos entradas adicionales son esenciales: antecedentes, medicación y resultados de la historia, y datos de exploración o contexto añadidos manualmente. Algunas soluciones admiten estas entradas; su disponibilidad concreta depende de la integración. HCIS, por tanto, puede ser tanto fuente como destino. Debemos saber qué información se ha leído, de qué fecha es y cómo se resuelven discrepancias».
+Con esa información prepara un borrador estructurado. Después el médico revisa los datos, corrige lo necesario y aprueba la nota antes de guardarla en HCIS. Ese es el recorrido que nos interesa: información del encuentro, borrador y revisión. Para valorar un producto tendremos que comprobar cuánto contexto recibe y cuánto trabajo exige cerrar la nota».
 
-**Señalar en la figura:** primero la cadena central, después las entradas superior e inferior, y finalmente HCIS a la derecha. ASR significa reconocimiento automático del habla; identificación de hablantes significa distinguir quién dice cada cosa. Es un flujo conceptual: algunas arquitecturas combinan etapas y la verificación automática debe comprobarse en cada producto.
+**Señalar:** primero la conversación y el asistente de la ilustración; después las tres cajas. Las etapas internas de transcripción, atribución y generación se agrupan para esta audiencia. HCIS puede aportar contexto y recibir la nota aprobada; el acceso depende de la integración.
 
-**Base:** [NHS England, funciones de entrada y salida](https://www.england.nhs.uk/long-read/guidance-on-the-use-of-ai-enabled-ambient-scribing-products-in-health-and-care-settings/), [Nabla, generación con contexto](https://docs.nabla.com/core-api/reference/2026-04-24/user/generate-note).
+**Transición:** veamos un ejemplo concreto de qué información entra y cómo aparece en la nota.
+
+**Base:** [NHS England, funciones de entrada y salida](https://www.england.nhs.uk/long-read/guidance-on-the-use-of-ai-enabled-ambient-scribing-products-in-health-and-care-settings/), [Nabla, generación con contexto](https://docs.nabla.com/core-api/reference/2026-04-24/user/generate-note). Ilustración conceptual generada con IA.
 
 ## 3. Ejemplo: de tres fuentes a una nota SOAP · 1:00
 
